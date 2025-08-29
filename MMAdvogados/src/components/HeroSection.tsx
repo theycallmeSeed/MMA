@@ -4,7 +4,7 @@ import heroBanner from "@/assets/hero-banner.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24" >
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
@@ -19,12 +19,7 @@ const HeroSection = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-5xl mx-auto">
           {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/90 text-accent-foreground mb-8 fade-in-up">
-            <Award className="h-4 w-4 mr-2" />
-            <span className="text-sm font-medium">
-              Liderança Feminina em Excelência Jurídica
-            </span>
-          </div>
+          
 
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-primary-foreground mb-6 fade-in-up-delay leading-tight">
@@ -42,14 +37,16 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 fade-in-up-delay px-4 sm:px-0">
+            <a href="/servicos">
             <Button size="lg" className="btn-elite group px-6 lg:px-8 py-3 lg:py-4 w-full sm:w-auto text-base">
               Conhecer os Nossos Serviços
               <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
+            </a>
             <Button
               variant="outline"
               size="lg"
-              className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary px-6 lg:px-8 py-3 lg:py-4 w-full sm:w-auto text-base transition-all duration-300"
+              // className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground  px-6 lg:px-8 py-3 lg:py-4 w-full sm:w-auto text-base transition-all duration-300"
             >
               Agendar Consultoria
             </Button>
