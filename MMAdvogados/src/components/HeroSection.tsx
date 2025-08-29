@@ -43,14 +43,18 @@ const HeroSection = () => {
               <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
             </a>
-            <Button
+            
+            <a href="">
+              <Button
               variant="outline"
               size="lg"
               // className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground  px-6 lg:px-8 py-3 lg:py-4 w-full sm:w-auto text-base transition-all duration-300"
-            >
+             >
               Agendar Consultoria
-            </Button>
-          </div>
+             </Button>
+             </a>
+            </div>
+          
 
           {/* Stats */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto fade-in-up-delay px-4 sm:px-0">
