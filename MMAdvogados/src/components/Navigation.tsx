@@ -21,7 +21,7 @@ const Navigation = () => {
     { name: "Início", href: "/" },
     { name: "Sobre Nós", href: "/sobre" },
     { name: "Serviços", href: "/servicos" },
-    { name: "Planos", href: "/planos" },
+    { name: "Equipe", href: "/equipe" },
     { name: "Contactos", href: "/contactos" },
   ];
 
@@ -96,16 +96,7 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <Button 
-              variant="outline" 
-              size={window.innerWidth >= 1024 ? "default" : "sm"}
-              className="btn-outline-elite hover:scale-105 transition-all duration-300"
-            >
-              Consultoria Gratuita
-            </Button>
-          </div>
+         
 
           {/* Mobile menu button */}
           <button
