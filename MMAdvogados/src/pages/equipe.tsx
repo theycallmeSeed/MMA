@@ -1,8 +1,6 @@
 import { Linkedin, Mail, Globe, Phone, MapPin, Award, BookOpen } from 'lucide-react';
-import { Link, useLocation } from "react-router-dom";
-
-const location = useLocation();
-
+import { useLocation } from "react-router-dom";
+import Navigation from "@/components/Navigation";
 interface TeamMember {
   id: number;
   name: string;
@@ -21,6 +19,7 @@ interface TeamMember {
 }
 
 const Equipe = () => {
+  const location = useLocation();
   const teamMembers: TeamMember[] = [
     {
       id: 1,
@@ -110,59 +109,68 @@ const Equipe = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 py-12">
+    <div className="min-h-screen bg-gradient-hero py-16">
+       <Navigation />
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-5xl font-bold text-gradient-primary mb-4">
             Nossa Equipe
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Conheça os profissionais dedicados que compõem o time MMA Advogados, 
             prontos para oferecer a melhor assessoria jurídica.
           </p>
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {teamMembers.map((member) => (
             <div
               key={member.id}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+              className="card-elegant rounded-2xl overflow-hidden"
             >
-              {/* Photo and Basic Info */}
+              {/* Foto / Iniciais */}
               <div className="relative">
-                <div className="h-64 bg-gradient-to-br from-blue-100 to-indigo-200 flex items-center justify-center">
-                  <div className="w-32 h-32 bg-gray-300 rounded-full flex items-center justify-center">
-                    <span className="text-4xl font-bold text-gray-600">
-                      {member.name.split(' ').map(n => n[0]).join('')}
-                    </span>
-                  </div>
+                <div className="h-64 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
+                  {member.photo ? (
+                    <img
+                      src={member.photo}
+                      alt={member.name}
+                      className="w-32 h-32 rounded-full object-cover shadow-card"
+                    />
+                  ) : (
+                    <div className="w-32 h-32 bg-muted rounded-full flex items-center justify-center">
+                      <span className="text-4xl font-bold text-muted-foreground">
+                        {member.name.split(' ').map(n => n[0]).join('')}
+                      </span>
+                    </div>
+                  )}
                 </div>
                 
                 <div className="p-6">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                  <h2 className="text-2xl font-bold text-foreground mb-2">
                     {member.name}
                   </h2>
-                  <p className="text-blue-600 font-semibold mb-4">
+                  <p className="text-primary font-semibold mb-4">
                     {member.position}
                   </p>
-                  <p className="text-gray-600 mb-6">
+                  <p className="text-muted-foreground mb-6">
                     {member.description}
                   </p>
 
-                  {/* Contact Info */}
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center text-gray-600">
-                      <Mail className="w-5 h-5 mr-3 text-blue-600" />
+                  {/* Contact */}
+                  <div className="space-y-3 mb-6 text-sm">
+                    <div className="flex items-center text-muted-foreground">
+                      <Mail className="w-5 h-5 mr-3 text-primary" />
                       <span>{member.email}</span>
                     </div>
-                    <div className="flex items-center text-gray-600">
-                      <Phone className="w-5 h-5 mr-3 text-blue-600" />
+                    <div className="flex items-center text-muted-foreground">
+                      <Phone className="w-5 h-5 mr-3 text-primary" />
                       <span>{member.phone}</span>
                     </div>
-                    <div className="flex items-center text-gray-600">
-                      <MapPin className="w-5 h-5 mr-3 text-blue-600" />
+                    <div className="flex items-center text-muted-foreground">
+                      <MapPin className="w-5 h-5 mr-3 text-primary" />
                       <span>{member.location}</span>
                     </div>
                   </div>
@@ -173,13 +181,13 @@ const Equipe = () => {
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                      className="p-2 bg-primary text-primary-foreground rounded-lg hover:scale-105 transition-all"
                     >
                       <Linkedin className="w-5 h-5" />
                     </a>
                     <a
                       href={`mailto:${member.email}`}
-                      className="p-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                      className="p-2 bg-secondary text-secondary-foreground rounded-lg hover:scale-105 transition-all"
                     >
                       <Mail className="w-5 h-5" />
                     </a>
@@ -188,17 +196,17 @@ const Equipe = () => {
                         href={member.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                        className="p-2 bg-accent text-accent-foreground rounded-lg hover:scale-105 transition-all"
                       >
                         <Globe className="w-5 h-5" />
                       </a>
                     )}
                   </div>
 
-                  {/* Expandable Details */}
+                  {/* Detalhes Expandíveis */}
                   <details className="group">
-                    <summary className="flex items-center justify-between p-4 bg-gray-50 rounded-lg cursor-pointer list-none">
-                      <span className="font-semibold text-gray-900">Ver Currículo Completo</span>
+                    <summary className="flex items-center justify-between p-3 bg-muted rounded-lg cursor-pointer list-none">
+                      <span className="font-semibold text-foreground">Ver Currículo Completo</span>
                       <div className="transform group-open:rotate-180 transition-transform">
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -207,40 +215,40 @@ const Equipe = () => {
                     </summary>
 
                     <div className="p-4 space-y-6">
-                      {/* Education */}
+                      {/* Formação */}
                       <div>
-                        <h4 className="flex items-center text-lg font-semibold text-gray-900 mb-3">
-                          <BookOpen className="w-5 h-5 mr-2 text-blue-600" />
+                        <h4 className="flex items-center text-lg font-semibold text-foreground mb-3">
+                          <BookOpen className="w-5 h-5 mr-2 text-primary" />
                           Formação Acadêmica
                         </h4>
                         <ul className="space-y-2">
                           {member.education.map((item, index) => (
-                            <li key={index} className="text-gray-600">• {item}</li>
+                            <li key={index} className="text-muted-foreground">• {item}</li>
                           ))}
                         </ul>
                       </div>
 
-                      {/* Experience */}
+                      {/* Experiência */}
                       <div>
-                        <h4 className="flex items-center text-lg font-semibold text-gray-900 mb-3">
-                          <Award className="w-5 h-5 mr-2 text-blue-600" />
+                        <h4 className="flex items-center text-lg font-semibold text-foreground mb-3">
+                          <Award className="w-5 h-5 mr-2 text-primary" />
                           Experiência Profissional
                         </h4>
                         <ul className="space-y-2">
                           {member.experience.map((item, index) => (
-                            <li key={index} className="text-gray-600">• {item}</li>
+                            <li key={index} className="text-muted-foreground">• {item}</li>
                           ))}
                         </ul>
                       </div>
 
-                      {/* Specialties */}
+                      {/* Especialidades */}
                       <div>
-                        <h4 className="text-lg font-semibold text-gray-900 mb-3">Especialidades</h4>
+                        <h4 className="text-lg font-semibold text-foreground mb-3">Especialidades</h4>
                         <div className="flex flex-wrap gap-2">
                           {member.specialties.map((specialty, index) => (
                             <span
                               key={index}
-                              className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full"
+                              className="px-3 py-1 bg-accent text-accent-foreground text-sm rounded-full"
                             >
                               {specialty}
                             </span>
@@ -248,14 +256,14 @@ const Equipe = () => {
                         </div>
                       </div>
 
-                      {/* Languages */}
+                      {/* Idiomas */}
                       <div>
-                        <h4 className="text-lg font-semibold text-gray-900 mb-3">Idiomas</h4>
+                        <h4 className="text-lg font-semibold text-foreground mb-3">Idiomas</h4>
                         <div className="flex flex-wrap gap-2">
                           {member.languages.map((language, index) => (
                             <span
                               key={index}
-                              className="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full"
+                              className="px-3 py-1 bg-secondary text-secondary-foreground text-sm rounded-full"
                             >
                               {language}
                             </span>
