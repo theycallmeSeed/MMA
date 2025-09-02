@@ -76,7 +76,11 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group z-60">
             <div className="p-2 bg-gradient-to-br from-primary to-primary/80 rounded-lg group-hover:scale-105 transition-all duration-300 shadow-card">
-              <Scale className="h-5 w-5 lg:h-6 lg:w-6 text-primary-foreground" />
+              <img 
+                src="/logotipo 4-1.png" 
+                alt="Milagrosa Macuácua Advogados Logo" 
+                className="h-5 w-5 lg:h-6 lg:w-6 object-contain"
+              />
             </div>
             <div>
               <div className={`font-serif font-bold text-lg lg:text-xl transition-colors duration-300 ${

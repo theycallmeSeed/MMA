@@ -139,10 +139,7 @@ const AboutSection = () => {
           </h3>
           
           <p className="text-base lg:text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            Através da combinação de excelência técnica, transparência total e
-            inovação no atendimento, oferecemos às empresas moçambicanas e
-            internacionais um parceiro jurídico confiável para o seu
-            crescimento sustentável.
+          Prestar Serviços Juridicos com Excelência, Oferecendo Soluções Inovadoras para Obtenção de Resultados Expressivos que Garantam a Satisfação dos Clientes.
           </p>
         </div>
       </div>

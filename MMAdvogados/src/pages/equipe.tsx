@@ -23,9 +23,9 @@ const Equipe = () => {
   const teamMembers: TeamMember[] = [
     {
       id: 1,
-      name: "Maria Silva",
-      position: "Sócia Fundadora - Direito Civil",
-      photo: "/images/team/maria-silva.jpg",
+      name: "Tecla Ntauma",
+      position: "Assistente Administrativa",
+      photo: "/src/assets/tecla-portait.jpg",
       description: "Advogada com mais de 15 anos de experiência em Direito Civil e Consumerista. Especialista em casos complexos de responsabilidade civil.",
       email: "maria@mmadvogados.com",
       phone: "+351 912 345 678",
@@ -52,9 +52,9 @@ const Equipe = () => {
     },
     {
       id: 2,
-      name: "João Santos",
+      name: "Marlete Miguel",
       position: "Sócio - Direito Empresarial",
-      photo: "/images/team/joao-santos.jpg",
+      photo: "/src/assets/marlet-portait.jpg",
       description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
       email: "joao@mmadvogados.com",
       phone: "+351 913 456 789",
@@ -80,9 +80,9 @@ const Equipe = () => {
     },
     {
       id: 3,
-      name: "Ana Costa",
+      name: "Cláudia Semente",
       position: "Associada Sênior - Direito da Família",
-      photo: "/images/team/ana-costa.jpg",
+      photo: "/src/assets/claudia-portait.jpg",
       description: "Especialista em Direito de Família e Sucessões com abordagem humanizada e sensível para casos familiares complexos.",
       email: "ana@mmadvogados.com",
       phone: "+351 914 567 890",
@@ -105,7 +105,91 @@ const Equipe = () => {
         "Alimentos"
       ],
       languages: ["Português (Nativo)", "Espanhol (Avançado)", "Inglês (Intermediário)"]
-    }
+    },
+    {
+      id: 4,
+      name: "Milagrosa Macuácua",
+      position: "Sócio - Direito Empresarial",
+      photo: "/src/assets/milagrosa-portrait.jpg",
+      description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
+      email: "joao@mmadvogados.com",
+      phone: "+351 913 456 789",
+      location: "Porto, Portugal",
+      linkedin: "https://linkedin.com/in/joaosantos",
+      education: [
+        "MBA em Gestão Jurídica - Universidade do Porto",
+        "Especialização em Direito Societário - Universidade Nova de Lisboa",
+        "Bacharelado em Direito - Universidade do Minho"
+      ],
+      experience: [
+        "Sócio na MMA Advogados (2018 - Presente)",
+        "Consultor Jurídico na Empresa XYZ (2014-2018)",
+        "Advogado Júnior no escritório Empresarial Legal (2011-2014)"
+      ],
+      specialties: [
+        "Direito Societário",
+        "Fusões e Aquisições",
+        "Contratos Empresariais",
+        "Compliance"
+      ],
+      languages: ["Português (Nativo)", "Inglês (Fluente)", "Francês (Intermediário)"]
+    },
+    {
+      id: 5,
+      name: "Helodia Malate",
+      position: "Sócio - Direito Empresarial",
+      photo: "/src/assets/Helodia-portait.jpg",
+      description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
+      email: "joao@mmadvogados.com",
+      phone: "+351 913 456 789",
+      location: "Porto, Portugal",
+      linkedin: "https://linkedin.com/in/joaosantos",
+      education: [
+        "MBA em Gestão Jurídica - Universidade do Porto",
+        "Especialização em Direito Societário - Universidade Nova de Lisboa",
+        "Bacharelado em Direito - Universidade do Minho"
+      ],
+      experience: [
+        "Sócio na MMA Advogados (2018 - Presente)",
+        "Consultor Jurídico na Empresa XYZ (2014-2018)",
+        "Advogado Júnior no escritório Empresarial Legal (2011-2014)"
+      ],
+      specialties: [
+        "Direito Societário",
+        "Fusões e Aquisições",
+        "Contratos Empresariais",
+        "Compliance"
+      ],
+      languages: ["Português (Nativo)", "Inglês (Fluente)", "Francês (Intermediário)"]
+    },
+    {
+      id: 6,
+      name: "Maura Matsinhe",
+      position: "Sócio - Direito Empresarial",
+      photo: "/src/assets/maura-portait.jpg",
+      description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
+      email: "joao@mmadvogados.com",
+      phone: "+351 913 456 789",
+      location: "Porto, Portugal",
+      linkedin: "https://linkedin.com/in/joaosantos",
+      education: [
+        "MBA em Gestão Jurídica - Universidade do Porto",
+        "Especialização em Direito Societário - Universidade Nova de Lisboa",
+        "Bacharelado em Direito - Universidade do Minho"
+      ],
+      experience: [
+        "Sócio na MMA Advogados (2018 - Presente)",
+        "Consultor Jurídico na Empresa XYZ (2014-2018)",
+        "Advogado Júnior no escritório Empresarial Legal (2011-2014)"
+      ],
+      specialties: [
+        "Direito Societário",
+        "Fusões e Aquisições",
+        "Contratos Empresariais",
+        "Compliance"
+      ],
+      languages: ["Português (Nativo)", "Inglês (Fluente)", "Francês (Intermediário)"]
+    },
   ];
 
   return (
@@ -132,15 +216,15 @@ const Equipe = () => {
             >
               {/* Foto / Iniciais */}
               <div className="relative">
-                <div className="h-64 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
+                <div className="h-64 bg-gradient-to-br from-primary/10 to-primary/5">
                   {member.photo ? (
                     <img
                       src={member.photo}
                       alt={member.name}
-                      className="w-32 h-32 rounded-full object-cover shadow-card"
+                      className="w-full h-full object-cover"
                     />
                   ) : (
-                    <div className="w-32 h-32 bg-muted rounded-full flex items-center justify-center">
+                    <div className="w-full h-full bg-muted flex items-center justify-center">
                       <span className="text-4xl font-bold text-muted-foreground">
                         {member.name.split(' ').map(n => n[0]).join('')}
                       </span>
