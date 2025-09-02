@@ -19,8 +19,7 @@ const AboutSection = () => {
             Sobre Nós
           </h2>
           <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Uma sociedade de advogados pioneira, construída sobre os pilares da
-            excelência, inovação e liderança feminina em Moçambique.
+           Uma sociedade de advogados pioneira em Moçambique, assente nos valores da excelência, da inovação e da liderança exercida por mulheres, ao serviço de empresas e particulares.
           </p>
         </div>
 

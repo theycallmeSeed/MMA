@@ -22,17 +22,16 @@ const HeroSection = () => {
           
 
           {/* Main Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-primary-foreground mb-6 fade-in-up-delay leading-tight">
-            Excelência Jurídica para{" "}
-            <span className="text-gradient-primary bg-gradient-to-r from-accent via-accent/80 to-accent bg-clip-text text-transparent">Empresas</span> que Exigem{" "}
-            <span className="text-gradient-primary bg-gradient-to-r from-accent via-accent/80 to-accent bg-clip-text text-transparent">Resultados</span>
-          </h1>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-primary-foreground mb-6 fade-in-up-delay leading-tight">
+  Excelência Jurídica para{" "}
+  <span className="text-gradient-primary bg-gradient-to-r from-accent via-accent/80 to-accent bg-clip-text text-transparent">Empresas</span> e{" "}
+  <span className="text-gradient-primary bg-gradient-to-r from-accent via-accent/80 to-accent bg-clip-text text-transparent">Particulares</span>
+</h1>
+
 
           {/* Subtitle */}
           <p className="text-lg md:text-xl lg:text-2xl text-primary-foreground/90 mb-8 max-w-4xl mx-auto leading-relaxed fade-in-up-delay px-4 sm:px-0">
-            Sociedade de advogados de elite em Maputo com mais de 5 anos de experiência, 200+ processos exitosos 
-            e regime de avença que oferece assessoria jurídica contínua, relatórios mensais detalhados e 
-            comunicação directa com advogados especializados em 7 áreas do direito empresarial.
+           Somos uma sociedade de advogados sediada em Maputo, com mais de cinco anos de experiência dedicada ao apoio jurídico no setor empresarial e particular. Ao longo deste percurso, acompanhámos um vasto número de processos, sempre com foco na defesa rigorosa dos interesses dos nossos clientes e na procura de soluções práticas e seguras.
           </p>
 
           {/* CTA Buttons */}
@@ -66,7 +65,7 @@ const HeroSection = () => {
                 50+
               </div>
               <div className="text-primary-foreground/80 text-sm lg:text-base">
-                Empresas Atendidas
+                Clientes Atendidos
               </div>
             </div>
             <div className="text-center p-4 rounded-lg bg-primary-foreground/5 backdrop-blur-sm">
