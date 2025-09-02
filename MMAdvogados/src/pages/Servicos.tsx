@@ -177,9 +177,7 @@ const Servicos = () => {
             <Button size="lg" className="btn-elite">
               Agendar Consultoria
             </Button>
-            <Button variant="outline" size="lg" className="btn-outline-elite">
-              Ver Planos de Avença
-            </Button>
+            
           </div>
         </div>
       </section>
