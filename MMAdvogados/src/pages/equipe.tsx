@@ -208,81 +208,86 @@ const Equipe = () => {
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
           {teamMembers.map((member) => (
             <div
               key={member.id}
-              className="card-elegant rounded-2xl overflow-hidden"
+              className="card-elegant rounded-2xl overflow-hidden h-full flex flex-col"
             >
               {/* Foto / Iniciais */}
               <div className="relative">
-                <div className="h-64 bg-gradient-to-br from-primary/10 to-primary/5">
+                <div className="h-48 sm:h-56 md:h-64 lg:h-72 bg-gradient-to-br from-primary/10 to-primary/5 relative overflow-hidden">
                   {member.photo ? (
                     <img
-                      src={member.photo}
-                      alt={member.name}
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-muted flex items-center justify-center">
-                      <span className="text-4xl font-bold text-muted-foreground">
-                        {member.name.split(' ').map(n => n[0]).join('')}
-                      </span>
-                    </div>
-                  )}
+                    src={member.photo}
+                    alt={member.name}
+                    className="w-full h-auto max-h-72 object-cover object-center rounded-t-2xl transition-transform duration-300 hover:scale-105"
+                    loading="lazy"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = "none";
+                      target.nextElementSibling?.classList.remove("hidden");
+                    }}
+                  />
+                  ) : null}
+                  <div className={`w-full h-full bg-muted flex items-center justify-center ${member.photo ? 'hidden' : ''}`}>
+                    <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-muted-foreground">
+                      {member.name.split(' ').map(n => n[0]).join('')}
+                    </span>
+                  </div>
                 </div>
                 
-                <div className="p-6">
-                  <h2 className="text-2xl font-bold text-foreground mb-2">
+                <div className="p-4 sm:p-6 flex-1 flex flex-col">
+                  <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
                     {member.name}
                   </h2>
-                  <p className="text-primary font-semibold mb-4">
+                  <p className="text-primary font-semibold mb-4 text-sm sm:text-base">
                     {member.position}
                   </p>
-                  <p className="text-muted-foreground mb-6">
+                  <p className="text-muted-foreground mb-6 text-sm flex-1">
                     {member.description}
                   </p>
 
                   {/* Contact */}
-                  <div className="space-y-3 mb-6 text-sm">
+                  <div className="space-y-2 sm:space-y-3 mb-6 text-xs sm:text-sm">
                     <div className="flex items-center text-muted-foreground">
-                      <Mail className="w-5 h-5 mr-3 text-primary" />
-                      <span>{member.email}</span>
+                      <Mail className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-primary flex-shrink-0" />
+                      <span className="truncate">{member.email}</span>
                     </div>
                     <div className="flex items-center text-muted-foreground">
-                      <Phone className="w-5 h-5 mr-3 text-primary" />
-                      <span>{member.phone}</span>
+                      <Phone className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-primary flex-shrink-0" />
+                      <span className="truncate">{member.phone}</span>
                     </div>
                     <div className="flex items-center text-muted-foreground">
-                      <MapPin className="w-5 h-5 mr-3 text-primary" />
-                      <span>{member.location}</span>
+                      <MapPin className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-primary flex-shrink-0" />
+                      <span className="truncate">{member.location}</span>
                     </div>
                   </div>
 
                   {/* Social Links */}
-                  <div className="flex space-x-4 mb-6">
+                  <div className="flex space-x-2 sm:space-x-4 mb-6 mt-auto">
                     <a
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 bg-primary text-primary-foreground rounded-lg hover:scale-105 transition-all"
+                      className="p-1.5 sm:p-2 bg-primary text-primary-foreground rounded-lg hover:scale-105 transition-all flex-shrink-0"
                     >
-                      <Linkedin className="w-5 h-5" />
+                      <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
                     </a>
                     <a
                       href={`mailto:${member.email}`}
-                      className="p-2 bg-secondary text-secondary-foreground rounded-lg hover:scale-105 transition-all"
+                      className="p-1.5 sm:p-2 bg-secondary text-secondary-foreground rounded-lg hover:scale-105 transition-all flex-shrink-0"
                     >
-                      <Mail className="w-5 h-5" />
+                      <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
                     </a>
                     {member.website && (
                       <a
                         href={member.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 bg-accent text-accent-foreground rounded-lg hover:scale-105 transition-all"
+                        className="p-1.5 sm:p-2 bg-accent text-accent-foreground rounded-lg hover:scale-105 transition-all flex-shrink-0"
                       >
-                        <Globe className="w-5 h-5" />
+                        <Globe className="w-4 h-4 sm:w-5 sm:h-5" />
                       </a>
                     )}
                   </div>

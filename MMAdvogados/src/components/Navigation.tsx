@@ -164,13 +164,7 @@ const Navigation = () => {
                 </Link>
               ))}
               <div className="pt-4">
-                <Button 
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground flex items-center justify-center gap-2"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <Phone className="h-4 w-4" />
-                  Consultoria Gratuita
-                </Button>
+                
               </div>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import { ArrowRight, Award, Users, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroBanner from "@/assets/hero-banner.jpg";
+import { getWhatsAppConsultoriaLinkExact } from "@/lib/utils";
 
 const HeroSection = () => {
   return (
@@ -43,15 +44,19 @@ const HeroSection = () => {
             </Button>
             </a>
             
-            <a href="">
+            <a 
+              href={getWhatsAppConsultoriaLinkExact()}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button
-              variant="outline"
-              size="lg"
-              // className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground  px-6 lg:px-8 py-3 lg:py-4 w-full sm:w-auto text-base transition-all duration-300"
-             >
-              Agendar Consultoria
-             </Button>
-             </a>
+                variant="outline"
+                size="lg"
+                // className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground  px-6 lg:px-8 py-3 lg:py-4 w-full sm:w-auto text-base transition-all duration-300"
+              >
+                Agendar Consultoria
+              </Button>
+            </a>
             </div>
           
 

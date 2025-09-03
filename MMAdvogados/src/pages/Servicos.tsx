@@ -3,6 +3,7 @@ import ServicesSection from "@/components/ServicesSection";
 import Footer from "@/components/Footer";
 import { Scale, Building2, FileText, Home, Users, Handshake, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { generateWhatsAppLink, getWhatsAppConsultoriaLinkExact } from "@/lib/utils";
 
 const Servicos = () => {
   const detailedServices = [
@@ -145,9 +146,26 @@ const Servicos = () => {
                     ))}
                   </div>
                   
-                  <Button className="btn-elite">
-                    Solicitar Consultoria
-                  </Button>
+                  <a
+                    href={generateWhatsAppLink(
+                      "+258 87 154 9533",
+                      `Bom dia, gostaria de agendar uma consultoria jurídica com a vossa sociedade de advogados.
+
+Nome: [escreva aqui o seu nome]
+Contacto: [telefone ou e-mail]
+Assunto: ${service.title}
+Data/Hora Preferencial: [insira a sua disponibilidade]
+
+Aguardo o vosso contacto de confirmação.
+Muito obrigado(a).`
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button className="btn-elite">
+                      Solicitar Consultoria
+                    </Button>
+                  </a>
                 </div>
                 
                 <div className={`${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
@@ -174,9 +192,15 @@ const Servicos = () => {
             eficazes para impulsionar o crescimento sustentável da sua empresa.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="btn-elite">
-              Agendar Consultoria
-            </Button>
+            <a
+              href={getWhatsAppConsultoriaLinkExact()}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button size="lg" className="btn-elite">
+                Agendar Consultoria
+              </Button>
+            </a>
             
           </div>
         </div>

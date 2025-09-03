@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { generateWhatsAppLink, getWhatsAppConsultoriaLinkExact } from "@/lib/utils";
 
 const ServicesSection = () => {
   const [selectedService, setSelectedService] = useState<number | null>(null);
@@ -206,9 +207,26 @@ const ServicesSection = () => {
                   >
                     Fechar
                   </Button>
-                  <Button className="btn-elite">
-                    Solicitar Consultoria
-                  </Button>
+                  <a
+                    href={generateWhatsAppLink(
+                      "+258 87 154 9533",
+                      `Bom dia, gostaria de agendar uma consultoria jurídica com a vossa sociedade de advogados.
+
+Nome: [escreva aqui o seu nome]
+Contacto: [telefone ou e-mail]
+Assunto: ${services[selectedService]?.title}
+Data/Hora Preferencial: [insira a sua disponibilidade]
+
+Aguardo o vosso contacto de confirmação.
+Muito obrigado(a).`
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button className="btn-elite">
+                      Solicitar Consultoria
+                    </Button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -227,12 +245,16 @@ const ServicesSection = () => {
             e resposta rápida a questões urgentes.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="btn-elite">
-              Conhecer Planos de Avença
-            </Button>
-            <Button variant="outline" size="lg" className="btn-outline-elite">
-              Agendar Consultoria
-            </Button>
+          
+            <a
+              href={getWhatsAppConsultoriaLinkExact()}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="outline" size="lg" className="btn-outline-elite">
+                Agendar Consultoria
+              </Button>
+            </a>
           </div>
         </div>
       </div>
