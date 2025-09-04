@@ -7,6 +7,9 @@ import Index from "./pages/Index";
 import Sobre from "./pages/Sobre";
 import Servicos from "./pages/Servicos";
 import Equipe from "./pages/equipe";
+import Contactos from "./pages/Contactos";
+import Privacidade from "./pages/Privacidade";
+import Termos from "./pages/Termos";
 
 
 const queryClient = new QueryClient();
@@ -22,6 +25,9 @@ const App = () => (
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/servicos" element={<Servicos />} />
           <Route path="/equipe" element={<Equipe />} />
+          <Route path="/contactos" element={<Contactos />} />
+          <Route path="/privacidade" element={<Privacidade />} />
+          <Route path="/termos" element={<Termos />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
