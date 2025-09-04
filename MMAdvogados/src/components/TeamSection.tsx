@@ -106,26 +106,32 @@ const TeamSection = () => {
             >
               {/* Foto */}
               <div className="relative">
-                <div className="h-48 sm:h-56 md:h-64 lg:h-72 bg-gradient-to-br from-primary/10 to-primary/5 relative overflow-hidden">
-                  {member.photo ? (
-                    <img
-                      src={member.photo}
-                      alt={member.name}
-                      className="w-full h-full object-cover object-center transform transition-transform duration-300 hover:scale-105"
-                      loading="lazy"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        target.nextElementSibling?.classList.remove('hidden');
-                      }}
-                    />
-                  ) : null}
-                  <div className={`w-full h-full bg-muted flex items-center justify-center ${member.photo ? 'hidden' : ''}`}>
-                    <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-muted-foreground">
-                      {member.name.split(' ').map(n => n[0]).join('')}
-                    </span>
-                  </div>
-                </div>
+              <div className="flex justify-center mt-6">
+  <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden relative shadow-lg">
+    {member.photo ? (
+      <img
+        src={member.photo}
+        alt={member.name}
+        className="w-full h-full object-cover object-top transition-transform duration-300 hover:scale-105"
+        loading="lazy"
+        onError={(e) => {
+          const target = e.target as HTMLImageElement;
+          target.style.display = "none";
+          target.nextElementSibling?.classList.remove("hidden");
+        }}
+      />
+    ) : null}
+
+    {/* Fallback com iniciais */}
+    <div
+      className={`absolute inset-0 bg-primary/10 flex items-center justify-center ${member.photo ? 'hidden' : ''}`}
+    >
+      <span className="text-3xl sm:text-4xl font-bold text-primary">
+        {member.name.split(' ').map(n => n[0]).join('')}
+      </span>
+    </div>
+  </div>
+</div>
                 
                 <div className="p-4 sm:p-6 flex-1 flex flex-col">
                   <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">

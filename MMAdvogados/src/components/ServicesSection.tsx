@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Scale,
   Building2,
@@ -161,7 +160,10 @@ const ServicesSection = () => {
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center space-x-4">
                     <div className="p-3 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg">
-                      {services[selectedService] && React.createElement(services[selectedService].icon, { className: "h-8 w-8 text-primary" })}
+                      {services[selectedService] && (() => {
+                        const IconComponent = services[selectedService].icon;
+                        return <IconComponent className="h-8 w-8 text-primary" />;
+                      })()}
                     </div>
                     <h2 className="text-2xl font-serif font-bold text-primary">
                       {services[selectedService]?.title}
