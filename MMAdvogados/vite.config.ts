@@ -5,7 +5,14 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+<<<<<<< Updated upstream
   base: '/MMA/',
+=======
+<<<<<<< Updated upstream
+=======
+  // base: '/MMA/',
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
   server: {
     host: "::",
     port: 8080,
