@@ -49,7 +49,7 @@ const Navigation = () => {
   const getNavBackground = () => {
     // Mobile: sempre sólido
     if (window.innerWidth < 1024) {
-      return "bg-background/95 backdrop-blur-md";
+      return "bg-background";
     }
     
     // Desktop: transparente apenas no topo, sólido quando scrollado
@@ -69,8 +69,11 @@ const Navigation = () => {
     
     // Desktop: adaptar baseado no background
     if (isAtTop && !isScrolled) {
-      return isActive ? "text-primary-foreground" : "text-primary-foreground/90";
+      return isActive
+        ? "text-[hsl(343,45%,30%)] font-semibold"
+        : "text-[hsl(343,45%,30%)]";
     }
+  
     
     return isActive ? "text-primary" : "text-foreground/90";
   };
@@ -124,7 +127,7 @@ const Navigation = () => {
                 to={item.href}
                 className={`relative px-3 py-2 text-sm font-medium transition-all duration-300 group ${
                   getTextColor(isActive(item.href), isScrolled, isAtTop)
-                }`}
+                } drop-shadow-md`}
               >
                 {item.name}
                 <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-primary/60 rounded-full transition-all duration-300 ${
@@ -149,18 +152,7 @@ const Navigation = () => {
               >
                 <Instagram className="h-4 w-4" />
               </a>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`p-2 rounded-lg transition-all duration-200 hover:scale-110 ${
-                  isAtTop && !isScrolled 
-                    ? "hover:bg-primary-foreground/10 text-primary-foreground/80 hover:text-blue-400" 
-                    : "hover:bg-muted/80 text-foreground/80 hover:text-blue-600"
-                }`}
-              >
-                <Linkedin className="h-4 w-4" />
-              </a>
+              
               <a
                 href="#"
                 target="_blank"
@@ -178,19 +170,16 @@ const Navigation = () => {
 
           {/* Mobile menu button */}
           <button
-            onClick={() => setIsOpen(!isOpen)}
-            className={`lg:hidden p-2 rounded-lg transition-all duration-200 z-60 ${
-              isAtTop && !isScrolled 
-                ? "hover:bg-primary-foreground/10 border border-primary-foreground/20" 
-                : "hover:bg-muted/80 border border-border/50"
-            }`}
-          >
-            {isOpen ? (
-              <X className={`h-5 w-5 ${isAtTop && !isScrolled ? "text-primary-foreground" : "text-foreground"}`} />
-            ) : (
-              <Menu className={`h-5 w-5 ${isAtTop && !isScrolled ? "text-primary-foreground" : "text-foreground"}`} />
-            )}
-          </button>
+  onClick={() => setIsOpen(!isOpen)}
+  className={`lg:hidden p-2 rounded-lg transition-all duration-200 z-60
+    hover:bg-muted/80 border border-border/50`}
+>
+  {isOpen ? (
+    <X className="h-5 w-5 text-foreground" />
+  ) : (
+    <Menu className="h-5 w-5 text-foreground" />
+  )}
+</button>
         </div>
 
         {/* Mobile Navigation */}
@@ -223,14 +212,7 @@ const Navigation = () => {
                   >
                     <Instagram className="h-5 w-5 text-foreground/80 hover:text-pink-400" />
                   </a>
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 rounded-lg transition-all duration-200 hover:scale-110 hover:bg-muted/80"
-                  >
-                    <Linkedin className="h-5 w-5 text-foreground/80 hover:text-blue-400" />
-                  </a>
+                 
                   <a
                     href="#"
                     target="_blank"

@@ -23,9 +23,9 @@ const Equipe = () => {
   const teamMembers: TeamMember[] = [
     {
       id: 1,
-      name: "Tecla Ntauma",
-      position: "Assistente Administrativa",
-      photo: "/src/assets/tecla-portait.jpg",
+      name: "Milagrosa Macuácua",
+      position: "Sócio - Direito Empresarial",
+      photo: "/src/assets/milagrosa-portrait.jpg",
       description: "Advogada com mais de 15 anos de experiência em Direito Civil e Consumerista. Especialista em casos complexos de responsabilidade civil.",
       email: "maria@mmadvogados.com",
       phone: "+351 912 345 678",
@@ -108,9 +108,9 @@ const Equipe = () => {
     },
     {
       id: 4,
-      name: "Milagrosa Macuácua",
-      position: "Sócio - Direito Empresarial",
-      photo: "/src/assets/milagrosa-portrait.jpg",
+      name: "Tecla Ntauma",
+      position: "Assistente Administrativa",
+      photo: "/src/assets/tecla-portait.jpg",
       description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
       email: "joao@mmadvogados.com",
       phone: "+351 913 456 789",
