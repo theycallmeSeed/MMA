@@ -60,42 +60,8 @@ const HeroSection = () => {
             </div>
           
 
-          {/* Stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto fade-in-up-delay px-4 sm:px-0">
-            <div className="text-center p-4 rounded-lg bg-primary-foreground/5 backdrop-blur-sm">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/20 rounded-full mb-4">
-                <Users className="h-8 w-8 text-accent" />
-              </div>
-              <div className="text-2xl lg:text-3xl font-bold text-primary-foreground mb-2">
-                50+
-              </div>
-              <div className="text-primary-foreground/80 text-sm lg:text-base">
-                Clientes Atendidos
-              </div>
-            </div>
-            <div className="text-center p-4 rounded-lg bg-primary-foreground/5 backdrop-blur-sm">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/20 rounded-full mb-4">
-                <Briefcase className="h-8 w-8 text-accent" />
-              </div>
-              <div className="text-2xl lg:text-3xl font-bold text-primary-foreground mb-2">
-                200+
-              </div>
-              <div className="text-primary-foreground/80 text-sm lg:text-base">
-                Processos Exitosos
-              </div>
-            </div>
-            <div className="text-center p-4 rounded-lg bg-primary-foreground/5 backdrop-blur-sm">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/20 rounded-full mb-4">
-                <Award className="h-8 w-8 text-accent" />
-              </div>
-              <div className="text-2xl lg:text-3xl font-bold text-primary-foreground mb-2">
-                5+
-              </div>
-              <div className="text-primary-foreground/80 text-sm lg:text-base">
-                Anos de Excelência
-              </div>
-            </div>
-          </div>
+        
+         
         </div>
       </div>
 

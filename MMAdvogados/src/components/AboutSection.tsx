@@ -1,6 +1,70 @@
-import { CheckCircle, Users, Target, Trophy } from "lucide-react";
+import { CheckCircle, Users, Target, Trophy, Briefcase, Award } from "lucide-react";
 import milagrosaPortrait from "@/assets/milagrosa-portrait.jpg";
 import legalTeam from "@/assets/legal-team.jpg";
+import { useState, useEffect, useRef } from "react";
+
+// Componente CountUp alternativo
+interface CountUpProps {
+  end: number;
+  duration?: number;
+  suffix?: string;
+  enableScrollSpy?: boolean;
+  easingFn?: (t: number, b: number, c: number, d: number) => number;
+}
+
+const CountUp = ({ end, duration = 2, suffix = "", enableScrollSpy = false, easingFn }: CountUpProps) => {
+  const [count, setCount] = useState(0);
+  const [isInView, setIsInView] = useState(!enableScrollSpy);
+  const ref = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    if (!enableScrollSpy) {
+      setIsInView(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, [enableScrollSpy]);
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    let start = 0;
+    const increment = end / (duration * 60); // 60 FPS
+    
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        setCount(end);
+        clearInterval(timer);
+      } else {
+        // Aplicar função de easing se fornecida
+        const currentCount = easingFn 
+          ? easingFn(start, 0, end, duration * 60)
+          : start;
+        setCount(Math.ceil(currentCount));
+      }
+    }, 1000 / 60);
+
+    return () => clearInterval(timer);
+  }, [end, duration, isInView, easingFn]);
+
+  return <span ref={ref}>{Math.round(count)}{suffix}</span>;
+};
 
 const AboutSection = () => {
   const achievements = [
@@ -9,6 +73,32 @@ const AboutSection = () => {
     "Equipa jovem, técnica e dinâmica",
     "Relatórios mensais e transparência total",
   ];
+
+  const stats = [
+    {
+      icon: Users,
+      value: 50,
+      label: "Clientes Atendidos",
+      duration: 2.5,
+    },
+    {
+      icon: Briefcase,
+      value: 200,
+      label: "Processos Exitosos",
+      duration: 3,
+    },
+    {
+      icon: Award,
+      value: 5,
+      label: "Anos de Excelência",
+      duration: 2,
+    },
+  ];
+
+  // Função de easing personalizada
+  const easeOutCubic = (t: number, b: number, c: number, d: number) => {
+    return c * (1 - Math.pow(1 - t / d, 3)) + b;
+  };
 
   return (
     <section className="py-16 lg:py-20 bg-gradient-to-b from-background to-muted/20">
@@ -19,8 +109,34 @@ const AboutSection = () => {
             Sobre Nós
           </h2>
           <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
-           Uma sociedade de advogados pioneira em Moçambique, assente nos valores da excelência, da inovação e da liderança exercida por mulheres, ao serviço de empresas e particulares.
+            Uma sociedade de advogados pioneira em Moçambique, assente nos valores da excelência, da inovação e da liderança exercida por mulheres, ao serviço de empresas e particulares.
           </p>
+        </div>
+
+        {/* Stats Section */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto fade-in-up-delay px-4 sm:px-0">
+          {stats.map(({ icon: Icon, value, label, duration }, i) => (
+            <div
+              key={i}
+              className="text-center p-4 rounded-lg bg-primary-foreground/5 backdrop-blur-sm"
+            >
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/20 rounded-full mb-4">
+                <Icon className="h-8 w-8 text-accent" />
+              </div>
+              <div className="text-2xl lg:text-3xl font-bold text-primary mb-2">
+                <CountUp
+                  end={value}
+                  duration={duration}
+                  suffix="+"
+                  enableScrollSpy={true}
+                  easingFn={easeOutCubic}
+                />
+              </div>
+              <div className="text-primary-foreground/80 text-sm lg:text-base">
+                {label}
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Founder Section */}
@@ -30,23 +146,23 @@ const AboutSection = () => {
               <Trophy className="h-4 w-4 mr-2" />
               <span className="text-sm font-medium">Fundadora & CEO</span>
             </div>
-            
+
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-primary">
               Milagrosa Macuácua
             </h3>
-            
+
             <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
               Advogada visionária e empreendedora, Milagrosa Macuácua fundou esta
               sociedade com o objectivo de revolucionar o sector jurídico
               moçambicano através da excelência técnica e inovação no
               atendimento empresarial.
             </p>
-            
+
             <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
-              Com formação jurídica sólida e experiência internacional, ela lidera uma equipa de 15+ advogados 
-              especializados que oferece soluções jurídicas de alta qualidade. O nosso regime de avença exclusivo 
-              inclui assessoria jurídica contínua, relatórios mensais detalhados, comunicação directa por WhatsApp 
-              e telefone, e resposta garantida em 24 horas para questões urgentes, proporcionando tranquilidade 
+              Com formação jurídica sólida e experiência internacional, ela lidera uma equipa de 15+ advogados
+              especializados que oferece soluções jurídicas de alta qualidade. O nosso regime de avença exclusivo
+              inclui assessoria jurídica contínua, relatórios mensais detalhados, comunicação directa por WhatsApp
+              e telefone, e resposta garantida em 24 horas para questões urgentes, proporcionando tranquilidade
               e previsibilidade de custos às empresas.
             </p>
 
@@ -92,21 +208,21 @@ const AboutSection = () => {
               <Users className="h-4 w-4 mr-2" />
               <span className="text-sm font-medium">A Nossa Equipa</span>
             </div>
-            
+
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-primary">
               Jovem, Técnica e Dinâmica
             </h3>
-            
+
             <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
               A nossa equipa é composta por jovens profissionais altamente
               qualificados, com formação técnica especializada e uma abordagem
               dinâmica aos desafios jurídicos contemporâneos.
             </p>
-            
+
             <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
-              Combinamos experiência sólida com inovação, utilizando tecnologia de ponta, plataformas digitais 
-              para acompanhamento de processos em tempo real, e metodologias modernas de gestão jurídica. 
-              A nossa abordagem inclui análise de riscos detalhada, due diligence completa e estratégias 
+              Combinamos experiência sólida com inovação, utilizando tecnologia de ponta, plataformas digitais
+              para acompanhamento de processos em tempo real, e metodologias modernas de gestão jurídica.
+              A nossa abordagem inclui análise de riscos detalhada, due diligence completa e estratégias
               personalizadas para cada sector de actividade, garantindo resultados mensuráveis e ROI comprovado.
             </p>
 
@@ -133,13 +249,13 @@ const AboutSection = () => {
             <Target className="h-4 w-4 mr-2" />
             <span className="text-sm font-medium">A Nossa Missão</span>
           </div>
-          
+
           <h3 className="text-xl md:text-2xl lg:text-3xl font-serif font-bold text-primary mb-6">
             Transformar o Direito Empresarial em Moçambique
           </h3>
-          
+
           <p className="text-base lg:text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-          Prestar Serviços Juridicos com Excelência, Oferecendo Soluções Inovadoras para Obtenção de Resultados Expressivos que Garantam a Satisfação dos Clientes.
+            Prestar Serviços Juridicos com Excelência, Oferecendo Soluções Inovadoras para Obtenção de Resultados Expressivos que Garantam a Satisfação dos Clientes.
           </p>
         </div>
       </div>
