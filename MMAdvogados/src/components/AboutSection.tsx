@@ -113,35 +113,7 @@ const AboutSection = () => {
           </p>
         </div>
 
-<<<<<<< Updated upstream
-        {/* Stats Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto fade-in-up-delay px-4 sm:px-0">
-          {stats.map(({ icon: Icon, value, label, duration }, i) => (
-            <div
-              key={i}
-              className="text-center p-4 rounded-lg bg-primary-foreground/5 backdrop-blur-sm"
-            >
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/20 rounded-full mb-4">
-                <Icon className="h-8 w-8 text-accent" />
-              </div>
-              <div className="text-2xl lg:text-3xl font-bold text-primary mb-2">
-                <CountUp
-                  end={value}
-                  duration={duration}
-                  suffix="+"
-                  enableScrollSpy={true}
-                  easingFn={easeOutCubic}
-                />
-              </div>
-              <div className="text-primary-foreground/80 text-sm lg:text-base">
-                {label}
-              </div>
-            </div>
-          ))}
-        </div>
-=======
-
->>>>>>> Stashed changes
+       
 
         {/* Founder Section */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-16 lg:mb-20">
