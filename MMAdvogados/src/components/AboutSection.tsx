@@ -113,6 +113,7 @@ const AboutSection = () => {
           </p>
         </div>
 
+<<<<<<< Updated upstream
         {/* Stats Section */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto fade-in-up-delay px-4 sm:px-0">
           {stats.map(({ icon: Icon, value, label, duration }, i) => (
@@ -138,6 +139,9 @@ const AboutSection = () => {
             </div>
           ))}
         </div>
+=======
+
+>>>>>>> Stashed changes
 
         {/* Founder Section */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-16 lg:mb-20">
