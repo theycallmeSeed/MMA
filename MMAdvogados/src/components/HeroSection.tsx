@@ -13,7 +13,7 @@ const HeroSection = () => {
           alt="Milagrosa Macuácua Advogados"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/75" />
       </div>
 
       {/* Content */}
@@ -23,15 +23,15 @@ const HeroSection = () => {
           
 
           {/* Main Headline */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-primary-foreground mb-6 fade-in-up-delay leading-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 fade-in-up-delay leading-tight hero-text-shadow-xl">
   Excelência Jurídica para{" "}
-  <span className="text-gradient-primary bg-gradient-to-r from-accent via-accent/80 to-accent bg-clip-text text-transparent">Empresas</span> e{" "}
-  <span className="text-gradient-primary bg-gradient-to-r from-accent via-accent/80 to-accent bg-clip-text text-transparent">Particulares</span>
+  <span className="hero-gradient-text">Empresas</span> e{" "}
+  <span className="hero-gradient-text">Particulares</span>
 </h1>
 
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl lg:text-2xl text-primary-foreground/90 mb-8 max-w-4xl mx-auto leading-relaxed fade-in-up-delay px-4 sm:px-0">
+          <p className="text-lg md:text-xl lg:text-2xl text-white/95 mb-8 max-w-4xl mx-auto leading-relaxed fade-in-up-delay px-4 sm:px-0 hero-text-shadow">
            Somos uma sociedade de advogados sediada em Maputo, com mais de cinco anos de experiência dedicada ao apoio jurídico no setor empresarial e particular. Ao longo deste percurso, acompanhámos um vasto número de processos, sempre com foco na defesa rigorosa dos interesses dos nossos clientes e na procura de soluções práticas e seguras.
           </p>
 
@@ -52,7 +52,7 @@ const HeroSection = () => {
               <Button
                 variant="outline"
                 size="lg"
-                // className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground  px-6 lg:px-8 py-3 lg:py-4 w-full sm:w-auto text-base transition-all duration-300"
+                className="border-2 border-white text-white hover:bg-white hover:text-primary px-6 lg:px-8 py-3 lg:py-4 w-full sm:w-auto text-base transition-all duration-300 drop-shadow-lg"
               >
                 Agendar Consultoria
               </Button>
@@ -67,8 +67,8 @@ const HeroSection = () => {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-primary-foreground/50 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-primary-foreground/50 rounded-full mt-2 animate-pulse" />
+        <div className="w-6 h-10 border-2 border-white/80 rounded-full flex justify-center drop-shadow-lg">
+          <div className="w-1 h-3 bg-white/80 rounded-full mt-2 animate-pulse" />
         </div>
       </div>
     </section>
