@@ -11,7 +11,11 @@ const AboutSection = () => {
   ];
 
   return (
+
+    
     <section className="py-16 lg:py-20 bg-gradient-to-b from-background to-muted/20">
+
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12 lg:mb-16">
@@ -22,6 +26,8 @@ const AboutSection = () => {
            Uma sociedade de advogados pioneira em Moçambique, assente nos valores da excelência, da inovação e da liderança exercida por mulheres, ao serviço de empresas e particulares.
           </p>
         </div>
+
+        
 
         {/* Founder Section */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-16 lg:mb-20">

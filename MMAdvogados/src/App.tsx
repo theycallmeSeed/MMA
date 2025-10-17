@@ -23,6 +23,7 @@ const App = () => (
         <Route path="/contactos" element={<Contactos />} />
         <Route path="/privacidade" element={<Privacidade />} />
         <Route path="/termos" element={<Termos />} />
+        {/* <Route path="" */}
       </Routes>
     </BrowserRouter>
   </TooltipProvider>

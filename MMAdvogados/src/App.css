@@ -40,3 +40,10 @@
 .read-the-docs {
   color: #888;
 }
+
+/* @media (max-width: 640px) {
+  .hero-bg {
+    background-position: center top !important;
+    background-size: cover !important;
+  }
+} */

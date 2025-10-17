@@ -7,13 +7,15 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24" >
       {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
-        <img
-          src={heroBanner}
-          alt="Milagrosa Macuácua Advogados"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/50" />
+
+  <div
+  className="absolute inset-0 h-full w-full bg-cover bg-center sm:bg-center bg-no-repeat"
+  style={{
+    backgroundImage: `url(${heroBanner})`,
+  }}
+>
+  <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/50" />
+
       </div>
 
       {/* Content */}
@@ -61,7 +63,7 @@ const HeroSection = () => {
           
 
           {/* Stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto fade-in-up-delay px-4 sm:px-0">
+          {/* <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto fade-in-up-delay px-4 sm:px-0">
             <div className="text-center p-4 rounded-lg bg-primary-foreground/5 backdrop-blur-sm">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/20 rounded-full mb-4">
                 <Users className="h-8 w-8 text-accent" />
@@ -95,7 +97,7 @@ const HeroSection = () => {
                 Anos de Excelência
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
