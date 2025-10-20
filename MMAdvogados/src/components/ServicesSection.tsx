@@ -115,7 +115,7 @@ const ServicesSection = () => {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
             <span className="text-primary">Serviços Jurídicos</span>
             <br />
-            <span className="text-gradient-primary">de Excelência</span>
+            {/* <span className="text-gradient-primary">de Excelência</span> */}
           </h2>
           
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
@@ -366,7 +366,7 @@ Muito obrigado(a).`
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
+              {/* <a
                 href={getWhatsAppConsultoriaLinkExact()}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -377,7 +377,7 @@ Muito obrigado(a).`
                     <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </Button>
-              </a>
+              </a> */}
               <a href="/servicos">
                 <Button size="lg" variant="outline" className="btn-outline-elite">
                   Ver Todos os Serviços

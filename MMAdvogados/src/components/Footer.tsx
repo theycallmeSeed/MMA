@@ -8,7 +8,7 @@ const Footer = () => {
     { name: "Sobre Nós", href: "/sobre" },
     { name: "Serviços", href: "/servicos" },
     { name: "Equipe", href: "/equipe" },
-    { name: "Contactos", href: "/contactos" },
+    // { name: "Contactos", href: "/contactos" },
   ];
 
   const services = [
@@ -54,14 +54,14 @@ const Footer = () => {
               >
                 <Instagram className="h-5 w-5 text-pink-400" />
               </a>
-              <a
+              {/* <a
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-all duration-200 hover:scale-110"
               >
                 <Linkedin className="h-5 w-5 text-blue-400" />
-              </a>
+              </a> */}
               <a
                 href="#"
                 target="_blank"

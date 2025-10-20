@@ -194,3 +194,187 @@
     background-size: cover !important;
   }
 }
+
+/* Adicione estas regras ao seu index.css ou globals.css */
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Page transitions container */
+#root {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Links com transição suave */
+a {
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Botões com transição suave */
+button {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Loading state para navegação */
+.page-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    hsl(var(--primary)) 0%,
+    hsl(var(--accent)) 50%,
+    hsl(var(--primary)) 100%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s ease-in-out infinite;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.page-loading.active {
+  opacity: 1;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Fade transitions para elementos que entram na viewport */
+.fade-in-viewport {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-viewport.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger effect para múltiplos elementos */
+.fade-in-viewport:nth-child(1) { transition-delay: 0.1s; }
+.fade-in-viewport:nth-child(2) { transition-delay: 0.2s; }
+.fade-in-viewport:nth-child(3) { transition-delay: 0.3s; }
+.fade-in-viewport:nth-child(4) { transition-delay: 0.4s; }
+.fade-in-viewport:nth-child(5) { transition-delay: 0.5s; }
+.fade-in-viewport:nth-child(6) { transition-delay: 0.6s; }
+
+/* View transitions API (browsers modernos) */
+@supports (view-transition-name: none) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.3s;
+  }
+  
+  ::view-transition-old(root) {
+    animation-name: fade-out;
+  }
+  
+  ::view-transition-new(root) {
+    animation-name: fade-in;
+  }
+}
+
+/* Focus visible melhorado globalmente */
+*:focus-visible {
+  outline: 2px solid hsl(var(--accent));
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Remove outline padrão mas mantém para keyboard */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Melhorias de performance */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* GPU acceleration para animações */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Suporte a prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .page-transition,
+  .fade-in-viewport {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Loading skeleton (opcional para conteúdo assíncrono) */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--muted)) 0%,
+    hsl(var(--muted-foreground) / 0.1) 50%,
+    hsl(var(--muted)) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+  border-radius: 0.5rem;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Scroll suave para âncoras */
+[id] {
+  scroll-margin-top: 80px; /* Altura da navbar */
+}
+
+/* Transição suave de cores no theme toggle */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Exceções que não devem ter transição */
+.no-transition,
+.no-transition * {
+  transition: none !important;
+}

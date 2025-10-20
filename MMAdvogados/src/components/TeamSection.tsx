@@ -194,10 +194,10 @@ const TeamSection = () => {
         </div>
 
         {/* CTA Button */}
-        <div className="text-center mt-12">
+        <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-6">
           <a
             href="/equipe"
-            className="inline-flex items-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors"
+            className="btn-outline-elite"
           >
             Ver Equipe Completa
           </a>

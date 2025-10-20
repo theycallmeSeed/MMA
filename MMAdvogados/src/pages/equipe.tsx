@@ -1,7 +1,5 @@
+import { useState } from 'react';
 import { Linkedin, Mail, Globe, Phone, MapPin, Award, BookOpen, Sparkles, Users2, ChevronDown, GraduationCap, Briefcase, Languages, Target } from 'lucide-react';
-import { useLocation } from "react-router-dom";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 
 interface TeamMember {
   id: number;
@@ -21,7 +19,8 @@ interface TeamMember {
 }
 
 const Equipe = () => {
-  const location = useLocation();
+  const [expandedMember, setExpandedMember] = useState<number | null>(null);
+
   const teamMembers: TeamMember[] = [
     {
       id: 1,
@@ -193,9 +192,12 @@ const Equipe = () => {
     },
   ];
 
+  const toggleExpanded = (memberId: number) => {
+    setExpandedMember(expandedMember === memberId ? null : memberId);
+  };
+
   return (
     <div className="min-h-screen bg-background">
-      <Navigation />
       
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 overflow-hidden">
@@ -350,17 +352,25 @@ const Equipe = () => {
                       )}
                     </div>
 
-                    {/* Expandable Details */}
-                    <details className="group/details">
-                      <summary className="flex items-center justify-between p-4 bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl cursor-pointer list-none hover:from-primary/10 hover:to-accent/10 transition-all duration-300">
-                        <span className="font-semibold text-foreground flex items-center gap-2">
-                          <BookOpen className="h-4 w-4 text-primary" />
-                          Currículo Completo
-                        </span>
-                        <ChevronDown className="w-5 h-5 text-primary transform group-open/details:rotate-180 transition-transform duration-300" />
-                      </summary>
+                    {/* Expandable Details - Agora com estado controlado */}
+                    <button
+                      onClick={() => toggleExpanded(member.id)}
+                      className="w-full flex items-center justify-between p-4 bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl hover:from-primary/10 hover:to-accent/10 transition-all duration-300"
+                    >
+                      <span className="font-semibold text-foreground flex items-center gap-2">
+                        <BookOpen className="h-4 w-4 text-primary" />
+                        Currículo Completo
+                      </span>
+                      <ChevronDown 
+                        className={`w-5 h-5 text-primary transform transition-transform duration-300 ${
+                          expandedMember === member.id ? 'rotate-180' : ''
+                        }`} 
+                      />
+                    </button>
 
-                      <div className="mt-6 space-y-6 px-2">
+                    {/* Conteúdo expansível */}
+                    {expandedMember === member.id && (
+                      <div className="mt-6 space-y-6 px-2 animate-in fade-in duration-300">
                         {/* Formação */}
                         <div>
                           <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
@@ -429,7 +439,7 @@ const Equipe = () => {
                           </div>
                         </div>
                       </div>
-                    </details>
+                    )}
                   </div>
 
                   {/* Decorative corner */}
@@ -459,22 +469,13 @@ const Equipe = () => {
             A nossa equipa está pronta para oferecer soluções jurídicas personalizadas 
             que atendam às suas necessidades específicas.
           </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="/contactos" className="btn-elite group">
-              <span className="flex items-center gap-2">
-                Entrar em Contacto
-                <Sparkles className="h-5 w-5 group-hover:rotate-12 transition-transform" />
-              </span>
-            </a>
+          <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="/servicos" className="btn-outline-elite">
               Ver os Nossos Serviços
             </a>
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };
