@@ -203,15 +203,15 @@ const Servicos = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 border border-primary/20">
+            {/* <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 border border-primary/20">
               <Sparkles className="h-4 w-4 text-primary" />
               <span className="text-sm font-semibold text-primary">Serviços Jurídicos Especializados</span>
-            </div>
+            </div> */}
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6">
-              <span className="text-primary">Soluções Jurídicas</span>
+              <span className="text-primary">Áreas de Atuação</span>
               <br />
-              <span className="text-gradient-primary">que Transformam Desafios</span>
+              {/* <span className="text-gradient-primary">que Transformam Desafios</span> */}
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
@@ -394,10 +394,10 @@ Muito obrigado(a).`
         
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 border border-primary/20">
+            {/* <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 border border-primary/20">
               <Sparkles className="h-4 w-4 text-primary" />
               <span className="text-sm font-semibold text-primary">Consultoria Personalizada</span>
-            </div>
+            </div> */}
             
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">
               Precisa de Assessoria Jurídica <span className="text-gradient-primary">Especializada?</span>

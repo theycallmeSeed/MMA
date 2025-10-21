@@ -102,11 +102,13 @@ const Navigation = () => {
     };
   }, [isOpen]);
 
+
+
   const navItems = [
     { name: "Início", href: "/" },
     { name: "Sobre Nós", href: "/sobre" },
-    { name: "Serviços", href: "/servicos" },
-    { name: "Equipe", href: "/equipe" },
+    { name: "Áreas de Atuação", href: "/servicos" },
+    { name: "Equipa", href: "/equipe" },
   ];
 
   const isActive = (href: string) => location.pathname === href;

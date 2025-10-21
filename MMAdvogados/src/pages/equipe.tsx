@@ -1,5 +1,8 @@
 import { useState } from 'react';
+import { useLocation } from "react-router-dom";
 import { Linkedin, Mail, Globe, Phone, MapPin, Award, BookOpen, Sparkles, Users2, ChevronDown, GraduationCap, Briefcase, Languages, Target } from 'lucide-react';
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 interface TeamMember {
   id: number;
@@ -19,6 +22,7 @@ interface TeamMember {
 }
 
 const Equipe = () => {
+  const location = useLocation();
   const [expandedMember, setExpandedMember] = useState<number | null>(null);
 
   const teamMembers: TeamMember[] = [
@@ -192,12 +196,13 @@ const Equipe = () => {
     },
   ];
 
-  const toggleExpanded = (memberId: number) => {
-    setExpandedMember(expandedMember === memberId ? null : memberId);
+  const handleToggle = (memberId: number) => {
+    setExpandedMember(prev => prev === memberId ? null : memberId);
   };
 
   return (
     <div className="min-h-screen bg-background">
+      <Navigation />
       
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 overflow-hidden">
@@ -247,206 +252,218 @@ const Equipe = () => {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <div
-                key={member.id}
-                className="group relative"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                {/* Card */}
-                <div className="relative h-full rounded-3xl overflow-hidden bg-card border border-border hover:border-primary/30 transition-all duration-500 hover:-translate-y-2"
-                     style={{ boxShadow: 'var(--shadow-card)' }}>
-                  
-                  {/* Gradient overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                  
-                  {/* Content */}
-                  <div className="relative p-8">
-                    {/* Photo */}
-                    <div className="flex justify-center mb-6">
-                      <div className="relative">
-                        <div className="w-32 h-32 rounded-full overflow-hidden relative ring-4 ring-primary/10 group-hover:ring-primary/30 transition-all duration-300">
-                          {member.photo ? (
-                            <img
-                              src={member.photo}
-                              alt={member.name}
-                              className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
-                              loading="lazy"
-                              onError={(e) => {
-                                const target = e.target as HTMLImageElement;
-                                target.style.display = "none";
-                                target.nextElementSibling?.classList.remove("hidden");
-                              }}
-                            />
-                          ) : null}
+            {teamMembers.map((member, index) => {
+              const isExpanded = expandedMember === member.id;
+              
+              return (
+                <div
+                  key={member.id}
+                  className="group relative"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  {/* Card */}
+                  <div className="relative h-full rounded-3xl overflow-hidden bg-card border border-border hover:border-primary/30 transition-all duration-500 hover:-translate-y-2"
+                       style={{ boxShadow: 'var(--shadow-card)' }}>
+                    
+                    {/* Gradient overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                    
+                    {/* Content */}
+                    <div className="relative p-8">
+                      {/* Photo */}
+                      <div className="flex justify-center mb-6">
+                        <div className="relative">
+                          <div className="w-32 h-32 rounded-full overflow-hidden relative ring-4 ring-primary/10 group-hover:ring-primary/30 transition-all duration-300">
+                            {member.photo ? (
+                              <img
+                                src={member.photo}
+                                alt={member.name}
+                                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                                loading="lazy"
+                                onError={(e) => {
+                                  const target = e.target as HTMLImageElement;
+                                  target.style.display = "none";
+                                  target.nextElementSibling?.classList.remove("hidden");
+                                }}
+                              />
+                            ) : null}
 
-                          {/* Fallback com iniciais */}
-                          <div className={`absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center ${member.photo ? 'hidden' : ''}`}>
-                            <span className="text-4xl font-bold text-primary">
-                              {member.name.split(' ').map(n => n[0]).join('')}
-                            </span>
+                            {/* Fallback com iniciais */}
+                            <div className={`absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center ${member.photo ? 'hidden' : ''}`}>
+                              <span className="text-4xl font-bold text-primary">
+                                {member.name.split(' ').map(n => n[0]).join('')}
+                              </span>
+                            </div>
+                          </div>
+                          
+                          {/* Status badge */}
+                          <div className="absolute -bottom-2 -right-2 p-2 bg-primary rounded-full border-4 border-card">
+                            <Award className="h-4 w-4 text-primary-foreground" />
                           </div>
                         </div>
-                        
-                        {/* Status badge */}
-                        <div className="absolute -bottom-2 -right-2 p-2 bg-primary rounded-full border-4 border-card">
-                          <Award className="h-4 w-4 text-primary-foreground" />
+                      </div>
+
+                      {/* Info */}
+                      <div className="text-center mb-6">
+                        <h2 className="text-2xl font-serif font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                          {member.name}
+                        </h2>
+                        <p className="text-primary font-semibold mb-4 text-sm">
+                          {member.position}
+                        </p>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          {member.description}
+                        </p>
+                      </div>
+
+                      {/* Contact Info Compact */}
+                      <div className="space-y-3 mb-6 text-sm">
+                        <div className="flex items-center justify-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                          <Mail className="w-4 h-4 flex-shrink-0" />
+                          <span className="truncate">{member.email}</span>
+                        </div>
+                        <div className="flex items-center justify-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                          <Phone className="w-4 h-4 flex-shrink-0" />
+                          <span>{member.phone}</span>
+                        </div>
+                        <div className="flex items-center justify-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                          <MapPin className="w-4 h-4 flex-shrink-0" />
+                          <span>{member.location}</span>
                         </div>
                       </div>
-                    </div>
 
-                    {/* Info */}
-                    <div className="text-center mb-6">
-                      <h2 className="text-2xl font-serif font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                        {member.name}
-                      </h2>
-                      <p className="text-primary font-semibold mb-4 text-sm">
-                        {member.position}
-                      </p>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        {member.description}
-                      </p>
-                    </div>
-
-                    {/* Contact Info Compact */}
-                    <div className="space-y-3 mb-6 text-sm">
-                      <div className="flex items-center justify-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                        <Mail className="w-4 h-4 flex-shrink-0" />
-                        <span className="truncate">{member.email}</span>
-                      </div>
-                      <div className="flex items-center justify-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                        <Phone className="w-4 h-4 flex-shrink-0" />
-                        <span>{member.phone}</span>
-                      </div>
-                      <div className="flex items-center justify-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                        <MapPin className="w-4 h-4 flex-shrink-0" />
-                        <span>{member.location}</span>
-                      </div>
-                    </div>
-
-                    {/* Social Links */}
-                    <div className="flex justify-center gap-3 mb-6">
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2.5 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl hover:scale-110 transition-all duration-300 group/link"
-                      >
-                        <Linkedin className="w-5 h-5 text-primary group-hover/link:text-primary/80" />
-                      </a>
-                      <a
-                        href={`mailto:${member.email}`}
-                        className="p-2.5 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl hover:scale-110 transition-all duration-300 group/link"
-                      >
-                        <Mail className="w-5 h-5 text-primary group-hover/link:text-primary/80" />
-                      </a>
-                      {member.website && (
+                      {/* Social Links */}
+                      <div className="flex justify-center gap-3 mb-6">
                         <a
-                          href={member.website}
+                          href={member.linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="p-2.5 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl hover:scale-110 transition-all duration-300 group/link"
                         >
-                          <Globe className="w-5 h-5 text-primary group-hover/link:text-primary/80" />
+                          <Linkedin className="w-5 h-5 text-primary group-hover/link:text-primary/80" />
                         </a>
-                      )}
-                    </div>
+                        <a
+                          href={`mailto:${member.email}`}
+                          className="p-2.5 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl hover:scale-110 transition-all duration-300 group/link"
+                        >
+                          <Mail className="w-5 h-5 text-primary group-hover/link:text-primary/80" />
+                        </a>
+                        {member.website && (
+                          <a
+                            href={member.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-2.5 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl hover:scale-110 transition-all duration-300 group/link"
+                          >
+                            <Globe className="w-5 h-5 text-primary group-hover/link:text-primary/80" />
+                          </a>
+                        )}
+                      </div>
 
-                    {/* Expandable Details - Agora com estado controlado */}
-                    <button
-                      onClick={() => toggleExpanded(member.id)}
-                      className="w-full flex items-center justify-between p-4 bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl hover:from-primary/10 hover:to-accent/10 transition-all duration-300"
-                    >
-                      <span className="font-semibold text-foreground flex items-center gap-2">
-                        <BookOpen className="h-4 w-4 text-primary" />
-                        Currículo Completo
-                      </span>
-                      <ChevronDown 
-                        className={`w-5 h-5 text-primary transform transition-transform duration-300 ${
-                          expandedMember === member.id ? 'rotate-180' : ''
-                        }`} 
-                      />
-                    </button>
+                      {/* Expandable Toggle Button */}
+                      <button
+                        type="button"
+                        onClick={() => handleToggle(member.id)}
+                        className="w-full flex items-center justify-between p-4 bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl hover:from-primary/10 hover:to-accent/10 transition-all duration-300"
+                        aria-expanded={isExpanded}
+                        aria-controls={`member-details-${member.id}`}
+                      >
+                        <span className="font-semibold text-foreground flex items-center gap-2">
+                          <BookOpen className="h-4 w-4 text-primary" />
+                          Currículo Completo
+                        </span>
+                        <ChevronDown 
+                          className={`w-5 h-5 text-primary transform transition-transform duration-300 ${
+                            isExpanded ? 'rotate-180' : ''
+                          }`} 
+                        />
+                      </button>
 
-                    {/* Conteúdo expansível */}
-                    {expandedMember === member.id && (
-                      <div className="mt-6 space-y-6 px-2 animate-in fade-in duration-300">
-                        {/* Formação */}
-                        <div>
-                          <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
-                            <GraduationCap className="w-5 h-5 mr-2 text-primary" />
-                            Formação Académica
-                          </h4>
-                          <ul className="space-y-2">
-                            {member.education.map((item, index) => (
-                              <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-                                <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        {/* Experiência */}
-                        <div>
-                          <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
-                            <Briefcase className="w-5 h-5 mr-2 text-primary" />
-                            Experiência Profissional
-                          </h4>
-                          <ul className="space-y-2">
-                            {member.experience.map((item, index) => (
-                              <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-                                <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        {/* Especialidades */}
-                        <div>
-                          <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
-                            <Sparkles className="w-5 h-5 mr-2 text-primary" />
-                            Especialidades
-                          </h4>
-                          <div className="flex flex-wrap gap-2">
-                            {member.specialties.map((specialty, index) => (
-                              <span
-                                key={index}
-                                className="px-3 py-1.5 bg-gradient-to-br from-primary/10 to-accent/10 text-foreground text-xs font-medium rounded-full border border-primary/20"
-                              >
-                                {specialty}
-                              </span>
-                            ))}
+                      {/* Expandable Content */}
+                      <div
+                        id={`member-details-${member.id}`}
+                        className={`overflow-hidden transition-all duration-500 ${
+                          isExpanded ? 'max-h-[2000px] opacity-100 mt-6' : 'max-h-0 opacity-0'
+                        }`}
+                      >
+                        <div className="space-y-6 px-2">
+                          {/* Formação */}
+                          <div>
+                            <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
+                              <GraduationCap className="w-5 h-5 mr-2 text-primary" />
+                              Formação Académica
+                            </h4>
+                            <ul className="space-y-2">
+                              {member.education.map((item, idx) => (
+                                <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                                  <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
                           </div>
-                        </div>
 
-                        {/* Idiomas */}
-                        <div>
-                          <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
-                            <Languages className="w-5 h-5 mr-2 text-primary" />
-                            Idiomas
-                          </h4>
-                          <div className="flex flex-wrap gap-2">
-                            {member.languages.map((language, index) => (
-                              <span
-                                key={index}
-                                className="px-3 py-1.5 bg-secondary/50 text-foreground text-xs font-medium rounded-full"
-                              >
-                                {language}
-                              </span>
-                            ))}
+                          {/* Experiência */}
+                          <div>
+                            <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
+                              <Briefcase className="w-5 h-5 mr-2 text-primary" />
+                              Experiência Profissional
+                            </h4>
+                            <ul className="space-y-2">
+                              {member.experience.map((item, idx) => (
+                                <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                                  <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          {/* Especialidades */}
+                          <div>
+                            <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
+                              <Sparkles className="w-5 h-5 mr-2 text-primary" />
+                              Especialidades
+                            </h4>
+                            <div className="flex flex-wrap gap-2">
+                              {member.specialties.map((specialty, idx) => (
+                                <span
+                                  key={idx}
+                                  className="px-3 py-1.5 bg-gradient-to-br from-primary/10 to-accent/10 text-foreground text-xs font-medium rounded-full border border-primary/20"
+                                >
+                                  {specialty}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* Idiomas */}
+                          <div>
+                            <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
+                              <Languages className="w-5 h-5 mr-2 text-primary" />
+                              Idiomas
+                            </h4>
+                            <div className="flex flex-wrap gap-2">
+                              {member.languages.map((language, idx) => (
+                                <span
+                                  key={idx}
+                                  className="px-3 py-1.5 bg-secondary/50 text-foreground text-xs font-medium rounded-full"
+                                >
+                                  {language}
+                                </span>
+                              ))}
+                            </div>
                           </div>
                         </div>
                       </div>
-                    )}
-                  </div>
+                    </div>
 
-                  {/* Decorative corner */}
-                  <div className="absolute top-4 right-4 w-2 h-2 bg-primary/30 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                    {/* Decorative corner */}
+                    <div className="absolute top-4 right-4 w-2 h-2 bg-primary/30 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -469,13 +486,22 @@ const Equipe = () => {
             A nossa equipa está pronta para oferecer soluções jurídicas personalizadas 
             que atendam às suas necessidades específicas.
           </p>
-          <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            {/* <a href="/contactos" className="btn-elite group">
+              <span className="flex items-center gap-2">
+                Entrar em Contacto
+                <Sparkles className="h-5 w-5 group-hover:rotate-12 transition-transform" />
+              </span>
+            </a> */}
             <a href="/servicos" className="btn-outline-elite">
               Ver os Nossos Serviços
             </a>
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };

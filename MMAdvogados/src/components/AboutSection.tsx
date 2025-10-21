@@ -118,7 +118,7 @@ const AboutSection = () => {
 
             <div className="grid grid-cols-2 gap-6 lg:gap-8 pt-6">
               <div className="text-center">
-                <div className="text-2xl lg:text-3xl font-bold text-primary mb-2">15+</div>
+                <div className="text-2xl lg:text-3xl font-bold text-primary mb-2">4+</div>
                 <div className="text-xs lg:text-sm text-muted-foreground">
                   Advogados Especializados
                 </div>

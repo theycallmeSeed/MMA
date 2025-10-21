@@ -107,13 +107,13 @@ const ServicesSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 border border-primary/20">
+          {/* <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 border border-primary/20">
             <Shield className="h-4 w-4 text-primary" />
             <span className="text-sm font-semibold text-primary">Áreas de Atuação</span>
-          </div>
+          </div> */}
           
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
-            <span className="text-primary">Serviços Jurídicos</span>
+            <span className="text-primary">Áreas de Atuação</span>
             <br />
             {/* <span className="text-gradient-primary">de Excelência</span> */}
           </h2>
@@ -331,10 +331,10 @@ Muito obrigado(a).`
           
           {/* Content */}
           <div className="relative p-10 md:p-16 text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 border border-primary/20">
+            {/* <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 border border-primary/20">
               <Sparkles className="h-4 w-4 text-primary" />
               <span className="text-sm font-semibold text-primary">Regime Especial</span>
-            </div>
+            </div> */}
 
             <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6">
               <span className="text-primary">Regime de Avença</span>
