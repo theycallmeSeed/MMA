@@ -194,14 +194,25 @@ const TeamSection = () => {
         </div>
 
         {/* CTA Button */}
-        <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-6">
-          <a
-            href="/equipe"
-            className="btn-outline-elite"
-          >
-            Ver Equipe Completa
-          </a>
-        </div>
+       {/* CTA Button com espaçamento melhorado */}
+<div className="mt-16 pt-12 border-t border-border/30">
+  <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-6">
+    <a
+      href="/equipe"
+      className="btn-outline-elite group relative overflow-hidden px-8 py-4 text-lg"
+    >
+      {/* Efeito de brilho no hover */}
+      <span className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
+      
+      <span className="relative flex items-center gap-2">
+        Ver Equipe Completa
+        <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+          
+        </span>
+      </span>
+    </a>
+  </div>
+</div>
       </div>
     </section>
   );
