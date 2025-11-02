@@ -1,6 +1,8 @@
 import Navigation from "@/components/Navigation";
 import ServicesSection from "@/components/ServicesSection";
 import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
+import { AnimationWrapper } from "@/components/animations";
 import { Scale, Building2, FileText, Home, Users, Handshake, CreditCard, Sparkles, CheckCircle2, ArrowRight, Shield, Clock, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { generateWhatsAppLink, getWhatsAppConsultoriaLinkExact } from "@/lib/utils";
@@ -192,7 +194,12 @@ const Servicos = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="min-h-screen bg-background"
+    >
       <Navigation />
       
       {/* Hero Section Enhanced */}
@@ -206,7 +213,7 @@ const Servicos = () => {
             {/* <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 border border-primary/20">
               <Sparkles className="h-4 w-4 text-primary" />
               <span className="text-sm font-semibold text-primary">Serviços Jurídicos Especializados</span>
-            </div> */}
+            </motion.div> */}
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6">
               <span className="text-primary">Áreas de Atuação</span>
@@ -452,7 +459,7 @@ Muito obrigado(a).`
       </section>
 
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 

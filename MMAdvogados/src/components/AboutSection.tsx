@@ -1,6 +1,8 @@
 import { CheckCircle, Users, Target, Trophy } from "lucide-react";
 import milagrosaPortrait from "@/assets/milagrosa-portrait.jpg";
 import legalTeam from "@/assets/legal-team.jpg";
+import { motion } from "framer-motion";
+import { AnimationWrapper } from "./animations";
 
 const AboutSection = () => {
   const achievements = [
@@ -13,19 +15,25 @@ const AboutSection = () => {
   return (
 
     
-    <section className="py-16 lg:py-20 bg-gradient-to-b from-background to-muted/20">
-
+    <motion.section 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="py-16 lg:py-20 bg-gradient-to-b from-background to-muted/20">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12 lg:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-primary mb-6">
-            Sobre Nós
-          </h2>
-          <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
-           Uma sociedade de advogados pioneira em Moçambique, assente nos valores da excelência, da inovação e da liderança exercida por mulheres, ao serviço de empresas e particulares.
-          </p>
-        </div>
+        <AnimationWrapper animation="slideUp">
+          <div className="text-center mb-12 lg:mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-primary mb-6">
+              Sobre Nós
+            </h2>
+            <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
+             Uma sociedade de advogados pioneira em Moçambique, assente nos valores da excelência, da inovação e da liderança exercida por mulheres, ao serviço de empresas e particulares.
+            </p>
+          </div>
+        </AnimationWrapper>
 
         
 
@@ -149,7 +157,7 @@ const AboutSection = () => {
           </p>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

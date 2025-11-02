@@ -3,6 +3,8 @@ import AboutSection from "@/components/AboutSection";
 import Footer from "@/components/Footer";
 import { Trophy, Users, Target, Award, Sparkles, Shield, Heart, Zap } from "lucide-react";
 import milagrosaPortrait from "@/assets/milagrosa-portrait.jpg";
+import { motion } from "framer-motion";
+import { AnimationWrapper } from "@/components/animations";
 
 const Sobre = () => {
   const values = [
@@ -40,7 +42,11 @@ const Sobre = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="min-h-screen bg-background">
       <Navigation />
       
       {/* Hero Section with Modern Design */}
@@ -177,7 +183,7 @@ const Sobre = () => {
       </section>
 
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 

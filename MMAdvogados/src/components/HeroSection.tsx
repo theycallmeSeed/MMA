@@ -2,10 +2,14 @@ import { ArrowRight, Award, Users, Briefcase, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroBanner from "@/assets/hero-banner.jpg";
 import { getWhatsAppConsultoriaLinkExact } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
-    <section 
+    <motion.section 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       aria-label="Hero principal - Milagrosa Macuácua Advogados"
     >
@@ -248,7 +252,7 @@ const HeroSection = () => {
           border-radius: 4px;
         }
       `}</style>
-    </section>
+    </motion.section>
   );
 };
 

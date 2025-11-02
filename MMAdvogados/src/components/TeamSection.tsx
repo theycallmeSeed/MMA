@@ -1,4 +1,4 @@
-import { Linkedin, Mail, Globe, Phone, MapPin } from 'lucide-react';
+import { Linkedin, Mail, Globe, Phone, MapPin, ArrowRight } from 'lucide-react';
 
 interface TeamMember {
   id: number;
@@ -204,11 +204,9 @@ const TeamSection = () => {
       {/* Efeito de brilho no hover */}
       <span className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
       
-      <span className="relative flex items-center gap-2">
+      <span className="relative flex items-center gap-2 z-10">
         Ver Equipe Completa
-        <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
-          
-        </span>
+        <ArrowRight className="h-4 w-4 inline-block transition-transform duration-300 group-hover:translate-x-1" />
       </span>
     </a>
   </div>

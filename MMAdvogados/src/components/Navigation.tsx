@@ -221,7 +221,6 @@ const Navigation = () => {
                   />
                 </Link>
               ))}
-
               {/* Redes Sociais */}
               <div className="flex items-center space-x-2 ml-6 pl-6 border-l border-border/30">
                 <a
@@ -233,7 +232,6 @@ const Navigation = () => {
                 >
                   <Instagram className="h-4 w-4" />
                 </a>
-
                 <a
                   href="#"
                   target="_blank"
@@ -247,121 +245,60 @@ const Navigation = () => {
             </div>
 
             {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className={`lg:hidden p-2.5 rounded-lg transition-all duration-200 border focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none min-h-[44px] min-w-[44px] ${
-                hasTransparentHero && isOverHero && !isScrolled
-                  ? "bg-white/10 backdrop-blur-md border-white/30 hover:bg-white/20"
-                  : "bg-muted/50 border-border/50 hover:bg-muted/80"
-              }`}
-              aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
-              aria-expanded={isOpen}
-              aria-controls="mobile-menu"
-            >
-              {isOpen ? (
-                <X className={`h-5 w-5 ${hasTransparentHero && isOverHero && !isScrolled ? "text-white" : "text-foreground"}`} />
-              ) : (
-                <Menu className={`h-5 w-5 ${hasTransparentHero && isOverHero && !isScrolled ? "text-white" : "text-foreground"}`} />
-              )}
-            </button>
+            <button 
+              onClick={() => setIsOpen(!isOpen)} 
+              className="lg:hidden p-2 rounded-lg transition-all duration-200 z-60 hover:bg-muted/80 border border-border/50" 
+            > 
+              {isOpen ? ( 
+                <X className="h-5 w-5 text-foreground" /> 
+              ) : ( 
+                <Menu className="h-5 w-5 text-foreground" /> 
+              )} 
+            </button> 
           </div>
-{/* Mobile Menu - Versão Ultra Moderna */}
-<div
-  id="mobile-menu"
-  className={`lg:hidden fixed left-0 right-0 transition-all duration-500 ease-out z-40 ${
-    isOpen 
-      ? "max-h-screen opacity-100 translate-y-0" 
-      : "max-h-0 opacity-0 -translate-y-4 pointer-events-none"
-  }`}
->
-  {/* Backdrop com blur */}
-  <div className="absolute inset-0 bg-background/80 backdrop-blur-xl -z-10" />
-  
-  {/* Gradiente decorativo no topo */}
-  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-  
-  <div className="relative px-4 py-6 bg-gradient-to-b from-card/95 to-background/95 shadow-2xl border-b border-border/30">
-    <div className="space-y-2 max-w-md mx-auto">
-      {navItems.map((item, index) => (
-        <Link
-          key={item.name}
-          to={item.href}
-          onClick={() => setIsOpen(false)}
-          style={{
-            animationDelay: `${index * 50}ms`
-          }}
-          className={`
-            group relative block px-5 py-4 text-base font-medium rounded-xl
-            transition-all duration-300 min-h-[52px]
-            focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 
-            focus-visible:outline-none overflow-hidden
-            ${isOpen ? 'animate-[slideIn_0.4s_ease-out_forwards]' : ''}
-            ${
-              isActive(item.href)
-                ? "bg-gradient-to-r from-primary/20 to-primary/10 text-primary shadow-lg shadow-primary/20 scale-[1.02]"
-                : "text-foreground/80 hover:text-primary hover:bg-muted/60 hover:shadow-md hover:scale-[1.01] active:scale-[0.98]"
-            }
-          `}
-          aria-current={isActive(item.href) ? 'page' : undefined}
-        >
-          {/* Barra lateral animada para item ativo */}
-          {isActive(item.href) && (
-            <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-primary/80 to-primary/40 rounded-r-full animate-pulse" />
-          )}
           
-          {/* Efeito de hover com gradiente */}
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          
-          {/* Texto do link */}
-          <span className="relative flex items-center gap-3">
-            {/* Indicador de página ativa */}
-            {isActive(item.href) && (
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-lg shadow-primary/50" />
-            )}
-            {item.name}
-            
-            {/* Ícone de seta no hover */}
-            <span className="ml-auto opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1">
-              →
-            </span>
-          </span>
-        </Link>
-      ))}
-      <style >{`
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateX(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-`}</style>
-                {/* Redes Sociais Mobile */}
-                <div className="pt-4 flex justify-center space-x-4 border-t border-border/50 mt-4">
-                  <a
-                    href="https://www.instagram.com/milagrosa.macuacua_advogados/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 rounded-lg transition-all duration-200 hover:scale-110 hover:bg-pink-50 border border-border min-h-[44px] min-w-[44px] flex items-center justify-center focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none"
-                    aria-label="Siga-nos no Instagram"
-                  >
-                    <Instagram className="h-5 w-5 text-pink-500" />
-                  </a>
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 rounded-lg transition-all duration-200 hover:scale-110 hover:bg-blue-50 border border-border min-h-[44px] min-w-[44px] flex items-center justify-center focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none"
-                    aria-label="Siga-nos no Facebook"
-                  >
-                    <Facebook className="h-5 w-5 text-blue-600" />
-                  </a>
-                </div>
-              </div>
-            </div>
+          {/* Mobile Menu */} 
+          <div 
+            className={`lg:hidden transition-all duration-300 overflow-hidden ${ 
+              isOpen ? "max-h-96 opacity-100 pb-4" : "max-h-0 opacity-0" 
+            }`} 
+          > 
+            <div className="pt-4"> 
+              <div className="space-y-2"> 
+                {navItems.map((item) => ( 
+                  <Link 
+                    key={item.name} 
+                    to={item.href} 
+                    onClick={() => setIsOpen(false)} 
+                    className={`block px-4 py-3 text-base font-medium rounded-lg transition-all duration-200 ${ 
+                      isActive(item.href) 
+                        ? "bg-primary/10 text-primary border-l-4 border-l-primary" 
+                        : "text-foreground/90 hover:bg-muted/80 hover:text-primary" 
+                    }`} 
+                  > 
+                    {item.name} 
+                  </Link> 
+                ))} 
+                <div className="pt-4 flex justify-center space-x-4"> 
+                  <a 
+                    href="https://www.instagram.com/milagrosa.macuacua_advogados/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="p-2 rounded-lg transition-all duration-200 hover:scale-110 hover:bg-muted/80" 
+                  > 
+                    <Instagram className="h-5 w-5 text-foreground/80 hover:text-pink-400" /> 
+                  </a> 
+                  <a 
+                    href="#" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="p-2 rounded-lg transition-all duration-200 hover:scale-110 hover:bg-muted/80" 
+                  > 
+                    <Facebook className="h-5 w-5 text-foreground/80 hover:text-blue-400" /> 
+                  </a> 
+                </div> 
+              </div> 
+            </div> 
           </div>
         </div>
       </nav>
