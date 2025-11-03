@@ -40,21 +40,20 @@ const HeroSection = () => {
 
           {/* Main Headline with Decorative Line */}
           <div className="relative mb-8">
-            <h1 
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-primary-foreground leading-tight hero-title-reveal"
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-primary-foreground leading-tight hero-title-reveal" data-seo-importance="primary"
               style={{ animationDelay: '0.4s' }}
             >
               Excelência Jurídica para{" "}
               <span className="relative inline-block">
                 <span className="bg-gradient-to-r from-accent via-accent/90 to-accent/80 bg-clip-text text-transparent font-extrabold">
-                  Empresas
+                  Pessoas Colectivas 
                 </span>
                 <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-accent via-accent/80 to-transparent rounded-full"></span>
               </span>
               {" "}e{" "}
               <span className="relative inline-block">
                 <span className="bg-gradient-to-r from-accent via-accent/90 to-accent/80 bg-clip-text text-transparent font-extrabold">
-                  Particulares
+                  Singulares
                 </span>
                 <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-accent via-accent/80 to-transparent rounded-full"></span>
               </span>
@@ -71,7 +70,7 @@ const HeroSection = () => {
             className="text-lg md:text-xl lg:text-2xl text-primary-foreground/95 mb-10 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0 hero-fade-in drop-shadow-lg"
             style={{ animationDelay: '0.7s' }}
           >
-            Somos uma sociedade de advogados sediada em Maputo, com mais de cinco anos de experiência dedicada ao apoio jurídico no setor empresarial e particular. Ao longo deste percurso, acompanhámos um vasto número de processos, sempre com foco na defesa rigorosa dos interesses dos nossos clientes e na procura de soluções práticas e seguras.
+          Contamos com mais 10 anos de experiência, prestando apoio e assistência e consultoria jurídica para pessoas singulares, empresas, associações, fundações, cooperativas, entre outras entidades, sejam elas públicas ou privadas. O nosso cuidado, ao longo deste percurso, é o foco na defesa rigorosa e criteriosa dos interesses dos nossos clientes, privilegiando soluções práticas e seguras.
           </p>
 
           {/* CTA Buttons with Proper Accessibility */}

@@ -44,7 +44,7 @@ const ServicesSection = () => {
     },
     {
       icon: FileText,
-      title: "Direito Administrativo e Fiscal",
+      title: "Administrativo, fiscal e Aduaneiro",
       image: "/src/assets/legal-team.jpg",
       description:
         "Especialização em direito fiscal, aduaneiro e relações com entidades governamentais.",
@@ -54,7 +54,7 @@ const ServicesSection = () => {
     },
     {
       icon: Home,
-      title: "Imobiliária e Terras",
+      title: "Imobiliário e Terras",
       image: "/src/assets/office-interior.jpg",
       description:
         "Assessoria especializada em transações imobiliárias, regularização de terras e direito urbanístico.",
@@ -64,7 +64,7 @@ const ServicesSection = () => {
     },
     {
       icon: Users,
-      title: "Laboral e Migração",
+      title: "Laboral e Migratório",
       image: "/src/assets/legal-team.jpg",
       description:
         "Gestão de relações laborais, contratos de trabalho e processos migratórios para expatriados.",
@@ -84,7 +84,7 @@ const ServicesSection = () => {
     },
     {
       icon: CreditCard,
-      title: "Recuperação de Créditos",
+      title: "Investimento",
       image: "/src/assets/legal-team.jpg",
       description:
         "Estratégias eficazes para recuperação de dívidas e gestão de carteiras de crédito em mora.",

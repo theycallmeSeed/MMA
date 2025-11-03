@@ -50,10 +50,13 @@ const AboutSection = () => {
             </h3>
             
             <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
-              Advogada visionária e empreendedora, Milagrosa Macuácua fundou esta
-              sociedade com o objectivo de revolucionar o sector jurídico
-              moçambicano através da excelência técnica e inovação no
-              atendimento empresarial.
+              Milagrosa Macuacua, é sócia e fundadora da MM Advogados.
+Desempenha as suas actividades nas áreas de XXXXXXXXXXXXXXX
+Foi Presidente do Conselho Provincial da Ordem dos Advogados de Moçambique entre XXX e XXXX, sendo que actualmente desempenha as funções de Conselheira, no mesmo organismo. É membro da Comissão Nacional de Avaliação de Estágio na Ordem dos Advogados de Moçambique, organismo responsável pela avaliação para acreditação doa Advogados Estagiários.
+Milagrosa Macuacua, é licenciada em Direito pela Faculdade de Direito da Universidade Eduardo Mondlane, desde 2009, instituição pela qual se encontra a finalizar o seu Mestrado em Cièncias Jurídicas.
+Milagorsa Macuacua, iniciou a sua carreira na Sal e Cadeira (2010), tendo de seguida passado pela Opelegis (20XXX). Exerceu, igualmente a cargo de Delegada Distrital do Instituto de Patrocínio e Assistência Jurídica (IPAJ), entre 20XX e 20XX.
+Em 20XX, movida pelo sonho de contribuir no empoderamento feminino, decidiu fundar a Milagrosa Macuacua Advogados, Sociedade Unipessoal Limitada, um escritório composto 100% por mulheres, dentre Advogadas, Advogadas Estagiárias, bem como pessoal de apoio
+
             </p>
             
             <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">

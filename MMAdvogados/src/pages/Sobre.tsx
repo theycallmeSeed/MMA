@@ -3,8 +3,6 @@ import AboutSection from "@/components/AboutSection";
 import Footer from "@/components/Footer";
 import { Trophy, Users, Target, Award, Sparkles, Shield, Heart, Zap } from "lucide-react";
 import milagrosaPortrait from "@/assets/milagrosa-portrait.jpg";
-import { motion } from "framer-motion";
-import { AnimationWrapper } from "@/components/animations";
 
 const Sobre = () => {
   const values = [
@@ -42,11 +40,7 @@ const Sobre = () => {
   ];
 
   return (
-    <motion.div 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">
       <Navigation />
       
       {/* Hero Section with Modern Design */}
@@ -72,8 +66,7 @@ const Sobre = () => {
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Conheça a história, valores e visão da sociedade de advogados que está 
-              a revolucionar o mercado jurídico moçambicano.
+             A MM Advogados, assenta em valores como excelência, inovação e liderança exercida por mulheres, ao serviço do direito e da justiça, em prol das pessoas singulares e colectivas
             </p>
           </div>
 
@@ -183,7 +176,7 @@ const Sobre = () => {
       </section>
 
       <Footer />
-    </motion.div>
+    </div>
   );
 };
 
