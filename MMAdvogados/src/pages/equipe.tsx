@@ -212,10 +212,7 @@ const Equipe = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 border border-primary/20">
-              <Users2 className="h-4 w-4 text-primary" />
-              <span className="text-sm font-semibold text-primary">Conheça a Nossa Equipa</span>
-            </div>
+            
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6">
               <span className="text-primary">Profissionais</span>
@@ -473,10 +470,7 @@ const Equipe = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/10 to-background"></div>
         
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 border border-primary/20">
-            <Sparkles className="h-4 w-4 text-primary" />
-            <span className="text-sm font-semibold text-primary">Fale Connosco</span>
-          </div>
+          
           
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">
             Pronto para Trabalhar com <span className="text-gradient-primary">os Melhores?</span>
