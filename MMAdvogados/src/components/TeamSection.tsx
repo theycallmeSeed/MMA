@@ -1,4 +1,7 @@
 import { Linkedin, Mail, Globe, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { useScrollAnimation, useStaggerAnimation } from '@/hooks/useScrollAnimation';
+import { animations, glassmorphism, gradients, microInteractions } from '@/lib/design-system';
 
 interface TeamMember {
   id: number;
@@ -13,136 +16,214 @@ interface TeamMember {
   // website?: string;
 }
 
+const teamMembers: TeamMember[] = [
+  {
+    id: 1,
+    name: "Milagrosa Macuácua",
+    position: "Assistente Administrativa",
+    photo: "/src/assets/milagrosa-portrait.jpg",
+    description: "Advogada com mais de 15 anos de experiência em Direito Civil e Consumerista. Especialista em casos complexos de responsabilidade civil.",
+    // email: "maria@mmadvogados.com",
+    // phone: "+351 912 345 678",
+    // location: "Lisboa, Portugal",
+    // linkedin: "https://linkedin.com/in/mariasilva",
+  },
+  {
+    id: 2,
+    name: "Marlete Miguel",
+    position: "Sócio - Direito Empresarial",
+    photo: "/src/assets/marlet-portait.jpg",
+    description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
+    // email: "joao@mmadvogados.com",
+    // phone: "+351 913 456 789",
+    // location: "Porto, Portugal",
+    // linkedin: "https://linkedin.com/in/joaosantos",
+  },
+  {
+    id: 3,
+    name: "Cláudia Semente",
+    position: "Associada Sênior - Direito da Família",
+    photo: "/src/assets/claudia-portait.jpg",
+    description: "Especialista em Direito de Família e Sucessões com abordagem humanizada e sensível para casos familiares complexos.",
+    // email: "ana@mmadvogados.com",
+    // phone: "+351 914 567 890",
+    // location: "Lisboa, Portugal",
+    // linkedin: "https://linkedin.com/in/anacosta",
+  },
+  {
+    id: 4,
+    name: "Tecla Ntauma",
+    position: "Sócio - Direito Empresarial",
+    photo: "/src/assets/tecla-portait.jpg",
+    description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
+    // email: "joao@mmadvogados.com",
+    // phone: "+351 913 456 789",
+    // location: "Porto, Portugal",
+    // linkedin: "https://linkedin.com/in/joaosantos",
+  },
+  {
+    id: 5,
+    name: "Helodia Malate",
+    position: "Sócio - Direito Empresarial",
+    photo: "/src/assets/Helodia-portait.jpg",
+    description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
+    // email: "joao@mmadvogados.com",
+    // phone: "+351 913 456 789",
+    // location: "Porto, Portugal",
+    // linkedin: "https://linkedin.com/in/joaosantos",
+  },
+  {
+    id: 6,
+    name: "Maura Matsinhe",
+    position: "Sócio - Direito Empresarial",
+    photo: "/src/assets/maura-portait.jpg",
+    description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
+    // email: "joao@mmadvogados.com",
+    // phone: "+351 913 456 789",
+    // location: "Porto, Portugal",
+    // linkedin: "https://linkedin.com/in/joaosantos",
+  },
+];
+
 const TeamSection = () => {
-  const teamMembers: TeamMember[] = [
-    {
-      id: 1,
-      name: "Milagrosa Macuácua",
-      position: "Assistente Administrativa",
-      photo: "/src/assets/milagrosa-portrait.jpg",
-      description: "Advogada com mais de 15 anos de experiência em Direito Civil e Consumerista. Especialista em casos complexos de responsabilidade civil.",
-      // email: "maria@mmadvogados.com",
-      // phone: "+351 912 345 678",
-      // location: "Lisboa, Portugal",
-      // linkedin: "https://linkedin.com/in/mariasilva",
-    },
-    {
-      id: 2,
-      name: "Marlete Miguel",
-      position: "Sócio - Direito Empresarial",
-      photo: "/src/assets/marlet-portait.jpg",
-      description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
-      // email: "joao@mmadvogados.com",
-      // phone: "+351 913 456 789",
-      // location: "Porto, Portugal",
-      // linkedin: "https://linkedin.com/in/joaosantos",
-    },
-    {
-      id: 3,
-      name: "Cláudia Semente",
-      position: "Associada Sênior - Direito da Família",
-      photo: "/src/assets/claudia-portait.jpg",
-      description: "Especialista em Direito de Família e Sucessões com abordagem humanizada e sensível para casos familiares complexos.",
-      // email: "ana@mmadvogados.com",
-      // phone: "+351 914 567 890",
-      // location: "Lisboa, Portugal",
-      // linkedin: "https://linkedin.com/in/anacosta",
-    },
-    {
-      id: 4,
-      name: "Tecla Ntauma",
-      position: "Sócio - Direito Empresarial",
-      photo: "/src/assets/tecla-portait.jpg",
-      description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
-      // email: "joao@mmadvogados.com",
-      // phone: "+351 913 456 789",
-      // location: "Porto, Portugal",
-      // linkedin: "https://linkedin.com/in/joaosantos",
-    },
-    {
-      id: 5,
-      name: "Helodia Malate",
-      position: "Sócio - Direito Empresarial",
-      photo: "/src/assets/Helodia-portait.jpg",
-      description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
-      // email: "joao@mmadvogados.com",
-      // phone: "+351 913 456 789",
-      // location: "Porto, Portugal",
-      // linkedin: "https://linkedin.com/in/joaosantos",
-    },
-    {
-      id: 6,
-      name: "Maura Matsinhe",
-      position: "Sócio - Direito Empresarial",
-      photo: "/src/assets/maura-portait.jpg",
-      description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
-      // email: "joao@mmadvogados.com",
-      // phone: "+351 913 456 789",
-      // location: "Porto, Portugal",
-      // linkedin: "https://linkedin.com/in/joaosantos",
-    },
-  ];
+  // Animation hooks
+  const headerAnimation = useScrollAnimation();
+  const teamAnimation = useStaggerAnimation(teamMembers.length);
+  const sectionAnimation = useScrollAnimation();
 
   return (
-    <section className="py-20 bg-gradient-to-br from-background to-muted/30">
-      <div className="container mx-auto px-4">
+    <motion.section 
+      ref={sectionAnimation.ref}
+      initial="hidden"
+      animate={sectionAnimation.controls}
+      variants={animations.fadeIn}
+      className={`py-20 ${gradients.section} relative overflow-hidden`}
+    >
+      {/* Background Elements */}
+      <div className="absolute top-10 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-10 right-10 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+      
+      <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gradient-primary mb-4">
-            Nossa Equipe
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+        <motion.div 
+          ref={headerAnimation.ref}
+          initial="hidden"
+          animate={headerAnimation.controls}
+          variants={animations.slideUp}
+          className="text-center mb-16"
+        >
+          <motion.div 
+            variants={animations.slideUp}
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm rounded-full mb-8 border border-blue-500/20"
+          >
+            <ArrowRight className="h-5 w-5 text-blue-600" />
+            <span className="text-sm font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Nossa Equipe
+            </span>
+          </motion.div>
+          
+          <motion.h2 
+            variants={animations.slideUp}
+            className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6"
+          >
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
+              Nossa Equipe
+            </span>
+          </motion.h2>
+          
+          <motion.p 
+            variants={animations.slideUp}
+            className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+          >
             Conheça os profissionais dedicados que compõem o time MMA Advogados, 
             prontos para oferecer a melhor assessoria jurídica.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+        <motion.div 
+          ref={teamAnimation.ref}
+          initial="hidden"
+          animate={teamAnimation.controls}
+          variants={animations.stagger}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 sm:gap-8 lg:gap-10"
+        >
           {teamMembers.map((member) => (
-            <div
+            <motion.div
               key={member.id}
-              className="card-elegant rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full flex flex-col"
+              variants={animations.slideUp}
+              whileHover="hover"
+              className="group relative h-full flex flex-col"
             >
-              {/* Foto */}
-              <div className="relative">
-              <div className="flex justify-center mt-6">
-  <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden relative shadow-lg">
-    {member.photo ? (
-      <img
-        src={member.photo}
-        alt={member.name}
-        className="w-full h-full object-cover object-top transition-transform duration-300 hover:scale-105"
-        loading="lazy"
-        onError={(e) => {
-          const target = e.target as HTMLImageElement;
-          target.style.display = "none";
-          target.nextElementSibling?.classList.remove("hidden");
-        }}
-      />
-    ) : null}
+              <motion.div
+                variants={microInteractions.card}
+                className={`${glassmorphism.light} rounded-2xl overflow-hidden border border-white/20 hover:border-blue-500/30 transition-all duration-500 h-full flex flex-col`}
+              >
+                {/* Floating elements */}
+                <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Foto */}
+                <div className="relative">
+                  <div className="flex justify-center mt-6">
+                    <motion.div 
+                      whileHover={{ scale: 1.05 }}
+                      className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden relative shadow-lg"
+                    >
+                      {member.photo ? (
+                        <motion.img
+                          src={member.photo}
+                          alt={member.name}
+                          className="w-full h-full object-cover object-top"
+                          loading="lazy"
+                          whileHover={{ scale: 1.1 }}
+                          transition={{ duration: 0.3 }}
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = "none";
+                            target.nextElementSibling?.classList.remove("hidden");
+                          }}
+                        />
+                      ) : null}
 
-    {/* Fallback com iniciais */}
-    <div
-      className={`absolute inset-0 bg-primary/10 flex items-center justify-center ${member.photo ? 'hidden' : ''}`}
-    >
-      <span className="text-3xl sm:text-4xl font-bold text-primary">
-        {member.name.split(' ').map(n => n[0]).join('')}
-      </span>
-    </div>
-  </div>
-</div>
+                      {/* Fallback com iniciais */}
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center ${member.photo ? 'hidden' : ''}`}
+                      >
+                        <span className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                          {member.name.split(' ').map(n => n[0]).join('')}
+                        </span>
+                      </div>
+                    </motion.div>
+                  </div>
+                </div>
                 
                 <div className="p-4 sm:p-6 flex-1 flex flex-col">
-                  <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">
+                  <motion.h3 
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 }}
+                    className="text-lg sm:text-xl font-bold text-foreground mb-2"
+                  >
                     {member.name}
-                  </h3>
-                  <p className="text-primary font-semibold mb-3 text-sm sm:text-base">
+                  </motion.h3>
+                  
+                  <motion.p 
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="text-blue-600 font-semibold mb-3 text-sm sm:text-base"
+                  >
                     {member.position}
-                  </p>
-                  <p className="text-muted-foreground mb-4 text-xs sm:text-sm flex-1">
+                  </motion.p>
+                  
+                  <motion.p 
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="text-muted-foreground mb-4 text-xs sm:text-sm flex-1"
+                  >
                     {member.description}
-                  </p>
+                  </motion.p>
 
                   {/* Contact Info */}
                   {/* <div className="space-y-2 mb-4 text-xs sm:text-sm">
@@ -188,10 +269,10 @@ const TeamSection = () => {
                     )} */}
                   </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* CTA Button */}
        {/* CTA Button com espaçamento melhorado */}
@@ -212,7 +293,7 @@ const TeamSection = () => {
   </div>
 </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

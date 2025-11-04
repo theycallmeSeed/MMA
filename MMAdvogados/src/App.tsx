@@ -11,6 +11,7 @@ import Privacidade from "./pages/Privacidade";
 import Termos from "./pages/Termos";
 import PageTransition from "./components/PageTransition";
 import WhatsAppButton from "./components/WhatsAppButton";
+import { AccessibilityProvider, AccessibilityToolbar } from "./components/AccessibilityProvider";
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -31,14 +32,17 @@ const AppRoutes = () => {
 };
 
 const App = () => (
-  <TooltipProvider>
-    <Toaster />
-    <Sonner />
-    <BrowserRouter>
-      <AppRoutes />
-      <WhatsAppButton />
-    </BrowserRouter>
-  </TooltipProvider>
+  <AccessibilityProvider>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <AppRoutes />
+        <WhatsAppButton />
+        <AccessibilityToolbar />
+      </BrowserRouter>
+    </TooltipProvider>
+  </AccessibilityProvider>
 );
 
 export default App;
