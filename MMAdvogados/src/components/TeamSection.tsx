@@ -92,7 +92,7 @@ const TeamSection = () => {
   const sectionAnimation = useScrollAnimation();
 
   return (
-    <motion.section 
+    <motion.section
       ref={sectionAnimation.ref}
       initial="hidden"
       animate={sectionAnimation.controls}
@@ -102,17 +102,17 @@ const TeamSection = () => {
       {/* Background Elements */}
       <div className="absolute top-10 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-10 right-10 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-      
+
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
-        <motion.div 
+        <motion.div
           ref={headerAnimation.ref}
           initial="hidden"
           animate={headerAnimation.controls}
           variants={animations.slideUp}
           className="text-center mb-16"
         >
-          <motion.div 
+          <motion.div
             variants={animations.slideUp}
             className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm rounded-full mb-8 border border-blue-500/20"
           >
@@ -121,8 +121,8 @@ const TeamSection = () => {
               Nossa Equipe
             </span>
           </motion.div>
-          
-          <motion.h2 
+
+          <motion.h2
             variants={animations.slideUp}
             className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6"
           >
@@ -130,18 +130,18 @@ const TeamSection = () => {
               Nossa Equipe
             </span>
           </motion.h2>
-          
-          <motion.p 
+
+          <motion.p
             variants={animations.slideUp}
             className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
           >
-            Conheça os profissionais dedicados que compõem o time MMA Advogados, 
+            Conheça os profissionais dedicados que compõem o time MMA Advogados,
             prontos para oferecer a melhor assessoria jurídica.
           </motion.p>
         </motion.div>
 
         {/* Team Grid */}
-        <motion.div 
+        <motion.div
           ref={teamAnimation.ref}
           initial="hidden"
           animate={teamAnimation.controls}
@@ -161,11 +161,11 @@ const TeamSection = () => {
               >
                 {/* Floating elements */}
                 <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
+
                 {/* Foto */}
                 <div className="relative">
                   <div className="flex justify-center mt-6">
-                    <motion.div 
+                    <motion.div
                       whileHover={{ scale: 1.05 }}
                       className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden relative shadow-lg"
                     >
@@ -196,9 +196,9 @@ const TeamSection = () => {
                     </motion.div>
                   </div>
                 </div>
-                
+
                 <div className="p-4 sm:p-6 flex-1 flex flex-col">
-                  <motion.h3 
+                  <motion.h3
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
@@ -206,8 +206,8 @@ const TeamSection = () => {
                   >
                     {member.name}
                   </motion.h3>
-                  
-                  <motion.p 
+
+                  <motion.p
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
@@ -215,8 +215,8 @@ const TeamSection = () => {
                   >
                     {member.position}
                   </motion.p>
-                  
-                  <motion.p 
+
+                  <motion.p
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
@@ -284,7 +284,7 @@ const TeamSection = () => {
     >
       {/* Efeito de brilho no hover */}
       <span className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
-      
+
       <span className="relative flex items-center gap-2 z-10">
         Ver Equipe Completa
         <ArrowRight className="h-4 w-4 inline-block transition-transform duration-300 group-hover:translate-x-1" />
