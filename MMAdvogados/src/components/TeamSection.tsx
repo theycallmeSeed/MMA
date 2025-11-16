@@ -199,11 +199,8 @@ const TeamSection = () => {
   <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-6">
     <a
       href="/equipe"
-      className="btn-outline-elite group relative overflow-hidden px-8 py-4 text-lg"
+      className="group relative overflow-hidden px-8 py-4 text-lg border border-border/50 rounded-lg transition-all duration-300 hover:border-primary/50 hover:bg-primary/5"
     >
-      {/* Efeito de brilho no hover */}
-      <span className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
-      
       <span className="relative flex items-center gap-2 z-10">
         Ver Equipe Completa
         <ArrowRight className="h-4 w-4 inline-block transition-transform duration-300 group-hover:translate-x-1" />

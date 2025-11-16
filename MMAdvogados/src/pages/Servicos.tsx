@@ -194,35 +194,35 @@ const Servicos = () => {
   ];
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-background"
     >
       <Navigation />
-      
+
       {/* Hero Section Enhanced */}
       <section className="relative pt-32 pb-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/10 to-background"></div>
         <div className="absolute top-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-10 left-10 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             {/* <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 border border-primary/20">
               <Sparkles className="h-4 w-4 text-primary" />
               <span className="text-sm font-semibold text-primary">Serviços Jurídicos Especializados</span>
             </motion.div> */}
-            
+
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6">
               <span className="text-primary">Áreas de Atuação</span>
               <br />
               {/* <span className="text-gradient-primary">que Transformam Desafios</span> */}
             </h1>
-            
+
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Assessoria jurídica completa e personalizada para empresas e particulares. 
+              Assessoria jurídica completa e personalizada para empresas e particulares.
               Transformamos complexidade jurídica em resultados concretos e mensuráveis.
             </p>
           </div>
@@ -252,13 +252,13 @@ const Servicos = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-32">
             {detailedServices.map((service, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="relative"
               >
                 {/* Decorative element */}
                 <div className={`absolute ${index % 2 === 0 ? '-left-4' : '-right-4'} top-0 w-1 h-full bg-gradient-to-b from-primary via-accent to-transparent opacity-20`}></div>
-                
+
                 <div className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-start`}>
                   {/* Content Side */}
                   <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
@@ -277,17 +277,17 @@ const Servicos = () => {
                           </p>
                         </div>
                       </div>
-                      
+
                       <p className="text-lg text-muted-foreground leading-relaxed">
                         {service.description}
                       </p>
                     </div>
-                    
+
                     {/* Details Cards */}
                     <div className="space-y-4 mb-8">
                       {service.details.map((detail, detailIndex) => (
-                        <div 
-                          key={detailIndex} 
+                        <div
+                          key={detailIndex}
                           className="group p-5 rounded-xl bg-gradient-to-br from-card to-muted/20 border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg"
                         >
                           <div className="flex items-start gap-3">
@@ -313,7 +313,7 @@ const Servicos = () => {
                       </h4>
                       <div className="flex flex-wrap gap-3">
                         {service.benefits.map((benefit, idx) => (
-                          <span 
+                          <span
                             key={idx}
                             className="px-4 py-2 bg-background rounded-full text-sm font-medium text-foreground border border-border"
                           >
@@ -322,7 +322,7 @@ const Servicos = () => {
                         ))}
                       </div>
                     </div>
-                    
+
                     {/* CTA Button */}
                     <a
                       href={generateWhatsAppLink(
@@ -349,7 +349,7 @@ Muito obrigado(a).`
                       </Button>
                     </a>
                   </div>
-                  
+
                   {/* Visual Side */}
                   <div className={`${index % 2 === 1 ? 'lg:order-1' : ''} relative`}>
                     <div className="sticky top-32">
@@ -357,13 +357,13 @@ Muito obrigado(a).`
                       <div className="relative rounded-3xl overflow-hidden" style={{ boxShadow: 'var(--shadow-elegant)' }}>
                         {/* Gradient Background */}
                         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/80 to-primary/60"></div>
-                        
+
                         {/* Pattern Overlay */}
                         <div className="absolute inset-0 opacity-10" style={{
                           backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
                           backgroundSize: '20px 20px'
                         }}></div>
-                        
+
                         {/* Content */}
                         <div className="relative p-12 flex flex-col items-center justify-center min-h-[400px]">
                           <service.icon className="h-32 w-32 text-primary-foreground/90 mb-6" strokeWidth={1.5} />
@@ -398,22 +398,19 @@ Muito obrigado(a).`
                            linear-gradient(90deg, hsl(343 59% 20%) 1px, transparent 1px)`,
           backgroundSize: '40px 40px'
         }}></div>
-        
+
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
-            {/* <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 border border-primary/20">
-              <Sparkles className="h-4 w-4 text-primary" />
-              <span className="text-sm font-semibold text-primary">Consultoria Personalizada</span>
-            </div> */}
-            
+
+
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">
               Precisa de Assessoria Jurídica <span className="text-gradient-primary">Especializada?</span>
             </h2>
-            
+
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-              Oferecemos consultoria jurídica especializada com análise detalhada da sua situação, 
-              identificação de riscos e oportunidades, e recomendações estratégicas personalizadas. 
-              A nossa equipa avalia as suas necessidades específicas e apresenta soluções jurídicas 
+              Oferecemos consultoria jurídica especializada com análise detalhada da sua situação,
+              identificação de riscos e oportunidades, e recomendações estratégicas personalizadas.
+              A nossa equipa avalia as suas necessidades específicas e apresenta soluções jurídicas
               eficazes para impulsionar o crescimento sustentável do seu negócio.
             </p>
           </div>
@@ -435,26 +432,6 @@ Muito obrigado(a).`
             ))}
           </div>
 
-          {/* CTA Buttons */}
-          {/* <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href={getWhatsAppConsultoriaLinkExact()}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button size="lg" className="btn-elite group">
-                <span className="flex items-center gap-2">
-                  Agendar Consultoria Agora
-                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </Button>
-            </a>
-            <a href="/contactos">
-              <Button size="lg" variant="outline" className="btn-outline-elite">
-                Ver Contactos
-              </Button>
-            </a>
-          </div> */}
         </div>
       </section>
 

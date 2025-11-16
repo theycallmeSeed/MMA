@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Instagram, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -164,6 +165,7 @@ const Navigation = () => {
       ? { main: "text-white text-shadow-hero", sub: "text-white/80 text-shadow-hero" }
       : { main: "text-foreground", sub: "text-muted-foreground" };
   const getSocialIconColor = () => (hasTransparentHero && isOverHero && !isScrolled ? "text-white/80 text-shadow-hero" : "text-foreground/80");
+  const getBurgerIconColor = () => (hasTransparentHero && isOverHero && !isScrolled ? "text-white text-shadow-hero" : "text-foreground");
   const getUnderlineColor = () => (hasTransparentHero && isOverHero && !isScrolled ? "bg-white" : "bg-gradient-to-r from-primary to-primary/60");
 
   const logoColors = getLogoColor();
@@ -179,11 +181,14 @@ const Navigation = () => {
       </a>
 
       {/* Barra de navegação */}
-      <nav
+      <motion.nav
         role="navigation"
         aria-label="Navegação principal"
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${isVisible ? "translate-y-0" : "-translate-y-full"} ${getNavBackground()}`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${isOpen || isVisible ? "translate-y-0" : "-translate-y-full"} ${getNavBackground()}`}
         style={{ willChange: "transform" }}
+        initial={{ y: -16, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ type: "spring", damping: 24, stiffness: 220 }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-3 lg:py-4">
@@ -205,7 +210,14 @@ const Navigation = () => {
             {/* Navegação desktop */}
             <div className="hidden lg:flex items-center space-x-1">
               {navItems.map((item) => (
-                <Link
+                <motion.div
+                  key={item.name}
+                  initial={{ y: -10, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ type: "spring", damping: 20, stiffness: 300 }}
+                >
+                  <Link
                   key={item.name}
                   to={item.href}
                   className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 group rounded-lg focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none ${getLinkColor(isActive(item.href))}`}
@@ -213,7 +225,8 @@ const Navigation = () => {
                 >
                   {item.name}
                   <span className={`absolute bottom-1 left-4 right-4 h-0.5 rounded-full transition-all duration-300 ${getUnderlineColor()} ${isActive(item.href) ? "w-[calc(100%-2rem)]" : "w-0 group-hover:w-[calc(100%-2rem)]"}`} />
-                </Link>
+                  </Link>
+                </motion.div>
               ))}
               <div className="flex items-center space-x-2 ml-6 pl-6 border-l border-border/30">
                 <a href="https://www.instagram.com/milagrosa.macuacua_advogados/" target="_blank" rel="noopener noreferrer" className={`p-2 rounded-lg transition-all duration-300 hover:scale-110 hover:bg-primary/10 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none ${getSocialIconColor()} hover:text-pink-500`} aria-label="Siga-nos no Instagram">
@@ -227,34 +240,63 @@ const Navigation = () => {
 
             {/* Botão burger (mobile) */}
             <div className="lg:hidden flex items-center">
-              <Button variant="ghost" onClick={() => setIsOpen((v) => !v)} aria-expanded={isOpen} aria-controls="mobile-menu" aria-label={isOpen ? "Fechar menu" : "Abrir menu"} ref={burgerRef} className="p-2">
-                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </Button>
+              <motion.div whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.94 }}>
+                <Button variant="ghost" onClick={() => setIsOpen((v) => !v)} aria-expanded={isOpen} aria-controls="mobile-menu" aria-label={isOpen ? "Fechar menu" : "Abrir menu"} ref={burgerRef} className={`p-2 ${getBurgerIconColor()}`}>
+                  {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                </Button>
+              </motion.div>
             </div>
           </div>
         </div>
-      </nav>
+      </motion.nav>
 
-      {/* Menu off-canvas (mobile) */}
-      <div id="mobile-menu" role="dialog" aria-modal="true" aria-hidden={!isOpen} ref={menuPanelRef} className={`fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border/40 transform transition-transform duration-300 ${isOpen ? "translate-y-0 pointer-events-auto" : "-translate-y-full pointer-events-none"}`} style={{ willChange: "transform" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col space-y-4">
-            {navItems.map((item, idx) => (
-              <Link key={item.name} to={item.href} ref={idx === 0 ? firstMobileLinkRef : undefined} onClick={() => setIsOpen(false)} className={`block px-3 py-3 rounded-lg text-base font-medium transition-colors ${getLinkColor(isActive(item.href))}`} aria-current={isActive(item.href) ? "page" : undefined}>
-                {item.name}
-              </Link>
-            ))}
-            <div className="flex items-center space-x-3 pt-4 border-t border-border/30">
-              <a href="https://www.instagram.com/milagrosa.macuacua_advogados/" target="_blank" rel="noopener noreferrer" className={`p-2 rounded-lg transition-all duration-300 hover:bg-primary/10 ${getSocialIconColor()}`} aria-label="Siga-nos no Instagram">
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className={`p-2 rounded-lg transition-all duration-300 hover:bg-primary/10 ${getSocialIconColor()}`} aria-label="Siga-nos no Facebook">
-                <Facebook className="h-5 w-5" />
-              </a>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            ref={menuPanelRef}
+            className={`fixed top-0 left-0 right-0 z-[80] max-h-[100svh] overflow-y-auto bg-background/95 backdrop-blur-xl border-b border-border/40`}
+            style={{ willChange: "transform" }}
+            initial={{ y: -80, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -80, opacity: 0 }}
+            transition={{ type: "spring", damping: 26, stiffness: 320 }}
+          >
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+              <div className="flex flex-col space-y-4">
+                {navItems.map((item, idx) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ y: -12, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ type: "spring", damping: 22, stiffness: 320, delay: 0.05 * idx }}
+                  >
+                    <Link
+                      to={item.href}
+                      ref={idx === 0 ? firstMobileLinkRef : undefined}
+                      onClick={() => setIsOpen(false)}
+                      className={`block px-3 py-3 rounded-lg text-base font-medium transition-colors ${getLinkColor(isActive(item.href))}`}
+                      aria-current={isActive(item.href) ? "page" : undefined}
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.div>
+                ))}
+                <div className="flex items-center space-x-3 pt-4 border-t border-border/30">
+                  <motion.a whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.95 }} href="https://www.instagram.com/milagrosa.macuacua_advogados/" target="_blank" rel="noopener noreferrer" className={`p-2 rounded-lg transition-all duration-300 hover:bg-primary/10 ${getSocialIconColor()}`} aria-label="Siga-nos no Instagram">
+                    <Instagram className="h-5 w-5" />
+                  </motion.a>
+                  <motion.a whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.95 }} href="#" target="_blank" rel="noopener noreferrer" className={`p-2 rounded-lg transition-all duration-300 hover:bg-primary/10 ${getSocialIconColor()}`} aria-label="Siga-nos no Facebook">
+                    <Facebook className="h-5 w-5" />
+                  </motion.a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Estilos globais */}
       <style>{`

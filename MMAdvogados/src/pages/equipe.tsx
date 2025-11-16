@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useLocation } from "react-router-dom";
-import { Linkedin, Mail, Globe, Phone, MapPin, Award, BookOpen, Sparkles, Users2, ChevronDown, GraduationCap, Briefcase, Languages, Target } from 'lucide-react';
+import { Linkedin, Mail, Globe, Phone, MapPin, Award, BookOpen, Sparkles, Users2, ChevronDown, GraduationCap, Briefcase, Languages, Target, ArrowRight } from 'lucide-react';
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
@@ -482,16 +482,16 @@ const Equipe = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            {/* <a href="/contactos" className="btn-elite group">
-              <span className="flex items-center gap-2">
-                Entrar em Contacto
-                <Sparkles className="h-5 w-5 group-hover:rotate-12 transition-transform" />
-              </span>
-            </a> */}
-            <a href="/servicos" className="btn-outline-elite">
-              Ver os Nossos Serviços
-            </a>
-          </div>
+  <a 
+    href="/servicos" 
+    className="group relative overflow-hidden px-8 py-4 text-lg border border-border/50 rounded-lg transition-all duration-300 hover:border-primary/50 hover:bg-primary/5"
+  >
+    <span className="relative flex items-center gap-2 z-10">
+      Ver os Nossos Serviços
+      <ArrowRight className="h-4 w-4 inline-block transition-transform duration-300 group-hover:translate-x-1" />
+    </span>
+  </a>
+</div>
         </div>
       </section>
 
