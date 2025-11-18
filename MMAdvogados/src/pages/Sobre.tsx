@@ -1,5 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
+import { fadeIn, slideUp, staggerContainer } from "@/lib/animation-variants";
 import { Trophy, Users, Target, Award, Shield, Heart, Building2, ArrowRight, CheckCircle } from "lucide-react";
 import milagrosaPortrait from "@/assets/milagrosa-portrait.jpg";
 import legalTeam from "@/assets/legal-team.jpg";
@@ -58,7 +60,13 @@ const Sobre = () => {
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
+          <motion.div
+            className="text-center mb-16"
+            variants={fadeIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6">
               <span className="text-primary">Sobre Nós</span>
             </h1>
@@ -66,15 +74,19 @@ const Sobre = () => {
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Uma sociedade de advogados pioneira em Moçambique, assente nos valores da excelência, da inovação e da liderança exercida por mulheres, ao serviço de empresas e particulares.
             </p>
-          </div>
+          </motion.div>
 
           {/* Achievement Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
             {achievements.map((achievement, index) => (
-              <div 
+              <motion.div 
                 key={index} 
                 className="text-center p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 group"
                 style={{ boxShadow: 'var(--shadow-card)' }}
+                variants={slideUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
               >
                 <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300">
                   <achievement.icon className="h-7 w-7 text-primary" />
@@ -85,7 +97,7 @@ const Sobre = () => {
                 <div className="text-sm text-muted-foreground font-medium">
                   {achievement.label}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -94,9 +106,15 @@ const Sobre = () => {
       {/* Nossa História com Escritório Section */}
       <section className="relative py-24 overflow-hidden bg-gradient-to-b from-background to-muted/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div 
+            className="grid lg:grid-cols-2 gap-12 items-center"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             {/* Imagem do Escritório */}
-            <div className="relative group">
+            <motion.div className="relative group" variants={slideUp}>
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500"></div>
               <div className="relative rounded-2xl overflow-hidden border border-border" style={{ boxShadow: 'var(--shadow-card)' }}>
                 <img 
@@ -115,10 +133,10 @@ const Sobre = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* História do Escritório */}
-            <div className="space-y-6">
+            <motion.div className="space-y-6" variants={slideUp}>
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
                 <Building2 className="h-4 w-4 text-primary" />
                 <span className="text-sm font-semibold text-primary">Nossa História</span>
@@ -145,8 +163,8 @@ const Sobre = () => {
                   Hoje, somos reconhecidos como referência em direito empresarial, mantendo sempre nossos valores fundamentais: excelência, transparência e compromisso com resultados.
                 </p>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -155,8 +173,14 @@ const Sobre = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-muted/20 to-background"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
+          <motion.div 
+            className="grid lg:grid-cols-2 gap-12 items-center"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            <motion.div className="space-y-6" variants={slideUp}>
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/20 text-accent-foreground">
                 <Trophy className="h-4 w-4 mr-2" />
                 <span className="text-sm font-medium">Fundadora & CEO</span>
@@ -194,9 +218,9 @@ const Sobre = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
-            <div className="relative">
+            <motion.div className="relative" variants={slideUp}>
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl"></div>
               <div className="relative overflow-hidden rounded-2xl border border-border" style={{ boxShadow: 'var(--shadow-card)' }}>
                 <img
@@ -206,8 +230,8 @@ const Sobre = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -281,20 +305,33 @@ const Sobre = () => {
         }}></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            variants={fadeIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary mb-6">
               Os Nossos Valores
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Os valores fundamentais que sustentam cada decisão e diferenciam nosso trabalho.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <motion.div 
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             {values.map((value, index) => (
-              <div 
+              <motion.div 
                 key={index} 
                 className="relative group"
+                variants={slideUp}
               >
                 <div className="relative h-full p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-500 hover:-translate-y-3"
                      style={{ boxShadow: 'var(--shadow-card)' }}>
@@ -317,16 +354,23 @@ const Sobre = () => {
 
                   <div className="absolute top-4 right-4 w-2 h-2 bg-primary/20 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Mission Statement */}
       <section className="relative py-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl p-12 border border-border" style={{ boxShadow: 'var(--shadow-card)' }}>
+          <motion.div 
+            className="text-center bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl p-12 border border-border"
+            style={{ boxShadow: 'var(--shadow-card)' }}
+            variants={slideUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary mb-6">
               <Target className="h-4 w-4 mr-2" />
               <span className="text-sm font-medium">A Nossa Missão</span>
@@ -349,7 +393,7 @@ const Sobre = () => {
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </a>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 

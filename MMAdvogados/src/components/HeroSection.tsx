@@ -64,10 +64,7 @@ const HeroSection = () => {
               </span>
             </h1>
             
-            {/* Decorative accent line below title */}
-            <div className="flex items-center justify-center mt-6 hero-fade-in" style={{ animationDelay: '0.6s' }}>
-              <div className="h-1 w-20 bg-gradient-to-r from-transparent via-accent to-transparent rounded-full"></div>
-            </div>
+            
           </div>
 
           {/* Subtitle with Optimized Reading Width */}

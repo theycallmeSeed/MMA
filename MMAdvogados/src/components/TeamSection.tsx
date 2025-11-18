@@ -1,4 +1,6 @@
 import { Linkedin, Mail, Globe, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { slideUp, staggerContainer, fadeIn } from '@/lib/animation-variants';
 
 interface TeamMember {
   id: number;
@@ -98,11 +100,18 @@ const TeamSection = () => {
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 sm:gap-8 lg:gap-10"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {teamMembers.map((member) => (
-            <div
+            <motion.div
               key={member.id}
               className="card-elegant rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full flex flex-col"
+              variants={slideUp}
             >
               {/* Foto */}
               <div className="relative">
@@ -189,25 +198,32 @@ const TeamSection = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        {/* CTA Button */}
-       {/* CTA Button com espaçamento melhorado */}
-<div className="mt-16 pt-12 border-t border-border/30">
-  <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-6">
-    <a
-      href="/equipe"
-      className="group relative overflow-hidden px-8 py-4 text-lg border border-border/50 rounded-lg transition-all duration-300 hover:border-primary/50 hover:bg-primary/5"
-    >
-      <span className="relative flex items-center gap-2 z-10">
-        Ver Equipe Completa
-        <ArrowRight className="h-4 w-4 inline-block transition-transform duration-300 group-hover:translate-x-1" />
-      </span>
-    </a>
-  </div>
-</div>
+        {/* CTA Button com espaçamento melhorado */}
+        <motion.div
+          className="mt-16 pt-12 border-t border-border/30"
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-6">
+            <motion.a
+              href="/equipe"
+              className="group relative overflow-hidden px-8 py-4 text-lg border border-border/50 rounded-lg transition-all duration-300 hover:border-primary/50 hover:bg-primary/5"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <span className="relative flex items-center gap-2 z-10">
+                Ver Equipe Completa
+                <ArrowRight className="h-4 w-4 inline-block transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
+            </motion.a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

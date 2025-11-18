@@ -114,11 +114,17 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-amber-400 mt-0.5 flex-shrink-0" />
-                <div className="text-gray-300 text-sm lg:text-base">
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Milagrosa%20Macuacua%20Advogados%20Av.%20Joaquim%20Chissano%201919%2C%20Fomento%2C%20Matola%2C%20Mo%C3%A7ambique"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Abrir localização no Google Maps: Milagrosa Macuacua Advogados"
+                  className="text-gray-300 text-sm lg:text-base hover:text-amber-400 hover:underline transition-colors"
+                >
                   <div>Av. Joaquim Chissano, 1919</div>
                   <div>Fomento, Matola</div>
                   <div>Moçambique</div>
-                </div>
+                </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-amber-400 flex-shrink-0" />
