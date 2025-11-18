@@ -342,7 +342,7 @@ const Sobre = () => {
 
             <div className="mt-8">
               <a 
-                href="#servicos" 
+                href="/servicos" 
                 className="group inline-flex items-center gap-2 px-8 py-4 text-lg border border-border/50 rounded-lg transition-all duration-300 hover:border-primary/50 hover:bg-primary/5"
               >
                 <span>Conheça as Áreas de Atuação</span>
