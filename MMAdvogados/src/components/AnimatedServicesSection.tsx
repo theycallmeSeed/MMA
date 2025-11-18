@@ -16,12 +16,45 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion, Variants } from "framer-motion";
 import { fadeIn, slideUp, staggerContainer } from "@/lib/animation-variants";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { generateWhatsAppLink, getWhatsAppConsultoriaLinkExact } from "@/lib/utils";
 
 const AnimatedServicesSection = () => {
   const [selectedService, setSelectedService] = useState<number | null>(null);
+  const isMobile = useIsMobile();
+  const prefersReduced = useReducedMotion();
+
+  // Variantes otimizadas para mobile/reduced-motion
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        // reduzir o stagger em mobile/reduced
+        staggerChildren: prefersReduced || isMobile ? 0.08 : 0.2,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: prefersReduced || isMobile ? 22 : 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: prefersReduced || isMobile ? 0.35 : 0.6, ease: "easeOut" },
+    },
+  };
+
+  const headerVariants: Variants = {
+    hidden: { opacity: 0, y: prefersReduced || isMobile ? 8 : 16 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: prefersReduced || isMobile ? 0.35 : 0.6, ease: "easeOut" },
+    },
+  };
 
   const services = [
     {
@@ -118,18 +151,18 @@ const AnimatedServicesSection = () => {
 
       <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
-        variants={staggerContainer}
+        variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: isMobile ? 0.15 : 0.2 }}
       >
         {/* Section Header */}
         <motion.div
           className="text-center mb-20"
-          variants={fadeIn}
+          variants={headerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: isMobile ? 0.2 : 0.3 }}
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
             <span className="text-primary">Áreas de Atuação</span>
@@ -145,17 +178,16 @@ const AnimatedServicesSection = () => {
         {/* Services Grid */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20"
-          variants={staggerContainer}
+          variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: isMobile ? 0.15 : 0.2 }}
         >
           {services.map((service, index) => (
             <motion.div
               key={index}
               className="group relative"
-              variants={slideUp}
-              transition={{ delay: index * 0.08 }}
+              variants={itemVariants}
             >
               {/* Card Container */}
               <div
@@ -212,10 +244,10 @@ const AnimatedServicesSection = () => {
                   <motion.a
                     href="/servicos"
                     className="block"
-                    variants={fadeIn}
+                    variants={headerVariants}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, amount: 0.3 }}
+                    viewport={{ once: true, amount: isMobile ? 0.2 : 0.3 }}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
