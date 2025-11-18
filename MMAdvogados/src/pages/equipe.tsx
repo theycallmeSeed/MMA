@@ -215,7 +215,7 @@ const Equipe = () => {
       id: 1,
       name: "Milagrosa Macuácua",
       position: "Sócio - Direito Empresarial",
-      photo: "/src/assets/milagrosa-portrait.jpg",
+      photo: "/images/milagrosa-portrait.jpg",
       description: "Advogada com mais de 15 anos de experiência em Direito Civil e Consumerista. Especialista em casos complexos de responsabilidade civil.",
       email: "maria@mmadvogados.com",
       phone: "+351 912 345 678",
@@ -245,7 +245,7 @@ const Equipe = () => {
       id: 2,
       name: "Marlete Miguel",
       position: "Sócio - Direito Empresarial",
-      photo: "/src/assets/marlet-portait.jpg",
+      photo: "/images/marlet-portait.jpg",
       description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
       email: "joao@mmadvogados.com",
       phone: "+351 913 456 789",
@@ -273,7 +273,7 @@ const Equipe = () => {
       id: 3,
       name: "Cláudia Semente",
       position: "Associada Sénior - Direito da Família",
-      photo: "/src/assets/claudia-portait.jpg",
+      photo: "/images/claudia-portait.jpg",
       description: "Especialista em Direito de Família e Sucessões com abordagem humanizada e sensível para casos familiares complexos.",
       email: "ana@mmadvogados.com",
       phone: "+351 914 567 890",
@@ -301,7 +301,7 @@ const Equipe = () => {
       id: 4,
       name: "Tecla Ntauma",
       position: "Assistente Administrativa",
-      photo: "/src/assets/tecla-portait.jpg",
+      photo: "/images/tecla-portait.jpg",
       description: "Profissional dedicada à gestão administrativa e suporte operacional, garantindo eficiência nos processos internos.",
       email: "joao@mmadvogados.com",
       phone: "+351 913 456 789",
@@ -328,7 +328,7 @@ const Equipe = () => {
       id: 5,
       name: "Helodia Malate",
       position: "Advogada - Direito Laboral",
-      photo: "/src/assets/Helodia-portait.jpg",
+      photo: "/images/Helodia-portait.jpg",
       description: "Especialista em Direito Laboral com foco na proteção dos direitos dos trabalhadores e assessoria a empresas.",
       email: "joao@mmadvogados.com",
       phone: "+351 913 456 789",
@@ -356,7 +356,7 @@ const Equipe = () => {
       id: 6,
       name: "Maura Matsinhe",
       position: "Advogada - Direito Imobiliário",
-      photo: "/src/assets/maura-portait.jpg",
+      photo: "/images/maura-portait.jpg",
       description: "Especialista em transações imobiliárias e direito urbanístico, com ampla experiência em regularização de propriedades.",
       email: "joao@mmadvogados.com",
       phone: "+351 913 456 789",
@@ -493,3 +493,4 @@ const Equipe = () => {
 };
 
 export default Equipe;
+

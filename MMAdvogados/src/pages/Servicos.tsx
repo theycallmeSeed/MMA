@@ -352,7 +352,7 @@ Muito obrigado(a).`
 
                   {/* Visual Side */}
                   <div className={`${index % 2 === 1 ? 'lg:order-1' : ''} relative`}>
-                    <div className="sticky top-32">
+                    <div className="lg:sticky lg:top-32">
                       {/* Main Card */}
                       <div className="relative rounded-3xl overflow-hidden" style={{ boxShadow: 'var(--shadow-elegant)' }}>
                         {/* Gradient Background */}

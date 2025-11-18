@@ -1,6 +1,4 @@
 import { CheckCircle, Users, Target, Trophy } from "lucide-react";
-import milagrosaPortrait from "@/assets/milagrosa-portrait.jpg";
-import legalTeam from "@/assets/legal-team.jpg";
 import { motion } from "framer-motion";
 import { AnimationWrapper } from "./animations";
 
@@ -82,7 +80,7 @@ Em 20XX, movida pelo sonho de contribuir no empoderamento feminino, decidiu fund
           <div className="relative order-1 lg:order-2">
             <div className="relative overflow-hidden rounded-2xl shadow-elegant">
               <img
-                src={milagrosaPortrait}
+                src="/images/milagrosa-portrait.jpg"
                 alt="Milagrosa Macuácua - Fundadora"
                 className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
               />
@@ -96,7 +94,7 @@ Em 20XX, movida pelo sonho de contribuir no empoderamento feminino, decidiu fund
           <div className="relative lg:order-2">
             <div className="relative overflow-hidden rounded-2xl shadow-elegant">
               <img
-                src={legalTeam}
+                src="/images/legal-team.jpg"
                 alt="Equipa Jurídica"
                 className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
               />

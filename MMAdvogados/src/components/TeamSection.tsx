@@ -21,7 +21,7 @@ const TeamSection = () => {
       id: 1,
       name: "Milagrosa Macuácua",
       position: "Assistente Administrativa",
-      photo: "/src/assets/milagrosa-portrait.jpg",
+      photo: "/images/milagrosa-portrait.jpg",
       description: "Advogada com mais de 15 anos de experiência em Direito Civil e Consumerista. Especialista em casos complexos de responsabilidade civil.",
       // email: "maria@mmadvogados.com",
       // phone: "+351 912 345 678",
@@ -32,7 +32,7 @@ const TeamSection = () => {
       id: 2,
       name: "Marlete Miguel",
       position: "Sócio - Direito Empresarial",
-      photo: "/src/assets/marlet-portait.jpg",
+      photo: "/images/marlet-portait.jpg",
       description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
       // email: "joao@mmadvogados.com",
       // phone: "+351 913 456 789",
@@ -43,7 +43,7 @@ const TeamSection = () => {
       id: 3,
       name: "Cláudia Semente",
       position: "Associada Sênior - Direito da Família",
-      photo: "/src/assets/claudia-portait.jpg",
+      photo: "/images/claudia-portait.jpg",
       description: "Especialista em Direito de Família e Sucessões com abordagem humanizada e sensível para casos familiares complexos.",
       // email: "ana@mmadvogados.com",
       // phone: "+351 914 567 890",
@@ -54,7 +54,7 @@ const TeamSection = () => {
       id: 4,
       name: "Tecla Ntauma",
       position: "Sócio - Direito Empresarial",
-      photo: "/src/assets/tecla-portait.jpg",
+      photo: "/images/tecla-portait.jpg",
       description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
       // email: "joao@mmadvogados.com",
       // phone: "+351 913 456 789",
@@ -65,7 +65,7 @@ const TeamSection = () => {
       id: 5,
       name: "Helodia Malate",
       position: "Sócio - Direito Empresarial",
-      photo: "/src/assets/Helodia-portait.jpg",
+      photo: "/images/Helodia-portait.jpg",
       description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
       // email: "joao@mmadvogados.com",
       // phone: "+351 913 456 789",
@@ -76,7 +76,7 @@ const TeamSection = () => {
       id: 6,
       name: "Maura Matsinhe",
       position: "Sócio - Direito Empresarial",
-      photo: "/src/assets/maura-portait.jpg",
+      photo: "/images/maura-portait.jpg",
       description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
       // email: "joao@mmadvogados.com",
       // phone: "+351 913 456 789",
@@ -230,3 +230,4 @@ const TeamSection = () => {
 };
 
 export default TeamSection;
+

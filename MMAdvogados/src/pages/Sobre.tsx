@@ -3,9 +3,6 @@ import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { fadeIn, slideUp, staggerContainer } from "@/lib/animation-variants";
 import { Trophy, Users, Target, Award, Shield, Heart, Building2, ArrowRight, CheckCircle } from "lucide-react";
-import milagrosaPortrait from "@/assets/milagrosa-portrait.jpg";
-import legalTeam from "@/assets/legal-team.jpg";
-// import escritorioImage from "@/assets/escritorio.jpg"; // Adicione a imagem do escritório
 
 const Sobre = () => {
   const values = [
@@ -224,7 +221,7 @@ const Sobre = () => {
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl"></div>
               <div className="relative overflow-hidden rounded-2xl border border-border" style={{ boxShadow: 'var(--shadow-card)' }}>
                 <img
-                  src={milagrosaPortrait}
+                  src="/images/milagrosa-portrait.jpg"
                   alt="Milagrosa Macuácua - Fundadora"
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                 />
@@ -243,7 +240,7 @@ const Sobre = () => {
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl"></div>
               <div className="relative overflow-hidden rounded-2xl border border-border" style={{ boxShadow: 'var(--shadow-card)' }}>
                 <img
-                  src={legalTeam}
+                  src="/images/legal-team.jpg"
                   alt="Equipa Jurídica"
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                 />
