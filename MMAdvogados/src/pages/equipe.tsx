@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import { Linkedin, Mail, Globe, Phone, MapPin, Award, BookOpen, Sparkles, Users2, ChevronDown, GraduationCap, Briefcase, Languages, Target, ArrowRight } from 'lucide-react';
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { fadeIn, slideUp, staggerContainer } from "@/lib/animation-variants";
 
 interface TeamMember {
   id: number;
@@ -26,9 +28,13 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({ membe
   const [open, setOpen] = useState(false);
 
   return (
-    <div
+    <motion.div
       className="group relative"
-      style={{ animationDelay: `${index * 100}ms` }}
+      variants={slideUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.25 }}
+      transition={{ delay: index * 0.05 }}
     >
       <div className="relative h-full rounded-3xl overflow-hidden bg-card border border-border hover:border-primary/30 transition-all duration-500 hover:-translate-y-2" style={{ boxShadow: 'var(--shadow-card)' }}>
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -120,76 +126,83 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({ membe
             <ChevronDown className={`w-5 h-5 text-primary transform transition-transform duration-300 ${open ? 'rotate-180' : ''}`} />
           </button>
 
-          {/* Conteúdo expansível isolado */}
-          <div
-            id={`member-details-${member.id}`}
-            className={`overflow-hidden transition-all duration-500 ${open ? 'max-h-[2000px] opacity-100 mt-6' : 'max-h-0 opacity-0'}`}
-          >
-            <div className="space-y-6 px-2">
-              <div>
-                <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
-                  <GraduationCap className="w-5 h-5 mr-2 text-primary" />
-                  Formação Académica
-                </h4>
-                <ul className="space-y-2">
-                  {member.education.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          <AnimatePresence>
+            {open && (
+              <motion.div
+                id={`member-details-${member.id}`}
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.4 }}
+                className="mt-6"
+              >
+                <div className="space-y-6 px-2">
+                  <div>
+                    <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
+                      <GraduationCap className="w-5 h-5 mr-2 text-primary" />
+                      Formação Académica
+                    </h4>
+                    <ul className="space-y-2">
+                      {member.education.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-              <div>
-                <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
-                  <Briefcase className="w-5 h-5 mr-2 text-primary" />
-                  Experiência Profissional
-                </h4>
-                <ul className="space-y-2">
-                  {member.experience.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                  <div>
+                    <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
+                      <Briefcase className="w-5 h-5 mr-2 text-primary" />
+                      Experiência Profissional
+                    </h4>
+                    <ul className="space-y-2">
+                      {member.experience.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-              <div>
-                <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
-                  <Sparkles className="w-5 h-5 mr-2 text-primary" />
-                  Especialidades
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {member.specialties.map((specialty, idx) => (
-                    <span key={idx} className="px-3 py-1.5 bg-gradient-to-br from-primary/10 to-accent/10 text-foreground text-xs font-medium rounded-full border border-primary/20">
-                      {specialty}
-                    </span>
-                  ))}
+                  <div>
+                    <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
+                      <Sparkles className="w-5 h-5 mr-2 text-primary" />
+                      Especialidades
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {member.specialties.map((specialty, idx) => (
+                        <span key={idx} className="px-3 py-1.5 bg-gradient-to-br from-primary/10 to-accent/10 text-foreground text-xs font-medium rounded-full border border-primary/20">
+                          {specialty}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
+                      <Languages className="w-5 h-5 mr-2 text-primary" />
+                      Idiomas
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {member.languages.map((language, idx) => (
+                        <span key={idx} className="px-3 py-1.5 bg-secondary/50 text-foreground text-xs font-medium rounded-full">
+                          {language}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              </div>
-
-              <div>
-                <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
-                  <Languages className="w-5 h-5 mr-2 text-primary" />
-                  Idiomas
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {member.languages.map((language, idx) => (
-                    <span key={idx} className="px-3 py-1.5 bg-secondary/50 text-foreground text-xs font-medium rounded-full">
-                      {language}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         <div className="absolute top-4 right-4 w-2 h-2 bg-primary/30 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -379,7 +392,13 @@ const Equipe = () => {
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center">
+          <motion.div
+            className="text-center"
+            variants={fadeIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6">
               <span className="text-primary">Profissionais</span>
               <br />
@@ -397,26 +416,40 @@ const Equipe = () => {
                 { icon: Award, number: "50+", label: "Anos de Experiência Combinada" },
                 { icon: Target, number: "7", label: "Áreas de Especialização" }
               ].map((stat, idx) => (
-                <div key={idx} className="text-center">
+                <motion.div
+                  key={idx}
+                  className="text-center"
+                  variants={slideUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ delay: idx * 0.1 }}
+                >
                   <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl mb-3">
                     <stat.icon className="h-7 w-7 text-primary" />
                   </div>
                   <div className="text-3xl font-bold text-primary mb-1">{stat.number}</div>
                   <div className="text-sm text-muted-foreground font-medium">{stat.label}</div>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             {teamMembers.map((member, index) => (
               <TeamMemberCard key={member.id} member={member} index={index} />
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -434,12 +467,22 @@ const Equipe = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="/servicos" className="group relative overflow-hidden px-8 py-4 text-lg border border-border/50 rounded-lg transition-all duration-300 hover:border-primary/50 hover:bg-primary/5">
+            <motion.a
+              href="/servicos"
+              className="group relative overflow-hidden px-8 py-4 text-lg border border-border/50 rounded-lg transition-all duration-300 hover:border-primary/50 hover:bg-primary/5"
+              variants={fadeIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ delay: 0.2 }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+            >
               <span className="relative flex items-center gap-2 z-10">
                 Ver os Nossos Serviços
                 <ArrowRight className="h-4 w-4 inline-block transition-transform duration-300 group-hover:translate-x-1" />
               </span>
-            </a>
+            </motion.a>
           </div>
         </div>
       </section>

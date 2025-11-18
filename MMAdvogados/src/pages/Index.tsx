@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
-import ServicesSection from "@/components/ServicesSection";
+import AnimatedServicesSection from "@/components/AnimatedServicesSection";
 import TeamSection from "@/components/TeamSection";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
@@ -17,7 +17,7 @@ const Index = () => {
       <Navigation />
       <HeroSection />
       <AboutSection />
-      <ServicesSection />
+      <AnimatedServicesSection />
       <TeamSection />
       <Footer />
     </motion.div>
@@ -25,3 +25,4 @@ const Index = () => {
 };
 
 export default Index;
+
