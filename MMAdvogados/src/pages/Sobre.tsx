@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { fadeIn, slideUp, staggerContainer } from "@/lib/animation-variants";
 import { Trophy, Users, Target, Award, Shield, Heart, Building2, ArrowRight, CheckCircle } from "lucide-react";
 
@@ -46,6 +46,7 @@ const Sobre = () => {
     "Relatórios mensais e transparência total",
   ];
 
+  const shouldReduce = useReducedMotion();
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -59,10 +60,11 @@ const Sobre = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             className="text-center mb-16"
-            variants={fadeIn}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            variants={shouldReduce ? {} : fadeIn}
+            initial={shouldReduce ? undefined : "hidden"}
+            whileInView={shouldReduce ? undefined : "visible"}
+            viewport={shouldReduce ? undefined : { once: true, amount: 0.3 }}
+            style={{ willChange: "transform, opacity", backfaceVisibility: "hidden" }}
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6">
               <span className="text-primary">Sobre Nós</span>
@@ -74,16 +76,20 @@ const Sobre = () => {
           </motion.div>
 
           {/* Achievement Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16"
+            variants={shouldReduce ? {} : staggerContainer}
+            initial={shouldReduce ? undefined : "hidden"}
+            whileInView={shouldReduce ? undefined : "visible"}
+            viewport={shouldReduce ? undefined : { once: true, amount: 0.3 }}
+            style={{ willChange: "transform, opacity", backfaceVisibility: "hidden" }}
+          >
             {achievements.map((achievement, index) => (
               <motion.div 
                 key={index} 
                 className="text-center p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 group"
-                style={{ boxShadow: 'var(--shadow-card)' }}
-                variants={slideUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
+                style={{ boxShadow: 'var(--shadow-card)', willChange: "transform, opacity", backfaceVisibility: "hidden" }}
+                variants={shouldReduce ? {} : slideUp}
               >
                 <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300">
                   <achievement.icon className="h-7 w-7 text-primary" />
@@ -96,7 +102,7 @@ const Sobre = () => {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 

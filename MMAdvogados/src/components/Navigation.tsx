@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Instagram, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,6 +12,7 @@ const Navigation = () => {
   const location = useLocation();
   const lastScrollY = useRef(0);
   const hasTransparentHero = location.pathname === "/";
+  const shouldReduce = useReducedMotion();
 
   const burgerRef = useRef<HTMLButtonElement | null>(null);
   const firstMobileLinkRef = useRef<HTMLAnchorElement | null>(null);
@@ -201,7 +202,7 @@ const Navigation = () => {
         style={{ willChange: "transform" }}
         initial={{ y: -16, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ type: "spring", damping: 24, stiffness: 220 }}
+        transition={shouldReduce ? { duration: 0 } : { type: "spring", damping: 24, stiffness: 220 }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-3 lg:py-4">
@@ -226,9 +227,8 @@ const Navigation = () => {
                 <motion.div
                   key={item.name}
                   initial={{ y: -10, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ type: "spring", damping: 20, stiffness: 300 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={shouldReduce ? { duration: 0 } : { type: "spring", damping: 20, stiffness: 300 }}
                 >
                   <Link
                     to={item.href}
@@ -282,7 +282,7 @@ const Navigation = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.18 }}
+            transition={shouldReduce ? { duration: 0 } : { duration: 0.18 }}
             style={{ willChange: "opacity" }}
           >
             {/* BACKDROP: leve translucidez branca para suavizar transição */}
@@ -292,7 +292,7 @@ const Navigation = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.18 }}
+              transition={shouldReduce ? { duration: 0 } : { duration: 0.18 }}
               aria-hidden="true"
             />
 
@@ -306,7 +306,7 @@ const Navigation = () => {
               initial={{ y: -80, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -80, opacity: 0 }}
-              transition={{ type: "spring", damping: 26, stiffness: 320 }}
+              transition={shouldReduce ? { duration: 0 } : { type: "spring", damping: 26, stiffness: 320 }}
               style={{ willChange: "transform" }}
             >
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">

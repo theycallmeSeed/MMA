@@ -1,5 +1,5 @@
 import { CheckCircle, Users, Target, Trophy } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { AnimationWrapper } from "./animations";
 
 const AboutSection = () => {
@@ -10,15 +10,18 @@ const AboutSection = () => {
     "Relatórios mensais e transparência total",
   ];
 
+  const shouldReduce = useReducedMotion();
   return (
 
     
     <motion.section 
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-      className="py-16 lg:py-20 bg-gradient-to-b from-background to-muted/20">
+      initial={shouldReduce ? undefined : { opacity: 0 }}
+      whileInView={shouldReduce ? undefined : { opacity: 1 }}
+      transition={shouldReduce ? { duration: 0 } : { duration: 0.8 }}
+      viewport={shouldReduce ? undefined : { once: true }}
+      className="py-16 lg:py-20 bg-gradient-to-b from-background to-muted/20"
+      style={{ willChange: "opacity" }}
+    >
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -83,6 +86,8 @@ Em 20XX, movida pelo sonho de contribuir no empoderamento feminino, decidiu fund
                 src="/images/milagrosa-portrait.jpg"
                 alt="Milagrosa Macuácua - Fundadora"
                 className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
             </div>
@@ -97,6 +102,8 @@ Em 20XX, movida pelo sonho de contribuir no empoderamento feminino, decidiu fund
                 src="/images/legal-team.jpg"
                 alt="Equipa Jurídica"
                 className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
             </div>

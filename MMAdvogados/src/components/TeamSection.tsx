@@ -1,5 +1,5 @@
 import { Linkedin, Mail, Globe, Phone, MapPin, ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { slideUp, staggerContainer, fadeIn } from '@/lib/animation-variants';
 
 interface TeamMember {
@@ -16,6 +16,7 @@ interface TeamMember {
 }
 
 const TeamSection = () => {
+  const shouldReduce = useReducedMotion();
   const teamMembers: TeamMember[] = [
     {
       id: 1,
@@ -102,10 +103,11 @@ const TeamSection = () => {
         {/* Team Grid */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 sm:gap-8 lg:gap-10"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          variants={shouldReduce ? {} : staggerContainer}
+          initial={shouldReduce ? undefined : "hidden"}
+          whileInView={shouldReduce ? undefined : "visible"}
+          viewport={shouldReduce ? undefined : { once: true, amount: 0.2 }}
+          style={{ willChange: "transform, opacity", backfaceVisibility: "hidden" }}
         >
           {teamMembers.map((member) => (
             <motion.div

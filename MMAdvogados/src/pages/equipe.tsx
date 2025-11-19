@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Linkedin, Mail, Globe, Phone, MapPin, Award, BookOpen, Sparkles, Users2, ChevronDown, GraduationCap, Briefcase, Languages, Target, ArrowRight } from 'lucide-react';
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -8,7 +8,7 @@ import { fadeIn, slideUp, staggerContainer } from "@/lib/animation-variants";
 
 interface TeamMember {
   id: number;
-  name: string;
+  name: string; 
   position: string;
   photo: string;
   description: string;
@@ -31,10 +31,8 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({ membe
     <motion.div
       className="group relative"
       variants={slideUp}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.25 }}
       transition={{ delay: index * 0.05 }}
+      style={{ willChange: "transform, opacity", backfaceVisibility: "hidden" }}
     >
       <div className="relative h-full rounded-3xl overflow-hidden bg-card border border-border hover:border-primary/30 transition-all duration-500 hover:-translate-y-2" style={{ boxShadow: 'var(--shadow-card)' }}>
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -130,11 +128,12 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({ membe
             {open && (
               <motion.div
                 id={`member-details-${member.id}`}
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.4 }}
+                initial={{ opacity: 0, scaleY: 0 }}
+                animate={{ opacity: 1, scaleY: 1 }}
+                exit={{ opacity: 0, scaleY: 0 }}
+                transition={{ duration: 0.3 }}
                 className="mt-6"
+                style={{ transformOrigin: 'top', willChange: "transform, opacity" }}
               >
                 <div className="space-y-6 px-2">
                   <div>
@@ -206,8 +205,11 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({ membe
   );
 };
 
+const MemoTeamMemberCard = memo(TeamMemberCard);
+
 const Equipe = () => {
   const location = useLocation();
+  const shouldReduce = useReducedMotion();
 
   const teamMembers: TeamMember[] = [
     // ... mantém os objetos dos membros que já tinhas (copiar tal como estão)
@@ -394,10 +396,11 @@ const Equipe = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             className="text-center"
-            variants={fadeIn}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            variants={shouldReduce ? {} : fadeIn}
+            initial={shouldReduce ? undefined : "hidden"}
+            whileInView={shouldReduce ? undefined : "visible"}
+            viewport={shouldReduce ? undefined : { once: true, amount: 0.3 }}
+            style={{ willChange: "transform, opacity", backfaceVisibility: "hidden" }}
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6">
               <span className="text-primary">Profissionais</span>
@@ -410,7 +413,14 @@ const Equipe = () => {
               assessoria jurídica de elite com resultados excepcionais.
             </p>
 
-            <div className="flex flex-wrap justify-center gap-8 mt-12">
+            <motion.div
+              className="flex flex-wrap justify-center gap-8 mt-12"
+              variants={shouldReduce ? {} : staggerContainer}
+              initial={shouldReduce ? undefined : "hidden"}
+              whileInView={shouldReduce ? undefined : "visible"}
+              viewport={shouldReduce ? undefined : { once: true, amount: 0.3 }}
+              style={{ willChange: "transform, opacity" }}
+            >
               {[
                 { icon: Users2, number: "6+", label: "Profissionais" },
                 { icon: Award, number: "50+", label: "Anos de Experiência Combinada" },
@@ -419,10 +429,7 @@ const Equipe = () => {
                 <motion.div
                   key={idx}
                   className="text-center"
-                  variants={slideUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.3 }}
+                  variants={shouldReduce ? {} : slideUp}
                   transition={{ delay: idx * 0.1 }}
                 >
                   <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl mb-3">
@@ -432,7 +439,7 @@ const Equipe = () => {
                   <div className="text-sm text-muted-foreground font-medium">{stat.label}</div>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -447,7 +454,7 @@ const Equipe = () => {
             viewport={{ once: true, amount: 0.2 }}
           >
             {teamMembers.map((member, index) => (
-              <TeamMemberCard key={member.id} member={member} index={index} />
+              <MemoTeamMemberCard key={member.id} member={member} index={index} />
             ))}
           </motion.div>
         </div>
@@ -470,10 +477,10 @@ const Equipe = () => {
             <motion.a
               href="/servicos"
               className="group relative overflow-hidden px-8 py-4 text-lg border border-border/50 rounded-lg transition-all duration-300 hover:border-primary/50 hover:bg-primary/5"
-              variants={fadeIn}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              variants={shouldReduce ? {} : fadeIn}
+              initial={shouldReduce ? undefined : "hidden"}
+              whileInView={shouldReduce ? undefined : "visible"}
+              viewport={shouldReduce ? undefined : { once: true, amount: 0.3 }}
               transition={{ delay: 0.2 }}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}

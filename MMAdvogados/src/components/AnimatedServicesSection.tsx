@@ -160,9 +160,7 @@ const AnimatedServicesSection = () => {
         <motion.div
           className="text-center mb-20"
           variants={headerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: isMobile ? 0.2 : 0.3 }}
+          style={{ willChange: "transform, opacity", backfaceVisibility: "hidden" }}
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
             <span className="text-primary">Áreas de Atuação</span>
@@ -182,6 +180,7 @@ const AnimatedServicesSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: isMobile ? 0.15 : 0.2 }}
+          style={{ willChange: "transform, opacity" }}
         >
           {services.map((service, index) => (
             <motion.div
@@ -245,11 +244,9 @@ const AnimatedServicesSection = () => {
                     href="/servicos"
                     className="block"
                     variants={headerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: isMobile ? 0.2 : 0.3 }}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
+                    style={{ willChange: "transform, opacity" }}
                   >
                     <Button className="w-full bg-gradient-to-r from-primary/10 to-accent/10 text-primary hover:from-primary hover:to-primary/90 hover:text-primary-foreground border border-primary/20 transition-all duration-300 group/btn">
                       <span className="flex items-center justify-center gap-2">
