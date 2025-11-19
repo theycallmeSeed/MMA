@@ -1,6 +1,6 @@
 import { ArrowRight, Award, Users, Briefcase, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroBanner from "@//images/hero-banner.jpg";
+
 import { getWhatsAppConsultoriaLinkExact } from "@/lib/utils";
 import { motion } from "framer-motion";
 
@@ -17,7 +17,7 @@ const HeroSection = () => {
       <div
         className="absolute inset-0 h-full w-full bg-cover bg-center bg-no-repeat hero-parallax"
         style={{
-          backgroundImage: `url(${heroBanner})`,
+          backgroundImage: "url('/images/hero-banner.jpg')",
           willChange: 'transform',
           filter: 'saturate(1.22) contrast(1.08) brightness(1.03)',
           backgroundBlendMode: 'normal',
