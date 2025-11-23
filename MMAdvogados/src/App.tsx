@@ -11,11 +11,57 @@ import Privacidade from "./pages/Privacidade";
 import Termos from "./pages/Termos";
 import PageTransition from "./components/PageTransition";
 import WhatsAppButton from "./components/WhatsAppButton";
+import { useEffect } from "react";
+
+function UseBgClipFallback(): null {
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    // Feature-detection robusta
+    const cssSupports =
+      typeof CSS !== "undefined" &&
+      typeof CSS.supports === "function";
+
+    const supportsBgClip = cssSupports && (
+      CSS.supports("-webkit-background-clip", "text") ||
+      CSS.supports("background-clip", "text")
+    );
+
+    const supportsTextFill = cssSupports && (
+      CSS.supports("-webkit-text-fill-color", "transparent") ||
+      // fallback basic check for transparent color support
+      CSS.supports("color", "transparent")
+    );
+
+    // If CSS.supports not available or one of features missing -> apply fallback
+    const needsFallback = !cssSupports || !(supportsBgClip && supportsTextFill);
+
+    if (needsFallback) {
+      try {
+        document.documentElement.classList.add("no-bgclip-text");
+      } catch (e) {
+        /* noop */
+      }
+    }
+  }, []);
+
+  
+
+  return null;
+  
+}
+
+
+
+
+
+
 
 const AppRoutes = () => {
   const location = useLocation();
   
   return (
+    
     <PageTransition key={location.pathname}>
       <Routes location={location}>
         <Route path="/" element={<Index />} />
@@ -40,5 +86,7 @@ const App = () => (
     </BrowserRouter>
   </TooltipProvider>
 );
+
+
 
 export default App;

@@ -15,8 +15,8 @@ import {
   Award,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
-import { motion, useReducedMotion, Variants } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
+import { motion, useReducedMotion, Variants, useAnimation} from "framer-motion";
 import { fadeIn, slideUp, staggerContainer } from "@/lib/animation-variants";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { generateWhatsAppLink, getWhatsAppConsultoriaLinkExact } from "@/lib/utils";
@@ -25,6 +25,48 @@ const AnimatedServicesSection = () => {
   const [selectedService, setSelectedService] = useState<number | null>(null);
   const isMobile = useIsMobile();
   const prefersReduced = useReducedMotion();
+
+  // controller para animação
+  const controls = useAnimation();
+  const ref = useRef<HTMLDivElement | null>(null);
+
+ 
+
+  useEffect(() => {
+    if (prefersReduced) {
+      controls.start("visible");
+      return;
+    }
+
+    const node = ref.current;
+    if (!node) return;
+
+    const threshold = isMobile ? 0.03 : 0.15;
+    const rootMargin = isMobile ? "-20% 0px -20% 0px" : "0px";
+    const once = true; // mantém comportamento "dispara só uma vez"
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // usa isIntersecting + intersectionRatio para robustez
+          if (entry.isIntersecting && entry.intersectionRatio >= threshold) {
+            controls.start("visible");
+            if (once) observer.disconnect();
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin,
+        threshold: [threshold],
+      }
+    );
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, [ref, isMobile, prefersReduced, controls]);
+
 
   // Variantes otimizadas para mobile/reduced-motion
   const containerVariants: Variants = {
@@ -39,20 +81,20 @@ const AnimatedServicesSection = () => {
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: prefersReduced || isMobile ? 22 : 50 },
+    hidden: { opacity: 0, y: prefersReduced || isMobile ? 18 : 40 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: prefersReduced || isMobile ? 0.35 : 0.6, ease: "easeOut" },
+      transition: { duration: prefersReduced || isMobile ? 0.32 : 0.55, ease: "easeOut" },
     },
   };
 
   const headerVariants: Variants = {
-    hidden: { opacity: 0, y: prefersReduced || isMobile ? 8 : 16 },
+    hidden: { opacity: 0, y: prefersReduced || isMobile ? 6 : 14 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: prefersReduced || isMobile ? 0.35 : 0.6, ease: "easeOut" },
+      transition: { duration: prefersReduced || isMobile ? 0.32 : 0.55, ease: "easeOut" },
     },
   };
 
@@ -150,11 +192,13 @@ const AnimatedServicesSection = () => {
       ></div>
 
       <motion.div
+      ref ={ref}
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
         variants={containerVariants}
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: isMobile ? 0.15 : 0.2 }}
+          animate={controls} 
+        // whileInView="visible"
+        // viewport={{ once: true, amount: isMobile ? 0.15 : 0.2 }}
       >
         {/* Section Header */}
         <motion.div
@@ -162,7 +206,7 @@ const AnimatedServicesSection = () => {
           variants={headerVariants}
           style={{ willChange: "transform, opacity", backfaceVisibility: "hidden" }}
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
+          <h2 className=" text-gradient-primary text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
             <span className="text-primary">Áreas de Atuação</span>
             <br />
           </h2>
@@ -177,9 +221,9 @@ const AnimatedServicesSection = () => {
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20"
           variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: isMobile ? 0.15 : 0.2 }}
+          // initial="hidden"
+          // whileInView="visible"
+          // viewport={{ once: true, amount: 0.01}}
           style={{ willChange: "transform, opacity" }}
         >
           {services.map((service, index) => (
