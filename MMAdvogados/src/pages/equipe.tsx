@@ -5,6 +5,7 @@ import { Linkedin, Mail, Globe, Phone, MapPin, Award, BookOpen, Sparkles, Users2
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { fadeIn, slideUp, staggerContainer } from "@/lib/animation-variants";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface TeamMember {
   id: number;
@@ -210,6 +211,7 @@ const MemoTeamMemberCard = memo(TeamMemberCard);
 const Equipe = () => {
   const location = useLocation();
   const shouldReduce = useReducedMotion();
+  const isMobile = useIsMobile();
 
   const teamMembers: TeamMember[] = [
     // ... mantém os objetos dos membros que já tinhas (copiar tal como estão)
@@ -451,8 +453,9 @@ const Equipe = () => {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             variants={staggerContainer}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            animate={isMobile ? "visible" : undefined}
+            whileInView={isMobile ? undefined : "visible"}
+            viewport={isMobile ? undefined : { once: true, amount: 0.2, margin: "0px 0px -10% 0px" }}
           >
             {teamMembers.map((member, index) => (
               <MemoTeamMemberCard key={member.id} member={member} index={index} />
