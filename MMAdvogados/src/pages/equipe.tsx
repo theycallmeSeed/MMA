@@ -439,7 +439,7 @@ const Equipe = () => {
                     <stat.icon className="h-7 w-7 text-primary" />
                   </div>
                   <div className="text-3xl font-bold text-primary mb-1">{stat.number}</div>
-                  <div className="text-sm text-muted-foreground font-medium">{stat.label}</div>
+                  <div className="text-sm text-foreground font-medium">{stat.label}</div>
                 </motion.div>
               ))}
             </motion.div>
@@ -472,7 +472,7 @@ const Equipe = () => {
             Pronto para Trabalhar com <span className="text-gradient-primary">os Melhores?</span>
           </h2>
 
-          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+          <p className="text-lg text-foreground mb-8 leading-relaxed">
             A nossa equipa está pronta para oferecer soluções jurídicas personalizadas 
             que atendam às suas necessidades específicas.
           </p>

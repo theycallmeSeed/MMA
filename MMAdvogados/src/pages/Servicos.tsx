@@ -221,7 +221,7 @@ const Servicos = () => {
               {/* <span className="text-gradient-primary">que Transformam Desafios</span> */}
             </h1>
 
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-foreground max-w-4xl mx-auto leading-relaxed">
               Assessoria jurídica completa e personalizada para empresas e particulares.
               Transformamos complexidade jurídica em resultados concretos e mensuráveis.
             </p>
@@ -278,9 +278,9 @@ const Servicos = () => {
                         </div>
                       </div>
 
-                      <p className="text-lg text-muted-foreground leading-relaxed">
-                        {service.description}
-                      </p>
+                          <p className="text-lg text-foreground leading-relaxed">
+                            {service.description}
+                          </p>
                     </div>
 
                     {/* Details Cards */}
@@ -296,7 +296,7 @@ const Servicos = () => {
                               <h4 className="font-semibold text-foreground mb-1">
                                 {detail.title}
                               </h4>
-                              <p className="text-sm text-muted-foreground leading-relaxed">
+                              <p className="text-sm text-foreground leading-relaxed">
                                 {detail.desc}
                               </p>
                             </div>

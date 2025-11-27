@@ -70,7 +70,7 @@ const Sobre = () => {
               <span className="text-primary">Sobre Nós</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-foreground max-w-3xl mx-auto leading-relaxed">
               Uma sociedade de advogados pioneira em Moçambique, assente nos valores da excelência, da inovação e da liderança exercida por mulheres, ao serviço de empresas e particulares.
             </p>
           </motion.div>
@@ -149,7 +149,7 @@ const Sobre = () => {
                 Uma Jornada de <span className="text-gradient-primary">Excelência Jurídica</span>
               </h2>
 
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <div className="space-y-4 text-foreground leading-relaxed">
                 <p className="text-lg">
                   Fundada com a visão de transformar o panorama jurídico em Moçambique, a MM Advogados nasceu do compromisso inabalável com a excelência e a inovação no direito empresarial.
                 </p>
@@ -193,7 +193,7 @@ const Sobre = () => {
                 Milagrosa Macuácua
               </h3>
               
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <div className="space-y-4 text-foreground leading-relaxed">
                 <p className="text-lg">
                   Milagrosa Macuacua é sócia e fundadora da MM Advogados. Desempenha as suas actividades nas áreas de XXXXXXXXXXXXXXX.
                 </p>
