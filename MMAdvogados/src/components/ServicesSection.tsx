@@ -344,10 +344,13 @@ Muito obrigado(a).`
             
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
               O nosso regime de avença oferece assessoria jurídica contínua com relatórios mensais detalhados, 
-              comunicação direta com a equipa e custos previsíveis. Ideal para empresas que necessitam de 
-              acompanhamento jurídico regular em múltiplas áreas de direito, garantindo conformidade legal 
-              e resposta rápida a questões urgentes.
+              comunicação direta com a equipa e custos previsíveis. 
+            
             </p>
+
+                   {/* Ideal para empresas que necessitam de 
+              acompanhamento jurídico regular em múltiplas áreas de direito, garantindo conformidade legal 
+              e resposta rápida a questões urgentes. */}
 
             {/* Benefits Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10 max-w-4xl mx-auto">

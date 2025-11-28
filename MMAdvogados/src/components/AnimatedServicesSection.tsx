@@ -395,9 +395,11 @@ const AnimatedServicesSection = () => {
 
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
               O nosso regime de avença oferece assessoria jurídica contínua com relatórios mensais detalhados,
-              comunicação direta com a equipa e custos previsíveis. Ideal para empresas que necessitam de
+              comunicação direta com a equipa e custos previsíveis.   
+{/*               
+              Ideal para empresas que necessitam de
               acompanhamento jurídico regular em múltiplas áreas de direito, garantindo conformidade legal
-              e resposta rápida a questões urgentes.
+              e resposta rápida a questões urgentes. */}
             </p>
 
             {/* Benefits Grid */}

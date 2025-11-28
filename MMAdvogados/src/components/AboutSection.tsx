@@ -4,10 +4,10 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const carouselImages = [
-  "/images/milagrosa-portrait.jpg",
+  // "/images/milagrosa-portrait.jpg",
   "/images/legal-team.jpg",
   "/images/office-1.jpg",
-  "/images/office-2.jpg",
+  // "/images/office-2.jpg",
 ];
 
 const AboutSection: React.FC = () => {
@@ -52,8 +52,8 @@ const AboutSection: React.FC = () => {
           <div className="order-2 lg:order-1 space-y-6">
 
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/20 text-accent-foreground w-max">
-              <Trophy className="h-4 w-4 mr-2" />
-              <span className="text-sm font-medium">Fundadora & CEO</span>
+              {/* <Trophy className="h-4 w-4 mr-2" />
+              <span className="text-sm font-medium">Fundadora & CEO</span> */}
             </div>
 
             <h3
@@ -67,8 +67,8 @@ const AboutSection: React.FC = () => {
               Fundada por Milagrosa Macuácua, a nossa firma alia rigor técnico e práticas modernas para entregar soluções jurídicas claras e com resultados mensuráveis. Atendemos empresas e particulares com foco em prevenção, litígio estratégico e regimes de avença.
             </p>
 
-            {/* Nota de resposta */}
-            <p className="text-sm text-muted-foreground">Resposta prioritária em 24h</p>
+            {/* Nota de resposta
+            <p className="text-sm text-muted-foreground">Resposta prioritária em 24h</p> */}
 
             {/* Achievements */}
             <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
