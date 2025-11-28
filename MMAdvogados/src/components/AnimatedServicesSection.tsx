@@ -60,7 +60,7 @@ const AnimatedServicesSection = () => {
     {
       icon: Scale,
       title: "Contencioso e Arbitragem",
-      image: "/images/legal-team.jpg",
+      image: "/images/office-interior.jpg",
       description:
         "Representação em tribunais e processos arbitrais, com foco em resolução eficiente de conflitos empresariais.",
       features: ["Litígios comerciais", "Arbitragem internacional", "Mediação"],
@@ -71,7 +71,7 @@ const AnimatedServicesSection = () => {
     {
       icon: Building2,
       title: "Corporate",
-      image: "/images/office-interior.jpg",
+      image: "/images/corporate.jpg",
       description:
         "Assessoria jurídica completa para operações empresariais, fusões, aquisições e estruturação corporativa.",
       features: ["M&A", "Due diligence", "Compliance"],
@@ -126,7 +126,7 @@ const AnimatedServicesSection = () => {
     {
       icon: CreditCard,
       title: "Investimento",
-      image: "/images/legal-team.jpg",
+      image: "/images/investimento.jpg",
       description:
         "Estratégias eficazes para recuperação de dívidas e gestão de carteiras de crédito em mora.",
       features: ["Cobrança judicial", "Negociação", "Execução"],
@@ -420,9 +420,11 @@ const AnimatedServicesSection = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a href="/servicos">
-                <Button size="lg" variant="outline" className="btn-outline-elite">
-                  Ver Todos os Serviços
-                </Button>
+                 <button className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,38)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto">
+               
+                <span> Ver Todos os Serviços</span>
+                <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
+              </button>
               </a>
             </div>
           </div>

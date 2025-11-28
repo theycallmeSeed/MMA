@@ -35,7 +35,7 @@ const ServicesSection = () => {
     {
       icon: Building2,
       title: "Corporate",
-      image: "/images/office-interior.jpg",
+      image: "/images/corporate.jpg",
       description:
         "Assessoria jurídica completa para operações empresariais, fusões, aquisições e estruturação corporativa.",
       features: ["M&A", "Due diligence", "Compliance"],
@@ -85,7 +85,7 @@ const ServicesSection = () => {
     {
       icon: CreditCard,
       title: "Investimento",
-      image: "/images/legal-team.jpg",
+      image: "/images/investimento.jpg",
       description:
         "Estratégias eficazes para recuperação de dívidas e gestão de carteiras de crédito em mora.",
       features: ["Cobrança judicial", "Negociação", "Execução"],

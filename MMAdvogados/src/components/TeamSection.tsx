@@ -212,19 +212,10 @@ const TeamSection = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-6">
-            <motion.a
-              href="/equipe"
-              className="group relative overflow-hidden px-8 py-4 text-lg border border-border/50 rounded-lg transition-all duration-300 hover:border-primary/50 hover:bg-primary/5"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <span className="relative flex items-center gap-2 z-10">
-                Ver Equipe Completa
-                <ArrowRight className="h-4 w-4 inline-block transition-transform duration-300 group-hover:translate-x-1" />
-              </span>
-            </motion.a>
-          </div>
+          <button className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,38)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto">
+            <span> Ver Equipe Completa</span>
+            <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
+          </button>
         </motion.div>
       </div>
     </section>
