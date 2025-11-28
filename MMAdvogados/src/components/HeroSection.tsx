@@ -58,12 +58,12 @@ const HeroSection = () => {
           </div>
 
           {/* Short, professional subtitle */}
-          <p
+          {/* <p
             className="text-lg md:text-xl lg:text-2xl text-primary-foreground/95 mb-10 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0 hero-fade-in drop-shadow-lg"
             style={{ animationDelay: "0.7s" }}
           >
             Mais de 10 anos de prática jurídica: assessoria empresarial, litígios e regimes de avença com resposta prioritária e foco em soluções práticas.
-          </p>
+          </p> */}
 
           {/* Only secondary CTA (Agendar) */}
           <div
