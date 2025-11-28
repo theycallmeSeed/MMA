@@ -79,50 +79,50 @@ const AnimatedServicesSection = () => {
         "Prestamos assessoria jurídica completa em matérias de direito societário e operações empresariais. Acompanhamos processos de fusões e aquisições (M&A), realizamos auditorias legais (due diligence) e implementamos programas de compliance adequados ao enquadramento legal moçambicano e internacional. O nosso apoio permite às empresas estruturar operações de forma segura, transparente e alinhada com as melhores práticas de governança corporativa.",
       color: "from-purple-500/20 to-violet-500/20",
     },
-    {
-      icon: FileText,
-      title: "Administrativo, fiscal e Aduaneiro",
-      image: "/images/legal-team.jpg",
-      description:
-        "Especialização em direito fiscal, aduaneiro e relações com entidades governamentais.",
-      features: ["Consultoria fiscal", "Processos aduaneiros", "Licenciamento"],
-      detailedDescription:
-        "Apoiamos empresas e particulares em matérias fiscais, aduaneiras e administrativas. A nossa intervenção inclui consultoria fiscal preventiva, representação em processos de natureza tributária, acompanhamento de questões aduaneiras e apoio no relacionamento com entidades públicas. Atuamos também em processos de licenciamento, garantindo a conformidade legal e a mitigação de riscos perante a Administração Pública.",
-      color: "from-emerald-500/20 to-green-500/20",
-    },
-    {
-      icon: Home,
-      title: "Imobiliário e Terras",
-      image: "/images/office-interior.jpg",
-      description:
-        "Assessoria especializada em transações imobiliárias, regularização de terras e direito urbanístico.",
-      features: ["DUAT", "Registos prediais", "Contratos imobiliários"],
-      detailedDescription:
-        "Disponibilizamos assessoria especializada em transações imobiliárias e em procedimentos relacionados com a regularização de terras em Moçambique. A nossa intervenção abrange a obtenção e renovação de DUAT (Direito de Uso e Aproveitamento da Terra), registos prediais e a elaboração de contratos imobiliários. Trabalhamos ainda em matérias de direito urbanístico, apoiando promotores, investidores e particulares em todas as fases dos seus projetos.",
-      color: "from-amber-500/20 to-orange-500/20",
-    },
-    {
-      icon: Users,
-      title: "Laboral e Migratório",
-      image: "/images/legal-team.jpg",
-      description:
-        "Gestão de relações laborais, contratos de trabalho e processos migratórios para expatriados.",
-      features: ["Contratos laborais", "Vistos de trabalho", "Compliance laboral"],
-      detailedDescription:
-        "Prestamos apoio jurídico na gestão de relações laborais e na mobilidade internacional de trabalhadores. Aconselhamos na elaboração e revisão de contratos de trabalho, em políticas de recursos humanos e em processos disciplinares. Em matéria migratória, auxiliamos na obtenção de vistos de trabalho e de residência para expatriados, assegurando conformidade legal com as normas laborais e de imigração vigentes.",
-      color: "from-rose-500/20 to-pink-500/20",
-    },
-    {
-      icon: Handshake,
-      title: "Societário",
-      image: "/images/office-interior.jpg",
-      description:
-        "Constituição de empresas, reestruturações societárias e governança corporativa.",
-      features: ["Constituição", "Reestruturação", "Governança"],
-      detailedDescription:
-        "Acompanhamos a constituição de novas sociedades, a reestruturação de empresas já existentes e a implementação de boas práticas de governança. Prestamos aconselhamento jurídico em todas as fases do ciclo de vida societário, desde a escolha da forma jurídica mais adequada até à gestão de alterações estatutárias, reorganizações e processos de sucessão empresarial.",
-      color: "from-indigo-500/20 to-blue-500/20",
-    },
+    // {
+    //   icon: FileText,
+    //   title: "Administrativo, fiscal e Aduaneiro",
+    //   image: "/images/legal-team.jpg",
+    //   description:
+    //     "Especialização em direito fiscal, aduaneiro e relações com entidades governamentais.",
+    //   features: ["Consultoria fiscal", "Processos aduaneiros", "Licenciamento"],
+    //   detailedDescription:
+    //     "Apoiamos empresas e particulares em matérias fiscais, aduaneiras e administrativas. A nossa intervenção inclui consultoria fiscal preventiva, representação em processos de natureza tributária, acompanhamento de questões aduaneiras e apoio no relacionamento com entidades públicas. Atuamos também em processos de licenciamento, garantindo a conformidade legal e a mitigação de riscos perante a Administração Pública.",
+    //   color: "from-emerald-500/20 to-green-500/20",
+    // },
+    // {
+    //   icon: Home,
+    //   title: "Imobiliário e Terras",
+    //   image: "/images/office-interior.jpg",
+    //   description:
+    //     "Assessoria especializada em transações imobiliárias, regularização de terras e direito urbanístico.",
+    //   features: ["DUAT", "Registos prediais", "Contratos imobiliários"],
+    //   detailedDescription:
+    //     "Disponibilizamos assessoria especializada em transações imobiliárias e em procedimentos relacionados com a regularização de terras em Moçambique. A nossa intervenção abrange a obtenção e renovação de DUAT (Direito de Uso e Aproveitamento da Terra), registos prediais e a elaboração de contratos imobiliários. Trabalhamos ainda em matérias de direito urbanístico, apoiando promotores, investidores e particulares em todas as fases dos seus projetos.",
+    //   color: "from-amber-500/20 to-orange-500/20",
+    // },
+    // {
+    //   icon: Users,
+    //   title: "Laboral e Migratório",
+    //   image: "/images/legal-team.jpg",
+    //   description:
+    //     "Gestão de relações laborais, contratos de trabalho e processos migratórios para expatriados.",
+    //   features: ["Contratos laborais", "Vistos de trabalho", "Compliance laboral"],
+    //   detailedDescription:
+    //     "Prestamos apoio jurídico na gestão de relações laborais e na mobilidade internacional de trabalhadores. Aconselhamos na elaboração e revisão de contratos de trabalho, em políticas de recursos humanos e em processos disciplinares. Em matéria migratória, auxiliamos na obtenção de vistos de trabalho e de residência para expatriados, assegurando conformidade legal com as normas laborais e de imigração vigentes.",
+    //   color: "from-rose-500/20 to-pink-500/20",
+    // },
+    // {
+    //   icon: Handshake,
+    //   title: "Societário",
+    //   image: "/images/office-interior.jpg",
+    //   description:
+    //     "Constituição de empresas, reestruturações societárias e governança corporativa.",
+    //   features: ["Constituição", "Reestruturação", "Governança"],
+    //   detailedDescription:
+    //     "Acompanhamos a constituição de novas sociedades, a reestruturação de empresas já existentes e a implementação de boas práticas de governança. Prestamos aconselhamento jurídico em todas as fases do ciclo de vida societário, desde a escolha da forma jurídica mais adequada até à gestão de alterações estatutárias, reorganizações e processos de sucessão empresarial.",
+    //   color: "from-indigo-500/20 to-blue-500/20",
+    // },
     {
       icon: CreditCard,
       title: "Investimento",
@@ -250,12 +250,12 @@ const AnimatedServicesSection = () => {
                     whileTap={{ scale: 0.98 }}
                     style={{ willChange: "transform, opacity" }}
                   >
-                    <Button className="w-full bg-gradient-to-r from-primary/10 to-accent/10 text-primary hover:from-primary hover:to-primary/90 hover:text-primary-foreground border border-primary/20 transition-all duration-300 group/btn">
+                    {/* <Button className="w-full bg-gradient-to-r from-primary/10 to-accent/10 text-primary hover:from-primary hover:to-primary/90 hover:text-primary-foreground border border-primary/20 transition-all duration-300 group/btn">
                       <span className="flex items-center justify-center gap-2">
                         Saiba Mais
                         <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
                       </span>
-                    </Button>
+                    </Button> */}
                   </motion.a>
                 </div>
 
@@ -401,7 +401,7 @@ const AnimatedServicesSection = () => {
             </p>
 
             {/* Benefits Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10 max-w-4xl mx-auto">
+            {/* <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10 max-w-4xl mx-auto">
               {[
                 { icon: CheckCircle2, title: "Relatórios Mensais", desc: "Acompanhamento detalhado" },
                 { icon: Clock, title: "Resposta Prioritária", desc: "Atendimento ágil garantido" },
@@ -413,7 +413,7 @@ const AnimatedServicesSection = () => {
                   <p className="text-sm text-muted-foreground">{item.desc}</p>
                 </div>
               ))}
-            </div>
+            </div> */}
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
