@@ -1,171 +1,169 @@
-import { CheckCircle, Users, Target, Trophy } from "lucide-react";
+import React, { useEffect, useState, useRef } from "react";
+import { CheckCircle, Users, Trophy } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
-import { AnimationWrapper } from "./animations";
+import { Link } from "react-router-dom";
 
-const AboutSection = () => {
-  const achievements = [
-    "Sociedade liderada por mulheres em Moçambique",
-    "Especialização em regime de avença empresarial",
-    "Equipa jovem, técnica e dinâmica",
-    "Relatórios mensais e transparência total",
-  ];
+const carouselImages = [
+  "/images/milagrosa-portrait.jpg",
+  "/images/legal-team.jpg",
+  "/images/office-1.jpg",
+  "/images/office-2.jpg",
+];
 
+const AboutSection: React.FC = () => {
   const shouldReduce = useReducedMotion();
+  const [index, setIndex] = useState(0);
+  const timerRef = useRef<number | null>(null);
+
+  // autoplay respeitando prefers-reduced-motion
+  useEffect(() => {
+    if (shouldReduce) return;
+    timerRef.current = window.setInterval(() => {
+      setIndex((i) => (i + 1) % carouselImages.length);
+    }, 4500);
+    return () => timerRef.current && clearInterval(timerRef.current);
+  }, [shouldReduce]);
+
+  const goTo = (i: number) => {
+    setIndex(i % carouselImages.length);
+    if (!shouldReduce) {
+      if (timerRef.current) clearInterval(timerRef.current);
+      timerRef.current = window.setInterval(() => {
+        setIndex((s) => (s + 1) % carouselImages.length);
+      }, 4500);
+    }
+  };
+
   return (
-
-    
-    <motion.section 
-      initial={shouldReduce ? undefined : { opacity: 0 }}
-      whileInView={shouldReduce ? undefined : { opacity: 1 }}
-      transition={shouldReduce ? { duration: 0 } : { duration: 0.8 }}
-      viewport={shouldReduce ? undefined : { once: true }}
+    <section
+      id="sobre-nos"
       className="py-16 lg:py-20 bg-gradient-to-b from-background to-muted/20"
-      style={{ willChange: "opacity" }}
     >
-      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <AnimationWrapper animation="slideUp">
-          <div className="text-center mb-12 lg:mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-primary mb-6">
-              Sobre Nós
-            </h2>
-            <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
-             Uma sociedade de advogados pioneira em Moçambique, assente nos valores da excelência, da inovação e da liderança exercida por mulheres, ao serviço de empresas e particulares.
-            </p>
-          </div>
-        </AnimationWrapper>
 
-        
+        {/* 🔥 TÍTULO PRINCIPAL — ADICIONADO */}
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-primary mb-6 text-center">
+          Sobre Nós
+        </h2>
 
-        {/* Founder Section */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-16 lg:mb-20">
-          <div className="space-y-6 order-2 lg:order-1">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/20 text-accent-foreground">
+        <div className="grid lg:grid-cols-2 gap-8 items-center">
+
+          {/* TEXT + CTA */}
+          <div className="order-2 lg:order-1 space-y-6">
+
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/20 text-accent-foreground w-max">
               <Trophy className="h-4 w-4 mr-2" />
               <span className="text-sm font-medium">Fundadora & CEO</span>
             </div>
-            
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-primary">
-              Milagrosa Macuácua
+
+            <h3
+              id="about-mini-title"
+              className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-primary"
+            >
+              Uma sociedade de advogados orientada para resultados
             </h3>
-            
-            <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
-              Milagrosa Macuacua, é sócia e fundadora da MM Advogados.
-Desempenha as suas actividades nas áreas de XXXXXXXXXXXXXXX
-Foi Presidente do Conselho Provincial da Ordem dos Advogados de Moçambique entre XXX e XXXX, sendo que actualmente desempenha as funções de Conselheira, no mesmo organismo. É membro da Comissão Nacional de Avaliação de Estágio na Ordem dos Advogados de Moçambique, organismo responsável pela avaliação para acreditação doa Advogados Estagiários.
-Milagrosa Macuacua, é licenciada em Direito pela Faculdade de Direito da Universidade Eduardo Mondlane, desde 2009, instituição pela qual se encontra a finalizar o seu Mestrado em Cièncias Jurídicas.
-Milagorsa Macuacua, iniciou a sua carreira na Sal e Cadeira (2010), tendo de seguida passado pela Opelegis (20XXX). Exerceu, igualmente a cargo de Delegada Distrital do Instituto de Patrocínio e Assistência Jurídica (IPAJ), entre 20XX e 20XX.
-Em 20XX, movida pelo sonho de contribuir no empoderamento feminino, decidiu fundar a Milagrosa Macuacua Advogados, Sociedade Unipessoal Limitada, um escritório composto 100% por mulheres, dentre Advogadas, Advogadas Estagiárias, bem como pessoal de apoio
 
-            </p>
-            
-            <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
-              Com formação jurídica sólida e experiência internacional, ela lidera uma equipa de 15+ advogados 
-              especializados que oferece soluções jurídicas de alta qualidade. O nosso regime de avença exclusivo 
-              inclui assessoria jurídica contínua, relatórios mensais detalhados, comunicação directa por WhatsApp 
-              e telefone, e resposta garantida em 24 horas para questões urgentes, proporcionando tranquilidade 
-              e previsibilidade de custos às empresas.
+            <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-xl">
+              Fundada por Milagrosa Macuácua, a nossa firma alia rigor técnico e práticas modernas para entregar soluções jurídicas claras e com resultados mensuráveis. Atendemos empresas e particulares com foco em prevenção, litígio estratégico e regimes de avença.
             </p>
 
-            <div className="space-y-4">
-              {achievements.map((achievement, index) => (
-                <div key={index} className="flex items-start space-x-3">
-                  <CheckCircle className="h-5 w-5 lg:h-6 lg:w-6 text-primary mt-0.5 flex-shrink-0" />
-                  <span className="text-foreground font-medium text-sm lg:text-base">
-                    {achievement}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+            {/* Nota de resposta */}
+            <p className="text-sm text-muted-foreground">Resposta prioritária em 24h</p>
 
-          <div className="relative order-1 lg:order-2">
-            <div className="relative overflow-hidden rounded-2xl shadow-elegant">
-              <img
-                src="/images/milagrosa-portrait.jpg"
-                alt="Milagrosa Macuácua - Fundadora"
-                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
-                loading="lazy"
-                decoding="async"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
-            </div>
-          </div>
-        </div>
-
-        {/* Team Section */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          <div className="relative lg:order-2">
-            <div className="relative overflow-hidden rounded-2xl shadow-elegant">
-              <img
-                src="/images/legal-team.jpg"
-                alt="Equipa Jurídica"
-                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
-                loading="lazy"
-                decoding="async"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
-            </div>
-          </div>
-
-          <div className="space-y-6 lg:order-1">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/20 text-accent-foreground">
-              <Users className="h-4 w-4 mr-2" />
-              <span className="text-sm font-medium">A Nossa Equipa</span>
-            </div>
-            
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-primary">
-              Jovem, Técnica e Dinâmica
-            </h3>
-            
-            <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
-              A nossa equipa é composta por jovens profissionais altamente
-              qualificados, com formação técnica especializada e uma abordagem
-              dinâmica aos desafios jurídicos contemporâneos.
-            </p>
-            
-            <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
-              Combinamos experiência sólida com inovação, utilizando tecnologia de ponta, plataformas digitais 
-              para acompanhamento de processos em tempo real, e metodologias modernas de gestão jurídica. 
-              A nossa abordagem inclui análise de riscos detalhada, due diligence completa e estratégias 
-              personalizadas para cada sector de actividade, garantindo resultados mensuráveis e ROI comprovado.
-            </p>
-
-            <div className="grid grid-cols-2 gap-6 lg:gap-8 pt-6">
-              <div className="text-center">
-                <div className="text-2xl lg:text-3xl font-bold text-primary mb-2">4+</div>
-                <div className="text-xs lg:text-sm text-muted-foreground">
-                  Advogados Especializados
-                </div>
+            {/* Achievements */}
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-primary mt-1" />
+                <span className="text-sm text-foreground">
+                  Sociedade liderada por mulheres
+                </span>
               </div>
-              <div className="text-center">
-                <div className="text-2xl lg:text-3xl font-bold text-primary mb-2">7</div>
-                <div className="text-xs lg:text-sm text-muted-foreground">
-                  Áreas de Especialização
+              <div className="flex items-start gap-3">
+                <Users className="h-5 w-5 text-primary mt-1" />
+                <span className="text-sm text-foreground">
+                  Regime de avença empresarial
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* CAROUSEL */}
+          <div className="order-1 lg:order-2">
+            <div className="relative rounded-2xl overflow-hidden shadow-elegant">
+              <div className="relative h-64 sm:h-80 lg:h-96 bg-gray-50">
+                {carouselImages.map((src, i) => {
+                  const isActive = index === i;
+                  return (
+                    <motion.img
+                      key={src}
+                      src={src}
+                      alt={`Galeria ${i + 1}`}
+                      loading="lazy"
+                      decoding="async"
+                      className="absolute inset-0 w-full h-full object-cover"
+                      initial={shouldReduce ? {} : { opacity: 0, scale: 1.03 }}
+                      animate={
+                        isActive
+                          ? { opacity: 1, scale: 1 }
+                          : { opacity: 0, scale: 1.02 }
+                      }
+                      transition={{ duration: 0.7 }}
+                      style={{ willChange: "opacity, transform" }}
+                    />
+                  );
+                })}
+              </div>
+
+              {/* Controls */}
+              <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute left-4 top-1/2 transform -translate-y-1/2 pointer-events-auto">
+                  <button
+                    onClick={() =>
+                      goTo((index - 1 + carouselImages.length) % carouselImages.length)
+                    }
+                    className="bg-white/80 hover:bg-white px-3 py-2 rounded-full shadow-sm transition"
+                  >
+                    ‹
+                  </button>
+                </div>
+
+                <div className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-auto">
+                  <button
+                    onClick={() => goTo((index + 1) % carouselImages.length)}
+                    className="bg-white/80 hover:bg-white px-3 py-2 rounded-full shadow-sm transition"
+                  >
+                    ›
+                  </button>
+                </div>
+
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 pointer-events-auto">
+                  {carouselImages.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => goTo(i)}
+                      className={`w-2.5 h-2.5 rounded-full transition ${
+                        i === index ? "bg-primary" : "bg-white/70"
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
           </div>
+
         </div>
 
-        {/* Mission Statement */}
-        <div className="mt-16 lg:mt-20 text-center bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl p-8 lg:p-12">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary mb-6">
-            <Target className="h-4 w-4 mr-2" />
-            <span className="text-sm font-medium">A Nossa Missão</span>
-          </div>
-          
-          <h3 className="text-xl md:text-2xl lg:text-3xl font-serif font-bold text-primary mb-6">
-            Transformar o Direito Empresarial em Moçambique
-          </h3>
-          
-          <p className="text-base lg:text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-          Prestar Serviços Juridicos com Excelência, Oferecendo Soluções Inovadoras para Obtenção de Resultados Expressivos que Garantam a Satisfação dos Clientes.
-          </p>
+        {/* Botão no centro e final da section */}
+        <div className="mt-10 flex justify-center">
+          <Link
+            to="/sobre"
+            className="inline-block rounded-md bg-[rgb(81,21,38)] text-white px-6 py-3 font-semibold shadow-sm hover:bg-[rgb(81,21,38)]/90 active:scale-[0.98] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          >
+            Saber mais
+          </Link>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 
