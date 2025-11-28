@@ -4,10 +4,10 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const carouselImages = [
-  // "/images/milagrosa-portrait.jpg",
-  "/images/legal-team.jpg",
-  "/images/office-1.jpg",
-  // "/images/office-2.jpg",
+  // "/images/milagrosa-portrait.webp",
+  "/images/legal-team.webp",
+  "/images/office-1.webp",
+  // "/images/office-2.webp",
 ];
 
 const AboutSection: React.FC = () => {

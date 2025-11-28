@@ -60,7 +60,7 @@ const AnimatedServicesSection = () => {
     {
       icon: Scale,
       title: "Contencioso e Arbitragem",
-      image: "/images/office-interior.jpg",
+  image: "/images/office-interior.webp",
       description:
         "Representação em tribunais e processos arbitrais, com foco em resolução eficiente de conflitos empresariais.",
       features: ["Litígios comerciais", "Arbitragem internacional", "Mediação"],
@@ -71,7 +71,7 @@ const AnimatedServicesSection = () => {
     {
       icon: Building2,
       title: "Corporate",
-      image: "/images/corporate.jpg",
+  image: "/images/corporate.webp",
       description:
         "Assessoria jurídica completa para operações empresariais, fusões, aquisições e estruturação corporativa.",
       features: ["M&A", "Due diligence", "Compliance"],
@@ -82,7 +82,7 @@ const AnimatedServicesSection = () => {
     // {
     //   icon: FileText,
     //   title: "Administrativo, fiscal e Aduaneiro",
-    //   image: "/images/legal-team.jpg",
+  //   image: "/images/legal-team.webp",
     //   description:
     //     "Especialização em direito fiscal, aduaneiro e relações com entidades governamentais.",
     //   features: ["Consultoria fiscal", "Processos aduaneiros", "Licenciamento"],
@@ -93,7 +93,7 @@ const AnimatedServicesSection = () => {
     // {
     //   icon: Home,
     //   title: "Imobiliário e Terras",
-    //   image: "/images/office-interior.jpg",
+  //   image: "/images/office-interior.webp",
     //   description:
     //     "Assessoria especializada em transações imobiliárias, regularização de terras e direito urbanístico.",
     //   features: ["DUAT", "Registos prediais", "Contratos imobiliários"],
@@ -104,7 +104,7 @@ const AnimatedServicesSection = () => {
     // {
     //   icon: Users,
     //   title: "Laboral e Migratório",
-    //   image: "/images/legal-team.jpg",
+  //   image: "/images/legal-team.webp",
     //   description:
     //     "Gestão de relações laborais, contratos de trabalho e processos migratórios para expatriados.",
     //   features: ["Contratos laborais", "Vistos de trabalho", "Compliance laboral"],
@@ -115,7 +115,7 @@ const AnimatedServicesSection = () => {
     // {
     //   icon: Handshake,
     //   title: "Societário",
-    //   image: "/images/office-interior.jpg",
+  //   image: "/images/office-interior.webp",
     //   description:
     //     "Constituição de empresas, reestruturações societárias e governança corporativa.",
     //   features: ["Constituição", "Reestruturação", "Governança"],
@@ -126,7 +126,7 @@ const AnimatedServicesSection = () => {
     {
       icon: CreditCard,
       title: "Investimento",
-      image: "/images/investimento.jpg",
+  image: "/images/investimento.webp",
       description:
         "Estratégias eficazes para recuperação de dívidas e gestão de carteiras de crédito em mora.",
       features: ["Cobrança judicial", "Negociação", "Execução"],

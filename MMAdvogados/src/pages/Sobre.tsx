@@ -224,7 +224,7 @@ const Sobre = () => {
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl"></div>
               <div className="relative overflow-hidden rounded-2xl border border-border" style={{ boxShadow: 'var(--shadow-card)' }}>
                 <img
-                  src="/images/milagrosa-portrait.jpg"
+                  src="/images/milagrosa-portrait.webp"
                   alt="Milagrosa Macuácua - Fundadora"
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                 />
@@ -243,7 +243,7 @@ const Sobre = () => {
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl"></div>
               <div className="relative overflow-hidden rounded-2xl border border-border" style={{ boxShadow: 'var(--shadow-card)' }}>
                 <img
-                  src="/images/legal-team.jpg"
+                  src="/images/legal-team.webp"
                   alt="Equipa Jurídica"
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                 />

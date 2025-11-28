@@ -17,7 +17,7 @@ const HeroSection = () => {
       <div
         className="absolute inset-0 h-full w-full bg-cover bg-center bg-no-repeat hero-parallax"
         style={{
-          backgroundImage: "url('/images/hero-banner.jpg')",
+    backgroundImage: "url('/images/hero-banner.webp')",
           willChange: "transform",
           filter: "saturate(1.22) contrast(1.08) brightness(1.03)",
           backgroundBlendMode: "normal",
