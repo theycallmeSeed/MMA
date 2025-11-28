@@ -230,7 +230,7 @@ Muito obrigado(a).`
               <span className="text-primary">Áreas de Atuação</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-foreground max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
               Assessoria jurídica completa e personalizada para empresas e particulares.
               Transformamos complexidade jurídica em resultados concretos e mensuráveis.
             </p>
