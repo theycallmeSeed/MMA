@@ -233,6 +233,7 @@ const Navigation = () => {
   };
 
   const socialIconClass = () => {
+    if (isBrandedPage) return "text-[rgb(81,21,38)] hover:text-[rgb(81,21,38)]/90";
     if (scrolled) return "text-foreground/80 hover:text-primary";
     if (forceOverlay) return overlayIsDark ? "text-white/90 hover:text-white" : "text-foreground/80 hover:text-primary";
     return "text-white/90 hover:text-white";
@@ -304,7 +305,7 @@ const Navigation = () => {
                 );
               })}
 
-              <div className={`flex items-center space-x-2 ml-4 pl-4 border-l ${scrolled ? "border-border/40" : forceOverlay ? "border-border/30" : "border-white/20"}`}>
+              <div className="flex items-center space-x-2 ml-4 pl-4 border-l border-[rgb(81,21,38)]/30">
                 <a href="https://www.instagram.com/milagrosa.macuacua_advogados/" target="_blank" rel="noreferrer" aria-label="Instagram" className={`p-2 rounded-lg transition-transform transform hover:scale-105 ${socialIconClass()}`}>
                   <Instagram className="h-4 w-4" />
                 </a>

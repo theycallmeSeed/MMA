@@ -406,15 +406,14 @@ const Equipe = () => {
             style={{ willChange: "transform, opacity", backfaceVisibility: "hidden" }}
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6">
-              <span className="text-primary">Profissionais</span>
-              <br />
-              <span className="text-gradient-primary">de Excelência</span>
+              <span className="text-primary">Equipa</span>
+            
             </h1>
 
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
+            {/* <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
               Uma equipa de advogados especializados, comprometidos em oferecer 
               assessoria jurídica de elite com resultados excepcionais.
-            </p>
+            </p> */}
 
             <motion.div
               className="flex flex-wrap justify-center gap-8 mt-12"
@@ -489,9 +488,9 @@ const Equipe = () => {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
             >
-              <span className="relative flex items-center gap-2 z-10">
+              <span className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,38)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto">
                 Ver os Nossos Serviços
-                <ArrowRight className="h-4 w-4 inline-block transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
               </span>
             </motion.a>
           </div>

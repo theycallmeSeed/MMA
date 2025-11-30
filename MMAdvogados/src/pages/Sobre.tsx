@@ -70,9 +70,9 @@ const Sobre = () => {
               <span className="text-primary">Sobre Nós</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
+            {/* <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
               Uma sociedade de advogados pioneira em Moçambique, assente nos valores da excelência, da inovação e da liderança exercida por mulheres, ao serviço de empresas e particulares.
-            </p>
+            </p> */}
           </motion.div>
 
           {/* Achievement Stats */}
