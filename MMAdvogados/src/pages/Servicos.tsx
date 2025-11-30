@@ -394,19 +394,16 @@ Muito obrigado(a).`
               ))}
             </div>
 
-            {/* Main CTA Button */}
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block"
+            {/* Main CTA Button (remove wrappers, keep button) */}
+            <button
+              type="button"
+              aria-label="Agendar consultoria via WhatsApp"
+              onClick={() => window.open(whatsappLink, '_blank', 'noopener,noreferrer')}
+              className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,38)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto"
             >
-              <button className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,38)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto">
-               
-                <span>Agendar Consultoria</span>
-                <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
-              </button>
-            </a>
+              <span>Agendar Consultoria</span>
+              <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
+            </button>
 
 
           </motion.div>

@@ -119,22 +119,13 @@ const Sobre = () => {
             {/* Imagem do Escritório */}
             <motion.div className="relative group" variants={slideUp}>
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500"></div>
-              <div className="relative rounded-2xl overflow-hidden border border-border" style={{ boxShadow: 'var(--shadow-card)' }}>
+              <div className="relative overflow-hidden rounded-2xl border border-border" style={{ boxShadow: 'var(--shadow-card)' }}>
                 <img 
-                  // src={escritorioImage} 
+                  src="/images/mmaoffice.webp"
                   alt="Escritório MM Advogados" 
                   className="w-full h-[500px] object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
-                <div className="absolute bottom-6 left-6 flex items-center gap-3">
-                  <div className="p-3 bg-primary/90 backdrop-blur-sm rounded-xl">
-                    <Building2 className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold">Escritório em Maputo</p>
-                    <p className="text-white/80 text-sm">Moçambique</p>
-                  </div>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
               </div>
             </motion.div>
 
@@ -384,10 +375,10 @@ const Sobre = () => {
               Prestar Serviços Jurídicos com Excelência, Oferecendo Soluções Inovadoras para Obtenção de Resultados Expressivos que Garantam a Satisfação dos Clientes.
             </p>
 
-            <div className="mt-8">
+            <div className="mt-10 flex justify-center">
               <a 
                 href="/servicos" 
-                className="group inline-flex items-center gap-2 px-8 py-4 text-lg border border-border/50 rounded-lg transition-all duration-300 hover:border-primary/50 hover:bg-primary/5"
+               className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,38)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto"
               >
                 <span>Conheça as Áreas de Atuação</span>
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

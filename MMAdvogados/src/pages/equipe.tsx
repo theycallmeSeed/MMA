@@ -488,10 +488,11 @@ const Equipe = () => {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
             >
-              <span className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,38)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto">
-                Ver os Nossos Serviços
+              <button className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,38)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto">
+               
+                <span>Ver os Nossos Serviços</span>
                 <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
-              </span>
+              </button>
             </motion.a>
           </div>
         </div>

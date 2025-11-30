@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { CheckCircle, Users, Trophy } from "lucide-react";
+import { CheckCircle, Users, Trophy, ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -157,10 +157,12 @@ const AboutSection: React.FC = () => {
         <div className="mt-10 flex justify-center">
           <Link
             to="/sobre"
-            className="inline-block rounded-md bg-[rgb(81,21,38)] text-white px-6 py-3 font-semibold shadow-sm hover:bg-[rgb(81,21,38)]/90 active:scale-[0.98] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,38)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto"
           >
             Saber mais
+            <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
           </Link>
+           
         </div>
       </div>
     </section>
