@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import LazyImage from "@/components/LazyImage";
 import { CheckCircle, Users, Trophy, ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -13,16 +14,17 @@ const carouselImages = [
 const AboutSection: React.FC = () => {
   const shouldReduce = useReducedMotion();
   const [index, setIndex] = useState(0);
+  const [firstLoaded, setFirstLoaded] = useState(false);
   const timerRef = useRef<number | null>(null);
 
   // autoplay respeitando prefers-reduced-motion
   useEffect(() => {
-    if (shouldReduce) return;
+    if (shouldReduce || !firstLoaded) return;
     timerRef.current = window.setInterval(() => {
       setIndex((i) => (i + 1) % carouselImages.length);
     }, 4500);
     return () => timerRef.current && clearInterval(timerRef.current);
-  }, [shouldReduce]);
+  }, [shouldReduce, firstLoaded]);
 
   const goTo = (i: number) => {
     setIndex(i % carouselImages.length);
@@ -94,22 +96,26 @@ const AboutSection: React.FC = () => {
                 {carouselImages.map((src, i) => {
                   const isActive = index === i;
                   return (
-                    <motion.img
+                    <motion.div
                       key={src}
-                      src={src}
-                      alt={`Galeria ${i + 1}`}
-                      loading="lazy"
-                      decoding="async"
-                      className="absolute inset-0 w-full h-full object-cover"
+                      className="absolute inset-0"
                       initial={shouldReduce ? {} : { opacity: 0, scale: 1.03 }}
                       animate={
-                        isActive
-                          ? { opacity: 1, scale: 1 }
-                          : { opacity: 0, scale: 1.02 }
+                        isActive ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.02 }
                       }
                       transition={{ duration: 0.7 }}
                       style={{ willChange: "opacity, transform" }}
-                    />
+                    >
+                      <LazyImage
+                        src={src}
+                        alt={`Galeria ${i + 1}`}
+                        priority={i === 0}
+                        width={1600}
+                        height={900}
+                        className="w-full h-full object-cover"
+                        onLoad={i === 0 ? () => setFirstLoaded(true) : undefined}
+                      />
+                    </motion.div>
                   );
                 })}
               </div>

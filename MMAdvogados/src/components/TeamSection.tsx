@@ -122,15 +122,16 @@ const TeamSection = () => {
               <div className="flex justify-center mt-6">
   <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden relative shadow-lg">
     {member.photo ? (
-      <img
+      <LazyImage
         src={member.photo}
         alt={member.name}
+        width={160}
+        height={160}
         className="w-full h-full object-cover object-top transition-transform duration-300 hover:scale-105"
-        loading="lazy"
         onError={(e) => {
           const target = e.target as HTMLImageElement;
           target.style.display = "none";
-          target.nextElementSibling?.classList.remove("hidden");
+          (target.nextElementSibling as HTMLElement | null)?.classList.remove("hidden");
         }}
       />
     ) : null}
@@ -230,3 +231,4 @@ const TeamSection = () => {
 
 export default TeamSection;
 
+import LazyImage from "@/components/LazyImage";

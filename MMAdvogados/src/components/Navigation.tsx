@@ -3,6 +3,7 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Instagram, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import LazyImage from "@/components/LazyImage";
 
 const navItems = [
   { name: "Início", href: "/" },
@@ -272,7 +273,7 @@ const Navigation = () => {
           <div className="flex items-center justify-between h-16 lg:h-20">
             <Link to="/" className="flex items-center gap-3 group" aria-label="Voltar ao início">
               <div className="p-2 rounded-lg bg-gradient-to-br from-primary to-primary/80 group-hover:scale-105 transform transition">
-                <img src="/logotipo 4-1.png" alt="Logótipo" className="h-5 w-5 object-contain" />
+                <LazyImage src="/logotipo 4-1.png" alt="Logótipo" priority width={20} height={20} className="h-5 w-5 object-contain" />
               </div>
               <div className={`${logoTextClass} leading-tight`}>
                 <div className="font-serif font-bold text-base lg:text-lg">Milagrosa Macuácua</div>

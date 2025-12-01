@@ -120,9 +120,11 @@ const Sobre = () => {
             <motion.div className="relative group" variants={slideUp}>
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500"></div>
               <div className="relative overflow-hidden rounded-2xl border border-border" style={{ boxShadow: 'var(--shadow-card)' }}>
-                <img 
+                <LazyImage
                   src="/images/mmaoffice.webp"
-                  alt="Escritório MM Advogados" 
+                  alt="Escritório MM Advogados"
+                  width={1200}
+                  height={800}
                   className="w-full h-[500px] object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
@@ -394,3 +396,4 @@ const Sobre = () => {
 };
 
 export default Sobre;
+import LazyImage from "@/components/LazyImage";
