@@ -106,15 +106,26 @@ const AboutSection: React.FC = () => {
                       transition={{ duration: 0.7 }}
                       style={{ willChange: "opacity, transform" }}
                     >
-                      <LazyImage
-                        src={src}
-                        alt={`Galeria ${i + 1}`}
-                        priority={i === 0}
-                        width={1600}
-                        height={900}
-                        className="w-full h-full object-cover"
-                        onLoad={i === 0 ? () => setFirstLoaded(true) : undefined}
-                      />
+                      {(() => {
+                        const base = src.replace(/\.webp$/i, "");
+                        const srcMain = src; // usar arquivo original como principal
+                        const srcSet = `${base}-800.webp 800w, ${base}-1200.webp 1200w, ${base}-1600.webp 1600w`;
+                        const sizes = "100vw";
+                        return (
+                          <LazyImage
+                            src={srcMain}
+                            srcSet={srcSet}
+                            sizes={sizes}
+                            alt={`Galeria ${i + 1}`}
+                            priority={i === 0}
+                            width={1600}
+                            height={900}
+                            className="w-full h-full object-cover"
+                            onLoad={i === 0 ? () => setFirstLoaded(true) : undefined}
+                            fallbackSrc={src}
+                          />
+                        );
+                      })()}
                     </motion.div>
                   );
                 })}

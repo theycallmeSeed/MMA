@@ -2,6 +2,7 @@ import { Linkedin, Mail, Globe, Phone, MapPin, ArrowRight } from 'lucide-react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { slideUp, staggerContainer, fadeIn } from '@/lib/animation-variants';
+import LazyImage from '@/components/LazyImage';
 
 interface TeamMember {
   id: number;
@@ -122,18 +123,24 @@ const TeamSection = () => {
               <div className="flex justify-center mt-6">
   <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden relative shadow-lg">
     {member.photo ? (
-      <LazyImage
-        src={member.photo}
-        alt={member.name}
-        width={160}
-        height={160}
-        className="w-full h-full object-cover object-top transition-transform duration-300 hover:scale-105"
-        onError={(e) => {
-          const target = e.target as HTMLImageElement;
-          target.style.display = "none";
-          (target.nextElementSibling as HTMLElement | null)?.classList.remove("hidden");
-        }}
-      />
+      (() => {
+        const base = member.photo.replace(/\.webp$/i, "");
+        const src = member.photo;
+        const srcSet = `${base}-400.webp 400w, ${base}-800.webp 800w`;
+        const sizes = "160px";
+        return (
+          <LazyImage
+            src={src}
+            srcSet={srcSet}
+            sizes={sizes}
+            alt={member.name}
+            width={160}
+            height={160}
+            className="w-full h-full object-cover object-top transition-transform duration-300 hover:scale-105"
+            fallbackSrc={member.photo}
+          />
+        );
+      })()
     ) : null}
 
     {/* Fallback com iniciais */}
@@ -230,5 +237,3 @@ const TeamSection = () => {
 };
 
 export default TeamSection;
-
-import LazyImage from "@/components/LazyImage";

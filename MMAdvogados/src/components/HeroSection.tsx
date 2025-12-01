@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import LazyImage from "@/components/LazyImage";
 
 import { getWhatsAppConsultoriaLinkExact } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -13,18 +14,23 @@ const HeroSection = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       aria-label="Hero principal - Milagrosa Macuácua Advogados"
     >
-      {/* Background Image with Parallax Effect */}
+      {/* Background Image with Parallax Effect (optimized) */}
       <div
-        className="absolute inset-0 h-full w-full bg-cover bg-center bg-no-repeat hero-parallax"
-        style={{
-    backgroundImage: "url('/images/hero-banner.webp')",
-          willChange: "transform",
-          filter: "saturate(1.22) contrast(1.08) brightness(1.03)",
-          backgroundBlendMode: "normal",
-        }}
-        role="img"
-        aria-label="Escritório de advocacia profissional"
+        className="absolute inset-0 h-full w-full hero-parallax"
+        style={{ willChange: "transform" }}
       >
+        <LazyImage
+          src="/images/hero-banner.webp"
+          srcSet="/images/hero-banner-1200.webp 1200w, /images/hero-banner-1600.webp 1600w"
+          sizes="100vw"
+          alt="Escritório de advocacia profissional"
+          priority
+          width={1600}
+          height={900}
+          className="w-full h-full object-cover"
+          style={{ filter: "saturate(1.22) contrast(1.08) brightness(1.03)" }}
+          fallbackSrc="/images/hero-banner.webp"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-primary/20 to-primary/12 sm:from-primary/28 sm:via-primary/18 sm:to-primary/10"></div>
         <div className="absolute inset-0 bg-radial-gradient opacity-8"></div>
         <div className="absolute inset-0 hero-gradient-animation" style={{ opacity: 0.18, mixBlendMode: "screen" }}></div>

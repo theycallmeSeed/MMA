@@ -9,6 +9,7 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
+    "resize:images": "node tools/resize-images.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
