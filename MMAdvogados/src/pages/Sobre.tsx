@@ -39,12 +39,12 @@ const Sobre = () => {
     { icon: Heart, number: "24/7", label: "Suporte Dedicado" }
   ];
 
-  const founderAchievements = [
-    "Sociedade liderada por mulheres em Moçambique",
-    "Especialização em regime de avença empresarial",
-    "Equipa jovem, técnica e dinâmica",
-    "Relatórios mensais e transparência total",
-  ];
+  // const founderAchievements = [
+  //   "Sociedade liderada por mulheres em Moçambique",
+  //   "Especialização em regime de avença empresarial",
+  //   "Equipa jovem, técnica e dinâmica",
+  //   "Relatórios mensais e transparência total",
+  // ];
 
   const shouldReduce = useReducedMotion();
   return (
@@ -140,21 +140,19 @@ const Sobre = () => {
               </h2>
 
               <div className="space-y-4 text-foreground leading-relaxed">
-                <p className="text-lg">
+                <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
                   Fundada com a visão de transformar o panorama jurídico em Moçambique, a MM Advogados nasceu do compromisso inabalável com a excelência e a inovação no direito empresarial.
-                </p>
+               
                 
-                <p>
+                
                   Sob a liderança pioneira de mulheres empreendedoras e visionárias, construímos uma reputação sólida baseada em resultados concretos e relacionamentos duradouros com nossos clientes. Ao longo dos anos, expandimos nossa expertise para abranger todas as áreas críticas do direito empresarial.
-                </p>
+                
 
-                <p>
+                
                   Em 20XX, movida pelo sonho de contribuir no empoderamento feminino, decidimos fundar a Milagrosa Macuacua Advogados, um escritório composto 100% por mulheres, dentre Advogadas, Advogadas Estagiárias, bem como pessoal de apoio.
                 </p>
 
-                <p className="font-semibold text-foreground">
-                  Hoje, somos reconhecidos como referência em direito empresarial, mantendo sempre nossos valores fundamentais: excelência, transparência e compromisso com resultados.
-                </p>
+                
               </div>
             </motion.div>
           </motion.div>
@@ -184,24 +182,14 @@ const Sobre = () => {
               </h3>
               
               <div className="space-y-4 text-foreground leading-relaxed">
-                <p className="text-lg">
-                  Milagrosa Macuacua é sócia e fundadora da MM Advogados. Desempenha as suas actividades nas áreas de XXXXXXXXXXXXXXX.
-                </p>
-                
-                <p>
-                  Foi Presidente do Conselho Provincial da Ordem dos Advogados de Moçambique entre XXX e XXXX, sendo que actualmente desempenha as funções de Conselheira, no mesmo organismo. É membro da Comissão Nacional de Avaliação de Estágio na Ordem dos Advogados de Moçambique, organismo responsável pela avaliação para acreditação dos Advogados Estagiários.
-                </p>
+                <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+                  Milagrosa Macuácua, é sócia e fundadora da MM Advogados. Desempenha as suas actividades nas áreas de Direito Civil, Família, Criminal, Laboral, Contencioso Administrativo Foi Presidente do Conselho Provincial da Ordem dos Advogados de Moçambique entre 2020 e 2023, sendo que actualmente desempenha as funções de Conselheira, no mesmo organismo. É membro da Comissão Nacional de Avaliação de Estágio na Ordem dos Advogados de Moçambique, organismo responsável pela avaliação para acreditação dos Advogados Estagiários, Árbitro no Centro de Arbitragem, Conciliação e Mediação. Milagrosa Macuácua, é licenciada em Direito pela Faculdade de Direito da Universidade Eduardo Mondlane, desde 2009, instituição pela qual se encontra a finalizar o seu Mestrado em Ciências Jurídicas. Milagrosa Macuácua, iniciou a sua carreira na Sal e Cadeira (2010), tendo de seguida passado pela Opelegis (2014). Exerceu, igualmente a cargo Chefe do Departamento de Formação e Estágio da Delegação Provincial do IPAJ entre 2010 e 2013, e de Delegada Distrital do Instituto de Patrocínio e Assistência Jurídica (IPAJ), entre 2008 e 2010. Em 2017, movida pelo sonho de contribuir no empoderamento feminino, decidiu fundar a Milagrosa Macuácua Advogados, Sociedade Unipessoal Limitada, um escritório composto 100% por mulheres, dentre Advogadas, Advogadas Estagiárias, bem como pessoal de apoio
+Com formação jurídica sólida e experiência internacional, ela lidera uma equipa de 15+ advogados especializados que oferece soluções jurídicas de alta qualidade. O nosso regime de avença exclusivo inclui assessoria jurídica contínua, relatórios mensais detalhados, comunicação directa por WhatsApp e telefone, e resposta garantida em 24 horas para questões urgentes, proporcionando tranquilidade e previsibilidade de custos às empresas.
 
-                <p>
-                  Milagrosa Macuacua é licenciada em Direito pela Faculdade de Direito da Universidade Eduardo Mondlane, desde 2009, instituição pela qual se encontra a finalizar o seu Mestrado em Ciências Jurídicas.
-                </p>
-
-                <p>
-                  Iniciou a sua carreira na Sal e Cadeira (2010), tendo de seguida passado pela Opelegis (20XXX). Exerceu, igualmente o cargo de Delegada Distrital do Instituto de Patrocínio e Assistência Jurídica (IPAJ), entre 20XX e 20XX.
                 </p>
               </div>
 
-              <div className="space-y-4 pt-4">
+              {/* <div className="space-y-4 pt-4">
                 {founderAchievements.map((achievement, index) => (
                   <div key={index} className="flex items-start space-x-3">
                     <CheckCircle className="h-6 w-6 text-primary mt-0.5 flex-shrink-0" />
@@ -210,7 +198,7 @@ const Sobre = () => {
                     </span>
                   </div>
                 ))}
-              </div>
+              </div> */}
             </motion.div>
 
             <motion.div className="relative" variants={slideUp}>
