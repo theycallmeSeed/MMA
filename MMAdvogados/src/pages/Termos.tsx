@@ -8,7 +8,7 @@ const Termos = () => {
 
   return (
     <div className="min-h-screen">
-      <Navigation />
+       <Navigation />
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-b from-primary/5 to-background">

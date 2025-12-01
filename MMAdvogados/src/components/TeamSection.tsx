@@ -1,5 +1,6 @@
 import { Linkedin, Mail, Globe, Phone, MapPin, ArrowRight } from 'lucide-react';
 import { motion, useReducedMotion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { slideUp, staggerContainer, fadeIn } from '@/lib/animation-variants';
 
 interface TeamMember {
@@ -16,6 +17,7 @@ interface TeamMember {
 }
 
 const TeamSection = () => {
+  const navigate = useNavigate();
   const shouldReduce = useReducedMotion();
   const teamMembers: TeamMember[] = [
     {
@@ -212,7 +214,11 @@ const TeamSection = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <button className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,38)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto">
+          <button
+            onClick={() => navigate('/equipe')}
+            aria-label="Ver equipe completa"
+            className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,38)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto"
+          >
             <span> Ver Equipe Completa</span>
             <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
           </button>

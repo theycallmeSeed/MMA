@@ -1,5 +1,5 @@
 import React, { useState, memo } from 'react';
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Linkedin, Mail, Globe, Phone, MapPin, Award, BookOpen, Sparkles, Users2, ChevronDown, GraduationCap, Briefcase, Languages, Target, ArrowRight } from 'lucide-react';
 import Navigation from "@/components/Navigation";
@@ -209,6 +209,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({ membe
 const MemoTeamMemberCard = memo(TeamMemberCard);
 
 const Equipe = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const shouldReduce = useReducedMotion();
   const isMobile = useIsMobile();
@@ -476,25 +477,21 @@ const Equipe = () => {
             que atendam às suas necessidades específicas.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <motion.a
-              href="/servicos"
-              className="group relative overflow-hidden px-8 py-4 text-lg border border-border/50 rounded-lg transition-all duration-300 hover:border-primary/50 hover:bg-primary/5"
-              variants={shouldReduce ? {} : fadeIn}
-              initial={shouldReduce ? undefined : "hidden"}
-              whileInView={shouldReduce ? undefined : "visible"}
-              viewport={shouldReduce ? undefined : { once: true, amount: 0.3 }}
-              transition={{ delay: 0.2 }}
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <button className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,38)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto">
-               
-                <span>Ver os Nossos Serviços</span>
-                <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
-              </button>
-            </motion.a>
-          </div>
+          <motion.button
+            onClick={() => navigate('/servicos')}
+            className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,38)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto"
+            variants={shouldReduce ? {} : fadeIn}
+            initial={shouldReduce ? undefined : "hidden"}
+            whileInView={shouldReduce ? undefined : "visible"}
+            viewport={shouldReduce ? undefined : { once: true, amount: 0.3 }}
+            transition={{ delay: 0.2 }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            aria-label="Ver os nossos serviços"
+          >
+            <span>Ver os Nossos Serviços</span>
+            <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
+          </motion.button>
         </div>
       </section>
 

@@ -88,17 +88,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hero-scroll-indicator"
-        role="img"
-        aria-label="Rolar para baixo para ver mais conteúdo"
-      >
-        <div className="w-6 h-10 border-2 border-primary-foreground/60 rounded-full flex justify-center relative group cursor-pointer hover:border-accent transition-colors duration-300">
-          <div className="w-1 h-3 bg-primary-foreground/70 rounded-full mt-2 scroll-dot"></div>
-        </div>
-        <p className="text-xs text-primary-foreground/70 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Deslize</p>
-      </div>
+      
 
       {/* Custom Styles (mantive os teus) */}
       <style>{`
