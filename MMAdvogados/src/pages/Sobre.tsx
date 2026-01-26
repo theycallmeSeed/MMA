@@ -174,7 +174,7 @@ const Sobre = () => {
             <motion.div className="space-y-6" variants={slideUp}>
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/20 text-accent-foreground">
                 <Trophy className="h-4 w-4 mr-2" />
-                <span className="text-sm font-medium">Fundadora & CEO</span>
+                <span className="text-sm font-medium">Fundadora</span>
               </div>
               
               <h3 className="text-4xl md:text-5xl font-serif font-bold text-primary">
@@ -183,8 +183,11 @@ const Sobre = () => {
               
               <div className="space-y-4 text-foreground leading-relaxed">
                 <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-                  Milagrosa Macuácua, é sócia e fundadora da MM Advogados. Desempenha as suas actividades nas áreas de Direito Civil, Família, Criminal, Laboral, Contencioso Administrativo Foi Presidente do Conselho Provincial da Ordem dos Advogados de Moçambique entre 2020 e 2023, sendo que actualmente desempenha as funções de Conselheira, no mesmo organismo. É membro da Comissão Nacional de Avaliação de Estágio na Ordem dos Advogados de Moçambique, organismo responsável pela avaliação para acreditação dos Advogados Estagiários, Árbitro no Centro de Arbitragem, Conciliação e Mediação. Milagrosa Macuácua, é licenciada em Direito pela Faculdade de Direito da Universidade Eduardo Mondlane, desde 2009, instituição pela qual se encontra a finalizar o seu Mestrado em Ciências Jurídicas. Milagrosa Macuácua, iniciou a sua carreira na Sal e Cadeira (2010), tendo de seguida passado pela Opelegis (2014). Exerceu, igualmente a cargo Chefe do Departamento de Formação e Estágio da Delegação Provincial do IPAJ entre 2010 e 2013, e de Delegada Distrital do Instituto de Patrocínio e Assistência Jurídica (IPAJ), entre 2008 e 2010. Em 2017, movida pelo sonho de contribuir no empoderamento feminino, decidiu fundar a Milagrosa Macuácua Advogados, Sociedade Unipessoal Limitada, um escritório composto 100% por mulheres, dentre Advogadas, Advogadas Estagiárias, bem como pessoal de apoio
-Com formação jurídica sólida e experiência internacional, ela lidera uma equipa de 15+ advogados especializados que oferece soluções jurídicas de alta qualidade. O nosso regime de avença exclusivo inclui assessoria jurídica contínua, relatórios mensais detalhados, comunicação directa por WhatsApp e telefone, e resposta garantida em 24 horas para questões urgentes, proporcionando tranquilidade e previsibilidade de custos às empresas.
+                 Milagrosa Macuácua é advogada, sócia e fundadora da MM Advogados.
+Exerce a sua actividade profissional nas áreas de Direito Civil, Direito da Família, Direito Penal, Direito do Trabalho e Contencioso Administrativo.
+Foi Presidente do Conselho Provincial da Ordem dos Advogados de Moçambique no período de 2020 a 2023, exercendo atualmente funções de Conselheira no mesmo órgão. Integra a Comissão Nacional de Avaliação de Estágio da Ordem dos Advogados de Moçambique e exerce funções de Árbitro no Centro de Arbitragem, Conciliação e Mediação, e de Administradora de Insolvência.
+É licenciada em Direito pela Faculdade de Direito da Universidade Eduardo Mondlane desde 2009, Mestranda em Ciências Jurídicas na mesma instituição.
+Ao longo da sua carreira profissional, exerceu funções na Sal & Cadeira, na Opelegis e no Instituto de Patrocínio e Assistência Jurídica (IPAJ), nomeadamente como Delegada Distrital e como Chefe do Departamento de Formação e Estágio da Delegação Provincial.
 
                 </p>
               </div>
