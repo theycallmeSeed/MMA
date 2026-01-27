@@ -44,8 +44,9 @@ const AboutSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* 🔥 TÍTULO PRINCIPAL — ADICIONADO */}
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-primary mb-6 text-center">
-          Sobre Nós
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 text-center" >
+          <span className="text-primary">Sobre Nós</span>
+          <br />
         </h2>
 
         <div className="grid lg:grid-cols-2 gap-8 items-center">
@@ -58,15 +59,17 @@ const AboutSection: React.FC = () => {
               <span className="text-sm font-medium">Fundadora & CEO</span> */}
             </div>
 
-            <h3
+            {/* <h3
               id="about-mini-title"
               className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-primary"
             >
-              Uma sociedade de advogados orientada para resultados
-            </h3>
+              Sobre a Sociedade
+            </h3> */}
 
             <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-xl">
-              Fundada por Milagrosa Macuácua, a nossa firma alia rigor técnico e práticas modernas para entregar soluções jurídicas claras e com resultados mensuráveis. Atendemos empresas e particulares com foco em prevenção, litígio estratégico e regimes de avença.
+           A sociedade exerce a advocacia com base no rigor técnico, na análise jurídica criteriosa e no respeito pelos princípios éticos que regem a profissão.
+
+A actuação da firma abrange o acompanhamento jurídico de empresas e particulares, incluindo matérias de natureza preventiva, contenciosa e de assessoria jurídica continuada
             </p>
 
             {/* Nota de resposta

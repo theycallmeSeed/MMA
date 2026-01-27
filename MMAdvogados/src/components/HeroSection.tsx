@@ -46,7 +46,7 @@ const HeroSection = () => {
               data-seo-importance="primary"
               style={{ animationDelay: "0.4s" }}
             >
-              Excelência Jurídica para{" "}
+              Assessoria Jurídica de Carácter Institucional para{" "}
               <span className="relative inline-block">
                 <span className="bg-gradient-to-r from-accent via-accent/90 to-accent/80 bg-clip-text text-transparent font-extrabold">
                   Pessoas Colectivas

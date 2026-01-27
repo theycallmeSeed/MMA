@@ -63,19 +63,19 @@ const AnimatedServicesSection = () => {
       title: "Contencioso e Arbitragem",
   image: "/images/office-interior.webp",
       description:
-        "Representação em tribunais e processos arbitrais, com foco em resolução eficiente de conflitos empresariais.",
-      features: ["Litígios comerciais", "Arbitragem internacional", "Mediação"],
+        "Actuação em processos judiciais e arbitrais, nos termos da lei, designadamente:",
+      features: ["	Litígios de natureza civil, criminal e comercial", "	Arbitragem", "Mediação"],
       detailedDescription:
         "A nossa equipa atua na representação de clientes em tribunais judiciais e em processos arbitrais, nacionais e internacionais. Procuramos sempre soluções eficazes para a resolução de litígios comerciais, conjugando estratégia jurídica sólida com mecanismos alternativos, como a mediação e a arbitragem. A prioridade é assegurar a defesa dos interesses dos nossos clientes, reduzindo riscos e garantindo maior previsibilidade nos processos de resolução de conflitos empresariais.",
       color: "from-blue-500/20 to-cyan-500/20",
     },
     {
       icon: Building2,
-      title: "Corporate",
+      title: "Direito Societário e Empresarial",
   image: "/images/corporate.webp",
       description:
-        "Assessoria jurídica completa para operações empresariais, fusões, aquisições e estruturação corporativa.",
-      features: ["M&A", "Due diligence", "Compliance"],
+        "Assessoria jurídica a sociedades comerciais, incluindo",
+      features: ["	Constituição, reorganização e acompanhamento societário", "Fusões e aquisições", "Due diligencee", "Compliance", "	Insolvência ou Recuperação de Empresários Comercias"],
       detailedDescription:
         "Prestamos assessoria jurídica completa em matérias de direito societário e operações empresariais. Acompanhamos processos de fusões e aquisições (M&A), realizamos auditorias legais (due diligence) e implementamos programas de compliance adequados ao enquadramento legal moçambicano e internacional. O nosso apoio permite às empresas estruturar operações de forma segura, transparente e alinhada com as melhores práticas de governança corporativa.",
       color: "from-purple-500/20 to-violet-500/20",
@@ -126,11 +126,11 @@ const AnimatedServicesSection = () => {
     // },
     {
       icon: CreditCard,
-      title: "Investimento",
+      title: "Recuperação de Crédito e Execução",
   image: "/images/investimento.webp",
       description:
         "Estratégias eficazes para recuperação de dívidas e gestão de carteiras de crédito em mora.",
-      features: ["Cobrança judicial", "Negociação", "Execução"],
+      features: ["Cobrança judicial", "Negociação de créditos", "Processos executivos"],
       detailedDescription:
         "Desenvolvemos estratégias jurídicas e extrajudiciais para a recuperação de créditos em mora. Atuamos em cobranças judiciais, execuções e negociações com devedores, procurando soluções céleres que preservem os interesses dos nossos clientes. A nossa abordagem inclui também a gestão de carteiras de crédito, com medidas preventivas para reduzir a exposição a incumprimentos futuros.",
       color: "from-teal-500/20 to-cyan-500/20",
@@ -170,8 +170,7 @@ const AnimatedServicesSection = () => {
           </h2>
 
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Soluções jurídicas especializadas para todas as necessidades empresariais,
-            com foco em resultados e excelência técnica.
+            A sociedade desenvolve a sua actividade em diversas áreas do Direito, prestando assessoria jurídica e acompanhamento processual de acordo com a legislação aplicável e as necessidades concretas de cada caso.
           </p>
         </motion.div>
 
