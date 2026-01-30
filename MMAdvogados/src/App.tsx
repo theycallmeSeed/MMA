@@ -21,7 +21,7 @@ const AppRoutes = () => {
   useEffect(() => {
     initLazyBackgrounds(document);
   }, [location.pathname]);
-  
+
   return (
     <PageTransition key={location.pathname}>
       <Routes location={location}>

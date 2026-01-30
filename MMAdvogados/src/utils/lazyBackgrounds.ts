@@ -21,4 +21,3 @@ export function initLazyBackgrounds(root: Element | Document = document) {
 
   els.forEach((el) => io.observe(el));
 }
-

@@ -42,18 +42,15 @@ const AboutSection: React.FC = () => {
       className="py-16 lg:py-20 bg-gradient-to-b from-background to-muted/20"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         {/* 🔥 TÍTULO PRINCIPAL — ADICIONADO */}
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 text-center" >
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 text-center">
           <span className="text-primary">Sobre Nós</span>
           <br />
         </h2>
 
         <div className="grid lg:grid-cols-2 gap-8 items-center">
-
           {/* TEXT + CTA */}
           <div className="order-2 lg:order-1 space-y-6">
-
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/20 text-accent-foreground w-max">
               {/* <Trophy className="h-4 w-4 mr-2" />
               <span className="text-sm font-medium">Fundadora & CEO</span> */}
@@ -67,9 +64,12 @@ const AboutSection: React.FC = () => {
             </h3> */}
 
             <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-xl">
-           A sociedade exerce a advocacia com base no rigor técnico, na análise jurídica criteriosa e no respeito pelos princípios éticos que regem a profissão.
-
-A actuação da firma abrange o acompanhamento jurídico de empresas e particulares, incluindo matérias de natureza preventiva, contenciosa e de assessoria jurídica continuada
+              A sociedade exerce a advocacia com base no rigor técnico, na
+              análise jurídica criteriosa e no respeito pelos princípios éticos
+              que regem a profissão. A actuação da firma abrange o
+              acompanhamento jurídico de empresas e particulares, incluindo
+              matérias de natureza preventiva, contenciosa e de assessoria
+              jurídica continuada
             </p>
 
             {/* Nota de resposta
@@ -104,7 +104,9 @@ A actuação da firma abrange o acompanhamento jurídico de empresas e particula
                       className="absolute inset-0"
                       initial={shouldReduce ? {} : { opacity: 0, scale: 1.03 }}
                       animate={
-                        isActive ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.02 }
+                        isActive
+                          ? { opacity: 1, scale: 1 }
+                          : { opacity: 0, scale: 1.02 }
                       }
                       transition={{ duration: 0.7 }}
                       style={{ willChange: "opacity, transform" }}
@@ -124,7 +126,9 @@ A actuação da firma abrange o acompanhamento jurídico de empresas e particula
                             width={1600}
                             height={900}
                             className="w-full h-full object-cover"
-                            onLoad={i === 0 ? () => setFirstLoaded(true) : undefined}
+                            onLoad={
+                              i === 0 ? () => setFirstLoaded(true) : undefined
+                            }
                             fallbackSrc={src}
                           />
                         );
@@ -139,7 +143,10 @@ A actuação da firma abrange o acompanhamento jurídico de empresas e particula
                 <div className="absolute left-4 top-1/2 transform -translate-y-1/2 pointer-events-auto">
                   <button
                     onClick={() =>
-                      goTo((index - 1 + carouselImages.length) % carouselImages.length)
+                      goTo(
+                        (index - 1 + carouselImages.length) %
+                          carouselImages.length
+                      )
                     }
                     className="bg-white/80 hover:bg-white px-3 py-2 rounded-full shadow-sm transition"
                   >
@@ -170,7 +177,6 @@ A actuação da firma abrange o acompanhamento jurídico de empresas e particula
               </div>
             </div>
           </div>
-
         </div>
 
         {/* Botão no centro e final da section */}
@@ -182,7 +188,6 @@ A actuação da firma abrange o acompanhamento jurídico de empresas e particula
             Saber mais
             <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
           </Link>
-           
         </div>
       </div>
     </section>

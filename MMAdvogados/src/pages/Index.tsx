@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 const Index = () => {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -25,4 +25,3 @@ const Index = () => {
 };
 
 export default Index;
-

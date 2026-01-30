@@ -33,7 +33,10 @@ const HeroSection = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-primary/20 to-primary/12 sm:from-primary/28 sm:via-primary/18 sm:to-primary/10"></div>
         <div className="absolute inset-0 bg-radial-gradient opacity-8"></div>
-        <div className="absolute inset-0 hero-gradient-animation" style={{ opacity: 0.18, mixBlendMode: "screen" }}></div>
+        <div
+          className="absolute inset-0 hero-gradient-animation"
+          style={{ opacity: 0.18, mixBlendMode: "screen" }}
+        ></div>
       </div>
 
       {/* Content Container */}
@@ -83,7 +86,11 @@ const HeroSection = () => {
               className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary px-8 py-6 w-full sm:w-auto text-base transition-all duration-300 backdrop-blur-sm bg-primary-foreground/5 hover:shadow-xl hover:-translate-y-1 focus-visible:ring-4 focus-visible:ring-primary-foreground focus-visible:ring-offset-2"
               aria-label="Agendar consultoria jurídica via WhatsApp"
             >
-              <a href={getWhatsAppConsultoriaLinkExact()} target="_blank" rel="noopener noreferrer">
+              <a
+                href={getWhatsAppConsultoriaLinkExact()}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <span className="flex items-center gap-3">
                   Agendar Consultoria
                   <ArrowRight className="h-5 w-5" />
@@ -93,8 +100,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-
-      
 
       {/* Custom Styles (mantive os teus) */}
       <style>{`

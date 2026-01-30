@@ -1,4 +1,13 @@
-import { Scale, Mail, Phone, MapPin, Clock, Linkedin, Facebook, Instagram } from "lucide-react";
+import {
+  Scale,
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+  Linkedin,
+  Facebook,
+  Instagram,
+} from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -22,7 +31,13 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="text-primary-foreground" style={{ background: 'linear-gradient(135deg, hsl(343 59% 20%), hsl(343 45% 30%))' }}>
+    <footer
+      className="text-primary-foreground"
+      style={{
+        background:
+          "linear-gradient(135deg, hsl(343 59% 20%), hsl(343 45% 30%))",
+      }}
+    >
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
@@ -43,7 +58,8 @@ const Footer = () => {
             </div>
             <p className="text-primary-foreground/80 mb-6 leading-relaxed text-sm lg:text-base">
               Sociedade de advogados de elite em Maputo, especializada em
-              excelência jurídica para empresas que exigem resultados excepcionais.
+              excelência jurídica para empresas que exigem resultados
+              excepcionais.
             </p>
             <div className="flex space-x-3">
               <a

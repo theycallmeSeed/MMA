@@ -2,61 +2,75 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { motion, useReducedMotion } from "framer-motion";
 import { fadeIn, slideUp, staggerContainer } from "@/lib/animation-variants";
-import { Trophy, Users, Target, Award, Shield, Heart, Building2, ArrowRight, CheckCircle } from "lucide-react";
+import {
+  Trophy,
+  Users,
+  Target,
+  Award,
+  Shield,
+  Heart,
+  Building2,
+  ArrowRight,
+  CheckCircle,
+} from "lucide-react";
 
 const Sobre = () => {
   const values = [
     {
       icon: Trophy,
       title: "Excelência",
-      description: "Comprometemo-nos com os mais altos padrões de qualidade jurídica.",
-      gradient: "from-amber-500/20 to-yellow-500/20"
+      description:
+        "Comprometemo-nos com os mais altos padrões de qualidade jurídica.",
+      gradient: "from-amber-500/20 to-yellow-500/20",
     },
     {
       icon: Users,
       title: "Liderança Feminina",
-      description: "Pioneiras no direito empresarial liderado por mulheres em Moçambique.",
-      gradient: "from-rose-500/20 to-pink-500/20"
+      description:
+        "Pioneiras no direito empresarial liderado por mulheres em Moçambique.",
+      gradient: "from-rose-500/20 to-pink-500/20",
     },
     {
       icon: Target,
       title: "Foco em Resultados",
-      description: "Orientamos todas as nossas acções para alcançar os objectivos dos clientes.",
-      gradient: "from-blue-500/20 to-cyan-500/20"
+      description:
+        "Orientamos todas as nossas acções para alcançar os objectivos dos clientes.",
+      gradient: "from-blue-500/20 to-cyan-500/20",
     },
     {
       icon: Award,
       title: "Transparência",
-      description: "Relatórios mensais e comunicação clara em todos os processos.",
-      gradient: "from-purple-500/20 to-violet-500/20"
-    }
+      description:
+        "Relatórios mensais e comunicação clara em todos os processos.",
+      gradient: "from-purple-500/20 to-violet-500/20",
+    },
   ];
 
   const achievements = [
     { icon: Shield, number: "15+", label: "Anos de Experiência" },
     { icon: Users, number: "200+", label: "Clientes Satisfeitos" },
     { icon: Trophy, number: "98%", label: "Taxa de Sucesso" },
-    { icon: Heart, number: "24/7", label: "Suporte Dedicado" }
+    { icon: Heart, number: "24/7", label: "Suporte Dedicado" },
   ];
 
-  // const founderAchievements = [
-  //   "Sociedade liderada por mulheres em Moçambique",
-  //   "Especialização em regime de avença empresarial",
-  //   "Equipa jovem, técnica e dinâmica",
-  //   "Relatórios mensais e transparência total",
-  // ];
+  const founderAchievements = [
+    "Sociedade liderada por mulheres em Moçambique",
+    "Especialização em regime de avença empresarial",
+    "Equipa jovem, técnica e dinâmica",
+    "Relatórios mensais e transparência total",
+  ];
 
   const shouldReduce = useReducedMotion();
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/10 to-background"></div>
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             className="text-center mb-16"
@@ -64,12 +78,15 @@ const Sobre = () => {
             initial={shouldReduce ? undefined : "hidden"}
             whileInView={shouldReduce ? undefined : "visible"}
             viewport={shouldReduce ? undefined : { once: true, amount: 0.3 }}
-            style={{ willChange: "transform, opacity", backfaceVisibility: "hidden" }}
+            style={{
+              willChange: "transform, opacity",
+              backfaceVisibility: "hidden",
+            }}
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6">
               <span className="text-primary">Sobre Nós</span>
             </h1>
-            
+
             {/* <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
               Uma sociedade de advogados pioneira em Moçambique, assente nos valores da excelência, da inovação e da liderança exercida por mulheres, ao serviço de empresas e particulares.
             </p> */}
@@ -82,13 +99,20 @@ const Sobre = () => {
             initial={shouldReduce ? undefined : "hidden"}
             whileInView={shouldReduce ? undefined : "visible"}
             viewport={shouldReduce ? undefined : { once: true, amount: 0.3 }}
-            style={{ willChange: "transform, opacity", backfaceVisibility: "hidden" }}
+            style={{
+              willChange: "transform, opacity",
+              backfaceVisibility: "hidden",
+            }}
           >
             {achievements.map((achievement, index) => (
-              <motion.div 
-                key={index} 
+              <motion.div
+                key={index}
                 className="text-center p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 group"
-                style={{ boxShadow: 'var(--shadow-card)', willChange: "transform, opacity", backfaceVisibility: "hidden" }}
+                style={{
+                  boxShadow: "var(--shadow-card)",
+                  willChange: "transform, opacity",
+                  backfaceVisibility: "hidden",
+                }}
                 variants={shouldReduce ? {} : slideUp}
               >
                 <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -109,7 +133,7 @@ const Sobre = () => {
       {/* Nossa História com Escritório Section */}
       <section className="relative py-24 overflow-hidden bg-gradient-to-b from-background to-muted/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
+          <motion.div
             className="grid lg:grid-cols-2 gap-12 items-center"
             variants={staggerContainer}
             initial="hidden"
@@ -119,7 +143,10 @@ const Sobre = () => {
             {/* Imagem do Escritório */}
             <motion.div className="relative group" variants={slideUp}>
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500"></div>
-              <div className="relative overflow-hidden rounded-2xl border border-border" style={{ boxShadow: 'var(--shadow-card)' }}>
+              <div
+                className="relative overflow-hidden rounded-2xl border border-border"
+                style={{ boxShadow: "var(--shadow-card)" }}
+              >
                 <LazyImage
                   src="/images/mmaoffice.webp"
                   alt="Escritório MM Advogados"
@@ -133,26 +160,24 @@ const Sobre = () => {
 
             {/* História do Escritório */}
             <motion.div className="space-y-6" variants={slideUp}>
-            
-
               <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary">
-                Uma Jornada de <span className="text-gradient-primary">Excelência Jurídica</span>
+                Sobre o{" "}
+                <span className="text-gradient-primary">Escritório</span>
               </h2>
 
               <div className="space-y-4 text-foreground leading-relaxed">
                 <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-                  Fundada com a visão de transformar o panorama jurídico em Moçambique, a MM Advogados nasceu do compromisso inabalável com a excelência e a inovação no direito empresarial.
-               
-                
-                
-                  Sob a liderança pioneira de mulheres empreendedoras e visionárias, construímos uma reputação sólida baseada em resultados concretos e relacionamentos duradouros com nossos clientes. Ao longo dos anos, expandimos nossa expertise para abranger todas as áreas críticas do direito empresarial.
-                
-
-                
-                  Em 20XX, movida pelo sonho de contribuir no empoderamento feminino, decidimos fundar a Milagrosa Macuacua Advogados, um escritório composto 100% por mulheres, dentre Advogadas, Advogadas Estagiárias, bem como pessoal de apoio.
+                  A MMAdvogados é uma sociedade de advogados constituída e
+                  registada nos termos da lei moçambicana, exercendo a sua
+                  actividade em estrita conformidade com o Estatuto da Ordem dos
+                  Advogados de Moçambique e demais normas deontológicas
+                  aplicáveis à advocacia. O escritório presta serviços de
+                  assessoria jurídica a empresas e particulares, actuando nas
+                  áreas de consultoria preventiva, contencioso e acompanhamento
+                  jurídico continuado, incluindo regimes de avença, sempre com
+                  observância dos princípios da independência,
+                  confidencialidade, lealdade e zelo profissional.
                 </p>
-
-                
               </div>
             </motion.div>
           </motion.div>
@@ -162,9 +187,9 @@ const Sobre = () => {
       {/* Founder Section - Milagrosa Macuácua */}
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-muted/20 to-background"></div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div 
+          <motion.div
             className="grid lg:grid-cols-2 gap-12 items-center"
             variants={staggerContainer}
             initial="hidden"
@@ -176,19 +201,30 @@ const Sobre = () => {
                 <Trophy className="h-4 w-4 mr-2" />
                 <span className="text-sm font-medium">Fundadora</span>
               </div>
-              
+
               <h3 className="text-4xl md:text-5xl font-serif font-bold text-primary">
                 Milagrosa Macuácua
               </h3>
-              
+
               <div className="space-y-4 text-foreground leading-relaxed">
                 <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-                 Milagrosa Macuácua é advogada, sócia e fundadora da MM Advogados.
-Exerce a sua actividade profissional nas áreas de Direito Civil, Direito da Família, Direito Penal, Direito do Trabalho e Contencioso Administrativo.
-Foi Presidente do Conselho Provincial da Ordem dos Advogados de Moçambique no período de 2020 a 2023, exercendo atualmente funções de Conselheira no mesmo órgão. Integra a Comissão Nacional de Avaliação de Estágio da Ordem dos Advogados de Moçambique e exerce funções de Árbitro no Centro de Arbitragem, Conciliação e Mediação, e de Administradora de Insolvência.
-É licenciada em Direito pela Faculdade de Direito da Universidade Eduardo Mondlane desde 2009, Mestranda em Ciências Jurídicas na mesma instituição.
-Ao longo da sua carreira profissional, exerceu funções na Sal & Cadeira, na Opelegis e no Instituto de Patrocínio e Assistência Jurídica (IPAJ), nomeadamente como Delegada Distrital e como Chefe do Departamento de Formação e Estágio da Delegação Provincial.
-
+                  Milagrosa Macuácua é advogada, sócia e fundadora da MM
+                  Advogados. Exerce a sua actividade profissional nas áreas de
+                  Direito Civil, Direito da Família, Direito Penal, Direito do
+                  Trabalho e Contencioso Administrativo. Foi Presidente do
+                  Conselho Provincial da Ordem dos Advogados de Moçambique no
+                  período de 2020 a 2023, exercendo atualmente funções de
+                  Conselheira no mesmo órgão. Integra a Comissão Nacional de
+                  Avaliação de Estágio da Ordem dos Advogados de Moçambique e
+                  exerce funções de Árbitro no Centro de Arbitragem, Conciliação
+                  e Mediação, e de Administradora de Insolvência. É licenciada
+                  em Direito pela Faculdade de Direito da Universidade Eduardo
+                  Mondlane desde 2009, Mestranda em Ciências Jurídicas na mesma
+                  instituição. Ao longo da sua carreira profissional, exerceu
+                  funções na Sal & Cadeira, na Opelegis e no Instituto de
+                  Patrocínio e Assistência Jurídica (IPAJ), nomeadamente como
+                  Delegada Distrital e como Chefe do Departamento de Formação e
+                  Estágio da Delegação Provincial.
                 </p>
               </div>
 
@@ -206,7 +242,10 @@ Ao longo da sua carreira profissional, exerceu funções na Sal & Cadeira, na Op
 
             <motion.div className="relative" variants={slideUp}>
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl"></div>
-              <div className="relative overflow-hidden rounded-2xl border border-border" style={{ boxShadow: 'var(--shadow-card)' }}>
+              <div
+                className="relative overflow-hidden rounded-2xl border border-border"
+                style={{ boxShadow: "var(--shadow-card)" }}
+              >
                 <img
                   src="/images/milagrosa-portrait.webp"
                   alt="Milagrosa Macuácua - Fundadora"
@@ -225,7 +264,10 @@ Ao longo da sua carreira profissional, exerceu funções na Sal & Cadeira, na Op
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative lg:order-2">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl"></div>
-              <div className="relative overflow-hidden rounded-2xl border border-border" style={{ boxShadow: 'var(--shadow-card)' }}>
+              <div
+                className="relative overflow-hidden rounded-2xl border border-border"
+                style={{ boxShadow: "var(--shadow-card)" }}
+              >
                 <img
                   src="/images/legal-team.webp"
                   alt="Equipa Jurídica"
@@ -240,22 +282,21 @@ Ao longo da sua carreira profissional, exerceu funções na Sal & Cadeira, na Op
                 <Users className="h-4 w-4 mr-2" />
                 <span className="text-sm font-medium">A Nossa Equipa</span>
               </div>
-              
+
               <h3 className="text-4xl md:text-5xl font-serif font-bold text-primary">
                 Jovem, Técnica e Dinâmica
               </h3>
-              
+
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p className="text-lg">
-                  A nossa equipa é composta por jovens profissionais altamente qualificados, com formação técnica especializada e uma abordagem dinâmica aos desafios jurídicos contemporâneos.
-                </p>
-                
-                <p>
-                  Combinamos experiência sólida com inovação, utilizando tecnologia de ponta, plataformas digitais para acompanhamento de processos em tempo real, e metodologias modernas de gestão jurídica.
-                </p>
-
-                <p>
-                  A nossa abordagem inclui análise de riscos detalhada, due diligence completa e estratégias personalizadas para cada sector de actividade, garantindo resultados mensuráveis e ROI comprovado.
+                  A MM Advogados é composta exclusivamente por mulheres,
+                  incluindo advogadas, advogadas estagiárias e pessoal
+                  administrativo, com formação adequada às áreas de actuação do
+                  escritório. A actividade desenvolvida assenta numa abordagem
+                  técnica, colaborativa e organizada, com recurso a meios
+                  tecnológicos para gestão interna e acompanhamento processual,
+                  respeitando, em todas as circunstâncias, os deveres legais e
+                  deontológicos inerentes ao exercício da advocacia.
                 </p>
               </div>
 
@@ -281,15 +322,18 @@ Ao longo da sua carreira profissional, exerceu funções na Sal & Cadeira, na Op
       {/* Values Section */}
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-muted/20 via-background to-background"></div>
-        
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: `linear-gradient(hsl(343 59% 20%) 1px, transparent 1px),
+
+        <div
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage: `linear-gradient(hsl(343 59% 20%) 1px, transparent 1px),
                            linear-gradient(90deg, hsl(343 59% 20%) 1px, transparent 1px)`,
-          backgroundSize: '50px 50px'
-        }}></div>
+            backgroundSize: "50px 50px",
+          }}
+        ></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div 
+          <motion.div
             className="text-center mb-16"
             variants={fadeIn}
             initial="hidden"
@@ -300,11 +344,12 @@ Ao longo da sua carreira profissional, exerceu funções na Sal & Cadeira, na Op
               Os Nossos Valores
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Os valores fundamentais que sustentam cada decisão e diferenciam nosso trabalho.
+              Os valores fundamentais que sustentam cada decisão e diferenciam
+              nosso trabalho.
             </p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
             variants={staggerContainer}
             initial="hidden"
@@ -312,25 +357,28 @@ Ao longo da sua carreira profissional, exerceu funções na Sal & Cadeira, na Op
             viewport={{ once: true, amount: 0.2 }}
           >
             {values.map((value, index) => (
-              <motion.div 
-                key={index} 
+              <motion.div
+                key={index}
                 className="relative group"
                 variants={slideUp}
               >
-                <div className="relative h-full p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-500 hover:-translate-y-3"
-                     style={{ boxShadow: 'var(--shadow-card)' }}>
-                  
-                  <div className={`absolute inset-0 bg-gradient-to-br ${value.gradient} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                  
+                <div
+                  className="relative h-full p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-500 hover:-translate-y-3"
+                  style={{ boxShadow: "var(--shadow-card)" }}
+                >
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${value.gradient} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                  ></div>
+
                   <div className="relative z-10">
                     <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                       <value.icon className="h-8 w-8 text-primary" />
                     </div>
-                    
+
                     <h3 className="text-2xl font-serif font-semibold text-primary mb-4 group-hover:text-primary/90 transition-colors">
                       {value.title}
                     </h3>
-                    
+
                     <p className="text-muted-foreground leading-relaxed">
                       {value.description}
                     </p>
@@ -347,9 +395,9 @@ Ao longo da sua carreira profissional, exerceu funções na Sal & Cadeira, na Op
       {/* Mission Statement */}
       <section className="relative py-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
+          <motion.div
             className="text-center bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl p-12 border border-border"
-            style={{ boxShadow: 'var(--shadow-card)' }}
+            style={{ boxShadow: "var(--shadow-card)" }}
             variants={slideUp}
             initial="hidden"
             whileInView="visible"
@@ -359,19 +407,21 @@ Ao longo da sua carreira profissional, exerceu funções na Sal & Cadeira, na Op
               <Target className="h-4 w-4 mr-2" />
               <span className="text-sm font-medium">A Nossa Missão</span>
             </div>
-            
+
             <h3 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6">
               Transformar o Direito Empresarial em Moçambique
             </h3>
-            
+
             <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Prestar Serviços Jurídicos com Excelência, Oferecendo Soluções Inovadoras para Obtenção de Resultados Expressivos que Garantam a Satisfação dos Clientes.
+              Prestar Serviços Jurídicos com Excelência, Oferecendo Soluções
+              Inovadoras para Obtenção de Resultados Expressivos que Garantam a
+              Satisfação dos Clientes.
             </p>
 
             <div className="mt-10 flex justify-center">
-              <a 
-                href="/servicos" 
-               className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,3j8)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto"
+              <a
+                href="/servicos"
+                className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,3j8)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto"
               >
                 <span>Conheça as Áreas de Atuação</span>
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

@@ -36,7 +36,8 @@ export default function ScrollToTop() {
   // Foca o main para acessibilidade sem causar CLS
   const focusMain = () => {
     try {
-      const main = (document.getElementById("conteudo") || document.querySelector("main")) as HTMLElement | null;
+      const main = (document.getElementById("conteudo") ||
+        document.querySelector("main")) as HTMLElement | null;
       if (main) {
         if (!main.hasAttribute("tabindex")) main.setAttribute("tabindex", "-1");
         main.focus({ preventScroll: true });
@@ -52,7 +53,9 @@ export default function ScrollToTop() {
     // Usar rAF para focar após pintura da nova view
     requestAnimationFrame(() => focusMain());
     // Opcional: emitir um evento para componentes ouvirem se necessário
-    document.dispatchEvent(new CustomEvent("mm:route-changed", { detail: { pathname } }));
+    document.dispatchEvent(
+      new CustomEvent("mm:route-changed", { detail: { pathname } })
+    );
   }, [pathname]);
 
   // Com hash (#id): rolar suavemente até o elemento alvo
@@ -61,9 +64,17 @@ export default function ScrollToTop() {
     const id = decodeURIComponent(hash.slice(1));
     // Espera breve para garantir que o elemento está no DOM (SSR/lazy)
     const t = setTimeout(() => {
-      const target = document.getElementById(id) || (document.querySelector(`[name="${CSS.escape(id)}"]`) as HTMLElement | null);
+      const target =
+        document.getElementById(id) ||
+        (document.querySelector(
+          `[name="${CSS.escape(id)}"]`
+        ) as HTMLElement | null);
       if (target) {
-        target.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest",
+        });
       } else {
         window.scrollTo({ top: 0, left: 0, behavior: "auto" });
       }
@@ -73,4 +84,3 @@ export default function ScrollToTop() {
 
   return null;
 }
-

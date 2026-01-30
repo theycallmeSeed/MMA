@@ -9,7 +9,19 @@ type Props = React.ImgHTMLAttributes<HTMLImageElement> & {
   fallbackSrc?: string; // usado se variante não existir ou falhar
 };
 
-export default function LazyImage({ src, alt, priority, className = "", width, height, srcSet, sizes, fallbackSrc, onError, ...rest }: Props) {
+export default function LazyImage({
+  src,
+  alt,
+  priority,
+  className = "",
+  width,
+  height,
+  srcSet,
+  sizes,
+  fallbackSrc,
+  onError,
+  ...rest
+}: Props) {
   const imgRef = useRef<HTMLImageElement | null>(null);
   const [visible, setVisible] = useState(Boolean(priority));
 

@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 interface PageTransitionProps {
   children: React.ReactNode;
@@ -8,20 +8,22 @@ interface PageTransitionProps {
 const PageTransition = ({ children }: PageTransitionProps) => {
   const location = useLocation();
   const [displayLocation, setDisplayLocation] = useState(location);
-  const [transitionStage, setTransitionStage] = useState<'fade-in' | 'fade-out'>('fade-in');
+  const [transitionStage, setTransitionStage] = useState<
+    "fade-in" | "fade-out"
+  >("fade-in");
 
   useEffect(() => {
     if (location !== displayLocation) {
-      setTransitionStage('fade-out');
+      setTransitionStage("fade-out");
     }
   }, [location, displayLocation]);
 
   useEffect(() => {
-    if (transitionStage === 'fade-out') {
+    if (transitionStage === "fade-out") {
       const timeout = setTimeout(() => {
         setDisplayLocation(location);
-        setTransitionStage('fade-in');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTransitionStage("fade-in");
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }, 300);
 
       return () => clearTimeout(timeout);
@@ -32,13 +34,13 @@ const PageTransition = ({ children }: PageTransitionProps) => {
     <div
       className={`page-transition ${transitionStage}`}
       onAnimationEnd={() => {
-        if (transitionStage === 'fade-out') {
-          setTransitionStage('fade-in');
+        if (transitionStage === "fade-out") {
+          setTransitionStage("fade-in");
         }
       }}
     >
       {children}
-      
+
       <style>{`
         .page-transition {
           animation-duration: 400ms;
