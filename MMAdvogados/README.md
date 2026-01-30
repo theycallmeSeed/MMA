@@ -1,73 +1,118 @@
-# Welcome to your Lovable project
+# MM Advogados — Website
 
-## Project info
+Site institucional da Milagrosa Macuácua Advogados, construído com React, Vite e Tailwind. Otimizado para performance com lazy-loading, `srcset/sizes` e melhorias de navegação em SPA.
 
-**URL**: https://lovable.dev/projects/da827a4b-6000-4487-8089-d1d5bb712ee1
+## Stack
 
-## How can I edit this code?
+- Vite + React (TypeScript)
+- Tailwind CSS
+- shadcn-ui
+- Framer Motion
 
-There are several ways of editing your application.
+## Requisitos
 
-**Use Lovable**
+- Node.js 18+ (recomendado)
+- npm ou pnpm instalados
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/da827a4b-6000-4487-8089-d1d5bb712ee1) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## Instalação e desenvolvimento
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Dentro de MMA/MMAdvogados
+npm i                # ou: pnpm i
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Ambiente de desenvolvimento (porta 8080, abre automaticamente)
+npm run dev          # ou: pnpm dev
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Build de produção
+npm run build        # ou: pnpm build
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+# Preview de produção (Vite Preview)
+npm run preview      # ou: pnpm preview
 ```
 
-**Edit a file directly in GitHub**
+> Nota: o projeto usa Vite configurado para `port: 8080` (ver `vite.config.ts`).
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Scripts úteis
 
-**Use GitHub Codespaces**
+- `resize:images`: gera variantes WebP para imagens em `public/images`.
+  ```sh
+  npm run resize:images     # ou: pnpm run resize:images
+  ```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Otimização de imagens
 
-## What technologies are used for this project?
+- Componente `LazyImage` aceita `srcSet` e `sizes` para servir imagens responsivas.
+- Usa `IntersectionObserver` para carregar imagens apenas quando visíveis (lazy) e respeita `priority` para heróis/elementos críticos.
+- Define `width`/`height` para reduzir CLS.
+- O script `tools/resize-images.js` gera variantes `-400/-800/-1200/-1600.webp` evitando reprocessar arquivos já gerados.
 
-This project is built with:
+Exemplo em cards:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```tsx
+<LazyImage
+  src="/images/legal-team.webp"
+  srcSet="/images/legal-team-400.webp 400w, /images/legal-team-800.webp 800w, /images/legal-team-1200.webp 1200w"
+  sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
+  alt="Equipe jurídica"
+  width={1200}
+  height={675}
+  className="w-full h-full object-cover"
+  fallbackSrc="/images/legal-team.webp"
+/>
+```
 
-## How can I deploy this project?
+Mais detalhes em `docs/IMAGES.md`.
 
-Simply open [Lovable](https://lovable.dev/projects/da827a4b-6000-4487-8089-d1d5bb712ee1) and click on Share -> Publish.
+## Navegação SPA aprimorada (ScrollToTop)
 
-## Can I connect a custom domain to my Lovable project?
+- Componente `src/components/ScrollToTop.tsx` garante que:
+  - Ao mudar de rota, o scroll volta ao topo instantaneamente;
+  - Remove qualquer `overflow: hidden` do `body/html` deixado pelo menu mobile;
+  - Dá suporte a URLs com hash `#id`, rolando suavemente até o elemento alvo;
+  - Foca programaticamente o `<main id="conteudo">` (se existir) para acessibilidade.
 
-Yes, you can!
+Integração em `App.tsx`:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```tsx
+<BrowserRouter>
+  <ScrollToTop />
+  <AppRoutes />
+  <WhatsAppButton />
+</BrowserRouter>
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Recomendação de acessibilidade: envolver o conteúdo principal de cada página com `<main id="conteudo">` para foco consistente.
+
+## Estrutura principal
+
+```
+MMAdvogados/
+├─ public/
+│  └─ images/           # imagens base (WebP)
+├─ src/
+│  ├─ components/
+│  │  ├─ LazyImage.tsx
+│  │  ├─ ScrollToTop.tsx
+│  │  ├─ HeroSection.tsx, TeamSection.tsx, AboutSection.tsx
+│  │  └─ Navigation.tsx, Footer.tsx
+│  ├─ pages/
+│  │  └─ Index.tsx, Sobre.tsx, Servicos.tsx, Equipe.tsx, Contactos.tsx
+│  └─ lib/
+├─ tools/
+│  └─ resize-images.js
+└─ vite.config.ts
+```
+
+## Boas práticas de performance
+
+- Evitar apontar `src` para variantes que não existem; usar arquivo original como `src` e variantes em `srcSet`.
+- Manter `width`/`height` nas imagens para estabilidade de layout (reduz CLS).
+- Usar `priority` apenas em imagens críticas (como hero) para não impactar LCP.
+
+## Deploy
+
+- Gerar build com `npm run build` e servir `dist/` em qualquer host estático (Vercel, Netlify, etc.).
+
+## Suporte
+
+Em caso de dúvidas sobre otimização de imagens ou navegação SPA, ver `docs/IMAGES.md` e o componente `ScrollToTop.tsx`.
