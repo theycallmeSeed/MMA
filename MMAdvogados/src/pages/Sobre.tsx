@@ -12,6 +12,7 @@ import {
   Building2,
   ArrowRight,
   CheckCircle,
+  Building2Icon,
 } from "lucide-react";
 
 const Sobre = () => {
@@ -160,6 +161,11 @@ const Sobre = () => {
 
             {/* História do Escritório */}
             <motion.div className="space-y-6" variants={slideUp}>
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/20 text-accent-foreground">
+                <Building2Icon className="h-5 w-5 mr-2" />
+                <span className="text-sm font-medium">Escritório</span>
+              </div>
+
               <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary">
                 Sobre o{" "}
                 <span className="text-gradient-primary">Escritório</span>
@@ -290,13 +296,14 @@ const Sobre = () => {
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p className="text-lg">
                   A MM Advogados é composta exclusivamente por mulheres,
-                  incluindo advogadas, advogadas estagiárias e pessoal
-                  administrativo, com formação adequada às áreas de actuação do
-                  escritório. A actividade desenvolvida assenta numa abordagem
-                  técnica, colaborativa e organizada, com recurso a meios
-                  tecnológicos para gestão interna e acompanhamento processual,
-                  respeitando, em todas as circunstâncias, os deveres legais e
-                  deontológicos inerentes ao exercício da advocacia.
+                  integrando advogadas, advogadas estagiárias e pessoal
+                  administrativo, todas com formação adequada às respetivas
+                  áreas de atuação do escritório. A atividade desenvolvida
+                  assenta numa abordagem técnica, colaborativa e organizada,
+                  suportada por meios tecnológicos que permitem uma gestão
+                  interna eficiente e um acompanhamento processual rigoroso,
+                  assegurando, em permanência, o cumprimento dos deveres legais
+                  e deontológicos inerentes ao exercício da advocacia.
                 </p>
               </div>
 

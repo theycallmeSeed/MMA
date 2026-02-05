@@ -90,7 +90,7 @@ const AnimatedServicesSection = () => {
       features: [
         "	Constituição, reorganização e acompanhamento societário",
         "Fusões e aquisições",
-        "Due diligencee",
+        "Due diligence ",
         "Compliance",
         "	Insolvência ou Recuperação de Empresários Comercias",
       ],
