@@ -83,7 +83,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
                     member.photo ? "hidden" : ""
                   }`}
                 >
-                  <span className="text-4xl font-bold text-primary">
+                  <span className="font-serif text-4xl font-bold text-primary">
                     {member.name
                       .split(" ")
                       .map((n) => n[0])
@@ -99,13 +99,13 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
           </div>
 
           <div className="text-center mb-6">
-            <h2 className="text-2xl font-serif font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+            <h2 className="h3 mb-2 text-foreground group-hover:text-primary transition-colors">
               {member.name}
             </h2>
-            <p className="text-primary font-semibold mb-4 text-sm">
+            <p className="small text-primary font-semibold mb-4">
               {member.position}
             </p>
-            <p className="text-muted-foreground text-sm leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               {member.description}
             </p>
           </div>
@@ -187,7 +187,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
               >
                 <div className="space-y-6 px-2">
                   <div>
-                    <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
+                    <h4 className="flex items-center small font-semibold text-foreground mb-3">
                       <GraduationCap className="w-5 h-5 mr-2 text-primary" />
                       Formação Académica
                     </h4>
@@ -205,7 +205,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
                   </div>
 
                   <div>
-                    <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
+                    <h4 className="flex items-center small font-semibold text-foreground mb-3">
                       <Briefcase className="w-5 h-5 mr-2 text-primary" />
                       Experiência Profissional
                     </h4>
@@ -223,7 +223,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
                   </div>
 
                   <div>
-                    <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
+                    <h4 className="flex items-center small font-semibold text-foreground mb-3">
                       <Sparkles className="w-5 h-5 mr-2 text-primary" />
                       Especialidades
                     </h4>
@@ -240,7 +240,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
                   </div>
 
                   <div>
-                    <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
+                    <h4 className="flex items-center small font-semibold text-foreground mb-3">
                       <Languages className="w-5 h-5 mr-2 text-primary" />
                       Idiomas
                     </h4>

@@ -3,6 +3,23 @@ import animate from "tailwindcss-animate";
 
 export default {
 	darkMode: ["class"],
+	safelist: [
+		// Safelist custom typography utility classes defined in index.css
+		"heading-display",
+		"text-lead",
+		"text-caption",
+		"btn-text",
+		"text-gradient-primary",
+		// Heading scale utility classes
+		"h1",
+		"h2",
+		"h3",
+		"h4",
+		"h5",
+		"h6",
+		// Small text utility
+		"small",
+	],
 	content: [
 		"./pages/**/*.{ts,tsx}",
 		"./components/**/*.{ts,tsx}",

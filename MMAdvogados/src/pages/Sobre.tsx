@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { motion, useReducedMotion } from "framer-motion";
 import { fadeIn, slideUp, staggerContainer } from "@/lib/animation-variants";
+import LazyImage from "@/components/LazyImage";
 import {
   Trophy,
   Users,
@@ -84,11 +85,11 @@ const Sobre = () => {
               backfaceVisibility: "hidden",
             }}
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6">
+            <h1 className="heading-display mb-6">
               <span className="text-primary">Sobre Nós</span>
             </h1>
 
-            {/* <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
+            {/* <p className="text-lead text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
               Uma sociedade de advogados pioneira em Moçambique, assente nos valores da excelência, da inovação e da liderança exercida por mulheres, ao serviço de empresas e particulares.
             </p> */}
           </motion.div>
@@ -119,10 +120,10 @@ const Sobre = () => {
                 <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300">
                   <achievement.icon className="h-7 w-7 text-primary" />
                 </div>
-                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
+                <div className="h2 font-bold text-primary mb-2">
                   {achievement.number}
                 </div>
-                <div className="text-sm text-muted-foreground font-medium">
+                <div className="small font-medium text-muted-foreground">
                   {achievement.label}
                 </div>
               </motion.div>
@@ -163,16 +164,16 @@ const Sobre = () => {
             <motion.div className="space-y-6" variants={slideUp}>
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/20 text-accent-foreground">
                 <Building2Icon className="h-5 w-5 mr-2" />
-                <span className="text-sm font-medium">Escritório</span>
+                <span className="small font-medium">Escritório</span>
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary">
+              <h2 className="heading-display text-primary">
                 Sobre o{" "}
                 <span className="text-gradient-primary">Escritório</span>
               </h2>
 
               <div className="space-y-4 text-foreground leading-relaxed">
-                <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+                <p className="text-lead max-w-4xl">
                   A MMAdvogados é uma sociedade de advogados constituída e
                   registada nos termos da lei moçambicana, exercendo a sua
                   actividade em estrita conformidade com o Estatuto da Ordem dos
@@ -205,15 +206,15 @@ const Sobre = () => {
             <motion.div className="space-y-6" variants={slideUp}>
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/20 text-accent-foreground">
                 <Trophy className="h-4 w-4 mr-2" />
-                <span className="text-sm font-medium">Fundadora</span>
+                <span className="small font-medium">Fundadora</span>
               </div>
 
-              <h3 className="text-4xl md:text-5xl font-serif font-bold text-primary">
+              <h3 className="heading-display text-primary">
                 Milagrosa Macuácua
               </h3>
 
               <div className="space-y-4 text-foreground leading-relaxed">
-                <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+                <p className="text-lead max-w-4xl">
                   Milagrosa Macuácua é advogada, sócia e fundadora da MM
                   Advogados. Exerce a sua actividade profissional nas áreas de
                   Direito Civil, Direito da Família, Direito Penal, Direito do
@@ -286,15 +287,15 @@ const Sobre = () => {
             <div className="space-y-6 lg:order-1">
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/20 text-accent-foreground">
                 <Users className="h-4 w-4 mr-2" />
-                <span className="text-sm font-medium">A Nossa Equipa</span>
+                <span className="small font-medium">A Nossa Equipa</span>
               </div>
 
-              <h3 className="text-4xl md:text-5xl font-serif font-bold text-primary">
+              <h3 className="heading-display text-primary">
                 Jovem, Técnica e Dinâmica
               </h3>
 
               <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p className="text-lg">
+                <p className="text-lead">
                   A MM Advogados é composta exclusivamente por mulheres,
                   integrando advogadas, advogadas estagiárias e pessoal
                   administrativo, todas com formação adequada às respetivas
@@ -309,14 +310,14 @@ const Sobre = () => {
 
               <div className="grid grid-cols-2 gap-8 pt-6">
                 <div className="text-center p-6 rounded-xl bg-card border border-border">
-                  <div className="text-3xl font-bold text-primary mb-2">4+</div>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="h2 font-bold text-primary mb-2">4+</div>
+                  <div className="small font-medium text-muted-foreground">
                     Advogados Especializados
                   </div>
                 </div>
                 <div className="text-center p-6 rounded-xl bg-card border border-border">
-                  <div className="text-3xl font-bold text-primary mb-2">7</div>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="h2 font-bold text-primary mb-2">7</div>
+                  <div className="small font-medium text-muted-foreground">
                     Áreas de Especialização
                   </div>
                 </div>
@@ -347,10 +348,10 @@ const Sobre = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary mb-6">
+            <h2 className="heading-display text-primary mb-6">
               Os Nossos Valores
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lead text-muted-foreground max-w-3xl mx-auto">
               Os valores fundamentais que sustentam cada decisão e diferenciam
               nosso trabalho.
             </p>
@@ -382,11 +383,11 @@ const Sobre = () => {
                       <value.icon className="h-8 w-8 text-primary" />
                     </div>
 
-                    <h3 className="text-2xl font-serif font-semibold text-primary mb-4 group-hover:text-primary/90 transition-colors">
+                    <h3 className="h3 text-primary mb-4 group-hover:text-primary/90 transition-colors">
                       {value.title}
                     </h3>
 
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-base text-muted-foreground leading-relaxed">
                       {value.description}
                     </p>
                   </div>
@@ -412,14 +413,14 @@ const Sobre = () => {
           >
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary mb-6">
               <Target className="h-4 w-4 mr-2" />
-              <span className="text-sm font-medium">A Nossa Missão</span>
+              <span className="small font-medium">A Nossa Missão</span>
             </div>
 
-            <h3 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6">
+            <h3 className="heading-display text-primary mb-6">
               Transformar o Direito Empresarial em Moçambique
             </h3>
 
-            <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lead text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               Prestar Serviços Jurídicos com Excelência, Oferecendo Soluções
               Inovadoras para Obtenção de Resultados Expressivos que Garantam a
               Satisfação dos Clientes.
@@ -444,4 +445,3 @@ const Sobre = () => {
 };
 
 export default Sobre;
-import LazyImage from "@/components/LazyImage";

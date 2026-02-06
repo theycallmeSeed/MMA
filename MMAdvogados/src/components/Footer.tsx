@@ -48,15 +48,13 @@ const Footer = () => {
                 <Scale className="h-6 w-6 text-accent" />
               </div>
               <div>
-                <div className="font-serif font-bold text-xl">
-                  Milagrosa Macuácua
-                </div>
-                <div className="text-sm text-primary-foreground/80">
+                <div className="h4 mb-0">Milagrosa Macuácua</div>
+                <div className="small text-primary-foreground/80 font-medium">
                   ADVOGADOS, LDA
                 </div>
               </div>
             </div>
-            <p className="text-primary-foreground/80 mb-6 leading-relaxed text-sm lg:text-base">
+            <p className="text-base text-primary-foreground/80 mb-6 leading-relaxed">
               Sociedade de advogados de elite em Maputo, especializada em
               excelência jurídica para empresas que exigem resultados
               excepcionais.
@@ -91,15 +89,13 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-serif font-semibold text-lg mb-6">
-              Links Rápidos
-            </h4>
+            <h4 className="h4 mb-6">Links Rápidos</h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-gray-300 hover:text-amber-400 transition-colors duration-200 text-sm lg:text-base"
+                    className="text-gray-300 hover:text-amber-400 transition-colors duration-200 text-base"
                   >
                     {link.name}
                   </a>
@@ -110,13 +106,11 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="font-serif font-semibold text-lg mb-6">
-              Os Nossos Serviços
-            </h4>
+            <h4 className="h4 mb-6">Os Nossos Serviços</h4>
             <ul className="space-y-3">
               {services.slice(0, 6).map((service) => (
                 <li key={service}>
-                  <span className="text-gray-300 text-sm lg:text-base">
+                  <span className="text-gray-300 text-base">
                     {service}
                   </span>
                 </li>
@@ -126,7 +120,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-serif font-semibold text-lg mb-6">Contactos</h4>
+            <h4 className="h4 mb-6">Contactos</h4>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-amber-400 mt-0.5 flex-shrink-0" />
@@ -135,7 +129,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Abrir localização no Google Maps: Milagrosa Macuacua Advogados"
-                  className="text-gray-300 text-sm lg:text-base hover:text-amber-400 hover:underline transition-colors"
+                  className="text-gray-300 text-base hover:text-amber-400 hover:underline transition-colors"
                 >
                   <div>Av. Joaquim Chissano, 1919</div>
                   <div>Fomento, Matola</div>
@@ -144,25 +138,25 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-amber-400 flex-shrink-0" />
-                <div className="text-gray-300 text-sm lg:text-base">
+                <div className="text-gray-300 text-base">
                   +258 87 154 9533
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-amber-400 flex-shrink-0" />
-                <div className="text-gray-300 text-sm lg:text-base">
+                <div className="text-gray-300 text-base">
                   +258 84 530 5689
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-amber-400 flex-shrink-0" />
-                <div className="text-gray-300 text-sm lg:text-base">
+                <div className="text-gray-300 text-base">
                   geral@milagrosama.co.mz
                 </div>
               </div>
               <div className="flex items-start space-x-3">
                 <Clock className="h-5 w-5 text-amber-400 mt-0.5 flex-shrink-0" />
-                <div className="text-gray-300 text-sm lg:text-base">
+                <div className="text-gray-300 text-base">
                   <div>Seg - Sex: 08:00 - 17:00</div>
                   <div>Sáb - Dom: Encerrado</div>
                 </div>
@@ -176,20 +170,20 @@ const Footer = () => {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
-            <div className="text-gray-400 text-sm text-center lg:text-left">
+            <div className="text-gray-400 small text-center lg:text-left">
               © {currentYear} Milagrosa Macuácua Advogados, LDA. Todos os
               direitos reservados.
             </div>
             <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm">
               <a
                 href="/privacidade"
-                className="text-gray-400 hover:text-amber-400 transition-colors duration-200"
+                className="text-gray-400 small hover:text-amber-400 transition-colors duration-200"
               >
                 Política de Privacidade
               </a>
               <a
                 href="/termos"
-                className="text-gray-400 hover:text-amber-400 transition-colors duration-200"
+                className="text-gray-400 small hover:text-amber-400 transition-colors duration-200"
               >
                 Termos de Uso
               </a>
@@ -202,3 +196,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

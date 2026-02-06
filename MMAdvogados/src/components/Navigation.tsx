@@ -358,10 +358,10 @@ const Navigation = () => {
                 />
               </div>
               <div className={`${logoTextClass} leading-tight`}>
-                <div className="font-serif font-bold text-base lg:text-lg">
+                <div className="h4 text-base lg:text-lg mb-0">
                   Milagrosa Macuácua
                 </div>
-                <div className="text-xs font-medium opacity-80">
+                <div className="small opacity-80 font-medium">
                   ADVOGADOS, LDA
                 </div>
               </div>

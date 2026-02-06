@@ -43,7 +43,7 @@ const AboutSection: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* 🔥 TÍTULO PRINCIPAL — ADICIONADO */}
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 text-center">
+        <h2 className="mb-6 text-center">
           <span className="text-primary">Sobre Nós</span>
           <br />
         </h2>
@@ -63,7 +63,7 @@ const AboutSection: React.FC = () => {
               Sobre a Sociedade
             </h3> */}
 
-            <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-xl">
+            <p className="text-lead max-w-xl">
               A sociedade exerce a advocacia com base no rigor técnico, na
               análise jurídica criteriosa e no respeito pelos princípios éticos
               que regem a profissão. A actuação da firma abrange o
@@ -79,13 +79,13 @@ const AboutSection: React.FC = () => {
             <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-primary mt-1" />
-                <span className="text-sm text-foreground">
+                <span className="text-sm font-medium text-foreground">
                   Sociedade liderada por mulheres
                 </span>
               </div>
               <div className="flex items-start gap-3">
                 <Users className="h-5 w-5 text-primary mt-1" />
-                <span className="text-sm text-foreground">
+                <span className="text-sm font-medium text-foreground">
                   Regime de avença empresarial
                 </span>
               </div>
@@ -195,3 +195,4 @@ const AboutSection: React.FC = () => {
 };
 
 export default AboutSection;
+

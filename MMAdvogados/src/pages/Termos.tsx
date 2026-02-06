@@ -25,10 +25,10 @@ const Termos = () => {
                 <FileText className="h-8 w-8 text-primary" />
               </div>
             </div>
-            <h1 className="text-5xl md:text-6xl font-serif font-bold text-primary mb-6">
+            <h1 className="heading-display text-gradient-primary mb-6">
               Termos de Uso
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lead max-w-3xl mx-auto">
               Condições e termos que regem a utilização dos nossos serviços e
               website, estabelecendo os direitos e obrigações de ambas as
               partes.
@@ -50,13 +50,13 @@ const Termos = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-foreground leading-relaxed">
+                <p className="text-base text-foreground leading-relaxed">
                   Estes Termos de Uso ("Termos") regem a utilização do website e
                   serviços da Milagrosa Macuácua Advogados, LDA ("nós", "nosso",
                   "nossa"). Ao aceder ao nosso website ou utilizar os nossos
                   serviços, concorda em cumprir estes Termos.
                 </p>
-                <p className="text-foreground leading-relaxed">
+                <p className="text-base text-foreground leading-relaxed">
                   Estes Termos aplicam-se a todos os utilizadores do website,
                   clientes e potenciais clientes da nossa sociedade de
                   advogados.
@@ -466,4 +466,4 @@ const Termos = () => {
   );
 };
 
-export default Termos;
+export default Termos;

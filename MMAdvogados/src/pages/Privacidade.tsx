@@ -19,10 +19,10 @@ const Privacidade = () => {
                 <Shield className="h-8 w-8 text-primary" />
               </div>
             </div>
-            <h1 className="text-5xl md:text-6xl font-serif font-bold text-primary mb-6">
+            <h1 className="heading-display text-gradient-primary mb-6">
               Política de Privacidade
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lead max-w-3xl mx-auto">
               Protegemos a sua privacidade e garantimos a confidencialidade dos
               seus dados pessoais em conformidade com a legislação moçambicana e
               internacional.
@@ -44,14 +44,14 @@ const Privacidade = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-foreground leading-relaxed">
+                <p className="text-base text-foreground leading-relaxed">
                   A Milagrosa Macuácua Advogados, LDA ("nós", "nosso", "nossa")
                   respeita a sua privacidade e está comprometida em proteger os
                   seus dados pessoais. Esta Política de Privacidade explica como
                   recolhemos, utilizamos, armazenamos e protegemos as suas
                   informações pessoais.
                 </p>
-                <p className="text-foreground leading-relaxed">
+                <p className="text-base text-foreground leading-relaxed">
                   Esta política aplica-se a todos os serviços prestados pela
                   nossa sociedade de advogados, incluindo consultas jurídicas,
                   representação legal e outros serviços relacionados.

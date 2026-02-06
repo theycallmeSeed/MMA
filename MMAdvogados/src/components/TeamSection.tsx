@@ -97,12 +97,12 @@ const TeamSection = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gradient-primary mb-4">
-            Nossa Equipe
+          <h2 className="heading-display text-gradient-primary mb-4">
+            A Nossa Equipa
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Conheça os profissionais dedicados que compõem o time MMA Advogados,
-            prontos para oferecer a melhor assessoria jurídica.
+          <p className="text-lead max-w-2xl mx-auto">
+            Profissionais dedicados e especializados, unidos pelo compromisso com a
+            excelência jurídica e o sucesso dos nossos clientes.
           </p>
         </div>
 
@@ -155,7 +155,7 @@ const TeamSection = () => {
                         member.photo ? "hidden" : ""
                       }`}
                     >
-                      <span className="text-3xl sm:text-4xl font-bold text-primary">
+                      <span className="font-serif text-3xl sm:text-4xl font-bold text-primary">
                         {member.name
                           .split(" ")
                           .map((n) => n[0])
@@ -166,13 +166,13 @@ const TeamSection = () => {
                 </div>
 
                 <div className="p-4 sm:p-6 flex-1 flex flex-col">
-                  <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">
+                  <h3 className="h4 mb-2">
                     {member.name}
                   </h3>
-                  <p className="text-primary font-semibold mb-3 text-sm sm:text-base">
+                  <p className="text-primary font-semibold mb-3 small">
                     {member.position}
                   </p>
-                  <p className="text-muted-foreground mb-4 text-xs sm:text-sm flex-1">
+                  <p className="text-caption mb-4 flex-1">
                     {member.description}
                   </p>
 
@@ -236,7 +236,7 @@ const TeamSection = () => {
           <button
             onClick={() => navigate("/equipe")}
             aria-label="Ver equipe completa"
-            className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,38)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto"
+            className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold btn-text rounded-xl hover:bg-[rgb(81,21,38)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto"
           >
             <span> Ver Equipe Completa</span>
             <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
@@ -248,3 +248,4 @@ const TeamSection = () => {
 };
 
 export default TeamSection;
+

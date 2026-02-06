@@ -294,11 +294,11 @@ Muito obrigado(a).`
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6">
+            <h1 className="heading-display mb-6">
               <span className="text-primary">Áreas de Atuação</span>
             </h1>
 
-            {/* <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
+            {/* <p className="text-lead text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
               Assessoria jurídica completa e personalizada para empresas e particulares.
               Transformamos complexidade jurídica em resultados concretos e mensuráveis.
             </p> */}
@@ -336,10 +336,10 @@ Muito obrigado(a).`
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between gap-4 mb-3">
                         <div>
-                          <h3 className="text-2xl lg:text-3xl font-serif font-bold text-primary mb-1">
+                          <h3 className="h3 text-primary mb-1">
                             {service.title}
                           </h3>
-                          <p className="text-base text-primary/70 font-medium">
+                          <p className="small font-medium text-primary/70">
                             {service.subtitle}
                           </p>
                         </div>
@@ -352,7 +352,7 @@ Muito obrigado(a).`
                         />
                       </div>
 
-                      <p className="text-muted-foreground leading-relaxed">
+                      <p className="text-base text-muted-foreground leading-relaxed">
                         {service.description}
                       </p>
                     </div>
@@ -379,10 +379,10 @@ Muito obrigado(a).`
                             <div className="flex items-start gap-3">
                               <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                               <div>
-                                <h4 className="font-semibold text-foreground mb-1 text-sm">
+                                <h4 className="small font-semibold text-foreground mb-1">
                                   {detail.title}
                                 </h4>
-                                <p className="text-xs text-muted-foreground leading-relaxed">
+                                <p className="text-sm text-muted-foreground leading-relaxed">
                                   {detail.desc}
                                 </p>
                               </div>
@@ -395,7 +395,7 @@ Muito obrigado(a).`
                       <div className="p-5 rounded-xl bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/10">
                         <div className="flex items-center gap-2 mb-3">
                           <Sparkles className="h-5 w-5 text-primary" />
-                          <h4 className="font-semibold text-primary">
+                          <h4 className="small font-semibold text-primary">
                             Benefícios Principais
                           </h4>
                         </div>
@@ -437,11 +437,11 @@ Muito obrigado(a).`
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary mb-6">
+            <h2 className="heading-display text-primary mb-6">
               Pronto para Proteger os Seus Interesses?
             </h2>
 
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-12 max-w-3xl mx-auto">
+            <p className="text-lead text-muted-foreground mb-12 max-w-3xl mx-auto">
               Entre em contacto connosco agora mesmo via WhatsApp e agende uma
               consultoria jurídica personalizada. A nossa equipa está pronta
               para analisar a sua situação e apresentar soluções eficazes para
@@ -474,7 +474,7 @@ Muito obrigado(a).`
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl mb-4">
                     <item.icon className="h-6 w-6 text-primary" />
                   </div>
-                  <h4 className="font-semibold text-foreground mb-2">
+                  <h4 className="h4 text-foreground mb-2">
                     {item.title}
                   </h4>
                   <p className="text-sm text-muted-foreground">{item.desc}</p>

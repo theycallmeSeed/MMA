@@ -10,8 +10,12 @@
     --background: 0 0% 100%;
     --foreground: 343 59% 20%;
 
+    /* Primary brand (ações principais) */
+    --primary: 343 59% 20%;
+
     /* Card system */
     --card: 0 0% 100%;
+    --card-foreground: 343 59% 20%;
     --primary-foreground: 0 0% 100%;
 
     /* Secondary - Elegant silver */
@@ -113,12 +117,41 @@
   }
 
   body {
-    @apply bg-background text-foreground font-serif;
+    @apply bg-background text-foreground antialiased font-sans text-base leading-relaxed;
   }
 
-  /* Smooth scrolling */
-  html {
-    scroll-behavior: smooth;
+  /* Typography System - Headings */
+  h1, .h1 {
+    @apply font-serif font-bold text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight text-primary;
+  }
+
+  h2, .h2 {
+    @apply font-serif font-bold text-3xl md:text-4xl lg:text-5xl tracking-tight leading-tight text-primary;
+  }
+
+  h3, .h3 {
+    @apply font-serif font-semibold text-2xl md:text-3xl tracking-tight leading-snug text-primary;
+  }
+
+  h4, .h4 {
+    @apply font-serif font-medium text-xl md:text-2xl tracking-tight leading-snug text-foreground;
+  }
+
+  h5, .h5 {
+    @apply font-serif font-medium text-lg md:text-xl leading-snug text-foreground;
+  }
+
+  h6, .h6 {
+    @apply font-sans font-semibold text-base uppercase tracking-wide text-muted-foreground;
+  }
+
+  /* Typography System - Body */
+  p {
+    @apply mb-4 leading-relaxed;
+  }
+  
+  small, .small {
+    @apply text-sm font-medium leading-none;
   }
 }
 
@@ -379,3 +412,56 @@ button {
   transition: none !important;
 }
 
+@layer components {
+  /* Button variants — centralized and conservative */
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-5 py-2.5 font-medium transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-md bg-secondary text-secondary-foreground px-5 py-2.5 font-medium transition-colors hover:bg-secondary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-md border border-primary text-primary px-5 py-2.5 font-medium transition-colors hover:bg-primary hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-destructive {
+    @apply inline-flex items-center justify-center rounded-md bg-destructive text-destructive-foreground px-5 py-2.5 font-medium transition-colors hover:bg-destructive/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-destructive/40 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  /* Form controls — inputs/selects/textareas */
+  .form-input,
+  .form-select,
+  .form-textarea {
+    @apply w-full rounded-md bg-background text-foreground border border-input px-3 py-2 placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40;
+  }
+
+  .form-input:disabled,
+  .form-select:disabled,
+  .form-textarea:disabled {
+    @apply opacity-50 pointer-events-none;
+  }
+
+  /* Specialized Typography Classes */
+  
+  /* Hero Display Text - Larger than H1 */
+  .heading-display {
+    @apply font-serif font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-none tracking-tight text-primary;
+  }
+
+  /* Lead/Intro Text */
+  .text-lead {
+    @apply text-lg md:text-xl text-muted-foreground font-light leading-relaxed;
+  }
+
+  /* Meta/Caption Text */
+  .text-caption {
+    @apply text-sm text-muted-foreground font-medium;
+  }
+
+  /* Button Text Standardization */
+  .btn-text {
+    @apply font-medium tracking-wide text-sm uppercase;
+  }
+}

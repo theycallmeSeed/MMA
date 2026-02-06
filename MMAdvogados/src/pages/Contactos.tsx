@@ -53,10 +53,10 @@ Muito obrigado(a).`;
       <section className="pt-32 pb-20 bg-gradient-to-b from-primary/5 to-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-serif font-bold text-primary mb-6">
+            <h1 className="heading-display text-gradient-primary mb-6">
               Contactos
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lead max-w-3xl mx-auto">
               Entre em contacto connosco para obter assessoria jurídica
               especializada. Estamos aqui para ajudar com todas as suas
               necessidades legais.
@@ -71,7 +71,7 @@ Muito obrigado(a).`;
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Cards */}
             <div className="space-y-6">
-              <h2 className="text-3xl font-serif font-bold text-primary mb-8">
+              <h2 className="h2 mb-8 text-primary">
                 Informações de Contacto
               </h2>
 
@@ -86,7 +86,7 @@ Muito obrigado(a).`;
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-lg font-medium text-foreground mb-3">
+                  <p className="text-lead font-medium text-foreground mb-3">
                     {contactInfo.whatsapp}
                   </p>
                   <a

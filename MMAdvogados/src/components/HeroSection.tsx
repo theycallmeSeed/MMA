@@ -45,7 +45,7 @@ const HeroSection = () => {
           {/* Headline */}
           <div className="relative mb-6">
             <h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-primary-foreground leading-tight hero-title-reveal"
+              className="heading-display hero-title-reveal"
               data-seo-importance="primary"
               style={{ animationDelay: "0.4s" }}
             >
@@ -83,7 +83,7 @@ const HeroSection = () => {
               asChild
               variant="outline"
               size="lg"
-              className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary px-8 py-6 w-full sm:w-auto text-base transition-all duration-300 backdrop-blur-sm bg-primary-foreground/5 hover:shadow-xl hover:-translate-y-1 focus-visible:ring-4 focus-visible:ring-primary-foreground focus-visible:ring-offset-2"
+              className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary px-8 py-6 w-full sm:w-auto transition-all duration-300 backdrop-blur-sm bg-primary-foreground/5 hover:shadow-xl hover:-translate-y-1 focus-visible:ring-4 focus-visible:ring-primary-foreground focus-visible:ring-offset-2"
               aria-label="Agendar consultoria jurídica via WhatsApp"
             >
               <a
@@ -91,7 +91,7 @@ const HeroSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="flex items-center gap-3">
+                <span className="flex items-center gap-3 btn-text text-base">
                   Agendar Consultoria
                   <ArrowRight className="h-5 w-5" />
                 </span>
@@ -120,3 +120,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+

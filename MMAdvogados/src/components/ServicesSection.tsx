@@ -130,13 +130,13 @@ const ServicesSection = () => {
             <span className="text-sm font-semibold text-primary">Áreas de Atuação</span>
           </div> */}
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
+          <h2 className="heading-display mb-6">
             <span className="text-primary">Áreas de Atuação</span>
             <br />
             {/* <span className="text-gradient-primary">de Excelência</span> */}
           </h2>
 
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lead max-w-3xl mx-auto">
             Soluções jurídicas especializadas para todas as necessidades
             empresariais, com foco em resultados e excelência técnica.
           </p>
@@ -190,7 +190,7 @@ const ServicesSection = () => {
 
                   {/* Title Overlay on Image */}
                   <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-2xl font-serif font-bold text-white mb-1 drop-shadow-lg">
+                    <h3 className="h4 font-bold text-white mb-1 drop-shadow-lg">
                       {service.title}
                     </h3>
                   </div>
@@ -198,7 +198,7 @@ const ServicesSection = () => {
 
                 {/* Content Section */}
                 <div className="relative p-6">
-                  <p className="text-muted-foreground mb-6 leading-relaxed line-clamp-3">
+                  <p className="text-base text-muted-foreground mb-6 line-clamp-3">
                     {service.description}
                   </p>
 
@@ -207,7 +207,7 @@ const ServicesSection = () => {
                     {service.features.map((feature, featureIndex) => (
                       <div
                         key={featureIndex}
-                        className="flex items-center text-sm text-foreground/90 group/feature"
+                        className="flex items-center small text-foreground/90 group/feature"
                       >
                         <CheckCircle2 className="w-4 h-4 text-primary mr-3 flex-shrink-0 group-hover/feature:scale-110 transition-transform" />
                         <span className="font-medium">{feature}</span>
@@ -255,10 +255,10 @@ const ServicesSection = () => {
                         })()}
                     </div>
                     <div>
-                      <h2 className="text-3xl font-serif font-bold text-primary mb-2">
+                      <h2 className="h3 mb-2">
                         {services[selectedService]?.title}
                       </h2>
-                      <p className="text-muted-foreground">
+                      <p className="small text-muted-foreground">
                         Assessoria jurídica especializada
                       </p>
                     </div>
@@ -277,7 +277,7 @@ const ServicesSection = () => {
                 <div className="space-y-8">
                   {/* Description */}
                   <div className="prose prose-lg max-w-none">
-                    <p className="text-muted-foreground leading-relaxed text-lg">
+                    <p className="text-lead">
                       {services[selectedService]?.detailedDescription}
                     </p>
                   </div>
@@ -286,7 +286,7 @@ const ServicesSection = () => {
                   <div className="relative rounded-2xl overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/10"></div>
                     <div className="relative p-8">
-                      <h3 className="flex items-center gap-2 text-xl font-semibold text-primary mb-6">
+                      <h3 className="flex items-center gap-2 h4 text-primary mb-6">
                         <Sparkles className="h-5 w-5" />
                         Principais Serviços
                       </h3>
@@ -320,7 +320,7 @@ const ServicesSection = () => {
                         className="text-center p-4 rounded-xl bg-muted/50 border border-border"
                       >
                         <benefit.icon className="h-6 w-6 text-primary mx-auto mb-2" />
-                        <p className="text-sm font-medium text-foreground">
+                        <p className="small font-medium text-foreground">
                           {benefit.label}
                         </p>
                       </div>
@@ -388,13 +388,13 @@ Muito obrigado(a).`
               <span className="text-sm font-semibold text-primary">Regime Especial</span>
             </div> */}
 
-            <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6">
+            <h3 className="heading-display mb-6">
               <span className="text-primary">Regime de Avença</span>
               <br />
               <span className="text-gradient-primary">Personalizado</span>
             </h3>
 
-            <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lead text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
               O nosso regime de avença oferece assessoria jurídica contínua com
               relatórios mensais detalhados, comunicação direta com a equipa e
               custos previsíveis.
@@ -428,10 +428,10 @@ Muito obrigado(a).`
                   className="p-6 rounded-2xl bg-card/80 backdrop-blur-sm border border-border hover:border-primary/30 transition-all duration-300 group"
                 >
                   <item.icon className="h-8 w-8 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
-                  <h4 className="font-semibold text-foreground mb-2">
+                  <h4 className="h4 text-foreground mb-2">
                     {item.title}
                   </h4>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                  <p className="small text-muted-foreground">{item.desc}</p>
                 </div>
               ))}
             </div>
