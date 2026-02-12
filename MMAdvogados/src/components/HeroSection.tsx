@@ -1,6 +1,5 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import LazyImage from "@/components/LazyImage";
 
 import { getWhatsAppConsultoriaLinkExact } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -11,7 +10,7 @@ const HeroSection = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-[100svh] flex items-center justify-center overflow-hidden"
       aria-label="Hero principal - Milagrosa Macuácua Advogados"
     >
       {/* Background Image with Parallax Effect (optimized) */}
@@ -19,18 +18,20 @@ const HeroSection = () => {
         className="absolute inset-0 h-full w-full hero-parallax"
         style={{ willChange: "transform" }}
       >
-        <LazyImage
-          src="/images/hero-banner.webp"
-          srcSet="/images/hero-banner-1200.webp 1200w, /images/hero-banner-1600.webp 1600w"
-          sizes="100vw"
-          alt="Escritório de advocacia profissional"
-          priority
-          width={1600}
-          height={900}
-          className="w-full h-full object-cover"
-          style={{ filter: "saturate(1.22) contrast(1.08) brightness(1.03)" }}
-          fallbackSrc="/images/hero-banner.webp"
-        />
+        <picture>
+          <source
+            media="(max-width: 768px)"
+            srcSet="/images/hero-banner-mob.webp"
+          />
+          <img
+            src="/images/hero-banner.webp"
+            alt="Escritório de advocacia profissional"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+            className="w-full h-full object-cover"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-primary/20 to-primary/12 sm:from-primary/28 sm:via-primary/18 sm:to-primary/10"></div>
         <div className="absolute inset-0 bg-radial-gradient opacity-8"></div>
         <div
@@ -75,7 +76,7 @@ const HeroSection = () => {
           </p> */}
 
           {/* Only secondary CTA (Agendar) */}
-          <div
+          {/* <div
             className="flex items-center justify-center gap-4 mb-16 px-4 sm:px-0 hero-fade-in"
             style={{ animationDelay: "0.9s" }}
           >
@@ -97,7 +98,7 @@ const HeroSection = () => {
                 </span>
               </a>
             </Button>
-          </div>
+          </div> */}
         </div>
       </div>
 
