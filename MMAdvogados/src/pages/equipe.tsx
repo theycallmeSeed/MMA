@@ -413,7 +413,7 @@ const Equipe = () => {
       position: "Advogada - Direito Laboral",
       photo: "/images/helodia-portrait.webp",
       description:
-        "Especialista em Direito Laboral com foco na proteção dos direitos dos trabalhadores e assessoria a empresas.",
+        "Advogada, vocacionada na área de recuperação de créditos judicial e extrajudicial com domínio em Direito de Família e Laboral.",
       email: "joao@mmadvogados.com",
       phone: "+351 913 456 789",
       location: "Porto, Portugal",
@@ -443,10 +443,10 @@ const Equipe = () => {
     {
       id: 6,
       name: "Maura Matsinhe",
-      position: "Advogada - Direito Imobiliário",
+      position: "Advogada - Direito de Família ",
       photo: "/images/maura-portrait.webp",
       description:
-        "Especialista em transações imobiliárias e direito urbanístico, com ampla experiência em regularização de propriedades.",
+        "Especialista na área de Direito de Civil, Direito de Família e na Área de recuperação judicial e extrajudicial.",
       email: "joao@mmadvogados.com",
       phone: "+351 913 456 789",
       location: "Porto, Portugal",
