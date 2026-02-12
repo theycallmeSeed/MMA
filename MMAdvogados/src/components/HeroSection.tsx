@@ -28,7 +28,7 @@ const HeroSection = () => {
             alt="Escritório de advocacia profissional"
             fetchPriority="high"
             loading="eager"
-            decoding="async"
+            decoding="sync"
             className="w-full h-full object-cover"
           />
         </picture>
