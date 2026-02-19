@@ -1,8 +1,6 @@
-import { Linkedin, Mail, Globe, Phone, MapPin, ArrowRight } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
-import { slideUp, staggerContainer, fadeIn } from "@/lib/animation-variants";
-import LazyImage from "@/components/LazyImage";
+import { Linkedin, Mail, Globe, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
+import { slideUp, staggerContainer, fadeIn } from '@/lib/animation-variants';
 
 interface TeamMember {
   id: number;
@@ -18,16 +16,14 @@ interface TeamMember {
 }
 
 const TeamSection = () => {
-  const navigate = useNavigate();
   const shouldReduce = useReducedMotion();
   const teamMembers: TeamMember[] = [
     {
       id: 1,
       name: "Milagrosa Macuácua",
       position: "Assistente Administrativa",
-      photo: "/images/milagrosa-portrait.webp",
-      description:
-        "Advogada com mais de 15 anos de experiência em Direito Civil e Consumerista. Especialista em casos complexos de responsabilidade civil.",
+      photo: "/images/milagrosa-portrait.jpg",
+      description: "Advogada com mais de 15 anos de experiência em Direito Civil e Consumerista. Especialista em casos complexos de responsabilidade civil.",
       // email: "maria@mmadvogados.com",
       // phone: "+351 912 345 678",
       // location: "Lisboa, Portugal",
@@ -37,9 +33,8 @@ const TeamSection = () => {
       id: 2,
       name: "Marlete Miguel",
       position: "Sócio - Direito Empresarial",
-      photo: "/images/marlete-portrait.webp",
-      description:
-        "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
+      photo: "/images/marlete-portrait.jpg",
+      description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
       // email: "joao@mmadvogados.com",
       // phone: "+351 913 456 789",
       // location: "Porto, Portugal",
@@ -49,9 +44,8 @@ const TeamSection = () => {
       id: 3,
       name: "Cláudia Semente",
       position: "Associada Sênior - Direito da Família",
-      photo: "/images/claudia-portrait.webp",
-      description:
-        "Especialista em Direito de Família e Sucessões com abordagem humanizada e sensível para casos familiares complexos.",
+      photo: "/images/claudia-portrait.jpg",
+      description: "Especialista em Direito de Família e Sucessões com abordagem humanizada e sensível para casos familiares complexos.",
       // email: "ana@mmadvogados.com",
       // phone: "+351 914 567 890",
       // location: "Lisboa, Portugal",
@@ -61,7 +55,7 @@ const TeamSection = () => {
     //   id: 4,
     //   name: "Tecla Ntauma",
     //   position: "Sócio - Direito Empresarial",
-    //   photo: "/images/tecla-portait.webp",
+    //   photo: "/images/tecla-portait.jpg",
     //   description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
     //   // email: "joao@mmadvogados.com",
     //   // phone: "+351 913 456 789",
@@ -72,7 +66,7 @@ const TeamSection = () => {
     //   id: 5,
     //   name: "Helodia Malate",
     //   position: "Sócio - Direito Empresarial",
-    //   photo: "/images/Helodia-portait.webp",
+    //   photo: "/images/Helodia-portait.jpg",
     //   description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
     //   // email: "joao@mmadvogados.com",
     //   // phone: "+351 913 456 789",
@@ -83,7 +77,7 @@ const TeamSection = () => {
     //   id: 6,
     //   name: "Maura Matsinhe",
     //   position: "Sócio - Direito Empresarial",
-    //   photo: "/images/maura-portait.webp",
+    //   photo: "/images/maura-portait.jpg",
     //   description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
     //   // email: "joao@mmadvogados.com",
     //   // phone: "+351 913 456 789",
@@ -101,7 +95,7 @@ const TeamSection = () => {
             Nossa Equipe
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Conheça os profissionais dedicados que compõem o time MMA Advogados,
+            Conheça os profissionais dedicados que compõem o time MMA Advogados, 
             prontos para oferecer a melhor assessoria jurídica.
           </p>
         </div>
@@ -113,10 +107,7 @@ const TeamSection = () => {
           initial={shouldReduce ? undefined : "hidden"}
           whileInView={shouldReduce ? undefined : "visible"}
           viewport={shouldReduce ? undefined : { once: true, amount: 0.2 }}
-          style={{
-            willChange: "transform, opacity",
-            backfaceVisibility: "hidden",
-          }}
+          style={{ willChange: "transform, opacity", backfaceVisibility: "hidden" }}
         >
           {teamMembers.map((member) => (
             <motion.div
@@ -126,45 +117,33 @@ const TeamSection = () => {
             >
               {/* Foto */}
               <div className="relative">
-                <div className="flex justify-center mt-6">
-                  <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden relative shadow-lg">
-                    {member.photo
-                      ? (() => {
-                          const base = member.photo.replace(/\.webp$/i, "");
-                          const src = member.photo;
-                          const srcSet = `${base}-400.webp 400w, ${base}-800.webp 800w`;
-                          const sizes = "160px";
-                          return (
-                            <LazyImage
-                              src={src}
-                              srcSet={srcSet}
-                              sizes={sizes}
-                              alt={member.name}
-                              width={160}
-                              height={160}
-                              className="w-full h-full object-cover object-top transition-transform duration-300 hover:scale-105"
-                              fallbackSrc={member.photo}
-                            />
-                          );
-                        })()
-                      : null}
+              <div className="flex justify-center mt-6">
+  <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden relative shadow-lg">
+    {member.photo ? (
+      <img
+        src={member.photo}
+        alt={member.name}
+        className="w-full h-full object-cover object-top transition-transform duration-300 hover:scale-105"
+        loading="lazy"
+        onError={(e) => {
+          const target = e.target as HTMLImageElement;
+          target.style.display = "none";
+          target.nextElementSibling?.classList.remove("hidden");
+        }}
+      />
+    ) : null}
 
-                    {/* Fallback com iniciais */}
-                    <div
-                      className={`absolute inset-0 bg-primary/10 flex items-center justify-center ${
-                        member.photo ? "hidden" : ""
-                      }`}
-                    >
-                      <span className="text-3xl sm:text-4xl font-bold text-primary">
-                        {member.name
-                          .split(" ")
-                          .map((n) => n[0])
-                          .join("")}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
+    {/* Fallback com iniciais */}
+    <div
+      className={`absolute inset-0 bg-primary/10 flex items-center justify-center ${member.photo ? 'hidden' : ''}`}
+    >
+      <span className="text-3xl sm:text-4xl font-bold text-primary">
+        {member.name.split(' ').map(n => n[0]).join('')}
+      </span>
+    </div>
+  </div>
+</div>
+                
                 <div className="p-4 sm:p-6 flex-1 flex flex-col">
                   <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">
                     {member.name}
@@ -200,7 +179,7 @@ const TeamSection = () => {
                       rel="noopener noreferrer"
                       className="p-1.5 sm:p-2 bg-primary text-primary-foreground rounded-lg hover:scale-105 transition-all flex-shrink-0"
                     > */}
-                    {/* <Linkedin className="w-3 h-3 sm:w-4 sm:h-4" /> */}
+                      {/* <Linkedin className="w-3 h-3 sm:w-4 sm:h-4" /> */}
                     {/* </a>
                     <a
                       href={`mailto:${member.email}`}
@@ -233,11 +212,7 @@ const TeamSection = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <button
-            onClick={() => navigate("/equipe")}
-            aria-label="Ver equipe completa"
-            className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,38)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto"
-          >
+          <button className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,38)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto">
             <span> Ver Equipe Completa</span>
             <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
           </button>
@@ -248,3 +223,4 @@ const TeamSection = () => {
 };
 
 export default TeamSection;
+

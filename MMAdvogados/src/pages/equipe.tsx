@@ -1,23 +1,7 @@
-import React, { useState, memo } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { useState, memo } from 'react';
+import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import {
-  Linkedin,
-  Mail,
-  Globe,
-  Phone,
-  MapPin,
-  Award,
-  BookOpen,
-  Sparkles,
-  Users2,
-  ChevronDown,
-  GraduationCap,
-  Briefcase,
-  Languages,
-  Target,
-  ArrowRight,
-} from "lucide-react";
+import { Linkedin, Mail, Globe, Phone, MapPin, Award, BookOpen, Sparkles, Users2, ChevronDown, GraduationCap, Briefcase, Languages, Target, ArrowRight } from 'lucide-react';
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { fadeIn, slideUp, staggerContainer } from "@/lib/animation-variants";
@@ -25,7 +9,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 interface TeamMember {
   id: number;
-  name: string;
+  name: string; 
   position: string;
   photo: string;
   description: string;
@@ -41,10 +25,7 @@ interface TeamMember {
 }
 
 /* Componente isolado para cada cartão -> estado local garante que só ele abre/fecha */
-const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
-  member,
-  index,
-}) => {
+const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({ member, index }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -54,10 +35,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
       transition={{ delay: index * 0.05 }}
       style={{ willChange: "transform, opacity", backfaceVisibility: "hidden" }}
     >
-      <div
-        className="relative h-full rounded-3xl overflow-hidden bg-card border border-border hover:border-primary/30 transition-all duration-500 hover:-translate-y-2"
-        style={{ boxShadow: "var(--shadow-card)" }}
-      >
+      <div className="relative h-full rounded-3xl overflow-hidden bg-card border border-border hover:border-primary/30 transition-all duration-500 hover:-translate-y-2" style={{ boxShadow: 'var(--shadow-card)' }}>
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
         <div className="relative p-8">
@@ -78,16 +56,9 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
                   />
                 ) : null}
 
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center ${
-                    member.photo ? "hidden" : ""
-                  }`}
-                >
+                <div className={`absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center ${member.photo ? 'hidden' : ''}`}>
                   <span className="text-4xl font-bold text-primary">
-                    {member.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
+                    {member.name.split(' ').map(n => n[0]).join('')}
                   </span>
                 </div>
               </div>
@@ -126,27 +97,14 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
           </div>
 
           <div className="flex justify-center gap-3 mb-6">
-            <a
-              href={member.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2.5 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl hover:scale-110 transition-all duration-300 group/link"
-            >
+            <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl hover:scale-110 transition-all duration-300 group/link">
               <Linkedin className="w-5 h-5 text-primary group-hover/link:text-primary/80" />
             </a>
-            <a
-              href={`mailto:${member.email}`}
-              className="p-2.5 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl hover:scale-110 transition-all duration-300 group/link"
-            >
+            <a href={`mailto:${member.email}`} className="p-2.5 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl hover:scale-110 transition-all duration-300 group/link">
               <Mail className="w-5 h-5 text-primary group-hover/link:text-primary/80" />
             </a>
             {member.website && (
-              <a
-                href={member.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2.5 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl hover:scale-110 transition-all duration-300 group/link"
-              >
+              <a href={member.website} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl hover:scale-110 transition-all duration-300 group/link">
                 <Globe className="w-5 h-5 text-primary group-hover/link:text-primary/80" />
               </a>
             )}
@@ -155,7 +113,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
           {/* Toggle botão com estado local */}
           <button
             type="button"
-            onClick={() => setOpen((prev) => !prev)}
+            onClick={() => setOpen(prev => !prev)}
             className="w-full flex items-center justify-between p-4 bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl hover:from-primary/10 hover:to-accent/10 transition-all duration-300"
             aria-expanded={open}
             aria-controls={`member-details-${member.id}`}
@@ -164,11 +122,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
               <BookOpen className="h-4 w-4 text-primary" />
               Currículo Completo
             </span>
-            <ChevronDown
-              className={`w-5 h-5 text-primary transform transition-transform duration-300 ${
-                open ? "rotate-180" : ""
-              }`}
-            />
+            <ChevronDown className={`w-5 h-5 text-primary transform transition-transform duration-300 ${open ? 'rotate-180' : ''}`} />
           </button>
 
           <AnimatePresence>
@@ -180,10 +134,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
                 exit={{ opacity: 0, scaleY: 0 }}
                 transition={{ duration: 0.3 }}
                 className="mt-6"
-                style={{
-                  transformOrigin: "top",
-                  willChange: "transform, opacity",
-                }}
+                style={{ transformOrigin: 'top', willChange: "transform, opacity" }}
               >
                 <div className="space-y-6 px-2">
                   <div>
@@ -193,10 +144,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
                     </h4>
                     <ul className="space-y-2">
                       {member.education.map((item, idx) => (
-                        <li
-                          key={idx}
-                          className="flex items-start gap-2 text-sm text-muted-foreground"
-                        >
+                        <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
                           <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
                           <span>{item}</span>
                         </li>
@@ -211,10 +159,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
                     </h4>
                     <ul className="space-y-2">
                       {member.experience.map((item, idx) => (
-                        <li
-                          key={idx}
-                          className="flex items-start gap-2 text-sm text-muted-foreground"
-                        >
+                        <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
                           <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
                           <span>{item}</span>
                         </li>
@@ -229,10 +174,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {member.specialties.map((specialty, idx) => (
-                        <span
-                          key={idx}
-                          className="px-3 py-1.5 bg-gradient-to-br from-primary/10 to-accent/10 text-foreground text-xs font-medium rounded-full border border-primary/20"
-                        >
+                        <span key={idx} className="px-3 py-1.5 bg-gradient-to-br from-primary/10 to-accent/10 text-foreground text-xs font-medium rounded-full border border-primary/20">
                           {specialty}
                         </span>
                       ))}
@@ -246,10 +188,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {member.languages.map((language, idx) => (
-                        <span
-                          key={idx}
-                          className="px-3 py-1.5 bg-secondary/50 text-foreground text-xs font-medium rounded-full"
-                        >
+                        <span key={idx} className="px-3 py-1.5 bg-secondary/50 text-foreground text-xs font-medium rounded-full">
                           {language}
                         </span>
                       ))}
@@ -270,7 +209,6 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
 const MemoTeamMemberCard = memo(TeamMemberCard);
 
 const Equipe = () => {
-  const navigate = useNavigate();
   const location = useLocation();
   const shouldReduce = useReducedMotion();
   const isMobile = useIsMobile();
@@ -281,9 +219,8 @@ const Equipe = () => {
       id: 1,
       name: "Milagrosa Macuácua",
       position: "Sócio - Direito Empresarial",
-      photo: "/images/milagrosa-portrait.webp",
-      description:
-        "Advogada com mais de 15 anos de experiência em Direito Civil e Consumerista. Especialista em casos complexos de responsabilidade civil.",
+      photo: "/images/milagrosa-portrait.jpg",
+      description: "Advogada com mais de 15 anos de experiência em Direito Civil e Consumerista. Especialista em casos complexos de responsabilidade civil.",
       email: "maria@mmadvogados.com",
       phone: "+351 912 345 678",
       location: "Lisboa, Portugal",
@@ -292,34 +229,29 @@ const Equipe = () => {
       education: [
         "Mestrado em Direito Civil - Universidade de Lisboa",
         "Pós-Graduação em Direito do Consumidor - Universidade Católica",
-        "Bacharelado em Direito - Universidade de Coimbra",
+        "Bacharelado em Direito - Universidade de Coimbra"
       ],
       experience: [
         "Sócia Fundadora na MMA Advogados (2018 - Presente)",
         "Advogada Sénior no escritório Silva & Associados (2010-2018)",
-        "Estagiária no Tribunal Judicial de Lisboa (2008-2010)",
+        "Estagiária no Tribunal Judicial de Lisboa (2008-2010)"
       ],
       specialties: [
         "Direito Civil",
         "Direito do Consumidor",
         "Responsabilidade Civil",
-        "Contratos",
+        "Contratos"
       ],
-      languages: [
-        "Português (Nativo)",
-        "Inglês (Avançado)",
-        "Espanhol (Intermediário)",
-      ],
+      languages: ["Português (Nativo)", "Inglês (Avançado)", "Espanhol (Intermediário)"]
     },
     // ... restantes membros (mantém todos os dados iguais aos que tens)
     {
       id: 2,
       name: "Marlete Miguel",
       position: "Sócio - Direito Empresarial",
-      photo: "/images/marlete-portrait.webp",
+      photo: "/images/marlete-portrait.jpg",
 
-      description:
-        "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
+      description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
       email: "joao@mmadvogados.com",
       phone: "+351 913 456 789",
       location: "Porto, Portugal",
@@ -327,32 +259,27 @@ const Equipe = () => {
       education: [
         "MBA em Gestão Jurídica - Universidade do Porto",
         "Especialização em Direito Societário - Universidade Nova de Lisboa",
-        "Bacharelado em Direito - Universidade do Minho",
+        "Bacharelado em Direito - Universidade do Minho"
       ],
       experience: [
         "Sócio na MMA Advogados (2018 - Presente)",
         "Consultor Jurídico na Empresa XYZ (2014-2018)",
-        "Advogado Júnior no escritório Empresarial Legal (2011-2014)",
+        "Advogado Júnior no escritório Empresarial Legal (2011-2014)"
       ],
       specialties: [
         "Direito Societário",
         "Fusões e Aquisições",
         "Contratos Empresariais",
-        "Compliance",
+        "Compliance"
       ],
-      languages: [
-        "Português (Nativo)",
-        "Inglês (Fluente)",
-        "Francês (Intermediário)",
-      ],
+      languages: ["Português (Nativo)", "Inglês (Fluente)", "Francês (Intermediário)"]
     },
     {
       id: 3,
       name: "Cláudia Semente",
       position: "Associada Sénior - Direito da Família",
-      photo: "/images/claudia-portrait.webp",
-      description:
-        "Especialista em Direito de Família e Sucessões com abordagem humanizada e sensível para casos familiares complexos.",
+      photo: "/images/claudia-portrait.jpg",
+      description: "Especialista em Direito de Família e Sucessões com abordagem humanizada e sensível para casos familiares complexos.",
       email: "ana@mmadvogados.com",
       phone: "+351 914 567 890",
       location: "Lisboa, Portugal",
@@ -360,32 +287,27 @@ const Equipe = () => {
       education: [
         "Especialização em Direito de Família - Universidade de Lisboa",
         "Curso de Mediação de Conflitos Familiares",
-        "Bacharelado em Direito - Universidade de Évora",
+        "Bacharelado em Direito - Universidade de Évora"
       ],
       experience: [
         "Associada Sénior na MMA Advogados (2020 - Presente)",
         "Advogada especializada em Família no escritório Familiar & Associados (2015-2020)",
-        "Mediadora Judicial (2013-2015)",
+        "Mediadora Judicial (2013-2015)"
       ],
       specialties: [
         "Divórcio e Separação",
         "Guarda de Menores",
         "Inventários e Partilhas",
-        "Alimentos",
+        "Alimentos"
       ],
-      languages: [
-        "Português (Nativo)",
-        "Espanhol (Avançado)",
-        "Inglês (Intermediário)",
-      ],
+      languages: ["Português (Nativo)", "Espanhol (Avançado)", "Inglês (Intermediário)"]
     },
     {
       id: 4,
       name: "Tecla Ntauma",
       position: "Assistente Administrativa",
-      photo: "/images/tecla-portrait.webp",
-      description:
-        "Profissional dedicada à gestão administrativa e suporte operacional, garantindo eficiência nos processos internos.",
+      photo: "/images/tecla-portrait.jpg",
+      description: "Profissional dedicada à gestão administrativa e suporte operacional, garantindo eficiência nos processos internos.",
       email: "joao@mmadvogados.com",
       phone: "+351 913 456 789",
       location: "Porto, Portugal",
@@ -393,27 +315,26 @@ const Equipe = () => {
       education: [
         "Curso de Gestão Administrativa",
         "Formação em Atendimento ao Cliente",
-        "Certificação em Microsoft Office",
+        "Certificação em Microsoft Office"
       ],
       experience: [
         "Assistente Administrativa na MMA Advogados (2020 - Presente)",
-        "Apoio Administrativo em escritório jurídico (2018-2020)",
+        "Apoio Administrativo em escritório jurídico (2018-2020)"
       ],
       specialties: [
         "Gestão de Agenda",
         "Atendimento ao Cliente",
         "Organização Documental",
-        "Suporte Operacional",
+        "Suporte Operacional"
       ],
-      languages: ["Português (Nativo)", "Inglês (Intermediário)"],
+      languages: ["Português (Nativo)", "Inglês (Intermediário)"]
     },
     {
       id: 5,
       name: "Helodia Malate",
       position: "Advogada - Direito Laboral",
-      photo: "/images/helodia-portrait.webp",
-      description:
-        "Advogada, vocacionada na área de recuperação de créditos judicial e extrajudicial com domínio em Direito de Família e Laboral.",
+      photo: "/images/helodia-portrait.jpg",
+      description: "Especialista em Direito Laboral com foco na proteção dos direitos dos trabalhadores e assessoria a empresas.",
       email: "joao@mmadvogados.com",
       phone: "+351 913 456 789",
       location: "Porto, Portugal",
@@ -421,32 +342,27 @@ const Equipe = () => {
       education: [
         "Mestrado em Direito Laboral - Universidade do Porto",
         "Especialização em Relações Laborais",
-        "Bacharelado em Direito - Universidade do Minho",
+        "Bacharelado em Direito - Universidade do Minho"
       ],
       experience: [
         "Advogada na MMA Advogados (2019 - Presente)",
         "Consultora Laboral (2016-2019)",
-        "Estagiária em escritório especializado (2015-2016)",
+        "Estagiária em escritório especializado (2015-2016)"
       ],
       specialties: [
         "Direito Laboral",
         "Contratos de Trabalho",
         "Rescisões",
-        "Compliance Laboral",
+        "Compliance Laboral"
       ],
-      languages: [
-        "Português (Nativo)",
-        "Inglês (Fluente)",
-        "Francês (Intermediário)",
-      ],
+      languages: ["Português (Nativo)", "Inglês (Fluente)", "Francês (Intermediário)"]
     },
     {
       id: 6,
       name: "Maura Matsinhe",
-      position: "Advogada - Direito de Família ",
-      photo: "/images/maura-portrait.webp",
-      description:
-        "Especialista na área de Direito de Civil, Direito de Família e na Área de recuperação judicial e extrajudicial.",
+      position: "Advogada - Direito Imobiliário",
+      photo: "/images/maura-portrait.jpg",
+      description: "Especialista em transações imobiliárias e direito urbanístico, com ampla experiência em regularização de propriedades.",
       email: "joao@mmadvogados.com",
       phone: "+351 913 456 789",
       location: "Porto, Portugal",
@@ -454,21 +370,21 @@ const Equipe = () => {
       education: [
         "Pós-Graduação em Direito Imobiliário",
         "Especialização em Direito Urbanístico",
-        "Bacharelado em Direito",
+        "Bacharelado em Direito"
       ],
       experience: [
         "Advogada na MMA Advogados (2020 - Presente)",
         "Consultora Imobiliária Jurídica (2017-2020)",
-        "Advogada Júnior em escritório especializado (2015-2017)",
+        "Advogada Júnior em escritório especializado (2015-2017)"
       ],
       specialties: [
         "Direito Imobiliário",
         "Regularização de Terras",
         "Contratos de Compra e Venda",
-        "DUAT",
+        "DUAT"
       ],
-      languages: ["Português (Nativo)", "Inglês (Fluente)", "Francês (Básico)"],
-    },
+      languages: ["Português (Nativo)", "Inglês (Fluente)", "Francês (Básico)"]
+    }
   ];
 
   return (
@@ -487,19 +403,18 @@ const Equipe = () => {
             initial={shouldReduce ? undefined : "hidden"}
             whileInView={shouldReduce ? undefined : "visible"}
             viewport={shouldReduce ? undefined : { once: true, amount: 0.3 }}
-            style={{
-              willChange: "transform, opacity",
-              backfaceVisibility: "hidden",
-            }}
+            style={{ willChange: "transform, opacity", backfaceVisibility: "hidden" }}
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6">
-              <span className="text-primary">Equipa</span>
+              <span className="text-primary">Profissionais</span>
+              <br />
+              <span className="text-gradient-primary">de Excelência</span>
             </h1>
 
-            {/* <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
               Uma equipa de advogados especializados, comprometidos em oferecer 
               assessoria jurídica de elite com resultados excepcionais.
-            </p> */}
+            </p>
 
             <motion.div
               className="flex flex-wrap justify-center gap-8 mt-12"
@@ -511,12 +426,8 @@ const Equipe = () => {
             >
               {[
                 { icon: Users2, number: "6+", label: "Profissionais" },
-                {
-                  icon: Award,
-                  number: "50+",
-                  label: "Anos de Experiência Combinada",
-                },
-                { icon: Target, number: "7", label: "Áreas de Especialização" },
+                { icon: Award, number: "50+", label: "Anos de Experiência Combinada" },
+                { icon: Target, number: "7", label: "Áreas de Especialização" }
               ].map((stat, idx) => (
                 <motion.div
                   key={idx}
@@ -527,12 +438,8 @@ const Equipe = () => {
                   <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl mb-3">
                     <stat.icon className="h-7 w-7 text-primary" />
                   </div>
-                  <div className="text-3xl font-bold text-primary mb-1">
-                    {stat.number}
-                  </div>
-                  <div className="text-sm text-foreground font-medium">
-                    {stat.label}
-                  </div>
+                  <div className="text-3xl font-bold text-primary mb-1">{stat.number}</div>
+                  <div className="text-sm text-muted-foreground font-medium">{stat.label}</div>
                 </motion.div>
               ))}
             </motion.div>
@@ -548,18 +455,10 @@ const Equipe = () => {
             initial="hidden"
             animate={isMobile ? "visible" : undefined}
             whileInView={isMobile ? undefined : "visible"}
-            viewport={
-              isMobile
-                ? undefined
-                : { once: true, amount: 0.2, margin: "0px 0px -10% 0px" }
-            }
+            viewport={isMobile ? undefined : { once: true, amount: 0.2, margin: "0px 0px -10% 0px" }}
           >
             {teamMembers.map((member, index) => (
-              <MemoTeamMemberCard
-                key={member.id}
-                member={member}
-                index={index}
-              />
+              <MemoTeamMemberCard key={member.id} member={member} index={index} />
             ))}
           </motion.div>
         </div>
@@ -570,30 +469,32 @@ const Equipe = () => {
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">
-            Pronto para Trabalhar com{" "}
-            <span className="text-gradient-primary">os Melhores?</span>
+            Pronto para Trabalhar com <span className="text-gradient-primary">os Melhores?</span>
           </h2>
 
-          <p className="text-lg text-foreground mb-8 leading-relaxed">
-            A nossa equipa está pronta para oferecer soluções jurídicas
-            personalizadas que atendam às suas necessidades específicas.
+          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+            A nossa equipa está pronta para oferecer soluções jurídicas personalizadas 
+            que atendam às suas necessidades específicas.
           </p>
 
-          <motion.button
-            onClick={() => navigate("/servicos")}
-            className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,38)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto"
-            variants={shouldReduce ? {} : fadeIn}
-            initial={shouldReduce ? undefined : "hidden"}
-            whileInView={shouldReduce ? undefined : "visible"}
-            viewport={shouldReduce ? undefined : { once: true, amount: 0.3 }}
-            transition={{ delay: 0.2 }}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-            aria-label="Ver os nossos serviços"
-          >
-            <span>Ver os Nossos Serviços</span>
-            <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
-          </motion.button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <motion.a
+              href="/servicos"
+              className="group relative overflow-hidden px-8 py-4 text-lg border border-border/50 rounded-lg transition-all duration-300 hover:border-primary/50 hover:bg-primary/5"
+              variants={shouldReduce ? {} : fadeIn}
+              initial={shouldReduce ? undefined : "hidden"}
+              whileInView={shouldReduce ? undefined : "visible"}
+              viewport={shouldReduce ? undefined : { once: true, amount: 0.3 }}
+              transition={{ delay: 0.2 }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <span className="relative flex items-center gap-2 z-10">
+                Ver os Nossos Serviços
+                <ArrowRight className="h-4 w-4 inline-block transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
+            </motion.a>
+          </div>
         </div>
       </section>
 
@@ -603,3 +504,4 @@ const Equipe = () => {
 };
 
 export default Equipe;
+
