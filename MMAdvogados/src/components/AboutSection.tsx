@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const carouselImages = [
   // "/images/milagrosa-portrait.webp",
   "/images/legal-team.webp",
-  "/images/office-1.webp",
+  // "/images/office-1.webp",
   // "/images/office-2.webp",
 ];
 
