@@ -281,7 +281,7 @@ const Equipe = () => {
       id: 1,
       name: "Milagrosa Macuácua",
       position: "Sócio - Direito Empresarial",
-      photo: "/images/milagrosa-portrait.webp",
+      photo: "/images/dra-milagrosa.webp",
       description:
         "Advogada com mais de 15 anos de experiência em Direito Civil e Consumerista. Especialista em casos complexos de responsabilidade civil.",
       email: "maria@mmadvogados.com",

@@ -10,11 +10,6 @@ interface TeamMember {
   position: string;
   photo: string;
   description: string;
-  // email: string;
-  // phone: string;
-  // location: string;
-  // linkedin: string;
-  // website?: string;
 }
 
 const TeamSection = () => {
@@ -25,13 +20,10 @@ const TeamSection = () => {
       id: 1,
       name: "Milagrosa Macuácua",
       position: "Assistente Administrativa",
-      photo: "/images/milagrosa-portrait.webp",
+      photo: "/images/dra-milagrosa.webp",
       description:
         "Advogada com mais de 15 anos de experiência em Direito Civil e Consumerista. Especialista em casos complexos de responsabilidade civil.",
-      // email: "maria@mmadvogados.com",
-      // phone: "+351 912 345 678",
-      // location: "Lisboa, Portugal",
-      // linkedin: "https://linkedin.com/in/mariasilva",
+  
     },
     {
       id: 2,
@@ -40,10 +32,6 @@ const TeamSection = () => {
       photo: "/images/marlete-portrait.webp",
       description:
         "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
-      // email: "joao@mmadvogados.com",
-      // phone: "+351 913 456 789",
-      // location: "Porto, Portugal",
-      // linkedin: "https://linkedin.com/in/joaosantos",
     },
     {
       id: 3,
@@ -52,44 +40,8 @@ const TeamSection = () => {
       photo: "/images/claudia-portrait.webp",
       description:
         "Especialista em Direito de Família e Sucessões com abordagem humanizada e sensível para casos familiares complexos.",
-      // email: "ana@mmadvogados.com",
-      // phone: "+351 914 567 890",
-      // location: "Lisboa, Portugal",
-      // linkedin: "https://linkedin.com/in/anacosta",
+    
     },
-    // {
-    //   id: 4,
-    //   name: "Tecla Ntauma",
-    //   position: "Sócio - Direito Empresarial",
-    //   photo: "/images/tecla-portait.webp",
-    //   description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
-    //   // email: "joao@mmadvogados.com",
-    //   // phone: "+351 913 456 789",
-    //   // location: "Porto, Portugal",
-    //   // linkedin: "https://linkedin.com/in/joaosantos",
-    // },
-    // {
-    //   id: 5,
-    //   name: "Helodia Malate",
-    //   position: "Sócio - Direito Empresarial",
-    //   photo: "/images/Helodia-portait.webp",
-    //   description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
-    //   // email: "joao@mmadvogados.com",
-    //   // phone: "+351 913 456 789",
-    //   // location: "Porto, Portugal",
-    //   // linkedin: "https://linkedin.com/in/joaosantos",
-    // },
-    // {
-    //   id: 6,
-    //   name: "Maura Matsinhe",
-    //   position: "Sócio - Direito Empresarial",
-    //   photo: "/images/maura-portait.webp",
-    //   description: "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
-    //   // email: "joao@mmadvogados.com",
-    //   // phone: "+351 913 456 789",
-    //   // location: "Porto, Portugal",
-    //   // linkedin: "https://linkedin.com/in/joaosantos",
-    // },
   ];
 
   return (
@@ -176,48 +128,10 @@ const TeamSection = () => {
                     {member.description}
                   </p>
 
-                  {/* Contact Info */}
-                  {/* <div className="space-y-2 mb-4 text-xs sm:text-sm">
-                    <div className="flex items-center text-muted-foreground">
-                      <Mail className="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-primary flex-shrink-0" />
-                      <span className="truncate">{member.email}</span>
-                    </div>
-                    <div className="flex items-center text-muted-foreground">
-                      <Phone className="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-primary flex-shrink-0" />
-                      <span className="truncate">{member.phone}</span>
-                    </div>
-                    <div className="flex items-center text-muted-foreground">
-                      <MapPin className="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-primary flex-shrink-0" />
-                      <span className="truncate">{member.location}</span>
-                    </div>
-                  </div> */}
 
                   {/* Social Links */}
                   <div className="flex space-x-2 sm:space-x-3 mt-auto">
-                    {/* <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-1.5 sm:p-2 bg-primary text-primary-foreground rounded-lg hover:scale-105 transition-all flex-shrink-0"
-                    > */}
-                    {/* <Linkedin className="w-3 h-3 sm:w-4 sm:h-4" /> */}
-                    {/* </a>
-                    <a
-                      href={`mailto:${member.email}`}
-                      className="p-1.5 sm:p-2 bg-secondary text-secondary-foreground rounded-lg hover:scale-105 transition-all flex-shrink-0"
-                    >
-                      <Mail className="w-3 h-3 sm:w-4 sm:h-4" />
-                    </a> */}
-                    {/* {member.website && (
-                      // <a
-                      //   href={member.website}
-                      //   target="_blank"
-                      //   rel="noopener noreferrer"
-                      //   className="p-1.5 sm:p-2 bg-accent text-accent-foreground rounded-lg hover:scale-105 transition-all flex-shrink-0"
-                      // >
-                        <Globe className="w-3 h-3 sm:w-4 sm:h-4" />
-                      </a>
-                    )} */}
+                
                   </div>
                 </div>
               </div>
