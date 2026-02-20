@@ -99,7 +99,9 @@ const Navigation = () => {
                   href="https://www.instagram.com/milagrosa.macuacua_advogados/"
                   target="_blank"
                   rel="noreferrer"
-                  className={`${textColor} hover:opacity-80`}
+                  className={`${textColor} hover:opacity-80 flex items-center justify-center w-11 h-11 rounded-full`}
+                  aria-label="Abrir Instagram da MMA Advogados em nova aba"
+                  title="Instagram da MMA Advogados"
                 >
                   <Instagram size={18} />
                 </a>
@@ -107,7 +109,9 @@ const Navigation = () => {
                   href="#"
                   target="_blank"
                   rel="noreferrer"
-                  className={`${textColor} hover:opacity-80`}
+                  className={`${textColor} hover:opacity-80 flex items-center justify-center w-11 h-11 rounded-full`}
+                  aria-label="Abrir página do Facebook da MMA Advogados em nova aba"
+                  title="Facebook da MMA Advogados"
                 >
                   <Facebook size={18} />
                 </a>
@@ -121,6 +125,8 @@ const Navigation = () => {
                 onClick={() => setIsOpen((v) => !v)}
                 ref={burgerRef}
                 className={`${textColor}`}
+                aria-label={isOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"}
+                title={isOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"}
               >
                 {isOpen ? <X /> : <Menu />}
               </Button>

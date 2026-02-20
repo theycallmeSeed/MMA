@@ -141,13 +141,16 @@ const AboutSection: React.FC = () => {
               <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute left-4 top-1/2 transform -translate-y-1/2 pointer-events-auto">
                   <button
+                    type="button"
                     onClick={() =>
                       goTo(
                         (index - 1 + carouselImages.length) %
                           carouselImages.length
                       )
                     }
-                    className="bg-white/80 hover:bg-white px-3 py-2 rounded-full shadow-sm transition"
+                    className="bg-white/80 hover:bg-white px-3 py-2 rounded-full shadow-sm transition flex items-center justify-center w-11 h-11"
+                    aria-label="Ver imagem anterior da galeria"
+                    title="Imagem anterior"
                   >
                     ‹
                   </button>
@@ -155,8 +158,11 @@ const AboutSection: React.FC = () => {
 
                 <div className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-auto">
                   <button
+                    type="button"
                     onClick={() => goTo((index + 1) % carouselImages.length)}
-                    className="bg-white/80 hover:bg-white px-3 py-2 rounded-full shadow-sm transition"
+                    className="bg-white/80 hover:bg-white px-3 py-2 rounded-full shadow-sm transition flex items-center justify-center w-11 h-11"
+                    aria-label="Ver próxima imagem da galeria"
+                    title="Próxima imagem"
                   >
                     ›
                   </button>
@@ -166,10 +172,14 @@ const AboutSection: React.FC = () => {
                   {carouselImages.map((_, i) => (
                     <button
                       key={i}
+                      type="button"
                       onClick={() => goTo(i)}
                       className={`w-2.5 h-2.5 rounded-full transition ${
                         i === index ? "bg-primary" : "bg-white/70"
                       }`}
+                      aria-label={`Ir para imagem ${i + 1} da galeria`}
+                      aria-current={i === index ? "true" : "false"}
+                      title={`Imagem ${i + 1}`}
                     />
                   ))}
                 </div>

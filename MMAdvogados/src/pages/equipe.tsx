@@ -130,13 +130,17 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
               href={member.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl hover:scale-110 transition-all duration-300 group/link"
+              className="p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl hover:scale-110 transition-all duration-300 group/link"
+              aria-label={`Abrir perfil de LinkedIn de ${member.name} em nova aba`}
+              title={`LinkedIn de ${member.name}`}
             >
               <Linkedin className="w-5 h-5 text-primary group-hover/link:text-primary/80" />
             </a>
             <a
               href={`mailto:${member.email}`}
-              className="p-2.5 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl hover:scale-110 transition-all duration-300 group/link"
+              className="p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl hover:scale-110 transition-all duration-300 group/link"
+              aria-label={`Enviar e-mail para ${member.name}`}
+              title={`Enviar e-mail para ${member.name}`}
             >
               <Mail className="w-5 h-5 text-primary group-hover/link:text-primary/80" />
             </a>
@@ -145,7 +149,9 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
                 href={member.website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl hover:scale-110 transition-all duration-300 group/link"
+                className="p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl hover:scale-110 transition-all duration-300 group/link"
+                aria-label={`Abrir website de ${member.name} em nova aba`}
+                title={`Website de ${member.name}`}
               >
                 <Globe className="w-5 h-5 text-primary group-hover/link:text-primary/80" />
               </a>

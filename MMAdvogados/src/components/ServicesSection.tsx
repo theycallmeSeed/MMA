@@ -267,7 +267,9 @@ const ServicesSection = () => {
                     variant="ghost"
                     size="sm"
                     onClick={() => setSelectedService(null)}
-                    className="hover:bg-muted rounded-xl flex-shrink-0"
+                    className="hover:bg-muted rounded-xl flex-shrink-0 min-w-11 min-h-11 flex items-center justify-center"
+                    aria-label="Fechar detalhes do serviço"
+                    title="Fechar detalhes do serviço"
                   >
                     <X className="h-5 w-5" />
                   </Button>
