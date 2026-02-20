@@ -62,31 +62,24 @@ const Sobre = () => {
   ];
 
   const shouldReduce = useReducedMotion();
-  const officeImages = [
-    {
-      src: "/images/mmaoffice.webp",
-      srcSet: `
-      /images/mmaoffice.webp 800w`,
-    },
-    {
-      src: "/images/mmaoffice-1.webp",
-      srcSet: `
-      /images/mmaoffice-1.webp 800w
-    `,
-    },
-    {
-      src: "/images/mmaoffice-2.webp",
-      srcSet: `
-      /images/mmaoffice-2.webp 800w,
-    `,
-    },
-    {
-      src: "/images/mmaoffice-3.webp",
-      srcSet: `
-      /images/mmaoffice-3.webp 800w,
-    `,
-    },
-  ];
+  const officeImages = useMemo(
+    () => [
+      "/images/mmaoffice.webp",
+      "/images/mmaoffice-1.webp",
+      "/images/mmaoffice-2.webp",
+      "/images/mmaoffice-3.webp",
+    ],
+    []
+  );
+  const [officeIndex, setOfficeIndex] = useState(0);
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setOfficeIndex((prev) => (prev + 1) % officeImages.length);
+    }, 3500); // troca a cada 3.5s (podes ajustar)
+
+    return () => window.clearInterval(id);
+  }, [officeImages.length]);
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -167,24 +160,27 @@ const Sobre = () => {
             viewport={{ once: true, amount: 0.2 }}
           >
             {/* Imagem do Escritório */}
-            <motion.div className="relative group" variants={slideUp}>
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500"></div>
-
-              <div
-                className="relative overflow-hidden rounded-2xl border border-border aspect-[4/3]"
-                style={{ boxShadow: "var(--shadow-card)" }}
+            <div
+              className="relative overflow-hidden rounded-2xl border border-border aspect-[4/3]"
+              style={{ boxShadow: "var(--shadow-card)" }}
+            >
+              <motion.div
+                key={officeImages[officeIndex]} // importante para animar troca
+                initial={{ opacity: 0, scale: 1.01 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="absolute inset-0"
               >
                 <LazyImage
-                  src={officeImages[0].src}
-                  srcSet={officeImages[0].srcSet}
-                  sizes="(min-width: 1024px) 600px, 100vw"
+                  src={officeImages[officeIndex]}
                   alt="Escritório MM Advogados"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
+              </motion.div>
 
-                <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
-              </div>
-            </motion.div>
+              <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
+            </div>
 
             {/* História do Escritório */}
             <motion.div className="space-y-6" variants={slideUp}>
@@ -472,3 +468,4 @@ const Sobre = () => {
 
 export default Sobre;
 import LazyImage from "@/components/LazyImage";
+import { useEffect, useMemo, useState } from "react";
