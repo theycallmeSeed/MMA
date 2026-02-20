@@ -22,6 +22,7 @@ const HeroSection = () => {
           <source
             media="(max-width: 768px)"
             srcSet="/images/hero-banner-mob.webp"
+            sizes="100vw"
           />
           <img
             src="/images/hero-banner.webp"
@@ -29,10 +30,13 @@ const HeroSection = () => {
             fetchPriority="high"
             loading="eager"
             decoding="sync"
-            className="w-full h-full object-cover"
+            width={1600}
+            height={900}
+            className="w-full h-full object-cover object-center"
           />
         </picture>
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-primary/20 to-primary/12 sm:from-primary/28 sm:via-primary/18 sm:to-primary/10"></div>
+        <div className="absolute inset-0 bg-black/55 sm:bg-black/45 lg:bg-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-primary/10 to-transparent"></div>
         <div className="absolute inset-0 bg-radial-gradient opacity-8"></div>
         <div
           className="absolute inset-0 hero-gradient-animation"
@@ -41,12 +45,12 @@ const HeroSection = () => {
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 pb-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-16">
         <div className="max-w-5xl mx-auto">
           {/* Headline */}
           <div className="relative mb-6">
             <h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-primary-foreground leading-tight hero-title-reveal"
+              className="text-[clamp(2rem,4.8vw,4.25rem)] md:text-[clamp(2.25rem,3.8vw,3.8rem)] lg:text-[clamp(3rem,3.6vw,4.75rem)] font-serif font-bold text-primary-foreground leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)] hero-title-reveal"
               data-seo-importance="primary"
               style={{ animationDelay: "0.4s" }}
             >
@@ -67,38 +71,52 @@ const HeroSection = () => {
             </h1>
           </div>
 
-          {/* Short, professional subtitle */}
-          {/* <p
-            className="text-lg md:text-xl lg:text-2xl text-primary-foreground/95 mb-10 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0 hero-fade-in drop-shadow-lg"
+          {/* Short subtitle for clarity and SEO */}
+          <p
+            className="text-base sm:text-lg md:text-xl text-primary-foreground/95 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0 hero-fade-in drop-shadow-[0_1px_6px_rgba(0,0,0,0.4)]"
             style={{ animationDelay: "0.7s" }}
           >
-            Mais de 10 anos de prática jurídica: assessoria empresarial, litígios e regimes de avença com resposta prioritária e foco em soluções práticas.
-          </p> */}
+            Representação e consultoria jurídica com rigor técnico e resposta ágil.
+          </p>
 
-          {/* Only secondary CTA (Agendar) */}
-          {/* <div
-            className="flex items-center justify-center gap-4 mb-16 px-4 sm:px-0 hero-fade-in"
+          {/* CTA Group */}
+          <div
+            className="flex items-center justify-center gap-3 sm:gap-4 mb-6 px-4 sm:px-0 hero-fade-in"
             style={{ animationDelay: "0.9s" }}
           >
             <Button
               asChild
-              variant="outline"
               size="lg"
-              className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary px-8 py-6 w-full sm:w-auto text-base transition-all duration-300 backdrop-blur-sm bg-primary-foreground/5 hover:shadow-xl hover:-translate-y-1 focus-visible:ring-4 focus-visible:ring-primary-foreground focus-visible:ring-offset-2"
+              className="px-8 py-6 bg-[rgb(81,21,38)] hover:bg-[rgb(81,21,38)]/90 text-white shadow-lg hover:shadow-2xl rounded-xl w-full sm:w-auto transition-all duration-300"
               aria-label="Agendar consultoria jurídica via WhatsApp"
+              title="Agendar Consultoria"
             >
               <a
                 href={getWhatsAppConsultoriaLinkExact()}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="flex items-center gap-3">
+                <span className="flex items-center gap-3 font-semibold">
                   Agendar Consultoria
                   <ArrowRight className="h-5 w-5" />
                 </span>
               </a>
             </Button>
-          </div> */}
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-2 border-primary-foreground text-primary-foreground/95 hover:bg-primary-foreground hover:text-[rgb(81,21,38)] px-8 py-6 w-full sm:w-auto rounded-xl transition-all duration-300 backdrop-blur-sm bg-primary-foreground/5"
+              aria-label="Conhecer áreas de atuação"
+              title="Conhecer Serviços"
+            >
+              <a href="/servicos">
+                <span className="flex items-center gap-3 font-semibold">
+                  Conhecer Serviços
+                </span>
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
 
