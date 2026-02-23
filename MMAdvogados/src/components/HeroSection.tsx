@@ -3,8 +3,28 @@ import { Button } from "@/components/ui/button";
 
 import { getWhatsAppConsultoriaLinkExact } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 const HeroSection = () => {
+  useEffect(() => {
+    const linkD = document.createElement("link");
+    linkD.rel = "preload";
+    linkD.as = "image";
+    linkD.href = "/images/hero-banner.webp";
+    linkD.fetchPriority = "high";
+    const linkM = document.createElement("link");
+    linkM.rel = "preload";
+    linkM.as = "image";
+    linkM.href = "/images/hero-banner-mob.webp";
+    linkM.media = "(max-width: 768px)";
+    linkM.fetchPriority = "high";
+    document.head.appendChild(linkD);
+    document.head.appendChild(linkM);
+    return () => {
+      document.head.removeChild(linkD);
+      document.head.removeChild(linkM);
+    };
+  }, []);
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -13,7 +33,6 @@ const HeroSection = () => {
       className="relative min-h-[100svh] flex items-center justify-center overflow-hidden"
       aria-label="Hero principal - Milagrosa Macuácua Advogados"
     >
-      {/* Background Image with Parallax Effect (optimized) */}
       <div
         className="absolute inset-0 h-full w-full hero-parallax"
         style={{ willChange: "transform" }}
@@ -22,21 +41,17 @@ const HeroSection = () => {
           <source
             media="(max-width: 768px)"
             srcSet="/images/hero-banner-mob.webp"
-            sizes="100vw"
           />
           <img
             src="/images/hero-banner.webp"
             alt="Escritório de advocacia profissional"
             fetchPriority="high"
             loading="eager"
-            decoding="sync"
-            width={1600}
-            height={900}
-            className="w-full h-full object-cover object-center"
+            decoding="async"
+            className="w-full h-full object-cover"
           />
         </picture>
-        <div className="absolute inset-0 bg-black/55 sm:bg-black/45 lg:bg-black/40"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-primary/10 to-transparent"></div>
+        <div className="absolute inset-0 bg-black/50 sm:bg-black/45 md:bg-black/40"></div>
         <div className="absolute inset-0 bg-radial-gradient opacity-8"></div>
         <div
           className="absolute inset-0 hero-gradient-animation"
@@ -44,13 +59,11 @@ const HeroSection = () => {
         ></div>
       </div>
 
-      {/* Content Container */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-16">
-        <div className="max-w-5xl mx-auto">
-          {/* Headline */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 pb-16">
+        <div className="max-w-5xl mx-auto flex flex-col items-center gap-6 sm:gap-8">
           <div className="relative mb-6">
             <h1
-              className="text-[clamp(2rem,4.8vw,4.25rem)] md:text-[clamp(2.25rem,3.8vw,3.8rem)] lg:text-[clamp(3rem,3.6vw,4.75rem)] font-serif font-bold text-primary-foreground leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)] hero-title-reveal"
+              className="text-[clamp(2.25rem,6vw,4.25rem)] md:text-[clamp(2.5rem,5.5vw,4rem)] lg:text-[clamp(3rem,5vw,4.5rem)] font-serif font-bold text-primary-foreground leading-[1.1] hero-title-reveal"
               data-seo-importance="primary"
               style={{ animationDelay: "0.4s" }}
             >
@@ -71,32 +84,23 @@ const HeroSection = () => {
             </h1>
           </div>
 
-          {/* Short subtitle for clarity and SEO */}
-          <p
-            className="text-base sm:text-lg md:text-xl text-primary-foreground/95 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0 hero-fade-in drop-shadow-[0_1px_6px_rgba(0,0,0,0.4)]"
-            style={{ animationDelay: "0.7s" }}
-          >
-            Representação e consultoria jurídica com rigor técnico e resposta ágil.
-          </p>
-
-          {/* CTA Group */}
           <div
-            className="flex items-center justify-center gap-3 sm:gap-4 mb-6 px-4 sm:px-0 hero-fade-in"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14 px-4 sm:px-0 hero-fade-in"
             style={{ animationDelay: "0.9s" }}
           >
             <Button
               asChild
               size="lg"
-              className="px-8 py-6 bg-[rgb(81,21,38)] hover:bg-[rgb(81,21,38)]/90 text-white shadow-lg hover:shadow-2xl rounded-xl w-full sm:w-auto transition-all duration-300"
+              className="bg-[rgb(81,21,38)] text-white hover:bg-[rgb(81,21,38)]/90 px-8 py-6 w-full sm:w-auto text-base transition-all duration-300 shadow-lg hover:shadow-2xl focus-visible:ring-4 focus-visible:ring-white/50 focus-visible:ring-offset-2"
               aria-label="Agendar consultoria jurídica via WhatsApp"
-              title="Agendar Consultoria"
+              title="Agendar consultoria jurídica via WhatsApp"
             >
               <a
                 href={getWhatsAppConsultoriaLinkExact()}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="flex items-center gap-3 font-semibold">
+                <span className="flex items-center gap-3">
                   Agendar Consultoria
                   <ArrowRight className="h-5 w-5" />
                 </span>
@@ -106,13 +110,13 @@ const HeroSection = () => {
               asChild
               variant="outline"
               size="lg"
-              className="border-2 border-primary-foreground text-primary-foreground/95 hover:bg-primary-foreground hover:text-[rgb(81,21,38)] px-8 py-6 w-full sm:w-auto rounded-xl transition-all duration-300 backdrop-blur-sm bg-primary-foreground/5"
-              aria-label="Conhecer áreas de atuação"
-              title="Conhecer Serviços"
+              className="border-2 border-white/70 bg-transparent text-white hover:bg-white/20 hover:text-white px-8 py-6 w-full sm:w-auto text-base transition-all duration-300 backdrop-blur-sm"
+              aria-label="Conhecer serviços e áreas de atuação"
+              title="Conhecer serviços e áreas de atuação"
             >
               <a href="/servicos">
-                <span className="flex items-center gap-3 font-semibold">
-                  Conhecer Serviços
+                <span className="flex items-center gap-3">
+                  Ver Serviços
                 </span>
               </a>
             </Button>
