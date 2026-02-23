@@ -15,11 +15,15 @@ import {
   Award,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import LazyImage from "@/components/LazyImage";
 import { useState } from "react";
 import { motion, useReducedMotion, Variants } from "framer-motion";
 import { fadeIn, slideUp, staggerContainer } from "@/lib/animation-variants";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { generateWhatsAppLink, getWhatsAppConsultoriaLinkExact } from "@/lib/utils";
+import {
+  generateWhatsAppLink,
+  getWhatsAppConsultoriaLinkExact,
+} from "@/lib/utils";
 
 const AnimatedServicesSection = () => {
   const [selectedService, setSelectedService] = useState<number | null>(null);
@@ -43,7 +47,10 @@ const AnimatedServicesSection = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: prefersReduced || isMobile ? 0.35 : 0.6, ease: "easeOut" },
+      transition: {
+        duration: prefersReduced || isMobile ? 0.35 : 0.6,
+        ease: "easeOut",
+      },
     },
   };
 
@@ -52,7 +59,10 @@ const AnimatedServicesSection = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: prefersReduced || isMobile ? 0.35 : 0.6, ease: "easeOut" },
+      transition: {
+        duration: prefersReduced || isMobile ? 0.35 : 0.6,
+        ease: "easeOut",
+      },
     },
   };
 
@@ -60,76 +70,89 @@ const AnimatedServicesSection = () => {
     {
       icon: Scale,
       title: "Contencioso e Arbitragem",
-      image: "/images/legal-team.jpg",
+      image: "/images/office-interior.webp",
       description:
-        "Representação em tribunais e processos arbitrais, com foco em resolução eficiente de conflitos empresariais.",
-      features: ["Litígios comerciais", "Arbitragem internacional", "Mediação"],
+        "Actuação em processos judiciais e arbitrais, nos termos da lei, designadamente:",
+      features: [
+        "	Litígios de natureza civil, criminal e comercial",
+        "	Arbitragem",
+        "Mediação",
+      ],
       detailedDescription:
         "A nossa equipa atua na representação de clientes em tribunais judiciais e em processos arbitrais, nacionais e internacionais. Procuramos sempre soluções eficazes para a resolução de litígios comerciais, conjugando estratégia jurídica sólida com mecanismos alternativos, como a mediação e a arbitragem. A prioridade é assegurar a defesa dos interesses dos nossos clientes, reduzindo riscos e garantindo maior previsibilidade nos processos de resolução de conflitos empresariais.",
       color: "from-blue-500/20 to-cyan-500/20",
     },
     {
       icon: Building2,
-      title: "Corporate",
-      image: "/images/office-interior.jpg",
-      description:
-        "Assessoria jurídica completa para operações empresariais, fusões, aquisições e estruturação corporativa.",
-      features: ["M&A", "Due diligence", "Compliance"],
+      title: "Direito Societário e Empresarial",
+      image: "/images/corporate.webp",
+      description: "Assessoria jurídica a sociedades comerciais, incluindo",
+      features: [
+        "	Constituição, reorganização e acompanhamento societário",
+        "Fusões e aquisições",
+        "Due diligence ",
+        "Compliance",
+        "	Insolvência ou Recuperação de Empresários Comercias",
+      ],
       detailedDescription:
         "Prestamos assessoria jurídica completa em matérias de direito societário e operações empresariais. Acompanhamos processos de fusões e aquisições (M&A), realizamos auditorias legais (due diligence) e implementamos programas de compliance adequados ao enquadramento legal moçambicano e internacional. O nosso apoio permite às empresas estruturar operações de forma segura, transparente e alinhada com as melhores práticas de governança corporativa.",
       color: "from-purple-500/20 to-violet-500/20",
     },
-    {
-      icon: FileText,
-      title: "Administrativo, fiscal e Aduaneiro",
-      image: "/images/legal-team.jpg",
-      description:
-        "Especialização em direito fiscal, aduaneiro e relações com entidades governamentais.",
-      features: ["Consultoria fiscal", "Processos aduaneiros", "Licenciamento"],
-      detailedDescription:
-        "Apoiamos empresas e particulares em matérias fiscais, aduaneiras e administrativas. A nossa intervenção inclui consultoria fiscal preventiva, representação em processos de natureza tributária, acompanhamento de questões aduaneiras e apoio no relacionamento com entidades públicas. Atuamos também em processos de licenciamento, garantindo a conformidade legal e a mitigação de riscos perante a Administração Pública.",
-      color: "from-emerald-500/20 to-green-500/20",
-    },
-    {
-      icon: Home,
-      title: "Imobiliário e Terras",
-      image: "/images/office-interior.jpg",
-      description:
-        "Assessoria especializada em transações imobiliárias, regularização de terras e direito urbanístico.",
-      features: ["DUAT", "Registos prediais", "Contratos imobiliários"],
-      detailedDescription:
-        "Disponibilizamos assessoria especializada em transações imobiliárias e em procedimentos relacionados com a regularização de terras em Moçambique. A nossa intervenção abrange a obtenção e renovação de DUAT (Direito de Uso e Aproveitamento da Terra), registos prediais e a elaboração de contratos imobiliários. Trabalhamos ainda em matérias de direito urbanístico, apoiando promotores, investidores e particulares em todas as fases dos seus projetos.",
-      color: "from-amber-500/20 to-orange-500/20",
-    },
-    {
-      icon: Users,
-      title: "Laboral e Migratório",
-      image: "/images/legal-team.jpg",
-      description:
-        "Gestão de relações laborais, contratos de trabalho e processos migratórios para expatriados.",
-      features: ["Contratos laborais", "Vistos de trabalho", "Compliance laboral"],
-      detailedDescription:
-        "Prestamos apoio jurídico na gestão de relações laborais e na mobilidade internacional de trabalhadores. Aconselhamos na elaboração e revisão de contratos de trabalho, em políticas de recursos humanos e em processos disciplinares. Em matéria migratória, auxiliamos na obtenção de vistos de trabalho e de residência para expatriados, assegurando conformidade legal com as normas laborais e de imigração vigentes.",
-      color: "from-rose-500/20 to-pink-500/20",
-    },
-    {
-      icon: Handshake,
-      title: "Societário",
-      image: "/images/office-interior.jpg",
-      description:
-        "Constituição de empresas, reestruturações societárias e governança corporativa.",
-      features: ["Constituição", "Reestruturação", "Governança"],
-      detailedDescription:
-        "Acompanhamos a constituição de novas sociedades, a reestruturação de empresas já existentes e a implementação de boas práticas de governança. Prestamos aconselhamento jurídico em todas as fases do ciclo de vida societário, desde a escolha da forma jurídica mais adequada até à gestão de alterações estatutárias, reorganizações e processos de sucessão empresarial.",
-      color: "from-indigo-500/20 to-blue-500/20",
-    },
+    // {
+    //   icon: FileText,
+    //   title: "Administrativo, fiscal e Aduaneiro",
+    //   image: "/images/legal-team.webp",
+    //   description:
+    //     "Especialização em direito fiscal, aduaneiro e relações com entidades governamentais.",
+    //   features: ["Consultoria fiscal", "Processos aduaneiros", "Licenciamento"],
+    //   detailedDescription:
+    //     "Apoiamos empresas e particulares em matérias fiscais, aduaneiras e administrativas. A nossa intervenção inclui consultoria fiscal preventiva, representação em processos de natureza tributária, acompanhamento de questões aduaneiras e apoio no relacionamento com entidades públicas. Atuamos também em processos de licenciamento, garantindo a conformidade legal e a mitigação de riscos perante a Administração Pública.",
+    //   color: "from-emerald-500/20 to-green-500/20",
+    // },
+    // {
+    //   icon: Home,
+    //   title: "Imobiliário e Terras",
+    //   image: "/images/office-interior.webp",
+    //   description:
+    //     "Assessoria especializada em transações imobiliárias, regularização de terras e direito urbanístico.",
+    //   features: ["DUAT", "Registos prediais", "Contratos imobiliários"],
+    //   detailedDescription:
+    //     "Disponibilizamos assessoria especializada em transações imobiliárias e em procedimentos relacionados com a regularização de terras em Moçambique. A nossa intervenção abrange a obtenção e renovação de DUAT (Direito de Uso e Aproveitamento da Terra), registos prediais e a elaboração de contratos imobiliários. Trabalhamos ainda em matérias de direito urbanístico, apoiando promotores, investidores e particulares em todas as fases dos seus projetos.",
+    //   color: "from-amber-500/20 to-orange-500/20",
+    // },
+    // {
+    //   icon: Users,
+    //   title: "Laboral e Migratório",
+    //   image: "/images/legal-team.webp",
+    //   description:
+    //     "Gestão de relações laborais, contratos de trabalho e processos migratórios para expatriados.",
+    //   features: ["Contratos laborais", "Vistos de trabalho", "Compliance laboral"],
+    //   detailedDescription:
+    //     "Prestamos apoio jurídico na gestão de relações laborais e na mobilidade internacional de trabalhadores. Aconselhamos na elaboração e revisão de contratos de trabalho, em políticas de recursos humanos e em processos disciplinares. Em matéria migratória, auxiliamos na obtenção de vistos de trabalho e de residência para expatriados, assegurando conformidade legal com as normas laborais e de imigração vigentes.",
+    //   color: "from-rose-500/20 to-pink-500/20",
+    // },
+    // {
+    //   icon: Handshake,
+    //   title: "Societário",
+    //   image: "/images/office-interior.webp",
+    //   description:
+    //     "Constituição de empresas, reestruturações societárias e governança corporativa.",
+    //   features: ["Constituição", "Reestruturação", "Governança"],
+    //   detailedDescription:
+    //     "Acompanhamos a constituição de novas sociedades, a reestruturação de empresas já existentes e a implementação de boas práticas de governança. Prestamos aconselhamento jurídico em todas as fases do ciclo de vida societário, desde a escolha da forma jurídica mais adequada até à gestão de alterações estatutárias, reorganizações e processos de sucessão empresarial.",
+    //   color: "from-indigo-500/20 to-blue-500/20",
+    // },
     {
       icon: CreditCard,
-      title: "Investimento",
-      image: "/images/legal-team.jpg",
+      title: "Recuperação de Crédito e Execução",
+      image: "/images/investimento.webp",
       description:
         "Estratégias eficazes para recuperação de dívidas e gestão de carteiras de crédito em mora.",
-      features: ["Cobrança judicial", "Negociação", "Execução"],
+      features: [
+        "Cobrança judicial",
+        "Negociação de créditos",
+        "Processos executivos",
+      ],
       detailedDescription:
         "Desenvolvemos estratégias jurídicas e extrajudiciais para a recuperação de créditos em mora. Atuamos em cobranças judiciais, execuções e negociações com devedores, procurando soluções céleres que preservem os interesses dos nossos clientes. A nossa abordagem inclui também a gestão de carteiras de crédito, com medidas preventivas para reduzir a exposição a incumprimentos futuros.",
       color: "from-teal-500/20 to-cyan-500/20",
@@ -143,8 +166,7 @@ const AnimatedServicesSection = () => {
       <div
         className="absolute inset-0 opacity-5"
         style={{
-          backgroundImage:
-            `linear-gradient(hsl(343 59% 20%) 1px, transparent 1px),\n                         linear-gradient(90deg, hsl(343 59% 20%) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(hsl(343 59% 20%) 1px, transparent 1px),\n                         linear-gradient(90deg, hsl(343 59% 20%) 1px, transparent 1px)`,
           backgroundSize: "50px 50px",
         }}
       ></div>
@@ -155,13 +177,20 @@ const AnimatedServicesSection = () => {
         initial="hidden"
         animate={isMobile ? "visible" : undefined}
         whileInView={isMobile ? undefined : "visible"}
-        viewport={isMobile ? undefined : { once: true, amount: 0.2, margin: "0px 0px -10% 0px" }}
+        viewport={
+          isMobile
+            ? undefined
+            : { once: true, amount: 0.2, margin: "0px 0px -10% 0px" }
+        }
       >
         {/* Section Header */}
         <motion.div
           className="text-center mb-20"
           variants={headerVariants}
-          style={{ willChange: "transform, opacity", backfaceVisibility: "hidden" }}
+          style={{
+            willChange: "transform, opacity",
+            backfaceVisibility: "hidden",
+          }}
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
             <span className="text-primary">Áreas de Atuação</span>
@@ -169,8 +198,10 @@ const AnimatedServicesSection = () => {
           </h2>
 
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Soluções jurídicas especializadas para todas as necessidades empresariais,
-            com foco em resultados e excelência técnica.
+            A sociedade desenvolve a sua actividade em diversas áreas do
+            Direito, prestando assessoria jurídica e acompanhamento processual
+            de acordo com a legislação aplicável e as necessidades concretas de
+            cada caso.
           </p>
         </motion.div>
 
@@ -181,7 +212,11 @@ const AnimatedServicesSection = () => {
           initial="hidden"
           animate={isMobile ? "visible" : undefined}
           whileInView={isMobile ? undefined : "visible"}
-          viewport={isMobile ? undefined : { once: true, amount: 0.2, margin: "0px 0px -10% 0px" }}
+          viewport={
+            isMobile
+              ? undefined
+              : { once: true, amount: 0.2, margin: "0px 0px -10% 0px" }
+          }
           style={{ willChange: "transform, opacity" }}
         >
           {services.map((service, index) => (
@@ -202,11 +237,25 @@ const AnimatedServicesSection = () => {
 
                 {/* Image Section */}
                 <div className="relative h-56 overflow-hidden">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
+                  {(() => {
+                    const base = service.image.replace(/\.webp$/i, "");
+                    const src = service.image;
+                    const srcSet = `${base}-400.webp 400w, ${base}-800.webp 800w, ${base}-1200.webp 1200w`;
+                    const sizes =
+                      "(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw";
+                    return (
+                      <LazyImage
+                        src={src}
+                        srcSet={srcSet}
+                        sizes={sizes}
+                        alt={service.title}
+                        width={1200}
+                        height={675}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        fallbackSrc={service.image}
+                      />
+                    );
+                  })()}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
 
                   {/* Icon Badge on Image */}
@@ -250,12 +299,12 @@ const AnimatedServicesSection = () => {
                     whileTap={{ scale: 0.98 }}
                     style={{ willChange: "transform, opacity" }}
                   >
-                    <Button className="w-full bg-gradient-to-r from-primary/10 to-accent/10 text-primary hover:from-primary hover:to-primary/90 hover:text-primary-foreground border border-primary/20 transition-all duration-300 group/btn">
+                    {/* <Button className="w-full bg-gradient-to-r from-primary/10 to-accent/10 text-primary hover:from-primary hover:to-primary/90 hover:text-primary-foreground border border-primary/20 transition-all duration-300 group/btn">
                       <span className="flex items-center justify-center gap-2">
                         Saiba Mais
                         <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
                       </span>
-                    </Button>
+                    </Button> */}
                   </motion.a>
                 </div>
 
@@ -279,16 +328,21 @@ const AnimatedServicesSection = () => {
                 <div className="flex items-start justify-between mb-8">
                   <div className="flex items-start gap-4 flex-1">
                     <div className="p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl">
-                      {services[selectedService] && (() => {
-                        const IconComponent = services[selectedService].icon;
-                        return <IconComponent className="h-8 w-8 text-primary" />;
-                      })()}
+                      {services[selectedService] &&
+                        (() => {
+                          const IconComponent = services[selectedService].icon;
+                          return (
+                            <IconComponent className="h-8 w-8 text-primary" />
+                          );
+                        })()}
                     </div>
                     <div>
                       <h2 className="text-3xl font-serif font-bold text-primary mb-2">
                         {services[selectedService]?.title}
                       </h2>
-                      <p className="text-muted-foreground">Assessoria jurídica especializada</p>
+                      <p className="text-muted-foreground">
+                        Assessoria jurídica especializada
+                      </p>
                     </div>
                   </div>
                   <Button
@@ -319,15 +373,19 @@ const AnimatedServicesSection = () => {
                         Principais Serviços
                       </h3>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {services[selectedService]?.features.map((feature, featureIndex) => (
-                          <div
-                            key={featureIndex}
-                            className="flex items-center gap-3 p-4 bg-background/80 backdrop-blur-sm rounded-xl border border-border hover:border-primary/30 transition-all duration-300 group"
-                          >
-                            <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 group-hover:scale-110 transition-transform" />
-                            <span className="text-foreground font-medium">{feature}</span>
-                          </div>
-                        ))}
+                        {services[selectedService]?.features.map(
+                          (feature, featureIndex) => (
+                            <div
+                              key={featureIndex}
+                              className="flex items-center gap-3 p-4 bg-background/80 backdrop-blur-sm rounded-xl border border-border hover:border-primary/30 transition-all duration-300 group"
+                            >
+                              <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 group-hover:scale-110 transition-transform" />
+                              <span className="text-foreground font-medium">
+                                {feature}
+                              </span>
+                            </div>
+                          )
+                        )}
                       </div>
                     </div>
                   </div>
@@ -339,9 +397,14 @@ const AnimatedServicesSection = () => {
                       { icon: Clock, label: "Resposta Rápida" },
                       { icon: Award, label: "Excelência Comprovada" },
                     ].map((benefit, idx) => (
-                      <div key={idx} className="text-center p-4 rounded-xl bg-muted/50 border border-border">
+                      <div
+                        key={idx}
+                        className="text-center p-4 rounded-xl bg-muted/50 border border-border"
+                      >
                         <benefit.icon className="h-6 w-6 text-primary mx-auto mb-2" />
-                        <p className="text-sm font-medium text-foreground">{benefit.label}</p>
+                        <p className="text-sm font-medium text-foreground">
+                          {benefit.label}
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -349,7 +412,11 @@ const AnimatedServicesSection = () => {
 
                 {/* Modal Actions */}
                 <div className="flex flex-col sm:flex-row justify-end gap-4 mt-10 pt-8 border-t border-border">
-                  <Button variant="outline" onClick={() => setSelectedService(null)} className="btn-outline-elite">
+                  <Button
+                    variant="outline"
+                    onClick={() => setSelectedService(null)}
+                    className="btn-outline-elite"
+                  >
                     Fechar
                   </Button>
                   <a
@@ -374,7 +441,10 @@ const AnimatedServicesSection = () => {
         )}
 
         {/* Bottom CTA - Premium Section */}
-        <div className="relative rounded-3xl overflow-hidden" style={{ boxShadow: "var(--shadow-elegant)" }}>
+        <div
+          className="relative rounded-3xl overflow-hidden"
+          style={{ boxShadow: "var(--shadow-elegant)" }}
+        >
           {/* Background */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-primary/5"></div>
           <div
@@ -394,14 +464,17 @@ const AnimatedServicesSection = () => {
             </h3>
 
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
-              O nosso regime de avença oferece assessoria jurídica contínua com relatórios mensais detalhados,
-              comunicação direta com a equipa e custos previsíveis. Ideal para empresas que necessitam de
+              O nosso regime de avença oferece assessoria jurídica contínua com
+              relatórios mensais detalhados, comunicação direta com a equipa e
+              custos previsíveis.
+              {/*               
+              Ideal para empresas que necessitam de
               acompanhamento jurídico regular em múltiplas áreas de direito, garantindo conformidade legal
-              e resposta rápida a questões urgentes.
+              e resposta rápida a questões urgentes. */}
             </p>
 
             {/* Benefits Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10 max-w-4xl mx-auto">
+            {/* <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10 max-w-4xl mx-auto">
               {[
                 { icon: CheckCircle2, title: "Relatórios Mensais", desc: "Acompanhamento detalhado" },
                 { icon: Clock, title: "Resposta Prioritária", desc: "Atendimento ágil garantido" },
@@ -413,14 +486,15 @@ const AnimatedServicesSection = () => {
                   <p className="text-sm text-muted-foreground">{item.desc}</p>
                 </div>
               ))}
-            </div>
+            </div> */}
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a href="/servicos">
-                <Button size="lg" variant="outline" className="btn-outline-elite">
-                  Ver Todos os Serviços
-                </Button>
+                <button className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,38)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto">
+                  <span> Ver Todos os Serviços</span>
+                  <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
+                </button>
               </a>
             </div>
           </div>

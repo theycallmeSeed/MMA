@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from 'react';
-import { motion, useAnimation, useInView, Variants } from 'framer-motion';
+import React, { useEffect, useRef } from "react";
+import { motion, useAnimation, useInView, Variants } from "framer-motion";
 
 interface AnimationWrapperProps {
   children: React.ReactNode;
-  animation?: 'fadeIn' | 'slideUp' | 'slideLeft' | 'slideRight' | 'scale';
+  animation?: "fadeIn" | "slideUp" | "slideLeft" | "slideRight" | "scale";
   delay?: number;
   duration?: number;
   once?: boolean;
@@ -12,22 +12,22 @@ interface AnimationWrapperProps {
 
 export const AnimationWrapper: React.FC<AnimationWrapperProps> = ({
   children,
-  animation = 'fadeIn',
+  animation = "fadeIn",
   delay = 0,
   duration = 0.5,
   once = true,
-  className = '',
+  className = "",
 }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once, margin: '-100px' });
+  const isInView = useInView(ref, { once, margin: "-100px" });
   const controls = useAnimation();
 
   const variants: Variants = {
     hidden: {
       opacity: 0,
-      y: animation === 'slideUp' ? 50 : 0,
-      x: animation === 'slideLeft' ? 50 : animation === 'slideRight' ? -50 : 0,
-      scale: animation === 'scale' ? 0.9 : 1,
+      y: animation === "slideUp" ? 50 : 0,
+      x: animation === "slideLeft" ? 50 : animation === "slideRight" ? -50 : 0,
+      scale: animation === "scale" ? 0.9 : 1,
     },
     visible: {
       opacity: 1,
@@ -37,16 +37,16 @@ export const AnimationWrapper: React.FC<AnimationWrapperProps> = ({
       transition: {
         duration,
         delay,
-        ease: 'easeOut',
+        ease: "easeOut",
       },
     },
   };
 
   useEffect(() => {
     if (isInView) {
-      controls.start('visible');
+      controls.start("visible");
     } else if (!once) {
-      controls.start('hidden');
+      controls.start("hidden");
     }
   }, [isInView, controls, once]);
 

@@ -1,8 +1,10 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
 // Componente de provedor de animações para envolver todas as páginas
-const ScrollAnimationProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const ScrollAnimationProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   return (
     <motion.div
       initial="initial"

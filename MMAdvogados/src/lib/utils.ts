@@ -1,8 +1,8 @@
-import { type ClassValue, clsx } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
 
 export function generateWhatsAppLink(phone: string, message?: string): string {
@@ -18,7 +18,7 @@ Muito obrigado(a).`;
 
   const messageToUse = message || defaultMessage;
   const encodedMessage = encodeURIComponent(messageToUse);
-  const formattedPhone = phone.replace(/\s/g, '');
+  const formattedPhone = phone.replace(/\s/g, "");
   return `https://wa.me/${formattedPhone}?text=${encodedMessage}`;
 }
 
