@@ -113,15 +113,15 @@ const AboutSection: React.FC = () => {
                       {(() => {
                         const base = src.replace(/\.webp$/i, "");
                         const srcMain = src; // usar arquivo original como principal
-                        const srcSet = `${base}-800.webp 800w, ${base}-1200.webp 1200w, ${base}-1600.webp 1600w`;
-                        const sizes = "100vw";
+                        const srcSet = `${base}-800.webp 800w, ${base}-1200.webp 1200w`;
+                        const sizes = "(max-width:768px) 800px, 100vw";
                         return (
                           <LazyImage
                             src={srcMain}
                             srcSet={srcSet}
                             sizes={sizes}
                             alt={`Galeria ${i + 1}`}
-                            priority={i === 0}
+                            priority={false}
                             width={1600}
                             height={900}
                             className="w-full h-full object-cover"

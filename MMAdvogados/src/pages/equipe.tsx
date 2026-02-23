@@ -22,6 +22,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { fadeIn, slideUp, staggerContainer } from "@/lib/animation-variants";
 import { useIsMobile } from "@/hooks/use-mobile";
+import LazyImage from "@/components/LazyImage";
 
 interface TeamMember {
   id: number;
@@ -65,17 +66,28 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
             <div className="relative">
               <div className="w-32 h-32 rounded-full overflow-hidden relative ring-4 ring-primary/10 group-hover:ring-primary/30 transition-all duration-300">
                 {member.photo ? (
-                  <img
-                    src={member.photo}
-                    alt={member.name}
-                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
-                    loading="lazy"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = "none";
-                      target.nextElementSibling?.classList.remove("hidden");
-                    }}
-                  />
+                  (() => {
+                    const base = member.photo.replace(/\.webp$/i, "");
+                    const srcSet = `${base}-400.webp 400w, ${base}-800.webp 800w`;
+                    const sizes = "160px";
+                    return (
+                      <LazyImage
+                        src={member.photo}
+                        srcSet={srcSet}
+                        sizes={sizes}
+                        alt={member.name}
+                        width={160}
+                        height={160}
+                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                        fallbackSrc={member.photo}
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = "none";
+                          target.nextElementSibling?.classList.remove("hidden");
+                        }}
+                      />
+                    );
+                  })()
                 ) : null}
 
                 <div

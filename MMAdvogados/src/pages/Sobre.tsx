@@ -14,6 +14,8 @@ import {
   CheckCircle,
   Building2Icon,
 } from "lucide-react";
+import LazyImage from "@/components/LazyImage";
+import { useEffect, useMemo, useState } from "react";
 
 const Sobre = () => {
   const values = [
@@ -275,11 +277,24 @@ const Sobre = () => {
                 className="relative overflow-hidden rounded-2xl border border-border"
                 style={{ boxShadow: "var(--shadow-card)" }}
               >
-                <img
-                  src="/images/milagrosa-portrait.webp"
-                  alt="Milagrosa Macuácua - Fundadora"
-                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
-                />
+                {(() => {
+                  const base = "/images/milagrosa-portrait".replace(/\.webp$/i, "");
+                  const src = "/images/milagrosa-portrait.webp";
+                  const srcSet = `${base}-400.webp 400w, ${base}-800.webp 800w`;
+                  const sizes = "(min-width:1024px) 50vw, (min-width:768px) 50vw, 100vw";
+                  return (
+                    <LazyImage
+                      src={src}
+                      srcSet={srcSet}
+                      sizes={sizes}
+                      alt="Milagrosa Macuácua - Fundadora"
+                      width={800}
+                      height={1000}
+                      className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                      fallbackSrc={src}
+                    />
+                  );
+                })()}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
               </div>
             </motion.div>
@@ -297,11 +312,24 @@ const Sobre = () => {
                 className="relative overflow-hidden rounded-2xl border border-border"
                 style={{ boxShadow: "var(--shadow-card)" }}
               >
-                <img
-                  src="/images/legal-team.webp"
-                  alt="Equipa Jurídica"
-                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
-                />
+                {(() => {
+                  const base = "/images/legal-team".replace(/\.webp$/i, "");
+                  const src = "/images/legal-team.webp";
+                  const srcSet = `${base}-400.webp 400w, ${base}-800.webp 800w`;
+                  const sizes = "(min-width:1024px) 50vw, (min-width:768px) 50vw, 100vw";
+                  return (
+                    <LazyImage
+                      src={src}
+                      srcSet={srcSet}
+                      sizes={sizes}
+                      alt="Equipa Jurídica"
+                      width={800}
+                      height={1000}
+                      className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                      fallbackSrc={src}
+                    />
+                  );
+                })()}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
               </div>
             </div>
@@ -467,5 +495,3 @@ const Sobre = () => {
 };
 
 export default Sobre;
-import LazyImage from "@/components/LazyImage";
-import { useEffect, useMemo, useState } from "react";
