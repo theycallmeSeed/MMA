@@ -152,7 +152,7 @@ const ServicesSection = () => {
             >
               {/* Card Container */}
               <div
-                className="relative h-full rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/30 transition-all duration-500 hover:-translate-y-2"
+                className="relative h-full rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-2"
                 style={{ boxShadow: "var(--shadow-card)" }}
               >
                 {/* Gradient Overlay on Hover */}
