@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
 import { fadeIn, slideUp, staggerContainer } from "@/lib/animation-variants";
 import {
   Trophy,
@@ -13,7 +13,11 @@ import {
   ArrowRight,
   CheckCircle,
   Building2Icon,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
+import LazyImage from "@/components/LazyImage";
+import { useEffect, useMemo, useState } from "react";
 
 const Sobre = () => {
   const values = [
@@ -72,14 +76,38 @@ const Sobre = () => {
     []
   );
   const [officeIndex, setOfficeIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
+    if (shouldReduce) return;
+    if (isPaused) return;
     const id = window.setInterval(() => {
       setOfficeIndex((prev) => (prev + 1) % officeImages.length);
-    }, 3500); // troca a cada 3.5s (podes ajustar)
-
+    }, 4000);
     return () => window.clearInterval(id);
-  }, [officeImages.length]);
+  }, [officeImages.length, isPaused, shouldReduce]);
+
+  useEffect(() => {
+    const next = officeImages[(officeIndex + 1) % officeImages.length];
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "image";
+    link.href = next;
+    document.head.appendChild(link);
+    const img = new Image();
+    img.decoding = "async";
+    img.loading = "eager";
+    img.src = next;
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, [officeIndex, officeImages]);
+
+  const goPrev = () =>
+    setOfficeIndex((prev) => (prev - 1 + officeImages.length) % officeImages.length);
+  const goNext = () =>
+    setOfficeIndex((prev) => (prev + 1) % officeImages.length);
+  const goTo = (i: number) => setOfficeIndex(i % officeImages.length);
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -163,23 +191,79 @@ const Sobre = () => {
             <div
               className="relative overflow-hidden rounded-2xl border border-border aspect-[4/3]"
               style={{ boxShadow: "var(--shadow-card)" }}
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+              onTouchStart={() => setIsPaused(true)}
+              onTouchEnd={() => setIsPaused(false)}
+              role="region"
+              aria-roledescription="carousel"
+              aria-label="Galeria do escritório"
             >
-              <motion.div
-                key={officeImages[officeIndex]} // importante para animar troca
-                initial={{ opacity: 0, scale: 1.01 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="absolute inset-0"
-              >
-                <LazyImage
-                  src={officeImages[officeIndex]}
-                  alt="Escritório MM Advogados"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </motion.div>
+              <AnimatePresence initial={false} mode="wait">
+                <motion.div
+                  key={officeImages[officeIndex]}
+                  initial={{ opacity: 0, scale: 1.01 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="absolute inset-0"
+                  style={{ willChange: "opacity, transform", backfaceVisibility: "hidden" }}
+                >
+                  <LazyImage
+                    src={officeImages[officeIndex]}
+                    alt="Escritório MM Advogados"
+                    width={1200}
+                    height={900}
+                    decoding="async"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </motion.div>
+              </AnimatePresence>
 
               <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
+
+              <div className="absolute bottom-4 left-4 flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={goPrev}
+                  className="h-10 w-10 rounded-full bg-card/80 border border-border text-foreground hover:bg-card backdrop-blur-sm flex items-center justify-center"
+                  aria-label="Slide anterior"
+                  title="Slide anterior"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={goNext}
+                  className="h-10 w-10 rounded-full bg-card/80 border border-border text-foreground hover:bg-card backdrop-blur-sm flex items-center justify-center"
+                  aria-label="Próximo slide"
+                  title="Próximo slide"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+              </div>
+
+              <div
+                className="absolute bottom-4 right-4 flex items-center gap-2 bg-card/60 backdrop-blur-sm rounded-full px-3 py-2 border border-border"
+                role="tablist"
+                aria-label="Selecionar slide do escritório"
+              >
+                {officeImages.map((_, i) => {
+                  const active = i === officeIndex;
+                  return (
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => goTo(i)}
+                      className={`h-2.5 w-2.5 rounded-full ${active ? "bg-primary" : "bg-foreground/40"} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring`}
+                      aria-label={`Ir para slide ${i + 1}`}
+                      aria-selected={active}
+                      role="tab"
+                      title={`Slide ${i + 1}`}
+                    />
+                  );
+                })}
+              </div>
             </div>
 
             {/* História do Escritório */}
@@ -275,11 +359,24 @@ const Sobre = () => {
                 className="relative overflow-hidden rounded-2xl border border-border"
                 style={{ boxShadow: "var(--shadow-card)" }}
               >
-                <img
-                  src="/images/milagrosa-portrait.webp"
-                  alt="Milagrosa Macuácua - Fundadora"
-                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
-                />
+                {(() => {
+                  const base = "/images/milagrosa-portrait".replace(/\.webp$/i, "");
+                  const src = "/images/milagrosa-portrait.webp";
+                  const srcSet = `${base}-400.webp 400w, ${base}-800.webp 800w`;
+                  const sizes = "(min-width:1024px) 50vw, (min-width:768px) 50vw, 100vw";
+                  return (
+                    <LazyImage
+                      src={src}
+                      srcSet={srcSet}
+                      sizes={sizes}
+                      alt="Milagrosa Macuácua - Fundadora"
+                      width={800}
+                      height={1000}
+                      className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                      fallbackSrc={src}
+                    />
+                  );
+                })()}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
               </div>
             </motion.div>
@@ -297,11 +394,24 @@ const Sobre = () => {
                 className="relative overflow-hidden rounded-2xl border border-border"
                 style={{ boxShadow: "var(--shadow-card)" }}
               >
-                <img
-                  src="/images/legal-team.webp"
-                  alt="Equipa Jurídica"
-                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
-                />
+                {(() => {
+                  const base = "/images/legal-team".replace(/\.webp$/i, "");
+                  const src = "/images/legal-team.webp";
+                  const srcSet = `${base}-400.webp 400w, ${base}-800.webp 800w`;
+                  const sizes = "(min-width:1024px) 50vw, (min-width:768px) 50vw, 100vw";
+                  return (
+                    <LazyImage
+                      src={src}
+                      srcSet={srcSet}
+                      sizes={sizes}
+                      alt="Equipa Jurídica"
+                      width={800}
+                      height={1000}
+                      className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                      fallbackSrc={src}
+                    />
+                  );
+                })()}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
               </div>
             </div>
@@ -467,5 +577,3 @@ const Sobre = () => {
 };
 
 export default Sobre;
-import LazyImage from "@/components/LazyImage";
-import { useEffect, useMemo, useState } from "react";

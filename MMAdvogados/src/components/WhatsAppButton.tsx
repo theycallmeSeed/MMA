@@ -13,7 +13,7 @@ const WhatsAppButton = () => {
 
   const handleWhatsAppClick = () => {
     // Informações de contacto do escritório MMA Advogados
-    const phoneNumber = "258871549533"; // WhatsApp do escritório
+    const phoneNumber = "258868603610"; // WhatsApp do escritório
     const message = `Bom dia, gostaria de obter mais informações sobre os vossos serviços jurídicos.
 
 Nome: [escreva aqui o seu nome]
@@ -35,9 +35,11 @@ Muito obrigado(a).`;
   return (
     <>
       <button
+        type="button"
         onClick={handleWhatsAppClick}
         className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 animate-pulse hover:animate-none group"
-        aria-label="Contatar via WhatsApp"
+        aria-label="Contactar escritório via WhatsApp"
+        title="Contactar escritório via WhatsApp"
       >
         <svg
           className="w-6 h-6"
@@ -51,7 +53,7 @@ Muito obrigado(a).`;
         {/* Tooltip */}
         <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
           <div className="font-semibold">MMA Advogados</div>
-          <div className="text-xs text-gray-300">+258 87 154 9533</div>
+          <div className="text-xs text-gray-300">+258 86 860 3610</div>
           <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
         </div>
       </button>

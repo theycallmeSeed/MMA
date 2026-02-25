@@ -227,7 +227,7 @@ const AnimatedServicesSection = () => {
             >
               {/* Card Container */}
               <div
-                className="relative h-full rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/30 transition-all duration-500 hover:-translate-y-2"
+                className="relative h-full rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-2"
                 style={{ boxShadow: "var(--shadow-card)" }}
               >
                 {/* Gradient Overlay on Hover */}
@@ -240,7 +240,7 @@ const AnimatedServicesSection = () => {
                   {(() => {
                     const base = service.image.replace(/\.webp$/i, "");
                     const src = service.image;
-                    const srcSet = `${base}-400.webp 400w, ${base}-800.webp 800w, ${base}-1200.webp 1200w`;
+                    const srcSet = `${base}-400.webp 400w, ${base}-800.webp 800w`;
                     const sizes =
                       "(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw";
                     return (
@@ -249,8 +249,8 @@ const AnimatedServicesSection = () => {
                         srcSet={srcSet}
                         sizes={sizes}
                         alt={service.title}
-                        width={1200}
-                        height={675}
+                        width={800}
+                        height={450}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         fallbackSrc={service.image}
                       />
@@ -349,7 +349,9 @@ const AnimatedServicesSection = () => {
                     variant="ghost"
                     size="sm"
                     onClick={() => setSelectedService(null)}
-                    className="hover:bg-muted rounded-xl flex-shrink-0"
+                    className="hover:bg-muted rounded-xl flex-shrink-0 min-w-11 min-h-11 flex items-center justify-center"
+                    aria-label="Fechar detalhes do serviço"
+                    title="Fechar detalhes do serviço"
                   >
                     <X className="h-5 w-5" />
                   </Button>

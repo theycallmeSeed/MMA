@@ -20,7 +20,7 @@
 
     /* Muted tones */
     --muted: 240 4% 96%;
-    --muted-foreground: 240 2% 55%;
+    --muted-foreground: 240 3% 40%;
 
     /* Accent - Gold touches */
     --accent: 45 93% 85%;
@@ -44,7 +44,7 @@
     
     /* Elite shadows */
     --shadow-elegant: 0 20px 40px -12px hsl(343 59% 20% / 0.15);
-    --shadow-card: 0 4px 20px -2px hsl(343 59% 20% / 0.08);
+    --shadow-card: 0 12px 24px -10px hsl(343 59% 20% / 0.10);
     --shadow-float: 0 8px 30px -4px hsl(343 59% 20% / 0.12);
     
     /* Professional animations */
@@ -378,4 +378,3 @@ button {
 .no-transition * {
   transition: none !important;
 }
-

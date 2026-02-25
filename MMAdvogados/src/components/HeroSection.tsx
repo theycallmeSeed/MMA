@@ -3,8 +3,28 @@ import { Button } from "@/components/ui/button";
 
 import { getWhatsAppConsultoriaLinkExact } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 const HeroSection = () => {
+  useEffect(() => {
+    const linkD = document.createElement("link");
+    linkD.rel = "preload";
+    linkD.as = "image";
+    linkD.href = "/images/hero-banner.webp";
+    linkD.fetchPriority = "high";
+    const linkM = document.createElement("link");
+    linkM.rel = "preload";
+    linkM.as = "image";
+    linkM.href = "/images/hero-banner-mob.webp";
+    linkM.media = "(max-width: 768px)";
+    linkM.fetchPriority = "high";
+    document.head.appendChild(linkD);
+    document.head.appendChild(linkM);
+    return () => {
+      document.head.removeChild(linkD);
+      document.head.removeChild(linkM);
+    };
+  }, []);
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -13,7 +33,6 @@ const HeroSection = () => {
       className="relative min-h-[100svh] flex items-center justify-center overflow-hidden"
       aria-label="Hero principal - Milagrosa Macuácua Advogados"
     >
-      {/* Background Image with Parallax Effect (optimized) */}
       <div
         className="absolute inset-0 h-full w-full hero-parallax"
         style={{ willChange: "transform" }}
@@ -28,11 +47,11 @@ const HeroSection = () => {
             alt="Escritório de advocacia profissional"
             fetchPriority="high"
             loading="eager"
-            decoding="sync"
+            decoding="async"
             className="w-full h-full object-cover"
           />
         </picture>
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-primary/20 to-primary/12 sm:from-primary/28 sm:via-primary/18 sm:to-primary/10"></div>
+        <div className="absolute inset-0 bg-black/50 sm:bg-black/45 md:bg-black/40"></div>
         <div className="absolute inset-0 bg-radial-gradient opacity-8"></div>
         <div
           className="absolute inset-0 hero-gradient-animation"
@@ -40,13 +59,11 @@ const HeroSection = () => {
         ></div>
       </div>
 
-      {/* Content Container */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 pb-16">
-        <div className="max-w-5xl mx-auto">
-          {/* Headline */}
+        <div className="max-w-5xl mx-auto flex flex-col items-center gap-6 sm:gap-8">
           <div className="relative mb-6">
             <h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-primary-foreground leading-tight hero-title-reveal"
+              className="text-[clamp(2.25rem,6vw,4.25rem)] md:text-[clamp(2.5rem,5.5vw,4rem)] lg:text-[clamp(3rem,5vw,4.5rem)] font-serif font-bold text-primary-foreground leading-[1.1] hero-title-reveal"
               data-seo-importance="primary"
               style={{ animationDelay: "0.4s" }}
             >
@@ -67,25 +84,16 @@ const HeroSection = () => {
             </h1>
           </div>
 
-          {/* Short, professional subtitle */}
-          {/* <p
-            className="text-lg md:text-xl lg:text-2xl text-primary-foreground/95 mb-10 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0 hero-fade-in drop-shadow-lg"
-            style={{ animationDelay: "0.7s" }}
-          >
-            Mais de 10 anos de prática jurídica: assessoria empresarial, litígios e regimes de avença com resposta prioritária e foco em soluções práticas.
-          </p> */}
-
-          {/* Only secondary CTA (Agendar) */}
-          {/* <div
-            className="flex items-center justify-center gap-4 mb-16 px-4 sm:px-0 hero-fade-in"
+          <div
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14 px-4 sm:px-0 hero-fade-in"
             style={{ animationDelay: "0.9s" }}
           >
             <Button
               asChild
-              variant="outline"
               size="lg"
-              className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary px-8 py-6 w-full sm:w-auto text-base transition-all duration-300 backdrop-blur-sm bg-primary-foreground/5 hover:shadow-xl hover:-translate-y-1 focus-visible:ring-4 focus-visible:ring-primary-foreground focus-visible:ring-offset-2"
+              className="bg-[rgb(81,21,38)] text-white hover:bg-[rgb(81,21,38)]/90 px-8 py-6 w-full sm:w-auto text-base transition-all duration-300 shadow-lg hover:shadow-2xl focus-visible:ring-4 focus-visible:ring-white/50 focus-visible:ring-offset-2"
               aria-label="Agendar consultoria jurídica via WhatsApp"
+              title="Agendar consultoria jurídica via WhatsApp"
             >
               <a
                 href={getWhatsAppConsultoriaLinkExact()}
@@ -98,7 +106,21 @@ const HeroSection = () => {
                 </span>
               </a>
             </Button>
-          </div> */}
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-2 border-white/70 bg-transparent text-white hover:bg-white/20 hover:text-white px-8 py-6 w-full sm:w-auto text-base transition-all duration-300 backdrop-blur-sm"
+              aria-label="Conhecer serviços e áreas de atuação"
+              title="Conhecer serviços e áreas de atuação"
+            >
+              <a href="/servicos">
+                <span className="flex items-center gap-3">
+                  Ver Serviços
+                </span>
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
 
