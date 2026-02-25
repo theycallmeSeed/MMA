@@ -22,6 +22,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { fadeIn, slideUp, staggerContainer } from "@/lib/animation-variants";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Button } from "@/components/ui/button";
 import LazyImage from "@/components/LazyImage";
 
 interface TeamMember {
@@ -29,6 +30,7 @@ interface TeamMember {
   name: string;
   position: string;
   photo: string;
+  photoSrcSet?: string;
   description: string;
   email: string;
   phone: string;
@@ -66,28 +68,16 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
             <div className="relative">
               <div className="w-32 h-32 rounded-full overflow-hidden relative ring-4 ring-primary/10 group-hover:ring-primary/30 transition-all duration-300">
                 {member.photo ? (
-                  (() => {
-                    const base = member.photo.replace(/\.webp$/i, "");
-                    const srcSet = `${base}-400.webp 400w, ${base}-800.webp 800w`;
-                    const sizes = "160px";
-                    return (
-                      <LazyImage
-                        src={member.photo}
-                        srcSet={srcSet}
-                        sizes={sizes}
-                        alt={member.name}
-                        width={160}
-                        height={160}
-                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
-                        fallbackSrc={member.photo}
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = "none";
-                          target.nextElementSibling?.classList.remove("hidden");
-                        }}
-                      />
-                    );
-                  })()
+                  <LazyImage
+                    src={member.photo}
+                    srcSet={member.photoSrcSet}
+                    sizes="(max-width: 768px) 96px, 128px"
+                    alt={member.name}
+                    width={128}
+                    height={128}
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                    fallbackSrc={member.photo}
+                  />
                 ) : null}
 
                 <div
@@ -122,72 +112,43 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
             </p>
           </div>
 
-          <div className="space-y-3 mb-6 text-sm">
-            <div className="flex items-center justify-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-              <Mail className="w-4 h-4 flex-shrink-0" />
-              <span className="truncate">{member.email}</span>
-            </div>
-            <div className="flex items-center justify-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-              <Phone className="w-4 h-4 flex-shrink-0" />
-              <span>{member.phone}</span>
-            </div>
-            <div className="flex items-center justify-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-              <MapPin className="w-4 h-4 flex-shrink-0" />
-              <span>{member.location}</span>
-            </div>
-          </div>
-
           <div className="flex justify-center gap-3 mb-6">
-            <a
-              href={member.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl hover:scale-110 transition-all duration-300 group/link"
-              aria-label={`Abrir perfil de LinkedIn de ${member.name} em nova aba`}
-              title={`LinkedIn de ${member.name}`}
-            >
-              <Linkedin className="w-5 h-5 text-primary group-hover/link:text-primary/80" />
-            </a>
-            <a
-              href={`mailto:${member.email}`}
-              className="p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl hover:scale-110 transition-all duration-300 group/link"
-              aria-label={`Enviar e-mail para ${member.name}`}
-              title={`Enviar e-mail para ${member.name}`}
-            >
-              <Mail className="w-5 h-5 text-primary group-hover/link:text-primary/80" />
-            </a>
-            {member.website && (
-              <a
-                href={member.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl hover:scale-110 transition-all duration-300 group/link"
-                aria-label={`Abrir website de ${member.name} em nova aba`}
-                title={`Website de ${member.name}`}
+            {member.linkedin && (
+              <Button
+                asChild
+                variant="outline"
+                className="h-11 px-5"
+                aria-label={`Abrir o LinkedIn de ${member.name} em nova aba`}
+                title={`LinkedIn de ${member.name}`}
               >
-                <Globe className="w-5 h-5 text-primary group-hover/link:text-primary/80" />
-              </a>
+                <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                  <span className="flex items-center gap-2">
+                    <Linkedin className="w-4 h-4" />
+                    LinkedIn
+                  </span>
+                </a>
+              </Button>
             )}
+            <Button
+              type="button"
+              className="h-11 px-5"
+              onClick={() => setOpen((prev) => !prev)}
+              aria-expanded={open}
+              aria-controls={`member-details-${member.id}`}
+              aria-label={`Ver perfil completo de ${member.name}`}
+              title="Ver Perfil"
+            >
+              <span className="flex items-center gap-2">
+                <BookOpen className="h-4 w-4" />
+                Ver Perfil
+              </span>
+              <ChevronDown
+                className={`ml-2 w-5 h-5 transform transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+              />
+            </Button>
           </div>
 
-          {/* Toggle botão com estado local */}
-          <button
-            type="button"
-            onClick={() => setOpen((prev) => !prev)}
-            className="w-full flex items-center justify-between p-4 bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl hover:from-primary/10 hover:to-accent/10 transition-all duration-300"
-            aria-expanded={open}
-            aria-controls={`member-details-${member.id}`}
-          >
-            <span className="font-semibold text-foreground flex items-center gap-2">
-              <BookOpen className="h-4 w-4 text-primary" />
-              Currículo Completo
-            </span>
-            <ChevronDown
-              className={`w-5 h-5 text-primary transform transition-transform duration-300 ${
-                open ? "rotate-180" : ""
-              }`}
-            />
-          </button>
+          
 
           <AnimatePresence>
             {open && (
@@ -204,6 +165,24 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
                 }}
               >
                 <div className="space-y-6 px-2">
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-center justify-center gap-2 text-muted-foreground">
+                      <Mail className="w-4 h-4 flex-shrink-0" />
+                      <a href={`mailto:${member.email}`} className="underline underline-offset-2">
+                        {member.email}
+                      </a>
+                    </div>
+                    <div className="flex items-center justify-center gap-2 text-muted-foreground">
+                      <Phone className="w-4 h-4 flex-shrink-0" />
+                      <a href={`tel:${member.phone}`} className="underline underline-offset-2">
+                        {member.phone}
+                      </a>
+                    </div>
+                    <div className="flex items-center justify-center gap-2 text-muted-foreground">
+                      <MapPin className="w-4 h-4 flex-shrink-0" />
+                      <span>{member.location}</span>
+                    </div>
+                  </div>
                   <div>
                     <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
                       <GraduationCap className="w-5 h-5 mr-2 text-primary" />
