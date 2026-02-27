@@ -495,7 +495,7 @@ const Equipe = () => {
                   number: "50+",
                   label: "Anos de Experiência Combinada",
                 },
-                { icon: Target, number: "11", label: "Áreas de Especialização" },
+                { icon: Target, number: "12", label: "Áreas de Especialização" },
               ].map((stat, idx) => (
                 <motion.div
                   key={idx}
