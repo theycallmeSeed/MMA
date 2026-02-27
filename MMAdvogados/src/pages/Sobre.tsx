@@ -54,7 +54,7 @@ const Sobre = () => {
   const achievements = [
     { icon: Shield, number: "15+", label: "Anos de Experiência" },
     { icon: Users, number: "200+", label: "Clientes Satisfeitos" },
-    { icon: Trophy, number: "98%", label: "Taxa de Sucesso" },
+    { icon: Trophy, number: "98%", label: "Compromisso com Excelência Técnica" },
     { icon: Heart, number: "24/7", label: "Suporte Dedicado" },
   ];
 
@@ -549,13 +549,11 @@ const Sobre = () => {
             </div>
 
             <h3 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6">
-              Transformar o Direito Empresarial em Moçambique
+              Transformar a Assessoria Jurídica em Moçambique.
             </h3>
 
             <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Prestar Serviços Jurídicos com Excelência, Oferecendo Soluções
-              Inovadoras para Obtenção de Resultados Expressivos que Garantam a
-              Satisfação dos Clientes.
+              Prestar serviços jurídicos com elevado padrão de excelência, oferecendo soluções estratégicas e inovadoras que assegurem segurança jurídica, confiança e plena satisfação às pessoas colectivas e singulares que nos confiam os seus interesses.
             </p>
 
             <div className="mt-10 flex justify-center">

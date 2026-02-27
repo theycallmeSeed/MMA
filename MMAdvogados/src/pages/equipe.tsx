@@ -2,7 +2,6 @@ import React, { useState, memo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import {
-  Linkedin,
   Mail,
   Globe,
   Phone,
@@ -94,9 +93,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
                 </div>
               </div>
 
-              <div className="absolute -bottom-2 -right-2 p-2 bg-primary rounded-full border-4 border-card">
-                <Award className="h-4 w-4 text-primary-foreground" />
-              </div>
+
             </div>
           </div>
 
@@ -113,22 +110,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
           </div>
 
           <div className="flex justify-center gap-3 mb-6">
-            {member.linkedin && (
-              <Button
-                asChild
-                variant="outline"
-                className="h-11 px-5"
-                aria-label={`Abrir o LinkedIn de ${member.name} em nova aba`}
-                title={`LinkedIn de ${member.name}`}
-              >
-                <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-                  <span className="flex items-center gap-2">
-                    <Linkedin className="w-4 h-4" />
-                    LinkedIn
-                  </span>
-                </a>
-              </Button>
-            )}
+
             <Button
               type="button"
               className="h-11 px-5"
@@ -513,7 +495,7 @@ const Equipe = () => {
                   number: "50+",
                   label: "Anos de Experiência Combinada",
                 },
-                { icon: Target, number: "7", label: "Áreas de Especialização" },
+                { icon: Target, number: "11", label: "Áreas de Especialização" },
               ].map((stat, idx) => (
                 <motion.div
                   key={idx}

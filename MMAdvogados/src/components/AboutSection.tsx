@@ -50,10 +50,7 @@ const AboutSection: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           {/* TEXT + CTA */}
           <div className="order-2 lg:order-1 space-y-6">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/20 text-accent-foreground w-max">
-              {/* <Trophy className="h-4 w-4 mr-2" />
-              <span className="text-sm font-medium">Fundadora & CEO</span> */}
-            </div>
+
 
             {/* <h3
               id="about-mini-title"
