@@ -90,8 +90,8 @@ const Servicos = () => {
         "O Direito Fiscal e Aduaneiro regula a tributação da actividade empresarial em Moçambique, abrangendo impostos internos, direitos aduaneiros e obrigações declarativas. A correcta gestão fiscal é essencial para garantir conformidade legal, eficiência financeira e mitigação de riscos perante a Autoridade Tributária e as Alfândegas.",
       details: [
         {
-          title: "Contratos de Trabalho",
-          desc: "Elaboração de contratos adequados à legislação laboral moçambicana",
+          title: "Auditoria e Consultoria Fiscal",
+          desc: "Revisão da situação tributária da empresa, identificação de contingências e emissão de pareceres técnicos especializados.",
         },
         {
           title: "Planeamento Fiscal",
