@@ -1,4 +1,4 @@
-import { Linkedin, Mail, Globe, Phone, MapPin, ArrowRight } from "lucide-react";
+import { Mail, Globe, Phone, MapPin, ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { slideUp, staggerContainer, fadeIn } from "@/lib/animation-variants";
@@ -53,7 +53,7 @@ const TeamSection = () => {
             Nossa Equipe
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Conheça os profissionais dedicados que compõem o time MMA Advogados,
+            Conheça os profissionais dedicados que compõem a equipa MM Advogados,
             prontos para oferecer a melhor assessoria jurídica.
           </p>
         </div>

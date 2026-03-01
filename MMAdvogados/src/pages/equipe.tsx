@@ -2,7 +2,6 @@ import React, { useState, memo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import {
-  Linkedin,
   Mail,
   Globe,
   Phone,
@@ -94,9 +93,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
                 </div>
               </div>
 
-              <div className="absolute -bottom-2 -right-2 p-2 bg-primary rounded-full border-4 border-card">
-                <Award className="h-4 w-4 text-primary-foreground" />
-              </div>
+
             </div>
           </div>
 
@@ -113,22 +110,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
           </div>
 
           <div className="flex justify-center gap-3 mb-6">
-            {member.linkedin && (
-              <Button
-                asChild
-                variant="outline"
-                className="h-11 px-5"
-                aria-label={`Abrir o LinkedIn de ${member.name} em nova aba`}
-                title={`LinkedIn de ${member.name}`}
-              >
-                <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-                  <span className="flex items-center gap-2">
-                    <Linkedin className="w-4 h-4" />
-                    LinkedIn
-                  </span>
-                </a>
-              </Button>
-            )}
+
             <Button
               type="button"
               className="h-11 px-5"
@@ -277,10 +259,10 @@ const Equipe = () => {
     {
       id: 1,
       name: "Milagrosa Macuácua",
-      position: "Sócio - Direito Empresarial",
+      position: "Sócia fundadora-Advogada Sénior",
       photo: "/images/dra-milagrosa.webp",
       description:
-        "Advogada com mais de 15 anos de experiência em Direito Civil e Consumerista. Especialista em casos complexos de responsabilidade civil.",
+        "É advogada, inscrita na OAM, com mais de 15 anos de experiência em Direito Civil, Criminal, Trabalho, Arbitragem na CACM e Administradora de Insolvência.",
       email: "maria@mmadvogados.com",
       phone: "+351 912 345 678",
       location: "Lisboa, Portugal",
@@ -312,11 +294,11 @@ const Equipe = () => {
     {
       id: 2,
       name: "Marlete Miguel",
-      position: "Sócio - Direito Empresarial",
+      position: "Advogada Sénior",
       photo: "/images/marlete-portrait.webp",
 
       description:
-        "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
+        "É advogada, com experiência consolidada em Direito Criminal, Direito de Família e Sucessões.",
       email: "joao@mmadvogados.com",
       phone: "+351 913 456 789",
       location: "Porto, Portugal",
@@ -346,10 +328,10 @@ const Equipe = () => {
     {
       id: 3,
       name: "Cláudia Semente",
-      position: "Associada Sénior - Direito da Família",
+      position: "Advogada Sênior ",
       photo: "/images/claudia-portrait.webp",
       description:
-        "Especialista em Direito de Família e Sucessões com abordagem humanizada e sensível para casos familiares complexos.",
+        "É advogada, com actuação predominante nas áreas de Direito Processual Civil, Direito do Trabalho.",
       email: "ana@mmadvogados.com",
       phone: "+351 914 567 890",
       location: "Lisboa, Portugal",
@@ -376,41 +358,71 @@ const Equipe = () => {
         "Inglês (Intermediário)",
       ],
     },
-    {
+      {
       id: 4,
-      name: "Tecla Ntauma",
-      position: "Assistente Administrativa",
-      photo: "/images/tecla-portrait.webp",
+      name: "Beatriz Macamo",
+      position: "Advogada e Consultora",
+      photo: "/images/beatriz-portait.webp",
       description:
-        "Profissional dedicada à gestão administrativa e suporte operacional, garantindo eficiência nos processos internos.",
+        "É advogada, com área de actuação no Direito Empresarial (corporate) e societário, Fiscal e Aduaneiro. Actua na assessoria jurídica de empresas nacionais e multinacionais, com particular destaque no sector mineiro e migratório.",
       email: "joao@mmadvogados.com",
       phone: "+351 913 456 789",
       location: "Porto, Portugal",
       linkedin: "https://linkedin.com/in/joaosantos",
       education: [
-        "Curso de Gestão Administrativa",
-        "Formação em Atendimento ao Cliente",
-        "Certificação em Microsoft Office",
+        "Pós-Graduação em Direito Imobiliário",
+        "Especialização em Direito Urbanístico",
+        "Bacharelado em Direito",
       ],
       experience: [
-        "Assistente Administrativa na MMA Advogados (2020 - Presente)",
-        "Apoio Administrativo em escritório jurídico (2018-2020)",
+        "Advogada na MMA Advogados (2020 - Presente)",
+        "Consultora Imobiliária Jurídica (2017-2020)",
+        "Advogada Júnior em escritório especializado (2015-2017)",
       ],
       specialties: [
-        "Gestão de Agenda",
-        "Atendimento ao Cliente",
-        "Organização Documental",
-        "Suporte Operacional",
+        "Direito Imobiliário",
+        "Regularização de Terras",
+        "Contratos de Compra e Venda",
+        "DUAT",
       ],
-      languages: ["Português (Nativo)", "Inglês (Intermediário)"],
+      languages: ["Português (Nativo)", "Inglês (Fluente)", "Francês (Básico)"],
     },
     {
       id: 5,
-      name: "Helodia Malate",
-      position: "Advogada - Direito Laboral",
-      photo: "/images/helodia-portrait.webp",
+      name: "Albertina Nhantumbo",
+      position: "Advogada estagiária ",
+      photo: "/images/albertina-portait.webp",
       description:
-        "Advogada, vocacionada na área de recuperação de créditos judicial e extrajudicial com domínio em Direito de Família e Laboral.",
+        "Advogada estagiária, com especialidade no Direito da Família e na área de recuperação de créditos judicial e extrajudicial.",
+      email: "joao@mmadvogados.com",
+      phone: "+351 913 456 789",
+      location: "Porto, Portugal",
+      linkedin: "https://linkedin.com/in/joaosantos",
+      education: [
+        "Pós-Graduação em Direito Imobiliário",
+        "Especialização em Direito Urbanístico",
+        "Bacharelado em Direito",
+      ],
+      experience: [
+        "Advogada na MMA Advogados (2020 - Presente)",
+        "Consultora Imobiliária Jurídica (2017-2020)",
+        "Advogada Júnior em escritório especializado (2015-2017)",
+      ],
+      specialties: [
+        "Direito Imobiliário",
+        "Regularização de Terras",
+        "Contratos de Compra e Venda",
+        "DUAT",
+      ],
+      languages: ["Português (Nativo)", "Inglês (Fluente)", "Francês (Básico)"],
+    },
+    {
+      id: 6,
+      name: "Helodia Malate",
+      position: "Advogada ",
+      photo: "/images/heloida2-portait.webp",
+      description:
+        "Especialista em recuperação judicial e extrajudicial de créditos, com domínio nas áreas de Família e Laboral.",
       email: "joao@mmadvogados.com",
       phone: "+351 913 456 789",
       location: "Porto, Portugal",
@@ -438,12 +450,12 @@ const Equipe = () => {
       ],
     },
     {
-      id: 6,
+      id: 7,
       name: "Maura Matsinhe",
-      position: "Advogada - Direito de Família ",
+      position: "Advogada",
       photo: "/images/maura-portrait.webp",
       description:
-        "Especialista na área de Direito de Civil, Direito de Família e na Área de recuperação judicial e extrajudicial.",
+        "É advogada, especialista na área de Direito de Civil, e na Área de recuperação judicial e extrajudicial.",
       email: "joao@mmadvogados.com",
       phone: "+351 913 456 789",
       location: "Porto, Portugal",
@@ -466,6 +478,122 @@ const Equipe = () => {
       ],
       languages: ["Português (Nativo)", "Inglês (Fluente)", "Francês (Básico)"],
     },
+    {
+      id: 8,
+      name: "Dulce Venâncio",
+      position: "Advogada",
+      photo: "/images/dulce-portait.webp",
+      description:
+        "É advogada, inscrita na OAM, especialista em direito imobiliário e terra, Contencioso Civil e Administrativo. ",
+      email: "joao@mmadvogados.com",
+      phone: "+351 913 456 789",
+      location: "Porto, Portugal",
+      linkedin: "https://linkedin.com/in/joaosantos",
+      education: [
+        "Pós-Graduação em Direito Imobiliário",
+        "Especialização em Direito Urbanístico",
+        "Bacharelado em Direito",
+      ],
+      experience: [
+        "Advogada na MMA Advogados (2020 - Presente)",
+        "Consultora Imobiliária Jurídica (2017-2020)",
+        "Advogada Júnior em escritório especializado (2015-2017)",
+      ],
+      specialties: [
+        "Direito Imobiliário",
+        "Regularização de Terras",
+        "Contratos de Compra e Venda",
+        "DUAT",
+      ],
+      languages: ["Português (Nativo)", "Inglês (Fluente)", "Francês (Básico)"],
+    },
+    {
+      id: 9,
+      name: "Filomena Jaques",
+      position: "Advogada estagiária ",
+      photo: "/images/filomena-portait.webp",
+      description:
+        "Especialista em Direito Civil, Direito Processual Civil.",
+      email: "joao@mmadvogados.com",
+      phone: "+351 913 456 789",
+      location: "Porto, Portugal",
+      linkedin: "https://linkedin.com/in/joaosantos",
+      education: [
+        "Pós-Graduação em Direito Imobiliário",
+        "Especialização em Direito Urbanístico",
+        "Bacharelado em Direito",
+      ],
+      experience: [
+        "Advogada na MMA Advogados (2020 - Presente)",
+        "Consultora Imobiliária Jurídica (2017-2020)",
+        "Advogada Júnior em escritório especializado (2015-2017)",
+      ],
+      specialties: [
+        "Direito Imobiliário",
+        "Regularização de Terras",
+        "Contratos de Compra e Venda",
+        "DUAT",
+      ],
+      languages: ["Português (Nativo)", "Inglês (Fluente)", "Francês (Básico)"],
+    },
+    {
+      id: 10,
+      name: "Tecla Ntauma",
+      position: "Assistente Administrativa",
+      photo: "/images/tecla2-portrait.webp",
+      description:
+        "Profissional dedicada a gestão administrativa e suporte operacional, garantido eficiência nos processos internos.",
+      email: "joao@mmadvogados.com",
+      phone: "+351 913 456 789",
+      location: "Porto, Portugal",
+      linkedin: "https://linkedin.com/in/joaosantos",
+      education: [
+        "Curso de Gestão Administrativa",
+        "Formação em Atendimento ao Cliente",
+        "Certificação em Microsoft Office",
+      ],
+      experience: [
+        "Assistente Administrativa na MMA Advogados (2020 - Presente)",
+        "Apoio Administrativo em escritório jurídico (2018-2020)",
+      ],
+      specialties: [
+        "Gestão de Agenda",
+        "Atendimento ao Cliente",
+        "Organização Documental",
+        "Suporte Operacional",
+      ],
+      languages: ["Português (Nativo)", "Inglês (Intermediário)"],
+    },
+     {
+      id: 11,
+      name: "Ester Chipe",
+      position: "Assistente Administrativa",
+      photo: "/images/ester-portrait.webp",
+      description:
+        "Profissional dedicada a tramitação de expedientes da empresa.",
+      email: "joao@mmadvogados.com",
+      phone: "+351 913 456 789",
+      location: "Porto, Portugal",
+      linkedin: "https://linkedin.com/in/joaosantos",
+      education: [
+        "Curso de Gestão Administrativa",
+        "Formação em Atendimento ao Cliente",
+        "Certificação em Microsoft Office",
+      ],
+      experience: [
+        "Assistente Administrativa na MMA Advogados (2020 - Presente)",
+        "Apoio Administrativo em escritório jurídico (2018-2020)",
+      ],
+      specialties: [
+        "Gestão de Agenda",
+        "Atendimento ao Cliente",
+        "Organização Documental",
+        "Suporte Operacional",
+      ],
+      languages: ["Português (Nativo)", "Inglês (Intermediário)"],
+    },
+    
+    
   ];
 
   return (
@@ -513,7 +641,7 @@ const Equipe = () => {
                   number: "50+",
                   label: "Anos de Experiência Combinada",
                 },
-                { icon: Target, number: "7", label: "Áreas de Especialização" },
+                { icon: Target, number: "12", label: "Áreas de Especialização" },
               ].map((stat, idx) => (
                 <motion.div
                   key={idx}
