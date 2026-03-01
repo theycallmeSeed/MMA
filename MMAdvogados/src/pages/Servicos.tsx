@@ -35,10 +35,10 @@ const Servicos = () => {
           title: "Litígios Comerciais e Empresariais",
           desc: "Representação em disputas contratuais, responsabilidade civil e conflitos societários",
         },
-        {
-          title: "Arbitragem Nacional e Internacional",
-          desc: "Resolução privada e eficiente de conflitos com maior agilidade que tribunais",
-        },
+        // {
+        //   title: "Arbitragem Nacional e Internacional",
+        //   desc: "Resolução privada e eficiente de conflitos com maior agilidade que tribunais",
+        // },
         {
           title: "Mediação e Resolução Alternativa",
           desc: "Negociação assistida para acordos que preservam relações comerciais",
@@ -81,6 +81,36 @@ const Servicos = () => {
       ],
       benefits: ["Recuperação maximizada", "Custos controlados", "Maior celeridade"],
     },
+    {
+      icon: Home,
+      title: "Direito da Família e Sucessões",
+      subtitle: "Protecção jurídica nas relações familiares e patrimoniais",
+      description:
+        "O Direito da Família regula o casamento, as uniões de facto, a igualdade de direitos e deveres entre cônjuges, o divórcio, a separação de bens e a protecção especial aos menores. Por sua vez, o Direito das Sucessões disciplina a transmissão do património, a herança e a partilha de bens, assegurando equilíbrio e legalidade nos processos sucessórios.",
+      details: [
+        {
+          title: "Regulação das Relações Familiares",
+          desc: "Assessoria jurídica em casamento, união de facto, divórcio e definição de regimes de bens.",
+        },
+        {
+          title: "Protecção de Menores",
+          desc: "Intervenção em matérias de guarda, alimentos e responsabilidade parental.",
+        },
+        {
+          title: "Planeamento Sucessório",
+          desc: "Estruturação jurídica da transmissão patrimonial com prevenção de conflitos futuros.",
+        },
+        {
+          title: "Processos de Herança e Partilha",
+          desc: "Assistência jurídica em inventários, partilha de bens e regularização patrimonial.",
+        },
+      ],
+      benefits: [
+        "Protecção dos direitos familiares",
+        "Segurança na transmissão patrimonial",
+        "Acompanhamento jurídico sensível e especializado",
+      ],
+    },
 
     {
       icon: Scale,
@@ -112,151 +142,7 @@ const Servicos = () => {
         "Segurança jurídica nas operações comerciais",
       ],
     },
-
     {
-      icon: Pickaxe,
-      title: "Direito Mineiro",
-      subtitle: "Segurança jurídica para o sector extractivo",
-      description:
-        "O sector mineiro constitui um dos pilares da economia moçambicana, com destaque para recursos como carvão, rubis, grafite, ouro e outros minerais estratégicos. A exploração mineira enfrenta desafios regulatórios, ambientais e sociais, exigindo acompanhamento jurídico especializado para garantir legalidade, sustentabilidade e estabilidade operacional.",
-      details: [
-        {
-          title: "Licenciamento Mineiro",
-          desc: "Assistência na aquisição de licenças e autorizações junto das entidades competentes, incluindo pedidos de prospecção, pesquisa e concessão mineira.",
-        },
-        {
-          title: "Conformidade Ambiental e Social",
-          desc: "Acompanhamento jurídico na gestão de impacto ambiental e relacionamento com comunidades locais.",
-        },
-        {
-          title: "Contratos e Operações Mineiras",
-          desc: "Elaboração e revisão de contratos de exploração, fornecimento e parceria estratégica.",
-        },
-        {
-          title: "Relações Laborais no Sector Mineiro",
-          desc: "Assessoria jurídica em matérias emergentes do contrato de trabalho aplicável às operações minerais.",
-        },
-      ],
-      benefits: [
-        "Segurança jurídica na exploração",
-        "Mitigação de riscos regulatórios",
-        "Estruturação sólida de projectos mineiros",
-      ],
-    },
-
-    {
-      icon: Home,
-      title: "Direito da Família e Sucessões",
-      subtitle: "Protecção jurídica nas relações familiares e patrimoniais",
-      description:
-        "O Direito da Família regula o casamento, as uniões de facto, a igualdade de direitos e deveres entre cônjuges, o divórcio, a separação de bens e a protecção especial aos menores. Por sua vez, o Direito das Sucessões disciplina a transmissão do património, a herança e a partilha de bens, assegurando equilíbrio e legalidade nos processos sucessórios.",
-      details: [
-        {
-          title: "Regulação das Relações Familiares",
-          desc: "Assessoria jurídica em casamento, união de facto, divórcio e definição de regimes de bens.",
-        },
-        {
-          title: "Protecção de Menores",
-          desc: "Intervenção em matérias de guarda, alimentos e responsabilidade parental.",
-        },
-        {
-          title: "Planeamento Sucessório",
-          desc: "Estruturação jurídica da transmissão patrimonial com prevenção de conflitos futuros.",
-        },
-        {
-          title: "Processos de Herança e Partilha",
-          desc: "Assistência jurídica em inventários, partilha de bens e regularização patrimonial.",
-        },
-      ],
-      benefits: [
-        "Protecção dos direitos familiares",
-        "Segurança na transmissão patrimonial",
-        "Acompanhamento jurídico sensível e especializado",
-      ],
-    },
-  ];
-
-  // Mantém os passos como “processo”, mas separa as ÁREAS que estavam aqui dentro.
-  const processSteps = [
-    { icon: Target, title: "Análise", desc: "Avaliamos a sua situação detalhadamente" },
-    { icon: Shield, title: "Estratégia", desc: "Desenvolvemos um plano personalizado" },
-    { icon: Clock, title: "Execução", desc: "Implementamos as soluções jurídicas" },
-    // Evitar “Resultado”, conforme o teu requisito anterior:
-    { icon: CheckCircle2, title: "Acompanhamento", desc: "Mantemos o seguimento do processo com rigor e transparência" },
-  ];
-
-  // Estas eram áreas de actuação, mas estavam no array errado (processSteps).
-  const extraServiceAreas = useMemo(
-    () => [
-      {
-        icon: Building2,
-        title: "Corporate",
-        subtitle: "Impulsione o crescimento da sua empresa com segurança jurídica",
-        description:
-          "No mundo corporativo, cada decisão importa. Fornecemos assessoria jurídica completa para garantir que as suas operações empresariais decorram com segurança e eficiência. Desde fusões e aquisições até à estruturação de contratos complexos.",
-        details: [
-          {
-            title: "Fusões e Aquisições",
-            desc: "Assessoria completa em compra, venda e fusão de empresas com due diligence rigorosa",
-          },
-          {
-            title: "Due Diligence Jurídica",
-            desc: "Análise detalhada de riscos e oportunidades antes de transacções importantes",
-          },
-          {
-            title: "Estruturação de Operações Financeiras",
-            desc: "Desenho de estruturas jurídicas optimizadas para investimentos e financiamentos",
-          },
-          {
-            title: "Compliance e Governança",
-            desc: "Implementação de políticas e procedimentos para gestão ética e transparente",
-          },
-        ],
-        benefits: ["Segurança nas transacções", "Minimização de riscos", "Conformidade legal total"],
-      },
-      {
-        icon: FileText,
-        title: "Direito Administrativo",
-        subtitle: "Navegue com confiança pelo sistema administrativo",
-        description:
-          "O relacionamento com entidades públicas e a gestão de obrigações administrativas pode ser complexo. A nossa equipa apoia-o na compreensão e cumprimento das exigências legais, com actuação preventiva e técnica.",
-        details: [
-          { title: "Licenciamento e Autorizações", desc: "Obtenção de licenças, alvarás e autorizações junto das entidades competentes" },
-          { title: "Contratação Pública", desc: "Apoio em procedimentos, impugnações e conformidade em processos de procurement" },
-          { title: "Contencioso Administrativo", desc: "Defesa em litígios com autoridades e entidades públicas" },
-          { title: "Pareceres e Consultoria", desc: "Emissão de pareceres e orientação jurídica para decisões administrativas" },
-        ],
-        benefits: ["Conformidade administrativa", "Redução de riscos regulatórios", "Maior segurança nas decisões"],
-      },
-      {
-        icon: Home,
-        title: "Imobiliária e Terras",
-        subtitle: "Proteja o seu património com segurança jurídica",
-        description:
-          "Investir em imóveis e terras requer conhecimento especializado das leis moçambicanas. Ajudamos indivíduos e empresas a regularizar propriedades, obter DUAT e realizar transacções imobiliárias com segurança.",
-        details: [
-          { title: "Obtenção e Regularização de DUAT", desc: "Acompanhamento completo para garantir o direito legal sobre terrenos" },
-          { title: "Registos Prediais e Cartorários", desc: "Registo e actualização de propriedades nas conservatórias competentes" },
-          { title: "Contratos de Compra e Venda", desc: "Elaboração e revisão de contratos imobiliários seguros e completos" },
-          { title: "Arrendamento e Locação", desc: "Gestão jurídica de contratos de arrendamento comercial e residencial" },
-        ],
-        benefits: ["Segurança jurídica", "Processos mais claros", "Protecção patrimonial"],
-      },
-      {
-        icon: Users,
-        title: "Laboral e Migração",
-        subtitle: "Gerir pessoas com conformidade e eficiência",
-        description:
-          "As relações laborais exigem equilíbrio entre direitos e deveres. Prestamos assessoria em direito laboral e apoio em processos migratórios, com enfoque na conformidade e prevenção de litígios.",
-        details: [
-          { title: "Contratos de Trabalho", desc: "Elaboração de contratos adequados à legislação laboral moçambicana" },
-          { title: "Vistos de Trabalho e Residência", desc: "Acompanhamento em processos de imigração para expatriados" },
-          { title: "Compliance Laboral", desc: "Auditoria e adequação de práticas laborais às exigências legais" },
-          { title: "Contencioso Laboral", desc: "Representação em litígios e negociação de acordos" },
-        ],
-        benefits: ["Conformidade legal", "Redução de litígios", "Processos simplificados"],
-      },
-      {
         icon: Handshake,
         title: "Societário",
         subtitle: "Estruture a sua empresa com segurança",
@@ -300,6 +186,123 @@ const Servicos = () => {
     "Flexibilidade superior ao contrato de trabalho",
   ],
 },
+    {
+        icon: Building2,
+        title: "Corporate",
+        subtitle: "Impulsione o crescimento da sua empresa com segurança jurídica",
+        description:
+          "No mundo corporativo, cada decisão importa. Fornecemos assessoria jurídica completa para garantir que as suas operações empresariais decorram com segurança e eficiência. Desde fusões e aquisições até à estruturação de contratos complexos.",
+        details: [
+          {
+            title: "Fusões e Aquisições",
+            desc: "Assessoria completa em compra, venda e fusão de empresas com due diligence rigorosa",
+          },
+          {
+            title: "Due Diligence Jurídica",
+            desc: "Análise detalhada de riscos e oportunidades antes de transacções importantes",
+          },
+          {
+            title: "Estruturação de Operações Financeiras",
+            desc: "Desenho de estruturas jurídicas optimizadas para investimentos e financiamentos",
+          },
+          {
+            title: "Compliance e Governança",
+            desc: "Implementação de políticas e procedimentos para gestão ética e transparente",
+          },
+        ],
+        benefits: ["Segurança nas transacções", "Minimização de riscos", "Conformidade legal total"],
+      },
+
+    
+
+    
+  ];
+
+  // Mantém os passos como “processo”, mas separa as ÁREAS que estavam aqui dentro.
+  const processSteps = [
+    { icon: Target, title: "Análise", desc: "Avaliamos a sua situação detalhadamente" },
+    { icon: Shield, title: "Estratégia", desc: "Desenvolvemos um plano personalizado" },
+    { icon: Clock, title: "Execução", desc: "Implementamos as soluções jurídicas" },
+    // Evitar “Resultado”, conforme o teu requisito anterior:
+    { icon: CheckCircle2, title: "Acompanhamento", desc: "Mantemos o seguimento do processo com rigor e transparência" },
+  ];
+
+  // Estas eram áreas de actuação, mas estavam no array errado (processSteps).
+  const extraServiceAreas = useMemo(
+    () => [
+      {
+      icon: Pickaxe,
+      title: "Direito Mineiro",
+      subtitle: "Segurança jurídica para o sector extractivo",
+      description:
+        "O sector mineiro constitui um dos pilares da economia moçambicana, com destaque para recursos como carvão, rubis, grafite, ouro e outros minerais estratégicos. A exploração mineira enfrenta desafios regulatórios, ambientais e sociais, exigindo acompanhamento jurídico especializado para garantir legalidade, sustentabilidade e estabilidade operacional.",
+      details: [
+        {
+          title: "Licenciamento Mineiro",
+          desc: "Assistência na aquisição de licenças e autorizações junto das entidades competentes, incluindo pedidos de prospecção, pesquisa e concessão mineira.",
+        },
+        {
+          title: "Conformidade Ambiental e Social",
+          desc: "Acompanhamento jurídico na gestão de impacto ambiental e relacionamento com comunidades locais.",
+        },
+        {
+          title: "Contratos e Operações Mineiras",
+          desc: "Elaboração e revisão de contratos de exploração, fornecimento e parceria estratégica.",
+        },
+        {
+          title: "Relações Laborais no Sector Mineiro",
+          desc: "Assessoria jurídica em matérias emergentes do contrato de trabalho aplicável às operações minerais.",
+        },
+      ],
+      benefits: [
+        "Segurança jurídica na exploração",
+        "Mitigação de riscos regulatórios",
+        "Estruturação sólida de projectos mineiros",
+      ],
+    },
+      {
+        icon: FileText,
+        title: "Direito Administrativo",
+        subtitle: "Navegue com confiança pelo sistema administrativo",
+        description:
+          "O relacionamento com entidades públicas e a gestão de obrigações administrativas pode ser complexo. A nossa equipa apoia-o na compreensão e cumprimento das exigências legais, com actuação preventiva e técnica.",
+        details: [
+          { title: "Licenciamento e Autorizações", desc: "Obtenção de licenças, alvarás e autorizações junto das entidades competentes" },
+          { title: "Contratação Pública", desc: "Apoio em procedimentos, impugnações e conformidade em processos de procurement" },
+          { title: "Contencioso Administrativo", desc: "Defesa em litígios com autoridades e entidades públicas" },
+          { title: "Pareceres e Consultoria", desc: "Emissão de pareceres e orientação jurídica para decisões administrativas" },
+        ],
+        benefits: ["Conformidade administrativa", "Redução de riscos regulatórios", "Maior segurança nas decisões"],
+      },
+      {
+        icon: Home,
+        title: "Imobiliária e Terras",
+        subtitle: "Proteja o seu património com segurança jurídica",
+        description:
+          "Investir em imóveis e terras requer conhecimento especializado das leis moçambicanas. Ajudamos indivíduos e empresas a regularizar propriedades, obter DUAT e realizar transacções imobiliárias com segurança.",
+        details: [
+          { title: "Obtenção e Regularização de DUAT", desc: "Acompanhamento completo para garantir o direito legal sobre terrenos" },
+          { title: "Registos Prediais e Cartorários", desc: "Registo e actualização de propriedades nas conservatórias competentes" },
+          { title: "Contratos de Compra e Venda", desc: "Elaboração e revisão de contratos imobiliários seguros e completos" },
+          { title: "Arrendamento e Locação", desc: "Gestão jurídica de contratos de arrendamento comercial e residencial" },
+        ],
+        benefits: ["Segurança jurídica", "Processos mais claros", "Protecção patrimonial"],
+      },
+      {
+        icon: Users,
+        title: "Laboral e Migração",
+        subtitle: "Gerir pessoas com conformidade e eficiência",
+        description:
+          "As relações laborais exigem equilíbrio entre direitos e deveres. Prestamos assessoria em direito laboral e apoio em processos migratórios, com enfoque na conformidade e prevenção de litígios.",
+        details: [
+          { title: "Contratos de Trabalho", desc: "Elaboração de contratos adequados à legislação laboral moçambicana" },
+          { title: "Vistos de Trabalho e Residência", desc: "Acompanhamento em processos de imigração para expatriados" },
+          { title: "Compliance Laboral", desc: "Auditoria e adequação de práticas laborais às exigências legais" },
+          { title: "Contencioso Laboral", desc: "Representação em litígios e negociação de acordos" },
+        ],
+        benefits: ["Conformidade legal", "Redução de litígios", "Processos simplificados"],
+      },
+      
     ],
     []
   );
