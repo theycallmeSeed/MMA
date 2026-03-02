@@ -265,9 +265,9 @@ const Servicos = () => {
         title: "Direito Administrativo",
         subtitle: "Navegue com confiança pelo sistema administrativo",
         description:
-          "O relacionamento com entidades públicas e a gestão de obrigações administrativas pode ser complexo. A nossa equipa apoia-o na compreensão e cumprimento das exigências legais, com actuação preventiva e técnica.",
+          "A relação entre administração pública e particulares é possível de gerar conflitos, das quais a nossa intervenção vai pressupor apoio para casos de recursos e impugnaçoes em defesa dos interesses particulares,  bem como, o apoio na gestão desta relação",
         details: [
-          { title: "Licenciamento e Autorizações", desc: "Obtenção de licenças, alvarás e autorizações junto das entidades competentes" },
+          { title: "Parecer e Consultoria", desc: "Emissão de pareceres e orientação jurídica para decisões administrativas. Apoio jurídico no processo de concurso público e elaboração de Debriefing e reclamações após resultados do concurso" },
           { title: "Contratação Pública", desc: "Apoio em procedimentos, impugnações e conformidade em processos de procurement" },
           { title: "Contencioso Administrativo", desc: "Defesa em litígios com autoridades e entidades públicas" },
           { title: "Pareceres e Consultoria", desc: "Emissão de pareceres e orientação jurídica para decisões administrativas" },
@@ -279,12 +279,12 @@ const Servicos = () => {
         title: "Imobiliária e Terras",
         subtitle: "Proteja o seu património com segurança jurídica",
         description:
-          "Investir em imóveis e terras requer conhecimento especializado das leis moçambicanas. Ajudamos indivíduos e empresas a regularizar propriedades, obter DUAT e realizar transacções imobiliárias com segurança.",
+          "Prestamos apoio à pessoas singulares e colectivas na regularização de propriedades(obtenção da Certidão Predial) e no processo de transacção imobiliária,  assim como na regularização de terra (DUAT).",
         details: [
           { title: "Obtenção e Regularização de DUAT", desc: "Acompanhamento completo para garantir o direito legal sobre terrenos" },
           { title: "Registos Prediais e Cartorários", desc: "Registo e actualização de propriedades nas conservatórias competentes" },
-          { title: "Contratos de Compra e Venda", desc: "Elaboração e revisão de contratos imobiliários seguros e completos" },
-          { title: "Arrendamento e Locação", desc: "Gestão jurídica de contratos de arrendamento comercial e residencial" },
+          { title: "Escritura pública de compra e venda", desc: "Elaboração  e revisão e contratos promessa de compra e venda, apoio e acompanhamento na realização da escritura de compra e venda de imóveis" },
+          { title: "Arrendamento", desc: "Gestão jurídica de contratos de arrendamento comercial e residencial" },
         ],
         benefits: ["Segurança jurídica", "Processos mais claros", "Protecção patrimonial"],
       },
@@ -296,7 +296,7 @@ const Servicos = () => {
           "As relações laborais exigem equilíbrio entre direitos e deveres. Prestamos assessoria em direito laboral e apoio em processos migratórios, com enfoque na conformidade e prevenção de litígios.",
         details: [
           { title: "Contratos de Trabalho", desc: "Elaboração de contratos adequados à legislação laboral moçambicana" },
-          { title: "Vistos de Trabalho e Residência", desc: "Acompanhamento em processos de imigração para expatriados" },
+          { title: " Vistos de Trabalho, Turismo, Residência, Negócio, Autorização de Trabalho, DIRE'S", desc: "Acompanhamento em processos de contratação de trabalhador estrangeiro" },
           { title: "Compliance Laboral", desc: "Auditoria e adequação de práticas laborais às exigências legais" },
           { title: "Contencioso Laboral", desc: "Representação em litígios e negociação de acordos" },
         ],
