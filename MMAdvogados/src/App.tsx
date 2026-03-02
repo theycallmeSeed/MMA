@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Sobre from "./pages/Sobre";
 import Servicos from "./pages/Servicos";
 import Equipe from "./pages/equipe";
+import Avenca from "./pages/Avenca";
 import Contactos from "./pages/Contactos";
 import Privacidade from "./pages/Privacidade";
 import Termos from "./pages/Termos";
@@ -28,6 +29,7 @@ const AppRoutes = () => {
         <Route path="/" element={<Index />} />
         <Route path="/sobre" element={<Sobre />} />
         <Route path="/servicos" element={<Servicos />} />
+        <Route path="/avenca" element={<Avenca />} />
         <Route path="/equipe" element={<Equipe />} />
         <Route path="/contactos" element={<Contactos />} />
         <Route path="/privacidade" element={<Privacidade />} />

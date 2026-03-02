@@ -9,6 +9,7 @@ const navItems = [
   { name: "Início", href: "/" },
   { name: "Sobre Nós", href: "/sobre" },
   { name: "Áreas de Atuação", href: "/servicos" },
+  { name: "Regime de Avença", href: "/avenca" },
   { name: "Equipa", href: "/equipe" },
 ];
 
