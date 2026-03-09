@@ -128,26 +128,17 @@ const Avenca = () => {
                 O Regime de Avença oferece à sua empresa a segurança de um departamento jurídico interno, com a flexibilidade e eficiência de uma equipa externa especializada.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              {/* <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
                   size="lg" 
                   className="text-lg h-14 px-8 rounded-xl gap-2 shadow-lg shadow-primary/20 bg-[rgb(81,21,38)] text-white hover:bg-[rgb(81,21,38)]/90"
                   onClick={() => window.open(whatsappLink, "_blank", "noopener,noreferrer")}
                 >
-                  Solicitar Proposta
+                  Agendar Consultoria
                   <ArrowRight className="w-5 h-5" />
                 </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="text-lg h-14 px-8 rounded-xl border-primary/30 text-primary hover:bg-primary/5"
-                  asChild
-                >
-                  <a href="#como-funciona">
-                    Como Funciona
-                  </a>
-                </Button>
-              </div>
+               
+              </div> */}
             </motion.div>
 
             <motion.div
@@ -228,7 +219,7 @@ const Avenca = () => {
         </div>
       </section>
 
-      {/* Plans Structure (Conceptual) */}
+      {/* Plans Structure (Conceptual)
       <section id="como-funciona" className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -288,21 +279,21 @@ const Avenca = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Final */}
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
+          <h2 className="text-lg text-foreground mb-8 leading-relaxed">
             A sua empresa merece segurança jurídica total
           </h2>
-          <p className="text-xl opacity-90 mb-10 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground">
             Agende uma reunião inicial sem compromisso para avaliarmos as necessidades do seu negócio.
           </p>
           <Button 
             size="lg" 
             variant="secondary"
-            className="text-primary font-bold text-lg h-16 px-10 rounded-xl shadow-xl hover:scale-105 transition-transform"
+            className="text-lg h-14 px-8 rounded-xl gap-2 shadow-lg shadow-primary/20 bg-[rgb(81,21,38)] text-white hover:bg-[rgb(81,21,38)]/90"
             onClick={() => window.open(whatsappLink, "_blank", "noopener,noreferrer")}
           >
             Agendar Reunião de Diagnóstico

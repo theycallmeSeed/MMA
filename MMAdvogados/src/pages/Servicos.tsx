@@ -418,16 +418,6 @@ Muito obrigado(a).`
                     Conhecer Regime de Avença
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
-                  
-                  <a
-                    href={whatsappLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-background border border-primary/30 text-primary font-semibold hover:bg-primary/5 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                    aria-label="Agendar consultoria via WhatsApp"
-                  >
-                    Agendar por WhatsApp
-                  </a>
                 </div>
               </div>
 
@@ -540,7 +530,7 @@ Muito obrigado(a).`
                     <div className="px-6 lg:px-8 pb-8 pt-4 border-t border-border/50">
                       {/* Details Grid */}
                       <div className="grid md:grid-cols-2 gap-4 mb-6">
-                        {service.details.map((detail: any, detailIndex: number) => (
+                        {service.details.map((detail: { title: string; desc: string }, detailIndex: number) => (
                           <div
                             key={`${detail.title}-${detailIndex}`}
                             className="p-4 rounded-xl bg-gradient-to-br from-muted/50 to-muted/20 border border-border/50 hover:border-primary/20 transition-colors duration-300"
@@ -588,68 +578,7 @@ Muito obrigado(a).`
         </div>
       </section>
 
-      {/* Single CTA Section */}
-      <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/5 to-background"></div>
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: `radial-gradient(circle, hsl(343 59% 20%) 1px, transparent 1px)`,
-            backgroundSize: "30px 30px",
-          }}
-        ></div>
-
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary mb-6">
-              Pronto para Proteger os Seus Interesses?
-            </h2>
-
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-12 max-w-3xl mx-auto">
-              Entre em contacto connosco agora mesmo via WhatsApp e agende uma
-              consultoria jurídica personalizada. A nossa equipa está pronta
-              para analisar a sua situação e apresentar soluções eficazes para
-              os seus desafios jurídicos.
-            </p>
-
-            {/* Feature boxes */}
-            <div className="grid md:grid-cols-3 gap-6 mb-12">
-              {[
-                { icon: Shield, title: "Protecção Legal", desc: "Segurança jurídica total" },
-                { icon: Target, title: "Foco em Objectivos", desc: "Soluções orientadas a prioridades" },
-                { icon: Clock, title: "Resposta em 24h", desc: "Atendimento ágil e eficiente" },
-              ].map((item, idx) => (
-                <div
-                  key={idx}
-                  className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 shadow-md hover:shadow-lg"
-                >
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl mb-4">
-                    <item.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <h4 className="font-semibold text-foreground mb-2">{item.title}</h4>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Main CTA Button */}
-            <button
-              type="button"
-              aria-label="Agendar consultoria via WhatsApp"
-              onClick={() => window.open(whatsappLink, "_blank", "noopener,noreferrer")}
-              className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,38)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto"
-            >
-              <span>Agendar Consultoria</span>
-              <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
-            </button>
-          </motion.div>
-        </div>
-      </section>
+      
 
       <Footer />
     </motion.div>
