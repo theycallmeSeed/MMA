@@ -282,18 +282,18 @@ const Avenca = () => {
       </section> */}
 
       {/* CTA Final */}
-      <section className="py-20 bg-primary text-primary-foreground">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-lg text-foreground mb-8 leading-relaxed">
+      <section className="py-24 bg-muted/30">
+        <div className="max-w-4xl mx-auto px-4 text-center space-y-8 md:space-y-10">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6">
             A sua empresa merece segurança jurídica total
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed opacity-90">
             Agende uma reunião inicial sem compromisso para avaliarmos as necessidades do seu negócio.
           </p>
           <Button 
             size="lg" 
             variant="secondary"
-            className="text-lg h-14 px-8 rounded-xl gap-2 shadow-lg shadow-primary/20 bg-[rgb(81,21,38)] text-white hover:bg-[rgb(81,21,38)]/90"
+            className="text-lg h-14 px-8 rounded-xl gap-2 shadow-lg shadow-primary/20 bg-[rgb(81,21,38)] text-white hover:bg-[rgb(81,21,38)]/90 "
             onClick={() => window.open(whatsappLink, "_blank", "noopener,noreferrer")}
           >
             Agendar Reunião de Diagnóstico
