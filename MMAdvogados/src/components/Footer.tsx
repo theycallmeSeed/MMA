@@ -59,8 +59,7 @@ const Footer = () => {
             </div>
             <p className="text-primary-foreground/80 mb-6 leading-relaxed text-sm lg:text-base">
               Sociedade de advogados de elite em Maputo, especializada em
-              excelência jurídica para empresas que exigem resultados
-              excepcionais.
+              excelência jurídica para empresas e particulares.
             </p>
             <div className="flex space-x-3">
               <a
@@ -164,7 +163,7 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <Clock className="h-5 w-5 text-amber-400 mt-0.5 flex-shrink-0" />
                 <div className="text-gray-300 text-sm lg:text-base">
-                  <div>Seg - Sex: 08:00 - 17:00</div>
+                  <div>Seg - Sex: 08:30 - 17:30</div>
                   <div>Sáb - Dom: Encerrado</div>
                 </div>
               </div>
