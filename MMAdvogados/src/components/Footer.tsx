@@ -15,7 +15,8 @@ const Footer = () => {
   const quickLinks = [
     { name: "Início", href: "/" },
     { name: "Sobre Nós", href: "/sobre" },
-    { name: "Serviços", href: "/servicos" },
+    { name: "Áreas de Atuação", href: "/servicos" },
+    { name: "Regime de Avença", href: "/avenca" },
     { name: "Equipa", href: "/equipe" },
     // { name: "Contactos", href: "/contactos" },
   ];
@@ -23,9 +24,9 @@ const Footer = () => {
   const services = [
     "Contencioso e Arbitragem",
     "Corporate",
-    "Direito Administrativo e Fiscal",
-    "Imobiliária e Terras",
-    "Laboral e Migração",
+    "Administrativo, fiscal e Aduaneiro",
+    "Imobiliário e Terras",
+    "Laboral e Migratório",
     "Societário",
     "Recuperação de Créditos",
   ];
