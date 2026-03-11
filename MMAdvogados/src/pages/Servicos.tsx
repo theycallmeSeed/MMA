@@ -363,107 +363,166 @@ Muito obrigado(a).`
       </section>
 
       {/* Regime de Avença Highlight Section */}
-      <section className="py-12 md:py-16 bg-gradient-to-br from-primary/5 via-accent/10 to-background relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+     <section className="relative py-16 md:py-24 overflow-hidden bg-gradient-to-b from-background via-background to-muted/20">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.25 }}
+      className="relative overflow-hidden rounded-[32px] border border-border/60 bg-card shadow-[0_20px_60px_rgba(0,0,0,0.06)]"
+    >
+      {/* brilho interno discreto */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] via-transparent to-accent/[0.04] pointer-events-none" />
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="rounded-2xl bg-card border border-border shadow-lg overflow-hidden"
-          >
-            <div className="grid md:grid-cols-2 gap-6 md:gap-8 p-6 md:p-10 items-center">
-              <div className="space-y-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20">
-                  <Sparkles className="w-4 h-4 text-primary" />
-                  <span className="text-xs font-semibold text-primary uppercase tracking-wide">
-                    Serviço Especial
-                  </span>
-                </div>
+      {/* detalhes decorativos discretos */}
+      <div className="absolute top-0 right-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl -translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
-                <div>
-                  <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary tracking-tight mb-3">
-                    Regime de Avença
-                  </h2>
-                  <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                    Assistência jurídica contínua para empresas — previsível, escalável e estratégica.
+      <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-10 lg:gap-14 p-6 sm:p-8 md:p-10 lg:p-14 items-center relative z-10">
+        {/* conteúdo esquerdo */}
+        <div className="max-w-2xl">
+          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-primary/10 border border-primary/15 shadow-sm mb-6">
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] text-primary">
+              Serviço Especial
+            </span>
+          </div>
+
+          <h2 className="text-4xl md:text-5xl xl:text-6xl font-serif font-bold tracking-tight text-primary leading-[1.05] mb-5">
+            Regime de Avença
+          </h2>
+
+          <p className="text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed mb-8">
+            Uma solução jurídica contínua para empresas que procuram previsibilidade,
+            proximidade estratégica e acompanhamento consistente, sem a rigidez de uma
+            estrutura interna.
+          </p>
+
+          <div className="grid sm:grid-cols-2 gap-4 mb-8">
+            {[
+              "Mais controlo sobre custos jurídicos",
+              "Maior proximidade com a realidade da empresa",
+              "Actuação preventiva em vez de apenas reactiva",
+              "Uma estrutura pensada para apoiar decisões com segurança",
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className="rounded-2xl border border-border/60 bg-background/80 px-4 py-4 shadow-sm hover:border-primary/20 hover:shadow-md transition-all duration-300"
+              >
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 border border-primary/10 shrink-0">
+                    <CheckCircle2 className="w-4 h-4 text-primary" />
+                  </div>
+                  <p className="text-sm md:text-[15px] leading-relaxed text-foreground/90 font-medium">
+                    {item}
                   </p>
                 </div>
-
-                <ul className="space-y-3">
-                  {[
-                    "Previsibilidade total de custos mensais",
-                    "Resposta prioritária e SLA garantido",
-                    "Prevenção activa de litígios e compliance",
-                    "Acompanhamento estratégico do negócio",
-                    "Flexibilidade superior ao contrato de trabalho",
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-sm md:text-base text-foreground/90">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <Link
-                    to="/avenca"
-                    className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-[rgb(81,21,38)] text-white font-semibold hover:bg-[rgb(81,21,38)]/90 transition-all duration-300 shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                    aria-label="Conhecer detalhes do Regime de Avença"
-                  >
-                    Conhecer Regime de Avença
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Link>
-                </div>
               </div>
+            ))}
+          </div>
 
-              {/* Visual/Image Side - Abstract representation */}
-              <div className="relative hidden md:block h-full min-h-[400px] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/10">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative w-64 h-64">
-                    <motion.div 
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                      className="absolute inset-0 rounded-full border border-dashed border-primary/20"
-                    />
-                    <motion.div 
-                      animate={{ rotate: -360 }}
-                      transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                      className="absolute inset-4 rounded-full border border-dotted border-accent/30"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-2xl">
-                        <Handshake className="w-12 h-12 text-white" />
-                      </div>
-                    </div>
-                    
-                    {/* Floating elements */}
-                    <motion.div 
-                      animate={{ y: [-10, 10, -10] }}
-                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                      className="absolute -top-8 -right-8 p-4 bg-card rounded-xl shadow-lg border border-border"
-                    >
-                      <Shield className="w-6 h-6 text-primary" />
-                    </motion.div>
-                    
-                    <motion.div 
-                      animate={{ y: [10, -10, 10] }}
-                      transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                      className="absolute -bottom-4 -left-8 p-4 bg-card rounded-xl shadow-lg border border-border"
-                    >
-                      <Scale className="w-6 h-6 text-accent" />
-                    </motion.div>
-                  </div>
-                </div>
+          {/* linha de curiosidade */}
+          <div className="mb-8 rounded-2xl border border-primary/10 bg-primary/[0.04] px-5 py-4">
+            <p className="text-sm md:text-base text-foreground/85 leading-relaxed">
+              Descubra como este modelo pode melhorar a previsibilidade financeira,
+              reforçar a conformidade legal e dar à sua empresa um apoio jurídico
+              mais próximo, estratégico e contínuo.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link
+              to="/avenca"
+              aria-label="Conhecer detalhes do Regime de Avença"
+              className="group inline-flex items-center justify-center px-7 py-4 rounded-2xl bg-[rgb(81,21,38)] text-white font-semibold shadow-xl shadow-[rgba(81,21,38,0.22)] hover:bg-[rgb(81,21,38)]/92 hover:-translate-y-0.5 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              Conhecer Regime de Avença
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+            </Link>
+          </div>
+        </div>
+
+        {/* visual direito */}
+        <div className="relative hidden md:flex items-center justify-center min-h-[420px] lg:min-h-[500px]">
+          <div className="absolute inset-0 rounded-[28px] border border-border/50 bg-gradient-to-br from-muted/40 via-background to-primary/[0.04]" />
+
+          {/* cartões flutuantes premium */}
+          <motion.div
+            animate={{ y: [-8, 8, -8] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-10 left-8 rounded-2xl border border-border/70 bg-card/95 backdrop-blur-sm px-4 py-3 shadow-lg"
+          >
+            <div className="flex items-center gap-3">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10">
+                <Shield className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
+                  Enfoque
+                </p>
+                <p className="text-sm font-semibold text-foreground">
+                  Protecção contínua
+                </p>
               </div>
             </div>
           </motion.div>
+
+          <motion.div
+            animate={{ y: [10, -10, 10] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+            className="absolute bottom-12 right-8 rounded-2xl border border-border/70 bg-card/95 backdrop-blur-sm px-4 py-3 shadow-lg"
+          >
+            <div className="flex items-center gap-3">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10">
+                <Clock className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
+                  Modelo
+                </p>
+                <p className="text-sm font-semibold text-foreground">
+                  Resposta prioritária
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* núcleo visual */}
+          <div className="relative w-[320px] h-[320px] lg:w-[380px] lg:h-[380px]">
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-0 rounded-full border border-dashed border-primary/20"
+            />
+
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{ duration: 36, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-6 rounded-full border border-primary/10"
+            />
+
+            <div className="absolute inset-14 rounded-full bg-gradient-to-br from-primary/10 to-accent/10 blur-md" />
+
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="relative flex h-28 w-28 lg:h-32 lg:w-32 items-center justify-center rounded-[2rem] bg-gradient-to-br from-[rgb(81,21,38)] to-[rgb(110,31,52)] shadow-[0_20px_50px_rgba(81,21,38,0.30)]">
+                <Handshake className="w-14 h-14 text-white" />
+              </div>
+            </div>
+
+            <div className="absolute top-12 right-10 flex h-14 w-14 items-center justify-center rounded-2xl border border-border/60 bg-card shadow-md">
+              <Scale className="w-6 h-6 text-primary" />
+            </div>
+
+            <div className="absolute bottom-14 left-8 flex h-14 w-14 items-center justify-center rounded-2xl border border-border/60 bg-card shadow-md">
+              <Target className="w-6 h-6 text-primary" />
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
+    </motion.div>
+  </div>
+</section>
 
       {/* Services Cards Section */}
       <section className="py-24 bg-gradient-to-b from-background to-muted/20">
@@ -575,6 +634,22 @@ Muito obrigado(a).`
               </motion.div>
             ))}
           </div>
+           <motion.div
+            className="mt-16 pt-12 border-t border-border/30"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <Link
+              to="/equipe"
+              aria-label="Ver equipa completa"
+              className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,38)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto w-fit"
+            >
+              <span>Ver Equipa Completa</span>
+              <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
+            </Link>
+          </motion.div>
         </div>
       </section>
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import LazyImage from "@/components/LazyImage";
-import { CheckCircle, Users, Trophy, ArrowRight } from "lucide-react";
+import { CheckCircle, Users, Trophy, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -34,6 +34,9 @@ const AboutSection: React.FC = () => {
       }, 4500);
     }
   };
+  const goPrev = () =>
+    goTo((index - 1 + carouselImages.length) % carouselImages.length);
+  const goNext = () => goTo((index + 1) % carouselImages.length);
 
   return (
     <section
@@ -134,52 +137,51 @@ const AboutSection: React.FC = () => {
                 })}
               </div>
 
-              {/* Controls */}
-              <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute left-4 top-1/2 transform -translate-y-1/2 pointer-events-auto">
-                  <button
-                    type="button"
-                    onClick={() =>
-                      goTo(
-                        (index - 1 + carouselImages.length) %
-                          carouselImages.length
-                      )
-                    }
-                    className="bg-white/80 hover:bg-white px-3 py-2 rounded-full shadow-sm transition flex items-center justify-center w-11 h-11"
-                    aria-label="Ver imagem anterior da galeria"
-                    title="Imagem anterior"
-                  >
-                    ‹
-                  </button>
-                </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
 
-                <div className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-auto">
-                  <button
-                    type="button"
-                    onClick={() => goTo((index + 1) % carouselImages.length)}
-                    className="bg-white/80 hover:bg-white px-3 py-2 rounded-full shadow-sm transition flex items-center justify-center w-11 h-11"
-                    aria-label="Ver próxima imagem da galeria"
-                    title="Próxima imagem"
-                  >
-                    ›
-                  </button>
-                </div>
+              <div className="absolute bottom-4 left-4 flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={goPrev}
+                  className="h-10 w-10 rounded-full bg-card/80 border border-border text-foreground hover:bg-card backdrop-blur-sm flex items-center justify-center"
+                  aria-label="Slide anterior"
+                  title="Slide anterior"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={goNext}
+                  className="h-10 w-10 rounded-full bg-card/80 border border-border text-foreground hover:bg-card backdrop-blur-sm flex items-center justify-center"
+                  aria-label="Próximo slide"
+                  title="Próximo slide"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+              </div>
 
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 pointer-events-auto">
-                  {carouselImages.map((_, i) => (
+              <div
+                className="absolute bottom-4 right-4 flex items-center gap-2 bg-card/60 backdrop-blur-sm rounded-full px-3 py-2 border border-border"
+                role="tablist"
+                aria-label="Selecionar slide do escritório"
+              >
+                {carouselImages.map((_, i) => {
+                  const active = i === index;
+                  return (
                     <button
                       key={i}
                       type="button"
                       onClick={() => goTo(i)}
-                      className={`w-2.5 h-2.5 rounded-full transition ${
-                        i === index ? "bg-primary" : "bg-white/70"
-                      }`}
-                      aria-label={`Ir para imagem ${i + 1} da galeria`}
-                      aria-current={i === index ? "true" : "false"}
-                      title={`Imagem ${i + 1}`}
+                      className={`h-2.5 w-2.5 rounded-full ${
+                        active ? "bg-primary" : "bg-foreground/40"
+                      } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring`}
+                      aria-label={`Ir para slide ${i + 1}`}
+                      aria-selected={active}
+                      role="tab"
+                      title={`Slide ${i + 1}`}
                     />
-                  ))}
-                </div>
+                  );
+                })}
               </div>
             </div>
           </div>

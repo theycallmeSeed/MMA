@@ -51,12 +51,32 @@ const Sobre = () => {
     },
   ];
 
-  const achievements = [
-    { icon: Shield, number: "15+", label: "Anos de Experiência" },
-    { icon: Users, number: "200+", label: "Clientes Satisfeitos" },
-    { icon: Trophy, number: "98%", label: "Compromisso com Excelência Técnica" },
-    { icon: Heart, number: "24/7", label: "Suporte Dedicado" },
-  ];
+ const achievements = [
+  {
+    icon: Shield,
+    title: "Rigor Deontológico",
+    description:
+      "Actuação orientada pelo Estatuto da Ordem dos Advogados de Moçambique e pelos deveres profissionais aplicáveis.",
+  },
+  {
+    icon: Users,
+    title: "Acompanhamento Próximo",
+    description:
+      "Relação profissional assente em escuta, clareza de comunicação e atenção contínua às necessidades de cada cliente.",
+  },
+  {
+    icon: Trophy,
+    title: "Exigência Técnica",
+    description:
+      "Abordagem jurídica cuidada, com estudo consistente, fundamentação adequada e atenção ao detalhe.",
+  },
+  {
+    icon: Heart,
+    title: "Compromisso Profissional",
+    description:
+      "Exercício da advocacia com sentido de responsabilidade, discrição, lealdade e zelo no patrocínio dos interesses confiados.",
+  },
+];
 
   const founderAchievements = [
     "Sociedade liderada por mulheres em Moçambique",
@@ -140,40 +160,46 @@ const Sobre = () => {
           </motion.div>
 
           {/* Achievement Stats */}
-          <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16"
-            variants={shouldReduce ? {} : staggerContainer}
-            initial={shouldReduce ? undefined : "hidden"}
-            whileInView={shouldReduce ? undefined : "visible"}
-            viewport={shouldReduce ? undefined : { once: true, amount: 0.3 }}
-            style={{
-              willChange: "transform, opacity",
-              backfaceVisibility: "hidden",
-            }}
-          >
-            {achievements.map((achievement, index) => (
-              <motion.div
-                key={index}
-                className="text-center p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 group"
-                style={{
-                  boxShadow: "var(--shadow-card)",
-                  willChange: "transform, opacity",
-                  backfaceVisibility: "hidden",
-                }}
-                variants={shouldReduce ? {} : slideUp}
-              >
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <achievement.icon className="h-7 w-7 text-primary" />
-                </div>
-                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                  {achievement.number}
-                </div>
-                <div className="text-sm text-muted-foreground font-medium">
-                  {achievement.label}
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+         <motion.div
+  className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mt-16"
+  variants={shouldReduce ? {} : staggerContainer}
+  initial={shouldReduce ? undefined : "hidden"}
+  whileInView={shouldReduce ? undefined : "visible"}
+  viewport={shouldReduce ? undefined : { once: true, amount: 0.25 }}
+  style={{
+    willChange: "transform, opacity",
+    backfaceVisibility: "hidden",
+  }}
+>
+  {achievements.map((achievement, index) => (
+    <motion.div
+      key={index}
+      variants={shouldReduce ? {} : slideUp}
+      className="group relative overflow-hidden rounded-[24px] border border-border bg-card/90 p-6 md:p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/20"
+      style={{
+        boxShadow: "var(--shadow-card)",
+        willChange: "transform, opacity",
+        backfaceVisibility: "hidden",
+      }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] via-transparent to-accent/[0.05] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+      <div className="relative z-10">
+        <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-primary/10 bg-gradient-to-br from-primary/10 to-accent/10">
+          <achievement.icon className="h-6 w-6 text-primary" />
+        </div>
+
+        <h3 className="text-xl md:text-2xl font-serif font-semibold text-primary mb-3">
+          {achievement.title}
+        </h3>
+
+        <p className="text-sm md:text-[15px] leading-7 text-muted-foreground">
+          {achievement.description}
+        </p>
+      </div>
+    </motion.div>
+  ))}
+</motion.div>
         </div>
       </section>
 
