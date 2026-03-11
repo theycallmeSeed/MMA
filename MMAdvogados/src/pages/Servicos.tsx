@@ -363,15 +363,127 @@ Muito obrigado(a).`
       </section>
 
       {/* Regime de Avença Highlight Section */}
-     <section className="relative py-16 md:py-24 overflow-hidden bg-gradient-to-b from-background via-background to-muted/20">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <motion.div
+    
+
+      {/* Services Cards Section */}
+      <section className="py-24 bg-gradient-to-b from-background to-muted/20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-6">
+            {allServices.map((service, index) => (
+              <motion.div
+                key={`${service.title}-${index}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.06 }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <div className="bg-card border-2 border-border rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-300 shadow-lg hover:shadow-xl">
+                  {/* Card Header - Always Visible */}
+                  <button
+                    onClick={() => toggleCard(index)}
+                    className="w-full p-6 lg:p-8 flex items-start gap-6 text-left hover:bg-muted/30 transition-colors duration-300"
+                  >
+                    {/* Icon */}
+                    <div className="flex-shrink-0">
+                      <div className="p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                        <service.icon className="h-8 w-8 text-primary" />
+                      </div>
+                    </div>
+
+                    {/* Title and Description */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-start justify-between gap-4 mb-3">
+                        <div>
+                          <h3 className="text-2xl lg:text-3xl font-serif font-bold text-primary mb-1">
+                            {service.title}
+                          </h3>
+                          <p className="text-base text-primary/70 font-medium">
+                            {service.subtitle}
+                          </p>
+                        </div>
+
+                        {/* Expand Icon */}
+                        <ChevronDown
+                          className={`h-6 w-6 text-primary flex-shrink-0 transition-transform duration-300 ${
+                            expandedCard === index ? "rotate-180" : ""
+                          }`}
+                        />
+                      </div>
+
+                      <p className="text-muted-foreground leading-relaxed">
+                        {service.description}
+                      </p>
+                    </div>
+                  </button>
+
+                  {/* Expandable Content */}
+                  <motion.div
+                    initial={false}
+                    animate={{
+                      height: expandedCard === index ? "auto" : 0,
+                      opacity: expandedCard === index ? 1 : 0,
+                    }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <div className="px-6 lg:px-8 pb-8 pt-4 border-t border-border/50">
+                      {/* Details Grid */}
+                      <div className="grid md:grid-cols-2 gap-4 mb-6">
+                        {service.details.map((detail: { title: string; desc: string }, detailIndex: number) => (
+                          <div
+                            key={`${detail.title}-${detailIndex}`}
+                            className="p-4 rounded-xl bg-gradient-to-br from-muted/50 to-muted/20 border border-border/50 hover:border-primary/20 transition-colors duration-300"
+                          >
+                            <div className="flex items-start gap-3">
+                              <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                              <div>
+                                <h4 className="font-semibold text-foreground mb-1 text-sm">
+                                  {detail.title}
+                                </h4>
+                                <p className="text-xs text-muted-foreground leading-relaxed">
+                                  {detail.desc}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Benefits */}
+                      <div className="p-5 rounded-xl bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/10">
+                        <div className="flex items-center gap-2 mb-3">
+                          <Sparkles className="h-5 w-5 text-primary" />
+                          <h4 className="font-semibold text-primary">
+                            Benefícios Principais
+                          </h4>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          {service.benefits.map((benefit: string, idx: number) => (
+                            <span
+                              key={`${benefit}-${idx}`}
+                              className="px-3 py-1.5 bg-background rounded-full text-xs font-medium text-foreground border border-border"
+                            >
+                              {benefit}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+           <section className="relative py-16 md:py-24 overflow-hidden bg-gradient-to-b from-background via-background to-muted/20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+     <motion.div
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.25 }}
       className="relative overflow-hidden rounded-[32px] border border-border/60 bg-card shadow-[0_20px_60px_rgba(0,0,0,0.06)]"
-    >
+     >
       {/* brilho interno discreto */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] via-transparent to-accent/[0.04] pointer-events-none" />
 
@@ -523,133 +635,6 @@ Muito obrigado(a).`
     </motion.div>
   </div>
 </section>
-
-      {/* Services Cards Section */}
-      <section className="py-24 bg-gradient-to-b from-background to-muted/20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-6">
-            {allServices.map((service, index) => (
-              <motion.div
-                key={`${service.title}-${index}`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.06 }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <div className="bg-card border-2 border-border rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-300 shadow-lg hover:shadow-xl">
-                  {/* Card Header - Always Visible */}
-                  <button
-                    onClick={() => toggleCard(index)}
-                    className="w-full p-6 lg:p-8 flex items-start gap-6 text-left hover:bg-muted/30 transition-colors duration-300"
-                  >
-                    {/* Icon */}
-                    <div className="flex-shrink-0">
-                      <div className="p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl group-hover:scale-110 transition-transform duration-300">
-                        <service.icon className="h-8 w-8 text-primary" />
-                      </div>
-                    </div>
-
-                    {/* Title and Description */}
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-start justify-between gap-4 mb-3">
-                        <div>
-                          <h3 className="text-2xl lg:text-3xl font-serif font-bold text-primary mb-1">
-                            {service.title}
-                          </h3>
-                          <p className="text-base text-primary/70 font-medium">
-                            {service.subtitle}
-                          </p>
-                        </div>
-
-                        {/* Expand Icon */}
-                        <ChevronDown
-                          className={`h-6 w-6 text-primary flex-shrink-0 transition-transform duration-300 ${
-                            expandedCard === index ? "rotate-180" : ""
-                          }`}
-                        />
-                      </div>
-
-                      <p className="text-muted-foreground leading-relaxed">
-                        {service.description}
-                      </p>
-                    </div>
-                  </button>
-
-                  {/* Expandable Content */}
-                  <motion.div
-                    initial={false}
-                    animate={{
-                      height: expandedCard === index ? "auto" : 0,
-                      opacity: expandedCard === index ? 1 : 0,
-                    }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="overflow-hidden"
-                  >
-                    <div className="px-6 lg:px-8 pb-8 pt-4 border-t border-border/50">
-                      {/* Details Grid */}
-                      <div className="grid md:grid-cols-2 gap-4 mb-6">
-                        {service.details.map((detail: { title: string; desc: string }, detailIndex: number) => (
-                          <div
-                            key={`${detail.title}-${detailIndex}`}
-                            className="p-4 rounded-xl bg-gradient-to-br from-muted/50 to-muted/20 border border-border/50 hover:border-primary/20 transition-colors duration-300"
-                          >
-                            <div className="flex items-start gap-3">
-                              <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                              <div>
-                                <h4 className="font-semibold text-foreground mb-1 text-sm">
-                                  {detail.title}
-                                </h4>
-                                <p className="text-xs text-muted-foreground leading-relaxed">
-                                  {detail.desc}
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Benefits */}
-                      <div className="p-5 rounded-xl bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/10">
-                        <div className="flex items-center gap-2 mb-3">
-                          <Sparkles className="h-5 w-5 text-primary" />
-                          <h4 className="font-semibold text-primary">
-                            Benefícios Principais
-                          </h4>
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                          {service.benefits.map((benefit: string, idx: number) => (
-                            <span
-                              key={`${benefit}-${idx}`}
-                              className="px-3 py-1.5 bg-background rounded-full text-xs font-medium text-foreground border border-border"
-                            >
-                              {benefit}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-           <motion.div
-            className="mt-16 pt-12 border-t border-border/30"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <Link
-              to="/equipe"
-              aria-label="Ver equipa completa"
-              className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,38)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto w-fit"
-            >
-              <span>Ver Equipa Completa</span>
-              <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
-            </Link>
-          </motion.div>
         </div>
       </section>
 
