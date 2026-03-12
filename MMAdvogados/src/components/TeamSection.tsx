@@ -19,7 +19,7 @@ const TeamSection = () => {
     {
       id: 1,
       name: "Milagrosa Macuácua",
-      position: "Assistente Administrativa",
+      position: "Sócia fundadora-Advogada Sénior",
       photo: "/images/dra-milagrosa.webp",
       description:
         "Advogada com mais de 15 anos de experiência em Direito Civil e Consumerista. Especialista em casos complexos de responsabilidade civil.",
@@ -28,7 +28,7 @@ const TeamSection = () => {
     {
       id: 2,
       name: "Marlete Miguel",
-      position: "Sócio - Direito Empresarial",
+      position: "Advogada Sénior",
       photo: "/images/marlete-portrait.webp",
       description:
         "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
@@ -36,7 +36,7 @@ const TeamSection = () => {
     {
       id: 3,
       name: "Cláudia Semente",
-      position: "Associada Sênior - Direito da Família",
+      position: "Advogada Sênior",
       photo: "/images/claudia-portrait.webp",
       description:
         "Especialista em Direito de Família e Sucessões com abordagem humanizada e sensível para casos familiares complexos.",

@@ -83,16 +83,22 @@ const Footer = () => {
                     <Phone className="mt-0.5 h-5 w-5 flex-shrink-0 text-[#f3d08b]" />
                     <div className="space-y-1 text-sm md:text-[15px]">
                       <a
-                        href="tel:+258868603610"
+                        href="tel:+258845469097"
                         className="block text-white/80 transition-colors hover:text-[#f3d08b]"
                       >
-                        +258 86 860 3610
+                        +258 84 54 69 097
                       </a>
                       <a
-                        href="tel:+258821549533"
+                        href="tel:+258823860701"
                         className="block text-white/80 transition-colors hover:text-[#f3d08b]"
                       >
-                        +258 82 154 9533
+                        +258 82 38 60 701
+                      </a>
+                       <a
+                        href="tel:+258873860701"
+                        className="block text-white/80 transition-colors hover:text-[#f3d08b]"
+                      >
+                        +258 87 38 60 701
                       </a>
                     </div>
                   </div>
@@ -263,7 +269,7 @@ const Footer = () => {
                             Localização
                           </p>
                           <h5 className="mt-1 font-serif text-xl font-semibold text-white sm:text-2xl">
-                            Av. Joaquim Chissano, 1919
+                            Av. Joaquim Chissano, Esquina com Rua Guiné Bissau, Q.2 n. 422
                           </h5>
                         </div>
 
