@@ -12,9 +12,11 @@ import {
   Briefcase
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { setPageSEO } from "@/lib/seo";
 
 const Avenca = () => {
   const whatsappMessage = encodeURIComponent(
@@ -93,6 +95,15 @@ const Avenca = () => {
       recommended: false
     }
   ];
+
+  useEffect(() => {
+    setPageSEO({
+      title: "Regime de Avença — Milagrosa Macuácua Advogados",
+      description:
+        "Modelo de assistência jurídica contínua para empresas, com previsibilidade de custos e resposta prioritária.",
+      path: "/avenca",
+    });
+  }, []);
 
   return (
     <div className="min-h-screen bg-background font-sans">

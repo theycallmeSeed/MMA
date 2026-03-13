@@ -5,8 +5,18 @@ import AnimatedServicesSection from "@/components/AnimatedServicesSection";
 import TeamSection from "@/components/TeamSection";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
+import { setPageSEO } from "@/lib/seo";
 
 const Index = () => {
+  useEffect(() => {
+    setPageSEO({
+      title: "Milagrosa Macuácua Advogados — Sociedade de Advogados em Moçambique",
+      description:
+        "Assessoria jurídica especializada para empresas e particulares em Moçambique. Direito empresarial, civil e laboral com rigor e Excelência.",
+      path: "/",
+    });
+  }, []);
   return (
     <motion.div
       initial={{ opacity: 0 }}

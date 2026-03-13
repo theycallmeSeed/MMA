@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import LazyImage from "@/components/LazyImage";
 import { useEffect, useMemo, useState } from "react";
+import { setPageSEO } from "@/lib/seo";
 
 const Sobre = () => {
   const values = [
@@ -99,6 +100,12 @@ const Sobre = () => {
   const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
+    setPageSEO({
+      title: "Sobre Nós — Milagrosa Macuácua Advogados",
+      description:
+        "Conheça a nossa sociedade de advogados liderada por mulheres em Maputo. Actuação com rigor técnico, transparência e foco em resultados.",
+      path: "/sobre",
+    });
     if (shouldReduce) return;
     if (isPaused) return;
     const id = window.setInterval(() => {

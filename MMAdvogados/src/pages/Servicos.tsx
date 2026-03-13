@@ -17,14 +17,23 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { setPageSEO } from "@/lib/seo";
 
 const AVENCA_SLUG = "avenca";
 
 const Servicos = () => {
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
+  useEffect(() => {
+    setPageSEO({
+      title: "Áreas de Atuação — Milagrosa Macuácua Advogados",
+      description:
+        "Direito empresarial, civil, laboral, recuperação de créditos, contencioso e mais. Explore as áreas de atuação da MM Advogados.",
+      path: "/servicos",
+    });
+  }, []);
 
   const detailedServices = [
     {
