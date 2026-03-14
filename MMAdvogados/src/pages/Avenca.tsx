@@ -15,6 +15,7 @@ import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import SEO from "@/components/SEO";
 
 const Avenca = () => {
   const whatsappMessage = encodeURIComponent(
@@ -96,6 +97,11 @@ const Avenca = () => {
 
   return (
     <div className="min-h-screen bg-background font-sans">
+      <SEO
+        title="Regime de Avença | Milagrosa Macuácua Advogados"
+        description="Regime de avença empresarial com excelência: apoio jurídico contínuo, previsível e estratégico para o seu negócio em Moçambique."
+        canonicalPath="/avenca"
+      />
       <Navigation />
 
       {/* Hero Section */}

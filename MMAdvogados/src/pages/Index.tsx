@@ -5,6 +5,7 @@ import AnimatedServicesSection from "@/components/AnimatedServicesSection";
 import TeamSection from "@/components/TeamSection";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 
 const Index = () => {
   return (
@@ -14,6 +15,11 @@ const Index = () => {
       transition={{ duration: 0.5 }}
       className="min-h-screen"
     >
+      <SEO
+        title="Milagrosa Macuácua Advogados | Escritório de Advogados em Maputo"
+        description="Excelência jurídica em Moçambique: advocacia empresarial, contencioso, fiscal, laboral, família, imobiliário e regime de avença."
+        canonicalPath="/"
+      />
       <Navigation />
       <HeroSection />
       <AboutSection />
