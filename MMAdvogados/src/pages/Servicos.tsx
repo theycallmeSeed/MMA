@@ -20,6 +20,7 @@ import { Link } from "react-router-dom";
 import { useMemo, useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const AVENCA_SLUG = "avenca";
 
@@ -345,6 +346,24 @@ Muito obrigado(a).`
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-background"
     >
+      <SEO
+        title="Áreas de Atuação | Milagrosa Macuácua Advogados"
+        description="Excelência em serviços jurídicos: contencioso, societário, fiscal, laboral, família, imobiliário, administrativo e regime de avença, em Moçambique."
+        canonicalPath="/servicos"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "LegalService",
+          "name": "Áreas de Atuação",
+          "url": "https://madvogados.co.mz/servicos",
+          "provider": {
+            "@type": "Organization",
+            "name": "Milagrosa Macuácua Advogados, LDA",
+            "url": "https://madvogados.co.mz/"
+          },
+          "areaServed": "Mozambique",
+          "description": "Atuação com excelência nas principais áreas do direito, com foco em empresas e particulares."
+        }}
+      />
       <Navigation />
 
       {/* Hero Section */}

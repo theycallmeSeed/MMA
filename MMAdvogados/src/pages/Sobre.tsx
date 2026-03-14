@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import LazyImage from "@/components/LazyImage";
 import { useEffect, useMemo, useState } from "react";
+import SEO from "@/components/SEO";
 
 const Sobre = () => {
   const values = [
@@ -130,6 +131,11 @@ const Sobre = () => {
   const goTo = (i: number) => setOfficeIndex(i % officeImages.length);
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Sobre | Milagrosa Macuácua Advogados"
+        description="Conheça a nossa história, valores e a excelência do nosso trabalho jurídico em Moçambique."
+        canonicalPath="/sobre"
+      />
       <Navigation />
 
       {/* Hero Section */}

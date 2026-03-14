@@ -23,6 +23,7 @@ import { fadeIn, slideUp, staggerContainer } from "@/lib/animation-variants";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Button } from "@/components/ui/button";
 import LazyImage from "@/components/LazyImage";
+import SEO from "@/components/SEO";
 
 interface TeamMember {
   id: number;
@@ -596,8 +597,28 @@ const Equipe = () => {
     
   ];
 
+  const peopleJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": teamMembers.map((m) => ({
+      "@type": "Person",
+      "name": m.name,
+      "jobTitle": m.position,
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Milagrosa Macuácua Advogados, LDA",
+        "url": "https://madvogados.co.mz/"
+      }
+    })),
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Equipa | Milagrosa Macuácua Advogados"
+        description="Conheça a equipa de advogados e a sua atuação com excelência em Moçambique."
+        canonicalPath="/equipe"
+        jsonLd={peopleJsonLd}
+      />
       <Navigation />
 
       <section className="relative pt-32 pb-24 overflow-hidden">
