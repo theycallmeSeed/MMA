@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Instagram, Facebook } from "lucide-react";
@@ -15,17 +15,29 @@ const navItems = [
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(() => window.scrollY > 4);
   const location = useLocation();
   const burgerRef = useRef<HTMLButtonElement | null>(null);
 
   const isHome = location.pathname === "/";
+const SCROLL_THRESHOLD = 9;
+const isScrolled = window.scrollY > SCROLL_THRESHOLD;
+  useLayoutEffect(() => {
+  const onScroll = () => {
+    setScrolled(window.scrollY > 2); // ← 4 ou 6 ou 8 — experimenta valores
+  };
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  
+  onScroll(); // ← executa imediatamente para garantir valor correto no mount
+
+  return () => window.removeEventListener("scroll", onScroll);
+}, []);
+  // useEffect(() => {
+  //   const onScroll = () => setScrolled(window.scrollY > 0);
+  //   window.addEventListener("scroll", onScroll, { passive: true });
+  //   return () => window.removeEventListener("scroll", onScroll);
+  // }, []);
 
   useEffect(() => {
     setIsOpen(false);
@@ -34,26 +46,22 @@ const Navigation = () => {
   const isActive = (href: string) => location.pathname === href;
 
   const navBg =
-    isHome && !scrolled
+    isHome && !isScrolled
       ? "bg-transparent"
       : "bg-white/95 backdrop-blur-md shadow-sm border-b";
 
-  const textColor =
-    isHome && !scrolled
-      ? "text-white"
-      : "text-[rgb(81,21,38)]";
+  const textColor = isHome && !isScrolled ? "text-white" : "text-[rgb(81,21,38)]";
 
   return (
     <>
       <motion.nav
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ type: "spring", damping: 20 }}
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${navBg}`}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4 }}
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500  ${navBg}`}
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16 lg:h-20">
-
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3">
               <LazyImage
@@ -67,9 +75,7 @@ const Navigation = () => {
                 <div className="font-serif font-bold text-lg">
                   Milagrosa Macuácua
                 </div>
-                <div className="text-xs opacity-70">
-                  ADVOGADOS, LDA
-                </div>
+                <div className="text-xs opacity-70">ADVOGADOS, LDA</div>
               </div>
             </Link>
 
@@ -82,9 +88,10 @@ const Navigation = () => {
                     key={item.name}
                     to={item.href}
                     className={`relative text-sm font-medium transition 
-                      ${active
-                        ? "text-[rgb(81,21,38)]"
-                        : textColor + " hover:opacity-80"
+                      ${
+                        active
+                          ? "text-[rgb(81,21,38)]"
+                          : textColor + " hover:opacity-80"
                       }`}
                   >
                     {item.name}
@@ -126,8 +133,16 @@ const Navigation = () => {
                 onClick={() => setIsOpen((v) => !v)}
                 ref={burgerRef}
                 className={`${textColor}`}
-                aria-label={isOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"}
-                title={isOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"}
+                aria-label={
+                  isOpen
+                    ? "Fechar menu de navegação"
+                    : "Abrir menu de navegação"
+                }
+                title={
+                  isOpen
+                    ? "Fechar menu de navegação"
+                    : "Abrir menu de navegação"
+                }
               >
                 {isOpen ? <X /> : <Menu />}
               </Button>
