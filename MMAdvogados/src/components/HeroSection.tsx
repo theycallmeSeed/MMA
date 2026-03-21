@@ -30,12 +30,12 @@ const HeroSection = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="relative min-h-[100svh] flex items-center justify-center overflow-hidden"
+      className="relative min-h-[100svh] md:min-h-screen flex items-center justify-center overflow-hidden"
       aria-label="Hero principal - Milagrosa Macuácua Advogados"
     >
       <div
         className="absolute inset-0 h-full w-full hero-parallax"
-        style={{ willChange: "transform" }}
+        style={{ }}
       >
         <picture>
           <source
@@ -137,6 +137,14 @@ const HeroSection = () => {
   }
   @keyframes gradientShift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
   .bg-radial-gradient { /* kept */ }
+ @media (max-width: 768px) {
+  .hero-parallax {
+    animation: none !important;
+    transform: none !important;
+    .hero-gradient-animation {
+    animation: none;
+  }
+}
 `}</style>
     </motion.section>
   );

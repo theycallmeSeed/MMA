@@ -20,11 +20,11 @@ const Navigation = () => {
   const burgerRef = useRef<HTMLButtonElement | null>(null);
 
   const isHome = location.pathname === "/";
-const SCROLL_THRESHOLD = 9;
+const SCROLL_THRESHOLD = 10;
 const isScrolled = window.scrollY > SCROLL_THRESHOLD;
   useLayoutEffect(() => {
   const onScroll = () => {
-    setScrolled(window.scrollY > 2); // ← 4 ou 6 ou 8 — experimenta valores
+    setScrolled(window.scrollY > 4); // ← 4 ou 6 ou 8 — experimenta valores
   };
 
   window.addEventListener("scroll", onScroll, { passive: true });
