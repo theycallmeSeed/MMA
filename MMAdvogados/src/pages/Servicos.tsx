@@ -286,10 +286,10 @@ const Servicos = () => {
         description:
           "Prestamos apoio à pessoas singulares e colectivas na regularização de propriedades(obtenção da Certidão Predial) e no processo de transacção imobiliária,  assim como na regularização de terra (DUAT).",
         details: [
-          { title: "Obtenção e Regularização de DUAT", desc: "Acompanhamento completo para garantir o direito legal sobre terrenos" },
+          { title: "Obtenção e Regularização de DUAT", desc: "Acompanhamento completo para garantir o direito legal sobre terra" },
           { title: "Registos Prediais e Cartorários", desc: "Registo e actualização de propriedades nas conservatórias competentes" },
-          { title: "Escritura pública de compra e venda", desc: "Elaboração  e revisão e contratos promessa de compra e venda, apoio e acompanhamento na realização da escritura de compra e venda de imóveis" },
-          { title: "Arrendamento", desc: "Gestão jurídica de contratos de arrendamento comercial e residencial" },
+          { title: "Escritura pública de compra e venda", desc: "Elaboração  e revisão e contrato promessa de compra e venda, apoio e acompanhamento na realização da escritura de compra e venda de imóveis" },
+          { title: "Arrendamento", desc: "Gestão jurídica de contrato de arrendamento comercial e residencial" },
         ],
         benefits: ["Segurança jurídica", "Processos mais claros", "Protecção patrimonial"],
       },

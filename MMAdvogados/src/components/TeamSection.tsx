@@ -22,7 +22,7 @@ const TeamSection = () => {
       position: "Sócia fundadora-Advogada Sénior",
       photo: "/images/dra-milagrosa.webp",
       description:
-        "Advogada com mais de 15 anos de experiência em Direito Civil e Consumerista. Especialista em casos complexos de responsabilidade civil.",
+         "É advogada, inscrita na OAM, com mais de 15 anos de experiência em Direito Civil, Criminal, Trabalho, Arbitragem na CACM e Administradora de Insolvência. Especialista em casos complexos de responsabilidade civil.",
   
     },
     {
@@ -31,7 +31,7 @@ const TeamSection = () => {
       position: "Advogada Sénior",
       photo: "/images/marlete-portrait.webp",
       description:
-        "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
+         "É advogada, com experiência consolidada em Direito Criminal, Direito de Família e Sucessões.",
     },
     {
       id: 3,
@@ -39,7 +39,7 @@ const TeamSection = () => {
       position: "Advogada Sênior",
       photo: "/images/claudia-portrait.webp",
       description:
-        "Especialista em Direito de Família e Sucessões com abordagem humanizada e sensível para casos familiares complexos.",
+        "É advogada, com actuação predominante nas áreas de Direito Processual Civil, Direito do Trabalho.",
     
     },
   ];

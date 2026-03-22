@@ -263,7 +263,7 @@ const Equipe = () => {
       position: "Sócia fundadora-Advogada Sénior",
       photo: "/images/dra-milagrosa.webp",
       description:
-        "É advogada, inscrita na OAM, com mais de 15 anos de experiência em Direito Civil, Criminal, Trabalho, Arbitragem na CACM e Administradora de Insolvência.",
+        "É advogada, inscrita na OAM, com mais de 15 anos de experiência em Direito Civil, Criminal, Trabalho, Arbitragem na CACM e Administradora de Insolvência. Especialista em casos complexos de responsabilidade civil.",
       email: "maria@mmadvogados.com",
       phone: "+351 912 345 678",
       location: "Lisboa, Portugal",

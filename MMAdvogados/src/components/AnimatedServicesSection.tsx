@@ -74,7 +74,7 @@ const AnimatedServicesSection = () => {
       description:
         "Actuação em processos judiciais e arbitrais, nos termos da lei, designadamente:",
       features: [
-        "	Litígios de natureza civil, criminal e comercial",
+        "	Natureza criminal, laboral civil, societário e contencioso administrativo ",
         "	Arbitragem",
         "Mediação",
       ],
