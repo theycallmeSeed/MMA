@@ -65,12 +65,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "team.stats.lawyers": "Advogados Especializados",
     "team.stats.areas": "Áreas de Especialização",
     "team.btn.full": "Ver Equipa Completa",
-    "team.m1.pos": "Sócia fundadora-Advogada Sénior",
-    "team.m1.desc": "É advogada, inscrita na OAM, com mais de 15 anos de experiência em Direito Civil, Criminal, Trabalho, Arbitragem na CACM e Administradora de Insolvência. Especialista em casos complexos de responsabilidade civil.",
-    "team.m2.pos": "Advogada Sénior",
-    "team.m2.desc": "É advogada, com experiência consolidada em Direito Criminal, Direito de Família e Sucessões.",
-    "team.m3.pos": "Advogada Sênior",
-    "team.m3.desc": "É advogada, com actuação predominante nas áreas de Direito Processual Civil, Direito do Trabalho.",
+ 
 
     // Footer
     "footer.brand.desc": "Sociedade de advogados orientada para uma assessoria jurídica sólida, clara e tecnicamente rigorosa, com foco em empresas e particulares que valorizam estrutura, proximidade e discrição.",
@@ -627,12 +622,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "team.stats.lawyers": "Specialized Lawyers",
     "team.stats.areas": "Areas of Expertise",
     "team.btn.full": "View Full Team",
-    "team.m1.pos": "Founding Partner-Senior Lawyer",
-    "team.m1.desc": "Lawyer, registered with OAM, with over 15 years of experience in Civil, Criminal, Labor Law, Arbitration at CACM and Insolvency Administrator. Specialist in complex civil liability cases.",
-    "team.m2.pos": "Senior Lawyer",
-    "team.m2.desc": "Lawyer, with consolidated experience in Criminal Law, Family Law and Succession.",
-    "team.m3.pos": "Senior Lawyer",
-    "team.m3.desc": "Lawyer, acting predominantly in the areas of Civil Procedural Law and Labor Law.",
+ 
 
     // Footer
     "footer.brand.desc": "A law firm oriented towards solid, clear, and technically rigorous legal advice, focusing on companies and individuals who value structure, proximity, and discretion.",
