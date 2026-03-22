@@ -6,8 +6,10 @@ import TeamSection from "@/components/TeamSection";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
+  const { t } = useLanguage();
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -16,8 +18,8 @@ const Index = () => {
       className="min-h-screen"
     >
       <SEO
-        title="Milagrosa Macuácua Advogados | Escritório de Advogados em Maputo"
-        description="Excelência jurídica em Moçambique: advocacia empresarial, contencioso, fiscal, laboral, família, imobiliário e regime de avença."
+        title={t("page.index.seo.title")}
+        description={t("page.index.seo.desc")}
         canonicalPath="/"
       />
       <Navigation />

@@ -4,8 +4,10 @@ import { Phone, MessageCircle, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { generateWhatsAppLink } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contactos = () => {
+  const { t } = useLanguage();
   const contactInfo = {
     whatsapp: "+258871549533",
     phone: "+258845305689",
@@ -54,7 +56,7 @@ Muito obrigado(a).`;
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-primary mb-6">
-              Contactos
+              {t("page.contactos.hero.title")}
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Entre em contacto connosco para obter assessoria jurídica

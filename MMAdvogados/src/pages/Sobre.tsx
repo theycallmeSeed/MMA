@@ -19,35 +19,34 @@ import {
 import LazyImage from "@/components/LazyImage";
 import { useEffect, useMemo, useState } from "react";
 import SEO from "@/components/SEO";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Sobre = () => {
+  const { t } = useLanguage();
+
   const values = [
     {
       icon: Trophy,
-      title: "Excelência",
-      description:
-        "Comprometemo-nos com os mais altos padrões de qualidade jurídica.",
+      title: t("page.sobre.values.1.title"),
+      description: t("page.sobre.values.1.desc"),
       gradient: "from-amber-500/20 to-yellow-500/20",
     },
     {
       icon: Users,
-      title: "Liderança Feminina",
-      description:
-        "Pioneiras no direito empresarial liderado por mulheres em Moçambique.",
+      title: t("page.sobre.values.2.title"),
+      description: t("page.sobre.values.2.desc"),
       gradient: "from-rose-500/20 to-pink-500/20",
     },
     {
       icon: Target,
-      title: "Foco em Resultados",
-      description:
-        "Orientamos todas as nossas acções para alcançar os objectivos dos clientes.",
+      title: t("page.sobre.values.3.title"),
+      description: t("page.sobre.values.3.desc"),
       gradient: "from-blue-500/20 to-cyan-500/20",
     },
     {
       icon: Award,
-      title: "Transparência",
-      description:
-        "Relatórios mensais e comunicação clara em todos os processos.",
+      title: t("page.sobre.values.4.title"),
+      description: t("page.sobre.values.4.desc"),
       gradient: "from-purple-500/20 to-violet-500/20",
     },
   ];
@@ -55,27 +54,23 @@ const Sobre = () => {
  const achievements = [
   {
     icon: Shield,
-    title: "Rigor Deontológico",
-    description:
-      "Actuação orientada pelo Estatuto da Ordem dos Advogados de Moçambique e pelos deveres profissionais aplicáveis.",
+    title: t("page.sobre.achievements.1.title"),
+    description: t("page.sobre.achievements.1.desc"),
   },
   {
     icon: Users,
-    title: "Acompanhamento Próximo",
-    description:
-      "Relação profissional assente em escuta, clareza de comunicação e atenção contínua às necessidades de cada cliente.",
+    title: t("page.sobre.achievements.2.title"),
+    description: t("page.sobre.achievements.2.desc"),
   },
   {
     icon: Trophy,
-    title: "Exigência Técnica",
-    description:
-      "Abordagem jurídica cuidada, com estudo consistente, fundamentação adequada e atenção ao detalhe.",
+    title: t("page.sobre.achievements.3.title"),
+    description: t("page.sobre.achievements.3.desc"),
   },
   {
     icon: Heart,
-    title: "Compromisso Profissional",
-    description:
-      "Exercício da advocacia com sentido de responsabilidade, discrição, lealdade e zelo no patrocínio dos interesses confiados.",
+    title: t("page.sobre.achievements.4.title"),
+    description: t("page.sobre.achievements.4.desc"),
   },
 ];
 
@@ -132,8 +127,8 @@ const Sobre = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Sobre | Milagrosa Macuácua Advogados"
-        description="Conheça a nossa história, valores e a excelência do nosso trabalho jurídico em Moçambique."
+        title={t("page.sobre.seo.title")}
+        description={t("page.sobre.seo.desc")}
         canonicalPath="/sobre"
       />
       <Navigation />
@@ -157,7 +152,7 @@ const Sobre = () => {
             }}
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6">
-              <span className="text-primary">Sobre Nós</span>
+              <span className="text-primary">{t("page.sobre.hero.title")}</span>
             </h1>
 
             {/* <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
@@ -302,26 +297,17 @@ const Sobre = () => {
             <motion.div className="space-y-6" variants={slideUp}>
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/20 text-accent-foreground">
                 <Building2Icon className="h-5 w-5 mr-2" />
-                <span className="text-sm font-medium">Escritório</span>
+                <span className="text-sm font-medium">{t("page.sobre.office.badge")}</span>
               </div>
 
               <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary">
-                Sobre o{" "}
-                <span className="text-gradient-primary">Escritório</span>
+                {t("page.sobre.office.title.1")}{" "}
+                <span className="text-gradient-primary">{t("page.sobre.office.title.2")}</span>
               </h2>
 
               <div className="space-y-4 text-foreground leading-relaxed">
                 <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-                  A MMAdvogados é uma sociedade de advogados constituída e
-                  registada nos termos da lei moçambicana, exercendo a sua
-                  actividade em estrita conformidade com o Estatuto da Ordem dos
-                  Advogados de Moçambique e demais normas deontológicas
-                  aplicáveis à advocacia. O escritório presta serviços de
-                  assessoria jurídica a empresas e particulares, actuando nas
-                  áreas de consultoria preventiva, contencioso e acompanhamento
-                  jurídico continuado, incluindo regimes de avença, sempre com
-                  observância dos princípios da independência,
-                  confidencialidade, lealdade e zelo profissional.
+                  {t("page.sobre.office.desc")}
                 </p>
               </div>
             </motion.div>
@@ -344,7 +330,7 @@ const Sobre = () => {
             <motion.div className="space-y-6" variants={slideUp}>
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/20 text-accent-foreground">
                 <Trophy className="h-4 w-4 mr-2" />
-                <span className="text-sm font-medium">Fundadora</span>
+                <span className="text-sm font-medium">{t("page.sobre.founder.badge")}</span>
               </div>
 
               <h3 className="text-4xl md:text-5xl font-serif font-bold text-primary">
@@ -353,23 +339,7 @@ const Sobre = () => {
 
               <div className="space-y-4 text-foreground leading-relaxed">
                 <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-                  Milagrosa Macuácua é advogada, sócia e fundadora da MM
-                  Advogados. Exerce a sua actividade profissional nas áreas de
-                  Direito Civil, Direito da Família, Direito Penal, Direito do
-                  Trabalho e Contencioso Administrativo. Foi Presidente do
-                  Conselho Provincial da Ordem dos Advogados de Moçambique no
-                  período de 2020 a 2023, exercendo atualmente funções de
-                  Conselheira no mesmo órgão. Integra a Comissão Nacional de
-                  Avaliação de Estágio da Ordem dos Advogados de Moçambique e
-                  exerce funções de Árbitro no Centro de Arbitragem, Conciliação
-                  e Mediação, e de Administradora de Insolvência. É licenciada
-                  em Direito pela Faculdade de Direito da Universidade Eduardo
-                  Mondlane desde 2009, Mestranda em Ciências Jurídicas na mesma
-                  instituição. Ao longo da sua carreira profissional, exerceu
-                  funções na Sal & Cadeira, na Opelegis e no Instituto de
-                  Patrocínio e Assistência Jurídica (IPAJ), nomeadamente como
-                  Delegada Distrital e como Chefe do Departamento de Formação e
-                  Estágio da Delegação Provincial.
+                  {t("page.sobre.founder.desc")}
                 </p>
               </div>
 
@@ -451,24 +421,16 @@ const Sobre = () => {
             <div className="space-y-6 lg:order-1">
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/20 text-accent-foreground">
                 <Users className="h-4 w-4 mr-2" />
-                <span className="text-sm font-medium">A Nossa Equipa</span>
+                <span className="text-sm font-medium">{t("page.sobre.team.badge")}</span>
               </div>
 
               <h3 className="text-4xl md:text-5xl font-serif font-bold text-primary">
-                Jovem, Técnica e Dinâmica
+                {t("page.sobre.team.title")}
               </h3>
 
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p className="text-lg">
-                  A MM Advogados é composta exclusivamente por mulheres,
-                  integrando advogadas, advogadas estagiárias e pessoal
-                  administrativo, todas com formação adequada às respetivas
-                  áreas de atuação do escritório. A atividade desenvolvida
-                  assenta numa abordagem técnica, colaborativa e organizada,
-                  suportada por meios tecnológicos que permitem uma gestão
-                  interna eficiente e um acompanhamento processual rigoroso,
-                  assegurando, em permanência, o cumprimento dos deveres legais
-                  e deontológicos inerentes ao exercício da advocacia.
+                  {t("page.sobre.team.desc")}
                 </p>
               </div>
 
@@ -476,13 +438,13 @@ const Sobre = () => {
                 <div className="text-center p-6 rounded-xl bg-card border border-border">
                   <div className="text-3xl font-bold text-primary mb-2">4+</div>
                   <div className="text-sm text-muted-foreground">
-                    Advogados Especializados
+                    {t("page.sobre.team.stat1")}
                   </div>
                 </div>
                 <div className="text-center p-6 rounded-xl bg-card border border-border">
                   <div className="text-3xl font-bold text-primary mb-2">7</div>
                   <div className="text-sm text-muted-foreground">
-                    Áreas de Especialização
+                    {t("page.sobre.team.stat2")}
                   </div>
                 </div>
               </div>
@@ -513,11 +475,10 @@ const Sobre = () => {
             viewport={{ once: true, amount: 0.3 }}
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary mb-6">
-              Os Nossos Valores
+              {t("page.sobre.values.title")}
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Os valores fundamentais que sustentam cada decisão e diferenciam
-              nosso trabalho.
+              {t("page.sobre.values.subtitle")}
             </p>
           </motion.div>
 
@@ -577,15 +538,15 @@ const Sobre = () => {
           >
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary mb-6">
               <Target className="h-4 w-4 mr-2" />
-              <span className="text-sm font-medium">A Nossa Missão</span>
+              <span className="text-sm font-medium">{t("page.sobre.mission.badge")}</span>
             </div>
 
             <h3 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6">
-              Transformar a Assessoria Jurídica em Moçambique.
+              {t("page.sobre.mission.title")}
             </h3>
 
             <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Prestar serviços jurídicos com elevado padrão de excelência, oferecendo soluções estratégicas e inovadoras que assegurem segurança jurídica, confiança e plena satisfação às pessoas colectivas e singulares que nos confiam os seus interesses.
+              {t("page.sobre.mission.desc")}
             </p>
 
             <div className="mt-10 flex justify-center">
@@ -593,7 +554,7 @@ const Sobre = () => {
                 href="/servicos"
                 className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,3j8)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto"
               >
-                <span>Conheça as Áreas de Atuação</span>
+                <span>{t("page.sobre.mission.btn")}</span>
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </a>
             </div>

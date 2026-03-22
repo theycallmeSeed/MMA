@@ -9,29 +9,24 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
 
   const quickLinks = [
-    { name: "Início", href: "/" },
-    { name: "Sobre Nós", href: "/sobre" },
-    { name: "Áreas de Atuação", href: "/servicos" },
-    { name: "Regime de Avença", href: "/avenca" },
-    { name: "Equipa", href: "/equipe" },
+    { name: t("nav.home"), href: "/" },
+    { name: t("nav.about"), href: "/sobre" },
+    { name: t("nav.services"), href: "/servicos" },
+    { name: t("nav.retainer"), href: "/avenca" },
+    { name: t("nav.team"), href: "/equipe" },
   ];
 
   const services = [
-    "Contencioso e Arbitragem",
-    "Recuperação de Créditos",
-    "Direito da Família e Sucessões",
-    "Direito Fiscal e Aduaneiro",
-    "Societário",
-    "Corporate",
-    "Direito Mineiro",
-    "Direito Administrativo",
-    "Imobiliária e Terras",
-    "Laboral e Migração"
+    t("services.litigation.title"),
+    t("services.corporate.title"),
+    t("services.credit.title"),
   ];
 
   const mapUrl =
@@ -67,15 +62,13 @@ const Footer = () => {
                 </div>
 
                 <p className="max-w-md text-sm leading-7 text-white/72 md:text-[15px]">
-                  Sociedade de advogados orientada para uma assessoria jurídica
-                  sólida, clara e tecnicamente rigorosa, com foco em empresas e
-                  particulares que valorizam estrutura, proximidade e discrição.
+                  {t("footer.brand.desc")}
                 </p>
               </div>
 
               <div className="space-y-4">
                 <h4 className="font-serif text-lg font-semibold text-white">
-                  Contactos
+                  {t("footer.contacts.title")}
                 </h4>
 
                 <div className="space-y-4 rounded-[28px] border border-white/10 bg-white/5 p-5 backdrop-blur-md">
@@ -116,8 +109,8 @@ const Footer = () => {
                   <div className="flex items-start gap-3">
                     <Clock className="mt-0.5 h-5 w-5 flex-shrink-0 text-[#f3d08b]" />
                     <div className="text-sm text-white/80 md:text-[15px]">
-                      <div>Seg - Sex: 08:30 - 17:30</div>
-                      <div>Sáb - Dom: Encerrado</div>
+                      <div>{t("footer.hours.wd")}</div>
+                      <div>{t("footer.hours.we")}</div>
                     </div>
                   </div>
 
@@ -129,9 +122,9 @@ const Footer = () => {
                       rel="noopener noreferrer"
                       className="text-sm leading-6 text-white/80 transition-colors hover:text-[#f3d08b] md:text-[15px]"
                     >
-                      <div>Av. Joaquim Chissano, 1919</div>
-                      <div>Fomento, Matola</div>
-                      <div>Moçambique</div>
+                      <div>{t("footer.address.l1")}</div>
+                      <div>{t("footer.address.l2")}</div>
+                      <div>{t("footer.address.l3")}</div>
                     </a>
                   </div>
                 </div>
@@ -164,7 +157,7 @@ const Footer = () => {
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-1">
               <div>
                 <h4 className="mb-5 font-serif text-lg font-semibold text-white">
-                  Navegação
+                  {t("footer.nav.title")}
                 </h4>
 
                 <ul className="space-y-3">
@@ -183,11 +176,11 @@ const Footer = () => {
 
               <div>
                 <h4 className="mb-5 font-serif text-lg font-semibold text-white">
-                  Áreas em Destaque
+                  {t("footer.areas.title")}
                 </h4>
 
                 <ul className="space-y-3">
-                  {services.slice(0, 6).map((service) => (
+                  {services.map((service) => (
                     <li
                       key={service}
                       className="text-sm leading-6 text-white/72 md:text-[15px]"
@@ -202,7 +195,7 @@ const Footer = () => {
             {/* Large premium map */}
             <div>
               <h4 className="mb-5 font-serif text-lg font-semibold text-white">
-                Localização
+                {t("footer.location.title")}
               </h4>
 
               <a
@@ -256,7 +249,7 @@ const Footer = () => {
                       <MapPin className="h-8 w-8 text-[#f3d08b]" />
                     </div>
                     <div className="mt-3 rounded-full border border-white/10 bg-black/20 px-4 py-1.5 text-xs font-medium tracking-[0.16em] text-white/85 uppercase backdrop-blur-sm">
-                      Escritório
+                      {t("footer.location.office")}
                     </div>
                   </div>
 
@@ -266,10 +259,10 @@ const Footer = () => {
                       <div className="mb-3 flex items-center justify-between gap-4">
                         <div>
                           <p className="text-[11px] uppercase tracking-[0.22em] text-white/55">
-                            Localização
+                            {t("footer.location.title")}
                           </p>
                           <h5 className="mt-1 font-serif text-xl font-semibold text-white sm:text-2xl">
-                            Av. Joaquim Chissano, Esquina com Rua Guiné Bissau, Q.2 n. 422
+                            {t("footer.location.full")}
                           </h5>
                         </div>
 
@@ -279,8 +272,7 @@ const Footer = () => {
                       </div>
 
                       <p className="max-w-xl text-sm leading-6 text-white/72 sm:text-[15px]">
-                        Fomento, Matola, Moçambique. Toque para abrir no Google
-                        Maps ou na aplicação de mapas disponível no dispositivo.
+                        {t("footer.location.desc")}
                       </p>
                     </div>
                   </div>
@@ -295,7 +287,7 @@ const Footer = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
             <div className="flex flex-col gap-3 text-center md:flex-row md:items-center md:justify-between md:text-left">
               <p className="text-sm text-white/55">
-                © {currentYear} Milagrosa Macuácua Advogados, LDA. Todos os direitos reservados.
+                {t("footer.rights").replace("{year}", currentYear.toString())}
               </p>
 
               <div className="flex flex-col items-center gap-2 text-sm md:flex-row md:gap-6">
@@ -303,13 +295,13 @@ const Footer = () => {
                   to="/privacidade"
                   className="text-white/55 transition-colors duration-200 hover:text-[#f3d08b]"
                 >
-                  Política de Privacidade
+                  {t("footer.privacy")}
                 </Link>
                 <Link
                   to="/termos"
                   className="text-white/55 transition-colors duration-200 hover:text-[#f3d08b]"
                 >
-                  Termos de Uso
+                  {t("footer.terms")}
                 </Link>
               </div>
             </div>

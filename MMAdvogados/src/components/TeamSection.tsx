@@ -3,6 +3,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { slideUp, staggerContainer, fadeIn } from "@/lib/animation-variants";
 import LazyImage from "@/components/LazyImage";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface TeamMember {
   id: number;
@@ -13,34 +14,30 @@ interface TeamMember {
 }
 
 const TeamSection = () => {
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const shouldReduce = useReducedMotion();
   const teamMembers: TeamMember[] = [
     {
       id: 1,
       name: "Milagrosa Macuácua",
-      position: "Sócia fundadora-Advogada Sénior",
+      position: t("team.m1.position"),
       photo: "/images/dra-milagrosa.webp",
-      description:
-        "Advogada com mais de 15 anos de experiência em Direito Civil e Consumerista. Especialista em casos complexos de responsabilidade civil.",
-  
+      description: t("team.m1.desc"),
     },
     {
       id: 2,
       name: "Marlete Miguel",
-      position: "Advogada Sénior",
+      position: t("team.m2.position"),
       photo: "/images/marlete-portrait.webp",
-      description:
-        "Especialista em Direito Empresarial e Societário. Atua na assessoria jurídica de empresas nacionais e multinacionais.",
+      description: t("team.m2.desc"),
     },
     {
       id: 3,
       name: "Cláudia Semente",
-      position: "Advogada Sênior",
+      position: t("team.m3.position"),
       photo: "/images/claudia-portrait.webp",
-      description:
-        "Especialista em Direito de Família e Sucessões com abordagem humanizada e sensível para casos familiares complexos.",
-    
+      description: t("team.m3.desc"),
     },
   ];
 
@@ -50,11 +47,10 @@ const TeamSection = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gradient-primary mb-4">
-            Nossa Equipe
+            {t("team.title")}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Conheça os profissionais dedicados que compõem a equipa MM Advogados,
-            prontos para oferecer a melhor assessoria jurídica.
+            {t("team.desc")}
           </p>
         </div>
 
@@ -152,7 +148,7 @@ const TeamSection = () => {
             aria-label="Ver equipe completa"
             className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,38)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto"
           >
-            <span> Ver Equipe Completa</span>
+            <span> {t("team.btn.full")}</span>
             <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
           </button>
         </motion.div>

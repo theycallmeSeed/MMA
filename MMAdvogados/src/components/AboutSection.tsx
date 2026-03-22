@@ -3,6 +3,7 @@ import LazyImage from "@/components/LazyImage";
 import { CheckCircle, Users, Trophy, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const carouselImages = [
   "/images/office-1.webp",
@@ -11,6 +12,7 @@ const carouselImages = [
 ];
 
 const AboutSection: React.FC = () => {
+  const { t } = useLanguage();
   const shouldReduce = useReducedMotion();
   const [index, setIndex] = useState(0);
   const [firstLoaded, setFirstLoaded] = useState(false);
@@ -46,7 +48,7 @@ const AboutSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* 🔥 TÍTULO PRINCIPAL — ADICIONADO */}
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 text-center">
-          <span className="text-primary">Sobre Nós</span>
+          <span className="text-primary">{t("about.title")}</span>
           <br />
         </h2>
 
@@ -63,12 +65,7 @@ const AboutSection: React.FC = () => {
             </h3> */}
 
             <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-xl">
-              A sociedade exerce a advocacia com base no rigor técnico, na
-              análise jurídica criteriosa e no respeito pelos princípios éticos
-              que regem a profissão. A actuação da firma abrange o
-              acompanhamento jurídico de empresas e particulares, incluindo
-              matérias de natureza preventiva, contenciosa e de assessoria
-              jurídica continuada
+              {t("about.desc")}
             </p>
 
             {/* Nota de resposta
@@ -79,13 +76,13 @@ const AboutSection: React.FC = () => {
               <div className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-primary mt-1" />
                 <span className="text-sm text-foreground">
-                  Sociedade liderada por mulheres
+                  {t("about.feat1")}
                 </span>
               </div>
               <div className="flex items-start gap-3">
                 <Users className="h-5 w-5 text-primary mt-1" />
                 <span className="text-sm text-foreground">
-                  Regime de avença empresarial
+                  {t("about.feat2")}
                 </span>
               </div>
             </div>
@@ -193,7 +190,7 @@ const AboutSection: React.FC = () => {
             to="/sobre"
             className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,38)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto"
           >
-            Saber mais
+            {t("about.btn.more")}
             <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
           </Link>
         </div>
