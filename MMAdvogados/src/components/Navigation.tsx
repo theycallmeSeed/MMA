@@ -20,24 +20,40 @@ const Navigation = () => {
   const burgerRef = useRef<HTMLButtonElement | null>(null);
 
   const isHome = location.pathname === "/";
-const SCROLL_THRESHOLD = 10;
-const isScrolled = window.scrollY > SCROLL_THRESHOLD;
-  useLayoutEffect(() => {
-  const onScroll = () => {
-    setScrolled(window.scrollY > 4); // ← 4 ou 6 ou 8 — experimenta valores
-  };
+  const SCROLL_THRESHOLD = 20;
+  const isScrolled = window.scrollY > SCROLL_THRESHOLD;
+  // useLayoutEffect(() => {
+  //   const onScroll = () => {
+  //     setScrolled(window.scrollY > SCROLL_THRESHOLD);
+  //   };
 
-  window.addEventListener("scroll", onScroll, { passive: true });
-  
-  onScroll(); // ← executa imediatamente para garantir valor correto no mount
-
-  return () => window.removeEventListener("scroll", onScroll);
-}, []);
-  // useEffect(() => {
-  //   const onScroll = () => setScrolled(window.scrollY > 0);
+  //   onScroll();
   //   window.addEventListener("scroll", onScroll, { passive: true });
+
   //   return () => window.removeEventListener("scroll", onScroll);
   // }, []);
+
+  const [isOverHero, setIsOverHero] = useState(true);
+
+  useEffect(() => {
+    const hero = document.getElementById("hero");
+
+    if (!hero) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsOverHero(entry.isIntersecting);
+      },
+      {
+        root: null,
+        threshold: 0.1,
+      }
+    );
+
+    observer.observe(hero);
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     setIsOpen(false);
@@ -45,20 +61,21 @@ const isScrolled = window.scrollY > SCROLL_THRESHOLD;
 
   const isActive = (href: string) => location.pathname === href;
 
-  const navBg =
-    isHome && !isScrolled
-      ? "bg-transparent"
-      : "bg-white/95 backdrop-blur-md shadow-sm border-b";
+  //  const navBg =
+  //   isHome && !scrolled
+  //     ? "bg-transparent"
+  //     : "bg-white/95 backdrop-blur-md shadow-sm border-b";
 
-  const textColor = isHome && !isScrolled ? "text-white" : "text-[rgb(81,21,38)]";
+  const textColor =
+    isHome && isOverHero ? "text-white" : "text-[rgb(81,21,38)]";
 
   return (
     <>
       <motion.nav
-        initial={{ opacity: 0 }}
+        initial={false}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.4 }}
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500  ${navBg}`}
+        className="fixed inset-x-0 top-0 z-50"
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16 lg:h-20">

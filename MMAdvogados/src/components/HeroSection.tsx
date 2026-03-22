@@ -4,27 +4,27 @@ import { Button } from "@/components/ui/button";
 import { getWhatsAppConsultoriaLinkExact } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
-
+<section id="hero"></section>
 const HeroSection = () => {
-  useEffect(() => {
-    const linkD = document.createElement("link");
-    linkD.rel = "preload";
-    linkD.as = "image";
-    linkD.href = "/images/hero-banner.webp";
-    linkD.fetchPriority = "high";
-    const linkM = document.createElement("link");
-    linkM.rel = "preload";
-    linkM.as = "image";
-    linkM.href = "/images/hero-banner-mob.webp";
-    linkM.media = "(max-width: 768px)";
-    linkM.fetchPriority = "high";
-    document.head.appendChild(linkD);
-    document.head.appendChild(linkM);
-    return () => {
-      document.head.removeChild(linkD);
-      document.head.removeChild(linkM);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const linkD = document.createElement("link");
+  //   linkD.rel = "preload";
+  //   linkD.as = "image";
+  //   linkD.href = "/images/hero-banner.webp";
+  //   linkD.fetchPriority = "high";
+  //   const linkM = document.createElement("link");
+  //   linkM.rel = "preload";
+  //   linkM.as = "image";
+  //   linkM.href = "/images/hero-banner-mob.webp";
+  //   linkM.media = "(max-width: 768px)";
+  //   linkM.fetchPriority = "high";
+  //   document.head.appendChild(linkD);
+  //   document.head.appendChild(linkM);
+  //   return () => {
+  //     document.head.removeChild(linkD);
+  //     document.head.removeChild(linkM);
+  //   };
+  // }, []);
   return (
     <motion.section
       initial={{ opacity: 0 }}
