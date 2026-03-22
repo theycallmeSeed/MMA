@@ -24,10 +24,12 @@ jobs:
           node-version: 20
           cache: npm
 
-      - name: Install dependencies
+      - name: Install deps
+        working-directory: MMAdvogados
         run: npm ci
 
-      - name: Build project
+      - name: Build
+        working-directory: MMAdvogados
         run: npm run build
 
       - name: Setup SSH agent
