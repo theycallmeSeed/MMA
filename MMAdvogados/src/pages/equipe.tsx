@@ -24,6 +24,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { Button } from "@/components/ui/button";
 import LazyImage from "@/components/LazyImage";
 import SEO from "@/components/SEO";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface TeamMember {
   id: number;
@@ -49,6 +50,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
   index,
 }) => {
   const [open, setOpen] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <motion.div
@@ -123,7 +125,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
             >
               <span className="flex items-center gap-2">
                 <BookOpen className="h-4 w-4" />
-                Ver Perfil
+                {t("page.equipa.profile.btn")}
               </span>
               <ChevronDown
                 className={`ml-2 w-5 h-5 transform transition-transform duration-300 ${open ? "rotate-180" : ""}`}
@@ -169,7 +171,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
                   <div>
                     <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
                       <GraduationCap className="w-5 h-5 mr-2 text-primary" />
-                      Formação Académica
+                      {t("page.equipa.profile.education")}
                     </h4>
                     <ul className="space-y-2">
                       {member.education.map((item, idx) => (
@@ -187,7 +189,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
                   <div>
                     <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
                       <Briefcase className="w-5 h-5 mr-2 text-primary" />
-                      Experiência Profissional
+                      {t("page.equipa.profile.experience")}
                     </h4>
                     <ul className="space-y-2">
                       {member.experience.map((item, idx) => (
@@ -205,7 +207,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
                   <div>
                     <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
                       <Sparkles className="w-5 h-5 mr-2 text-primary" />
-                      Especialidades
+                      {t("page.equipa.profile.specialties")}
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {member.specialties.map((specialty, idx) => (
@@ -222,7 +224,7 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
                   <div>
                     <h4 className="flex items-center text-base font-semibold text-foreground mb-3">
                       <Languages className="w-5 h-5 mr-2 text-primary" />
-                      Idiomas
+                      {t("page.equipa.profile.languages")}
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {member.languages.map((language, idx) => (
@@ -254,347 +256,332 @@ const Equipe = () => {
   const location = useLocation();
   const shouldReduce = useReducedMotion();
   const isMobile = useIsMobile();
+  const { t } = useLanguage();
 
   const teamMembers: TeamMember[] = [
-    // ... mantém os objetos dos membros que já tinhas (copiar tal como estão)
     {
       id: 1,
       name: "Milagrosa Macuácua",
-      position: "Sócia fundadora-Advogada Sénior",
+      position: t("team.m1.position"),
       photo: "/images/dra-milagrosa.webp",
-      description:
-        "É advogada, inscrita na OAM, com mais de 15 anos de experiência em Direito Civil, Criminal, Trabalho, Arbitragem na CACM e Administradora de Insolvência. Especialista em casos complexos de responsabilidade civil.",
+      description: t("team.m1.desc"),
       email: "maria@mmadvogados.com",
       phone: "+351 912 345 678",
       location: "Lisboa, Portugal",
       linkedin: "https://linkedin.com/in/mariasilva",
       website: "https://mariasilva.adv.br",
       education: [
-        "Mestrado em Direito Civil - Universidade de Lisboa",
-        "Pós-Graduação em Direito do Consumidor - Universidade Católica",
-        "Bacharelado em Direito - Universidade de Coimbra",
+        t("team.m1.edu.1"),
+        t("team.m1.edu.2"),
+        t("team.m1.edu.3"),
       ],
       experience: [
-        "Sócia Fundadora na MMA Advogados (2018 - Presente)",
-        "Advogada Sénior no escritório Silva & Associados (2010-2018)",
-        "Estagiária no Tribunal Judicial de Lisboa (2008-2010)",
+        t("team.m1.exp.1"),
+        t("team.m1.exp.2"),
+        t("team.m1.exp.3"),
       ],
       specialties: [
-        "Direito Civil",
-        "Direito do Consumidor",
-        "Responsabilidade Civil",
-        "Contratos",
+        t("team.m1.spec.1"),
+        t("team.m1.spec.2"),
+        t("team.m1.spec.3"),
+        t("team.m1.spec.4"),
       ],
       languages: [
-        "Português (Nativo)",
-        "Inglês (Avançado)",
-        "Espanhol (Intermediário)",
+        t("team.m1.lang.1"),
+        t("team.m1.lang.2"),
+        t("team.m1.lang.3"),
       ],
     },
-    // ... restantes membros (mantém todos os dados iguais aos que tens)
     {
       id: 2,
       name: "Marlete Miguel",
-      position: "Advogada Sénior",
+      position: t("team.m2.position"),
       photo: "/images/marlete-portrait.webp",
-
-      description:
-        "É advogada, com experiência consolidada em Direito Criminal, Direito de Família e Sucessões.",
+      description: t("team.m2.desc"),
       email: "joao@mmadvogados.com",
       phone: "+351 913 456 789",
       location: "Porto, Portugal",
       linkedin: "https://linkedin.com/in/joaosantos",
       education: [
-        "MBA em Gestão Jurídica - Universidade do Porto",
-        "Especialização em Direito Societário - Universidade Nova de Lisboa",
-        "Bacharelado em Direito - Universidade do Minho",
+        t("team.m2.edu.1"),
+        t("team.m2.edu.2"),
+        t("team.m2.edu.3"),
       ],
       experience: [
-        "Sócio na MMA Advogados (2018 - Presente)",
-        "Consultor Jurídico na Empresa XYZ (2014-2018)",
-        "Advogado Júnior no escritório Empresarial Legal (2011-2014)",
+        t("team.m2.exp.1"),
+        t("team.m2.exp.2"),
+        t("team.m2.exp.3"),
       ],
       specialties: [
-        "Direito Societário",
-        "Fusões e Aquisições",
-        "Contratos Empresariais",
-        "Compliance",
+        t("team.m2.spec.1"),
+        t("team.m2.spec.2"),
+        t("team.m2.spec.3"),
+        t("team.m2.spec.4"),
       ],
       languages: [
-        "Português (Nativo)",
-        "Inglês (Fluente)",
-        "Francês (Intermediário)",
+        t("team.m2.lang.1"),
+        t("team.m2.lang.2"),
+        t("team.m2.lang.3"),
       ],
     },
     {
       id: 3,
       name: "Cláudia Semente",
-      position: "Advogada Sênior ",
+      position: t("team.m3.position"),
       photo: "/images/claudia-portrait.webp",
-      description:
-        "É advogada, com actuação predominante nas áreas de Direito Processual Civil, Direito do Trabalho.",
+      description: t("team.m3.desc"),
       email: "ana@mmadvogados.com",
       phone: "+351 914 567 890",
       location: "Lisboa, Portugal",
       linkedin: "https://linkedin.com/in/anacosta",
       education: [
-        "Especialização em Direito de Família - Universidade de Lisboa",
-        "Curso de Mediação de Conflitos Familiares",
-        "Bacharelado em Direito - Universidade de Évora",
+        t("team.m3.edu.1"),
+        t("team.m3.edu.2"),
+        t("team.m3.edu.3"),
       ],
       experience: [
-        "Associada Sénior na MMA Advogados (2020 - Presente)",
-        "Advogada especializada em Família no escritório Familiar & Associados (2015-2020)",
-        "Mediadora Judicial (2013-2015)",
+        t("team.m3.exp.1"),
+        t("team.m3.exp.2"),
+        t("team.m3.exp.3"),
       ],
       specialties: [
-        "Divórcio e Separação",
-        "Guarda de Menores",
-        "Inventários e Partilhas",
-        "Alimentos",
+        t("team.m3.spec.1"),
+        t("team.m3.spec.2"),
+        t("team.m3.spec.3"),
+        t("team.m3.spec.4"),
       ],
       languages: [
-        "Português (Nativo)",
-        "Espanhol (Avançado)",
-        "Inglês (Intermediário)",
+        t("team.m3.lang.1"),
+        t("team.m3.lang.2"),
+        t("team.m3.lang.3"),
       ],
     },
-      {
+    {
       id: 4,
       name: "Beatriz Macamo",
-      position: "Advogada e Consultora",
+      position: t("team.m4.position"),
       photo: "/images/beatriz-portait.webp",
-      description:
-        "É advogada, com área de actuação no Direito Empresarial (corporate) e societário, Fiscal e Aduaneiro. Actua na assessoria jurídica de empresas nacionais e multinacionais, com particular destaque no sector mineiro e migratório.",
+      description: t("team.m4.desc"),
       email: "joao@mmadvogados.com",
       phone: "+351 913 456 789",
       location: "Porto, Portugal",
       linkedin: "https://linkedin.com/in/joaosantos",
       education: [
-        "Pós-Graduação em Direito Imobiliário",
-        "Especialização em Direito Urbanístico",
-        "Bacharelado em Direito",
+        t("team.m4.edu.1"),
+        t("team.m4.edu.2"),
+        t("team.m4.edu.3"),
       ],
       experience: [
-        "Advogada na MMA Advogados (2020 - Presente)",
-        "Consultora Imobiliária Jurídica (2017-2020)",
-        "Advogada Júnior em escritório especializado (2015-2017)",
+        t("team.m4.exp.1"),
+        t("team.m4.exp.2"),
+        t("team.m4.exp.3"),
       ],
       specialties: [
-        "Direito Imobiliário",
-        "Regularização de Terras",
-        "Contratos de Compra e Venda",
-        "DUAT",
+        t("team.m4.spec.1"),
+        t("team.m4.spec.2"),
+        t("team.m4.spec.3"),
+        t("team.m4.spec.4"),
       ],
-      languages: ["Português (Nativo)", "Inglês (Fluente)", "Francês (Básico)"],
+      languages: [t("team.m4.lang.1"), t("team.m4.lang.2"), t("team.m4.lang.3")],
     },
     {
       id: 5,
       name: "Albertina Nhantumbo",
-      position: "Advogada estagiária ",
+      position: t("team.m5.position"),
       photo: "/images/albertina-portait.webp",
-      description:
-        "Advogada estagiária, com especialidade no Direito da Família e na área de recuperação de créditos judicial e extrajudicial.",
+      description: t("team.m5.desc"),
       email: "joao@mmadvogados.com",
       phone: "+351 913 456 789",
       location: "Porto, Portugal",
       linkedin: "https://linkedin.com/in/joaosantos",
       education: [
-        "Pós-Graduação em Direito Imobiliário",
-        "Especialização em Direito Urbanístico",
-        "Bacharelado em Direito",
+        t("team.m5.edu.1"),
+        t("team.m5.edu.2"),
+        t("team.m5.edu.3"),
       ],
       experience: [
-        "Advogada na MMA Advogados (2020 - Presente)",
-        "Consultora Imobiliária Jurídica (2017-2020)",
-        "Advogada Júnior em escritório especializado (2015-2017)",
+        t("team.m5.exp.1"),
+        t("team.m5.exp.2"),
+        t("team.m5.exp.3"),
       ],
       specialties: [
-        "Direito Imobiliário",
-        "Regularização de Terras",
-        "Contratos de Compra e Venda",
-        "DUAT",
+        t("team.m5.spec.1"),
+        t("team.m5.spec.2"),
+        t("team.m5.spec.3"),
+        t("team.m5.spec.4"),
       ],
-      languages: ["Português (Nativo)", "Inglês (Fluente)", "Francês (Básico)"],
+      languages: [t("team.m5.lang.1"), t("team.m5.lang.2"), t("team.m5.lang.3")],
     },
     {
       id: 6,
       name: "Helodia Malate",
-      position: "Advogada ",
+      position: t("team.m6.position"),
       photo: "/images/heloida2-portait.webp",
-      description:
-        "Especialista em recuperação judicial e extrajudicial de créditos, com domínio nas áreas de Família e Laboral.",
+      description: t("team.m6.desc"),
       email: "joao@mmadvogados.com",
       phone: "+351 913 456 789",
       location: "Porto, Portugal",
       linkedin: "https://linkedin.com/in/joaosantos",
       education: [
-        "Mestrado em Direito Laboral - Universidade do Porto",
-        "Especialização em Relações Laborais",
-        "Bacharelado em Direito - Universidade do Minho",
+        t("team.m6.edu.1"),
+        t("team.m6.edu.2"),
+        t("team.m6.edu.3"),
       ],
       experience: [
-        "Advogada na MMA Advogados (2019 - Presente)",
-        "Consultora Laboral (2016-2019)",
-        "Estagiária em escritório especializado (2015-2016)",
+        t("team.m6.exp.1"),
+        t("team.m6.exp.2"),
+        t("team.m6.exp.3"),
       ],
       specialties: [
-        "Direito Laboral",
-        "Contratos de Trabalho",
-        "Rescisões",
-        "Compliance Laboral",
+        t("team.m6.spec.1"),
+        t("team.m6.spec.2"),
+        t("team.m6.spec.3"),
+        t("team.m6.spec.4"),
       ],
       languages: [
-        "Português (Nativo)",
-        "Inglês (Fluente)",
-        "Francês (Intermediário)",
+        t("team.m6.lang.1"),
+        t("team.m6.lang.2"),
+        t("team.m6.lang.3"),
       ],
     },
     {
       id: 7,
       name: "Maura Matsinhe",
-      position: "Advogada",
+      position: t("team.m7.position"),
       photo: "/images/maura-portrait.webp",
-      description:
-        "É advogada, especialista na área de Direito de Civil, e na Área de recuperação judicial e extrajudicial.",
+      description: t("team.m7.desc"),
       email: "joao@mmadvogados.com",
       phone: "+351 913 456 789",
       location: "Porto, Portugal",
       linkedin: "https://linkedin.com/in/joaosantos",
       education: [
-        "Pós-Graduação em Direito Imobiliário",
-        "Especialização em Direito Urbanístico",
-        "Bacharelado em Direito",
+        t("team.m7.edu.1"),
+        t("team.m7.edu.2"),
+        t("team.m7.edu.3"),
       ],
       experience: [
-        "Advogada na MMA Advogados (2020 - Presente)",
-        "Consultora Imobiliária Jurídica (2017-2020)",
-        "Advogada Júnior em escritório especializado (2015-2017)",
+        t("team.m7.exp.1"),
+        t("team.m7.exp.2"),
+        t("team.m7.exp.3"),
       ],
       specialties: [
-        "Direito Imobiliário",
-        "Regularização de Terras",
-        "Contratos de Compra e Venda",
-        "DUAT",
+        t("team.m7.spec.1"),
+        t("team.m7.spec.2"),
+        t("team.m7.spec.3"),
+        t("team.m7.spec.4"),
       ],
-      languages: ["Português (Nativo)", "Inglês (Fluente)", "Francês (Básico)"],
+      languages: [t("team.m7.lang.1"), t("team.m7.lang.2"), t("team.m7.lang.3")],
     },
     {
       id: 8,
       name: "Dulce Venâncio",
-      position: "Advogada",
+      position: t("team.m8.position"),
       photo: "/images/dulce-portait.webp",
-      description:
-        "É advogada, inscrita na OAM, especialista em direito imobiliário e terra, Contencioso Civil e Administrativo. ",
+      description: t("team.m8.desc"),
       email: "joao@mmadvogados.com",
       phone: "+351 913 456 789",
       location: "Porto, Portugal",
       linkedin: "https://linkedin.com/in/joaosantos",
       education: [
-        "Pós-Graduação em Direito Imobiliário",
-        "Especialização em Direito Urbanístico",
-        "Bacharelado em Direito",
+        t("team.m8.edu.1"),
+        t("team.m8.edu.2"),
+        t("team.m8.edu.3"),
       ],
       experience: [
-        "Advogada na MMA Advogados (2020 - Presente)",
-        "Consultora Imobiliária Jurídica (2017-2020)",
-        "Advogada Júnior em escritório especializado (2015-2017)",
+        t("team.m8.exp.1"),
+        t("team.m8.exp.2"),
+        t("team.m8.exp.3"),
       ],
       specialties: [
-        "Direito Imobiliário",
-        "Regularização de Terras",
-        "Contratos de Compra e Venda",
-        "DUAT",
+        t("team.m8.spec.1"),
+        t("team.m8.spec.2"),
+        t("team.m8.spec.3"),
+        t("team.m8.spec.4"),
       ],
-      languages: ["Português (Nativo)", "Inglês (Fluente)", "Francês (Básico)"],
+      languages: [t("team.m8.lang.1"), t("team.m8.lang.2"), t("team.m8.lang.3")],
     },
     {
       id: 9,
       name: "Filomena Jaques",
-      position: "Advogada estagiária ",
+      position: t("team.m9.position"),
       photo: "/images/filomena-portait.webp",
-      description:
-        "Especialista em Direito Civil, Direito Processual Civil.",
+      description: t("team.m9.desc"),
       email: "joao@mmadvogados.com",
       phone: "+351 913 456 789",
       location: "Porto, Portugal",
       linkedin: "https://linkedin.com/in/joaosantos",
       education: [
-        "Pós-Graduação em Direito Imobiliário",
-        "Especialização em Direito Urbanístico",
-        "Bacharelado em Direito",
+        t("team.m9.edu.1"),
+        t("team.m9.edu.2"),
+        t("team.m9.edu.3"),
       ],
       experience: [
-        "Advogada na MMA Advogados (2020 - Presente)",
-        "Consultora Imobiliária Jurídica (2017-2020)",
-        "Advogada Júnior em escritório especializado (2015-2017)",
+        t("team.m9.exp.1"),
+        t("team.m9.exp.2"),
+        t("team.m9.exp.3"),
       ],
       specialties: [
-        "Direito Imobiliário",
-        "Regularização de Terras",
-        "Contratos de Compra e Venda",
-        "DUAT",
+        t("team.m9.spec.1"),
+        t("team.m9.spec.2"),
+        t("team.m9.spec.3"),
+        t("team.m9.spec.4"),
       ],
-      languages: ["Português (Nativo)", "Inglês (Fluente)", "Francês (Básico)"],
+      languages: [t("team.m9.lang.1"), t("team.m9.lang.2"), t("team.m9.lang.3")],
     },
     {
       id: 10,
       name: "Tecla Ntauma",
-      position: "Assistente Administrativa",
+      position: t("team.m10.position"),
       photo: "/images/tecla2-portrait.webp",
-      description:
-        "Profissional dedicada a gestão administrativa e suporte operacional, garantido eficiência nos processos internos.",
+      description: t("team.m10.desc"),
       email: "joao@mmadvogados.com",
       phone: "+351 913 456 789",
       location: "Porto, Portugal",
       linkedin: "https://linkedin.com/in/joaosantos",
       education: [
-        "Curso de Gestão Administrativa",
-        "Formação em Atendimento ao Cliente",
-        "Certificação em Microsoft Office",
+        t("team.m10.edu.1"),
+        t("team.m10.edu.2"),
+        t("team.m10.edu.3"),
       ],
       experience: [
-        "Assistente Administrativa na MMA Advogados (2020 - Presente)",
-        "Apoio Administrativo em escritório jurídico (2018-2020)",
+        t("team.m10.exp.1"),
+        t("team.m10.exp.2"),
       ],
       specialties: [
-        "Gestão de Agenda",
-        "Atendimento ao Cliente",
-        "Organização Documental",
-        "Suporte Operacional",
+        t("team.m10.spec.1"),
+        t("team.m10.spec.2"),
+        t("team.m10.spec.3"),
+        t("team.m10.spec.4"),
       ],
-      languages: ["Português (Nativo)", "Inglês (Intermediário)"],
+      languages: [t("team.m10.lang.1"), t("team.m10.lang.2")],
     },
-     {
+    {
       id: 11,
       name: "Ester Chipe",
-      position: "Assistente Administrativa",
+      position: t("team.m11.position"),
       photo: "/images/ester-portrait.webp",
-      description:
-        "Profissional dedicada a tramitação de expedientes da empresa.",
+      description: t("team.m11.desc"),
       email: "joao@mmadvogados.com",
       phone: "+351 913 456 789",
       location: "Porto, Portugal",
       linkedin: "https://linkedin.com/in/joaosantos",
       education: [
-        "Curso de Gestão Administrativa",
-        "Formação em Atendimento ao Cliente",
-        "Certificação em Microsoft Office",
+        t("team.m11.edu.1"),
+        t("team.m11.edu.2"),
+        t("team.m11.edu.3"),
       ],
       experience: [
-        "Assistente Administrativa na MMA Advogados (2020 - Presente)",
-        "Apoio Administrativo em escritório jurídico (2018-2020)",
+        t("team.m11.exp.1"),
+        t("team.m11.exp.2"),
       ],
       specialties: [
-        "Gestão de Agenda",
-        "Atendimento ao Cliente",
-        "Organização Documental",
-        "Suporte Operacional",
+        t("team.m11.spec.1"),
+        t("team.m11.spec.2"),
+        t("team.m11.spec.3"),
+        t("team.m11.spec.4"),
       ],
-      languages: ["Português (Nativo)", "Inglês (Intermediário)"],
+      languages: [t("team.m11.lang.1"), t("team.m11.lang.2")],
     },
-    
-    
   ];
 
   const peopleJsonLd = {
@@ -614,8 +601,8 @@ const Equipe = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Equipa | Milagrosa Macuácua Advogados"
-        description="Conheça a equipa de advogados e a sua atuação com excelência em Moçambique."
+        title={t("page.equipa.seo.title")}
+        description={t("page.equipa.seo.desc")}
         canonicalPath="/equipe"
         jsonLd={peopleJsonLd}
       />
@@ -639,7 +626,7 @@ const Equipe = () => {
             }}
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6">
-              <span className="text-primary">Equipa</span>
+              <span className="text-primary">{t("page.equipa.hero.title")}</span>
             </h1>
 
             {/* <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
@@ -656,13 +643,13 @@ const Equipe = () => {
               style={{ willChange: "transform, opacity" }}
             >
               {[
-                { icon: Users2, number: "6+", label: "Profissionais" },
+                { icon: Users2, number: "6+", label: t("page.equipa.stat1") },
                 {
                   icon: Award,
                   number: "50+",
-                  label: "Anos de Experiência Combinada",
+                  label: t("page.equipa.stat2"),
                 },
-                { icon: Target, number: "12", label: "Áreas de Especialização" },
+                { icon: Target, number: "12", label: t("page.equipa.stat3") },
               ].map((stat, idx) => (
                 <motion.div
                   key={idx}
@@ -716,13 +703,12 @@ const Equipe = () => {
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">
-            Pronto para Trabalhar com{" "}
-            <span className="text-gradient-primary">os Melhores?</span>
+            {t("page.equipa.cta.title.1")}{" "}
+            <span className="text-gradient-primary">{t("page.equipa.cta.title.2")}</span>
           </h2>
 
           <p className="text-lg text-foreground mb-8 leading-relaxed">
-            A nossa equipa está pronta para oferecer soluções jurídicas
-            personalizadas que atendam às suas necessidades específicas.
+            {t("page.equipa.cta.desc")}
           </p>
 
           <motion.button
@@ -737,7 +723,7 @@ const Equipe = () => {
             whileTap={{ scale: 0.98 }}
             aria-label="Ver os nossos serviços"
           >
-            <span>Ver os Nossos Serviços</span>
+            <span>{t("page.equipa.cta.btn")}</span>
             <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
           </motion.button>
         </div>

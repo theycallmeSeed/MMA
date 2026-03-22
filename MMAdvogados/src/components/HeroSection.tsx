@@ -4,8 +4,11 @@ import { Button } from "@/components/ui/button";
 import { getWhatsAppConsultoriaLinkExact } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
+
 <section id="hero"></section>
 const HeroSection = () => {
+  const { t } = useLanguage();
   // useEffect(() => {
   //   const linkD = document.createElement("link");
   //   linkD.rel = "preload";
@@ -31,13 +34,13 @@ const HeroSection = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
       className="relative min-h-[100svh] md:min-h-screen flex items-center justify-center overflow-hidden"
-      aria-label="Hero principal - Milagrosa Macuácua Advogados"
+      aria-label={t("hero.aria.label")}
     >
       <div
         className="absolute inset-0 h-full w-full hero-parallax"
         style={{ }}
       >
-       <div className="hero-bg absolute inset-0" role="img" aria-label="Escritório de advocacia profissional" />
+       <div className="hero-bg absolute inset-0" role="img" aria-label={t("hero.img.alt")} />
         <div className="absolute inset-0 bg-black/50 sm:bg-black/45 md:bg-black/40"></div>
         <div className="absolute inset-0 bg-radial-gradient opacity-8"></div>
         <div
@@ -54,17 +57,17 @@ const HeroSection = () => {
               data-seo-importance="primary"
               style={{ animationDelay: "0.4s" }}
             >
-              Assessoria Jurídica de Carácter Institucional para{" "}
+              {t("hero.title.p1")}{" "}
               <span className="relative inline-block">
                 <span className="bg-gradient-to-r from-accent via-accent/90 to-accent/80 bg-clip-text text-transparent font-extrabold">
-                  Pessoas Colectivas
+                  {t("hero.title.p2")}
                 </span>
                 <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-accent via-accent/80 to-transparent rounded-full"></span>
               </span>{" "}
-              e{" "}
+              {t("hero.title.p3")}{" "}
               <span className="relative inline-block">
                 <span className="bg-gradient-to-r from-accent via-accent/90 to-accent/80 bg-clip-text text-transparent font-extrabold">
-                  Singulares
+                  {t("hero.title.p4")}
                 </span>
                 <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-accent via-accent/80 to-transparent rounded-full"></span>
               </span>
@@ -79,8 +82,8 @@ const HeroSection = () => {
               asChild
               size="lg"
               className="bg-[rgb(81,21,38)] text-white hover:bg-[rgb(81,21,38)]/90 px-8 py-6 w-full sm:w-auto text-base transition-all duration-300 shadow-lg hover:shadow-2xl focus-visible:ring-4 focus-visible:ring-white/50 focus-visible:ring-offset-2"
-              aria-label="Agendar consultoria jurídica via WhatsApp"
-              title="Agendar consultoria jurídica via WhatsApp"
+              aria-label={t("hero.btn.consult")}
+              title={t("hero.btn.consult")}
             >
               <a
                 href={getWhatsAppConsultoriaLinkExact()}
@@ -88,7 +91,7 @@ const HeroSection = () => {
                 rel="noopener noreferrer"
               >
                 <span className="flex items-center gap-3">
-                  Agendar Consultoria
+                  {t("hero.btn.consult")}
                   <ArrowRight className="h-5 w-5" />
                 </span>
               </a>
@@ -98,12 +101,12 @@ const HeroSection = () => {
               variant="outline"
               size="lg"
               className="border-2 border-white/70 bg-transparent text-white hover:bg-white/20 hover:text-white px-8 py-6 w-full sm:w-auto text-base transition-all duration-300 backdrop-blur-sm"
-              aria-label="Conhecer serviços e áreas de atuação"
-              title="Conhecer serviços e áreas de atuação"
+              aria-label={t("hero.btn.services")}
+              title={t("hero.btn.services")}
             >
               <a href="/servicos">
                 <span className="flex items-center gap-3">
-                  Ver Serviços
+                  {t("hero.btn.services")}
                 </span>
               </a>
             </Button>

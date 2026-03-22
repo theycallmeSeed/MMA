@@ -25,7 +25,10 @@ import {
   getWhatsAppConsultoriaLinkExact,
 } from "@/lib/utils";
 
+import { useLanguage } from "@/contexts/LanguageContext";
+
 const AnimatedServicesSection = () => {
+  const { t } = useLanguage();
   const [selectedService, setSelectedService] = useState<number | null>(null);
   const isMobile = useIsMobile();
   const prefersReduced = useReducedMotion();
@@ -69,14 +72,13 @@ const AnimatedServicesSection = () => {
   const services = [
     {
       icon: Scale,
-      title: "Contencioso e Arbitragem",
+      title: t("services.litigation.title"),
       image: "/images/office-interior.webp",
-      description:
-        "Actuação em processos judiciais e arbitrais, nos termos da lei, designadamente:",
+      description: t("services.litigation.desc"),
       features: [
-        "	Natureza criminal, laboral civil, societário e contencioso administrativo ",
-        "	Arbitragem",
-        "Mediação",
+        t("services.litigation.f1"),
+        t("services.litigation.f2"),
+        t("services.litigation.f3"),
       ],
       detailedDescription:
         "A nossa equipa atua na representação de clientes em tribunais judiciais e em processos arbitrais, nacionais e internacionais. Procuramos sempre soluções eficazes para a resolução de litígios comerciais, conjugando estratégia jurídica sólida com mecanismos alternativos, como a mediação e a arbitragem. A prioridade é assegurar a defesa dos interesses dos nossos clientes, reduzindo riscos e garantindo maior previsibilidade nos processos de resolução de conflitos empresariais.",
@@ -84,74 +86,29 @@ const AnimatedServicesSection = () => {
     },
     {
       icon: Building2,
-      title: "Direito Societário e Empresarial",
+      title: t("services.corporate.title"),
       image: "/images/corporate.webp",
-      description: "Assessoria jurídica a sociedades comerciais, incluindo",
+      description: t("services.corporate.desc"),
       features: [
-        "	Constituição, reorganização e acompanhamento societário",
-        "Fusões e aquisições",
-        "Due diligence ",
-        "Compliance",
-        "	Insolvência ou Recuperação de Empresários Comercias",
+        t("services.corporate.f1"),
+        t("services.corporate.f2"),
+        t("services.corporate.f3"),
+        t("services.corporate.f4"),
+        t("services.corporate.f5"),
       ],
       detailedDescription:
         "Prestamos assessoria jurídica completa em matérias de direito societário e operações empresariais. Acompanhamos processos de fusões e aquisições (M&A), realizamos auditorias legais (due diligence) e implementamos programas de compliance adequados ao enquadramento legal moçambicano e internacional. O nosso apoio permite às empresas estruturar operações de forma segura, transparente e alinhada com as melhores práticas de governança corporativa.",
       color: "from-purple-500/20 to-violet-500/20",
     },
-    // {
-    //   icon: FileText,
-    //   title: "Administrativo, fiscal e Aduaneiro",
-    //   image: "/images/legal-team.webp",
-    //   description:
-    //     "Especialização em direito fiscal, aduaneiro e relações com entidades governamentais.",
-    //   features: ["Consultoria fiscal", "Processos aduaneiros", "Licenciamento"],
-    //   detailedDescription:
-    //     "Apoiamos empresas e particulares em matérias fiscais, aduaneiras e administrativas. A nossa intervenção inclui consultoria fiscal preventiva, representação em processos de natureza tributária, acompanhamento de questões aduaneiras e apoio no relacionamento com entidades públicas. Atuamos também em processos de licenciamento, garantindo a conformidade legal e a mitigação de riscos perante a Administração Pública.",
-    //   color: "from-emerald-500/20 to-green-500/20",
-    // },
-    // {
-    //   icon: Home,
-    //   title: "Imobiliário e Terras",
-    //   image: "/images/office-interior.webp",
-    //   description:
-    //     "Assessoria especializada em transações imobiliárias, regularização de terras e direito urbanístico.",
-    //   features: ["DUAT", "Registos prediais", "Contratos imobiliários"],
-    //   detailedDescription:
-    //     "Disponibilizamos assessoria especializada em transações imobiliárias e em procedimentos relacionados com a regularização de terras em Moçambique. A nossa intervenção abrange a obtenção e renovação de DUAT (Direito de Uso e Aproveitamento da Terra), registos prediais e a elaboração de contratos imobiliários. Trabalhamos ainda em matérias de direito urbanístico, apoiando promotores, investidores e particulares em todas as fases dos seus projetos.",
-    //   color: "from-amber-500/20 to-orange-500/20",
-    // },
-    // {
-    //   icon: Users,
-    //   title: "Laboral e Migratório",
-    //   image: "/images/legal-team.webp",
-    //   description:
-    //     "Gestão de relações laborais, contratos de trabalho e processos migratórios para expatriados.",
-    //   features: ["Contratos laborais", "Vistos de trabalho", "Compliance laboral"],
-    //   detailedDescription:
-    //     "Prestamos apoio jurídico na gestão de relações laborais e na mobilidade internacional de trabalhadores. Aconselhamos na elaboração e revisão de contratos de trabalho, em políticas de recursos humanos e em processos disciplinares. Em matéria migratória, auxiliamos na obtenção de vistos de trabalho e de residência para expatriados, assegurando conformidade legal com as normas laborais e de imigração vigentes.",
-    //   color: "from-rose-500/20 to-pink-500/20",
-    // },
-    // {
-    //   icon: Handshake,
-    //   title: "Societário",
-    //   image: "/images/office-interior.webp",
-    //   description:
-    //     "Constituição de empresas, reestruturações societárias e governança corporativa.",
-    //   features: ["Constituição", "Reestruturação", "Governança"],
-    //   detailedDescription:
-    //     "Acompanhamos a constituição de novas sociedades, a reestruturação de empresas já existentes e a implementação de boas práticas de governança. Prestamos aconselhamento jurídico em todas as fases do ciclo de vida societário, desde a escolha da forma jurídica mais adequada até à gestão de alterações estatutárias, reorganizações e processos de sucessão empresarial.",
-    //   color: "from-indigo-500/20 to-blue-500/20",
-    // },
     {
       icon: CreditCard,
-      title: "Recuperação de Crédito e Execução",
+      title: t("services.credit.title"),
       image: "/images/investimento.webp",
-      description:
-        "Estratégias eficazes para recuperação de dívidas e gestão de carteiras de crédito em mora.",
+      description: t("services.credit.desc"),
       features: [
-        "Cobrança judicial",
-        "Negociação de créditos",
-        "Processos executivos",
+        t("services.credit.f1"),
+        t("services.credit.f2"),
+        t("services.credit.f3"),
       ],
       detailedDescription:
         "Desenvolvemos estratégias jurídicas e extrajudiciais para a recuperação de créditos em mora. Atuamos em cobranças judiciais, execuções e negociações com devedores, procurando soluções céleres que preservem os interesses dos nossos clientes. A nossa abordagem inclui também a gestão de carteiras de crédito, com medidas preventivas para reduzir a exposição a incumprimentos futuros.",
@@ -193,15 +150,12 @@ const AnimatedServicesSection = () => {
           }}
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
-            <span className="text-primary">Áreas de Atuação</span>
+            <span className="text-primary">{t("services.title")}</span>
             <br />
           </h2>
 
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            A sociedade desenvolve a sua actividade em diversas áreas do
-            Direito, prestando assessoria jurídica e acompanhamento processual
-            de acordo com a legislação aplicável e as necessidades concretas de
-            cada caso.
+            {t("services.subtitle")}
           </p>
         </motion.div>
 
@@ -460,19 +414,13 @@ const AnimatedServicesSection = () => {
           {/* Content */}
           <div className="relative p-10 md:p-16 text-center">
             <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6">
-              <span className="text-primary">Regime de Avença</span>
+              <span className="text-primary">{t("retainer.title")}</span>
               <br />
-              <span className="text-gradient-primary">Personalizado</span>
+              <span className="text-gradient-primary">{t("retainer.subtitle")}</span>
             </h3>
 
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
-              O nosso regime de avença oferece assessoria jurídica contínua com
-              relatórios mensais detalhados, comunicação direta com a equipa e
-              custos previsíveis.
-              {/*               
-              Ideal para empresas que necessitam de
-              acompanhamento jurídico regular em múltiplas áreas de direito, garantindo conformidade legal
-              e resposta rápida a questões urgentes. */}
+              {t("retainer.desc")}
             </p>
 
             {/* Benefits Grid */}
@@ -494,7 +442,7 @@ const AnimatedServicesSection = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a href="/servicos">
                 <button className="group px-10 py-5 bg-[rgb(81,21,38)] text-white font-bold text-lg rounded-xl hover:bg-[rgb(81,21,38)]/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto">
-                  <span> Ver Todos os Serviços</span>
+                  <span> {t("services.btn.all")}</span>
                   <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
                 </button>
               </a>

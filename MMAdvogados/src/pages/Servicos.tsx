@@ -22,294 +22,175 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 
+import { useLanguage } from "@/contexts/LanguageContext";
+
 const AVENCA_SLUG = "avenca";
 
 const Servicos = () => {
+  const { t } = useLanguage();
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
 
   const detailedServices = [
     {
       icon: Scale,
-      title: "Contencioso e Arbitragem",
-      subtitle: "Defesa dos seus direitos com excelência e estratégia",
-      description:
-        "Quando surgem conflitos no mundo dos negócios, é fundamental ter ao seu lado quem compreende profundamente as suas necessidades. A nossa equipa representa empresas e particulares em tribunais e processos arbitrais, focando-se sempre em alcançar a melhor solução possível para o seu caso.",
+      title: t("servicos.litigation.title"),
+      subtitle: t("servicos.litigation.subtitle"),
+      description: t("servicos.litigation.desc"),
       details: [
-        {
-          title: "Litígios Comerciais e Empresariais",
-          desc: "Representação em disputas contratuais, responsabilidade civil e conflitos societários",
-        },
-        // {
-        //   title: "Arbitragem Nacional e Internacional",
-        //   desc: "Resolução privada e eficiente de conflitos com maior agilidade que tribunais",
-        // },
-        {
-          title: "Mediação e Resolução Alternativa",
-          desc: "Negociação assistida para acordos que preservam relações comerciais",
-        },
-        {
-          title: "Execução de Sentenças",
-          desc: "Garantia do cumprimento efectivo de decisões judiciais e arbitrais",
-        },
+        { title: t("servicos.litigation.d1.title"), desc: t("servicos.litigation.d1.desc") },
+        { title: t("servicos.litigation.d2.title"), desc: t("servicos.litigation.d2.desc") },
+        { title: t("servicos.litigation.d3.title"), desc: t("servicos.litigation.d3.desc") },
       ],
       benefits: [
-        "Redução de tempo e custos",
-        "Estratégia personalizada",
-        "Acompanhamento contínuo",
+        t("servicos.litigation.b1"),
+        t("servicos.litigation.b2"),
+        t("servicos.litigation.b3"),
       ],
     },
-
     {
       icon: CreditCard,
-      title: "Recuperação de Créditos",
-      subtitle: "Recupere o que é seu com estratégia e eficácia",
-      description:
-        "Créditos não pagos afectam o fluxo de caixa e a saúde financeira da sua empresa. A nossa equipa desenvolve estratégias personalizadas para recuperação de dívidas, seja através de negociação amigável ou acção judicial.",
+      title: t("servicos.credit.title"),
+      subtitle: t("servicos.credit.subtitle"),
+      description: t("servicos.credit.desc"),
       details: [
-        {
-          title: "Cobrança Judicial e Extrajudicial",
-          desc: "Estratégias eficazes de recuperação adaptadas a cada situação",
-        },
-        {
-          title: "Negociação de Acordos",
-          desc: "Reestruturação de dívidas e acordos de pagamento viáveis",
-        },
-        {
-          title: "Execução de Garantias",
-          desc: "Accionamento de garantias bancárias, penhoras e hipotecas",
-        },
-        {
-          title: "Gestão de Carteiras",
-          desc: "Administração profissional de múltiplos créditos em mora",
-        },
+        { title: t("servicos.credit.d1.title"), desc: t("servicos.credit.d1.desc") },
+        { title: t("servicos.credit.d2.title"), desc: t("servicos.credit.d2.desc") },
+        { title: t("servicos.credit.d3.title"), desc: t("servicos.credit.d3.desc") },
+        { title: t("servicos.credit.d4.title"), desc: t("servicos.credit.d4.desc") },
       ],
-      benefits: ["Recuperação maximizada", "Custos controlados", "Maior celeridade"],
+      benefits: [t("servicos.credit.b1"), t("servicos.credit.b2"), t("servicos.credit.b3")],
     },
     {
       icon: Home,
-      title: "Direito da Família e Sucessões",
-      subtitle: "Protecção jurídica nas relações familiares e patrimoniais",
-      description:
-        "O Direito da Família regula o casamento, as uniões de facto, a igualdade de direitos e deveres entre cônjuges, o divórcio, a separação de bens e a protecção especial aos menores. Por sua vez, o Direito das Sucessões disciplina a transmissão do património, a herança e a partilha de bens, assegurando equilíbrio e legalidade nos processos sucessórios.",
+      title: t("servicos.family.title"),
+      subtitle: t("servicos.family.subtitle"),
+      description: t("servicos.family.desc"),
       details: [
-        {
-          title: "Regulação das Relações Familiares",
-          desc: "Assessoria jurídica em casamento, união de facto, divórcio e definição de regimes de bens.",
-        },
-        {
-          title: "Protecção de Menores",
-          desc: "Intervenção em matérias de guarda, alimentos e responsabilidade parental.",
-        },
-        {
-          title: "Planeamento Sucessório",
-          desc: "Estruturação jurídica da transmissão patrimonial com prevenção de conflitos futuros.",
-        },
-        {
-          title: "Processos de Herança e Partilha",
-          desc: "Assistência jurídica em inventários, partilha de bens e regularização patrimonial.",
-        },
+        { title: t("servicos.family.d1.title"), desc: t("servicos.family.d1.desc") },
+        { title: t("servicos.family.d2.title"), desc: t("servicos.family.d2.desc") },
+        { title: t("servicos.family.d3.title"), desc: t("servicos.family.d3.desc") },
+        { title: t("servicos.family.d4.title"), desc: t("servicos.family.d4.desc") },
       ],
-      benefits: [
-        "Protecção dos direitos familiares",
-        "Segurança na transmissão patrimonial",
-        "Acompanhamento jurídico sensível e especializado",
-      ],
+      benefits: [t("servicos.family.b1"), t("servicos.family.b2"), t("servicos.family.b3")],
     },
-
     {
       icon: Scale,
-      title: "Direito Fiscal e Aduaneiro",
-      subtitle: "Conformidade tributária e gestão estratégica de riscos",
-      description:
-        "O Direito Fiscal e Aduaneiro regula a tributação da actividade empresarial em Moçambique, abrangendo impostos internos, direitos aduaneiros e obrigações declarativas. A correcta gestão fiscal é essencial para garantir conformidade legal, eficiência financeira e mitigação de riscos perante a Autoridade Tributária e as Alfândegas.",
+      title: t("servicos.tax.title"),
+      subtitle: t("servicos.tax.subtitle"),
+      description: t("servicos.tax.desc"),
       details: [
-        {
-          title: "Auditoria e Consultoria Fiscal",
-          desc: "Revisão da situação tributária da empresa, identificação de contingências e emissão de pareceres técnicos especializados.",
-        },
-        {
-          title: "Planeamento Fiscal",
-          desc: "Estruturação estratégica das operações empresariais com optimização lícita da carga tributária.",
-        },
-        {
-          title: "Regimes Especiais e Benefícios Fiscais",
-          desc: "Enquadramento em regimes fiscais específicos, incentivos ao investimento e zonas económicas especiais.",
-        },
-        {
-          title: "Contencioso Tributário e Aduaneiro",
-          desc: "Representação em processos administrativos e judiciais relacionados com liquidações adicionais, coimas e apreensões aduaneiras.",
-        },
+        { title: t("servicos.tax.d1.title"), desc: t("servicos.tax.d1.desc") },
+        { title: t("servicos.tax.d2.title"), desc: t("servicos.tax.d2.desc") },
+        { title: t("servicos.tax.d3.title"), desc: t("servicos.tax.d3.desc") },
+        { title: t("servicos.tax.d4.title"), desc: t("servicos.tax.d4.desc") },
       ],
-      benefits: [
-        "Conformidade legal assegurada",
-        "Redução de riscos fiscais",
-        "Segurança jurídica nas operações comerciais",
+      benefits: [t("servicos.tax.b1"), t("servicos.tax.b2"), t("servicos.tax.b3")],
+    },
+    {
+      icon: Handshake,
+      title: t("servicos.corporate.title"),
+      subtitle: t("servicos.corporate.subtitle"),
+      description: t("servicos.corporate.desc"),
+      details: [
+        { title: t("servicos.corporate.d1.title"), desc: t("servicos.corporate.d1.desc") },
+        { title: t("servicos.corporate.d2.title"), desc: t("servicos.corporate.d2.desc") },
+        { title: t("servicos.corporate.d3.title"), desc: t("servicos.corporate.d3.desc") },
+        { title: t("servicos.corporate.d4.title"), desc: t("servicos.corporate.d4.desc") },
       ],
+      benefits: [t("servicos.corporate.b1"), t("servicos.corporate.b2"), t("servicos.corporate.b3")],
     },
     {
-        icon: Handshake,
-        title: "Societário",
-        subtitle: "Estruture a sua empresa com segurança",
-        description:
-          "Desde a constituição até à eventual dissolução, acompanhamos o ciclo de vida da sua empresa. Auxiliamos na escolha da estrutura societária, organização de assembleias e reestruturações.",
-        details: [
-          { title: "Constituição de Sociedades", desc: "Criação de empresas com estrutura jurídica adequada ao seu negócio" },
-          { title: "Reestruturação Societária", desc: "Alterações de capital, entrada de sócios e transformações empresariais" },
-          { title: "Governança Corporativa", desc: "Regras e procedimentos para gestão eficaz e transparente" },
-          { title: "Assembleias e Actas", desc: "Organização e formalização de deliberações societárias" },
-        ],
-        benefits: ["Estrutura optimizada", "Prevenção de conflitos", "Crescimento sustentável"],
-      },
-      {
-  icon: FileText,
-  slug: AVENCA_SLUG,
-  title: "Regime de Avença Personalizado",
-  subtitle: "Assistência jurídica contínua, com flexibilidade e previsibilidade",
-  description:
-    "O regime de avença personalizado é um contrato de prestação de serviços contínuos entre uma empresa e um profissional independente/liberal, ajustado às necessidades específicas do cliente. Caracteriza-se por uma remuneração mensal certa, pela ausência de subordinação (horários e regras internas) e por uma finalidade técnica específica, oferecendo uma flexibilidade superior aos contratos de trabalho tradicionais, sem comprometer o rigor e a conformidade legal.",
-  details: [
-    {
-      title: "Prestação Contínua e Planeada",
-      desc: "Acompanhamento jurídico permanente, com prioridades definidas conforme a realidade operacional do cliente.",
+      icon: FileText,
+      slug: AVENCA_SLUG,
+      title: t("servicos.retainer.title"),
+      subtitle: t("servicos.retainer.subtitle"),
+      description: t("servicos.retainer.desc"),
+      details: [
+        { title: t("servicos.retainer.d1.title"), desc: t("servicos.retainer.d1.desc") },
+        { title: t("servicos.retainer.d2.title"), desc: t("servicos.retainer.d2.desc") },
+        { title: t("servicos.retainer.d3.title"), desc: t("servicos.retainer.d3.desc") },
+        { title: t("servicos.retainer.d4.title"), desc: t("servicos.retainer.d4.desc") },
+      ],
+      benefits: [t("servicos.retainer.b1"), t("servicos.retainer.b2"), t("servicos.retainer.b3")],
     },
     {
-      title: "Escopo Ajustado ao Cliente",
-      desc: "Serviços modelados às necessidades específicas da empresa, com possibilidade de revisão periódica do plano de assistência.",
+      icon: Building2,
+      title: t("servicos.corporate2.title"),
+      subtitle: t("servicos.corporate2.subtitle"),
+      description: t("servicos.corporate2.desc"),
+      details: [
+        { title: t("servicos.corporate2.d1.title"), desc: t("servicos.corporate2.d1.desc") },
+        { title: t("servicos.corporate2.d2.title"), desc: t("servicos.corporate2.d2.desc") },
+        { title: t("servicos.corporate2.d3.title"), desc: t("servicos.corporate2.d3.desc") },
+        { title: t("servicos.corporate2.d4.title"), desc: t("servicos.corporate2.d4.desc") },
+      ],
+      benefits: [t("servicos.corporate2.b1"), t("servicos.corporate2.b2"), t("servicos.corporate2.b3")],
     },
-    {
-      title: "Remuneração Mensal Certa",
-      desc: "Previsibilidade de custos, com honorários mensais previamente acordados, facilitando o controlo orçamental.",
-    },
-    {
-      title: "Independência Técnica e Não Subordinação",
-      desc: "Actuação sem vínculo laboral, mantendo autonomia profissional e enquadramento jurídico adequado.",
-    },
-  ],
-  benefits: [
-    "Acompanhamento jurídico contínuo",
-    "Custos previsíveis e controlados",
-    "Flexibilidade superior ao contrato de trabalho",
-  ],
-},
-    {
-        icon: Building2,
-        title: "Corporate",
-        subtitle: "Impulsione o crescimento da sua empresa com segurança jurídica",
-        description:
-          "No mundo corporativo, cada decisão importa. Fornecemos assessoria jurídica completa para garantir que as suas operações empresariais decorram com segurança e eficiência. Desde fusões e aquisições até à estruturação de contratos complexos.",
-        details: [
-          {
-            title: "Fusões e Aquisições",
-            desc: "Assessoria completa em compra, venda e fusão de empresas com due diligence rigorosa",
-          },
-          {
-            title: "Due Diligence Jurídica",
-            desc: "Análise detalhada de riscos e oportunidades antes de transacções importantes",
-          },
-          {
-            title: "Estruturação de Operações Financeiras",
-            desc: "Desenho de estruturas jurídicas optimizadas para investimentos e financiamentos",
-          },
-          {
-            title: "Compliance e Governança",
-            desc: "Implementação de políticas e procedimentos para gestão ética e transparente",
-          },
-        ],
-        benefits: ["Segurança nas transacções", "Minimização de riscos", "Conformidade legal total"],
-      },
-
-    
-
-    
   ];
 
-  // Mantém os passos como “processo”, mas separa as ÁREAS que estavam aqui dentro.
   const processSteps = [
-    { icon: Target, title: "Análise", desc: "Avaliamos a sua situação detalhadamente" },
-    { icon: Shield, title: "Estratégia", desc: "Desenvolvemos um plano personalizado" },
-    { icon: Clock, title: "Execução", desc: "Implementamos as soluções jurídicas" },
-    // Evitar “Resultado”, conforme o teu requisito anterior:
-    { icon: CheckCircle2, title: "Acompanhamento", desc: "Mantemos o seguimento do processo com rigor e transparência" },
+    { icon: Target, title: t("process.s1.title"), desc: t("process.s1.desc") },
+    { icon: Shield, title: t("process.s2.title"), desc: t("process.s2.desc") },
+    { icon: Clock, title: t("process.s3.title"), desc: t("process.s3.desc") },
+    { icon: CheckCircle2, title: t("process.s4.title"), desc: t("process.s4.desc") },
   ];
 
-  // Estas eram áreas de actuação, mas estavam no array errado (processSteps).
   const extraServiceAreas = useMemo(
     () => [
       {
-      icon: Pickaxe,
-      title: "Direito Mineiro",
-      subtitle: "Segurança jurídica para o sector extractivo",
-      description:
-        "O sector mineiro constitui um dos pilares da economia moçambicana, com destaque para recursos como carvão, rubis, grafite, ouro e outros minerais estratégicos. A exploração mineira enfrenta desafios regulatórios, ambientais e sociais, exigindo acompanhamento jurídico especializado para garantir legalidade, sustentabilidade e estabilidade operacional.",
-      details: [
-        {
-          title: "Licenciamento Mineiro",
-          desc: "Assistência na aquisição de licenças e autorizações junto das entidades competentes, incluindo pedidos de prospecção, pesquisa e concessão mineira.",
-        },
-        {
-          title: "Conformidade Ambiental e Social",
-          desc: "Acompanhamento jurídico na gestão de impacto ambiental e relacionamento com comunidades locais.",
-        },
-        {
-          title: "Contratos e Operações Mineiras",
-          desc: "Elaboração e revisão de contratos de exploração, fornecimento e parceria estratégica.",
-        },
-        {
-          title: "Relações Laborais no Sector Mineiro",
-          desc: "Assessoria jurídica em matérias emergentes do contrato de trabalho aplicável às operações minerais.",
-        },
-      ],
-      benefits: [
-        "Segurança jurídica na exploração",
-        "Mitigação de riscos regulatórios",
-        "Estruturação sólida de projectos mineiros",
-      ],
-    },
+        icon: Pickaxe,
+        title: t("servicos.mining.title"),
+        subtitle: t("servicos.mining.subtitle"),
+        description: t("servicos.mining.desc"),
+        details: [
+          { title: t("servicos.mining.d1.title"), desc: t("servicos.mining.d1.desc") },
+          { title: t("servicos.mining.d2.title"), desc: t("servicos.mining.d2.desc") },
+          { title: t("servicos.mining.d3.title"), desc: t("servicos.mining.d3.desc") },
+          { title: t("servicos.mining.d4.title"), desc: t("servicos.mining.d4.desc") },
+        ],
+        benefits: [t("servicos.mining.b1"), t("servicos.mining.b2"), t("servicos.mining.b3")],
+      },
       {
         icon: FileText,
-        title: "Direito Administrativo",
-        subtitle: "Navegue com confiança pelo sistema administrativo",
-        description:
-          "A relação entre administração pública e particulares é possível de gerar conflitos, das quais a nossa intervenção vai pressupor apoio para casos de recursos e impugnaçoes em defesa dos interesses particulares,  bem como, o apoio na gestão desta relação",
+        title: t("servicos.admin.title"),
+        subtitle: t("servicos.admin.subtitle"),
+        description: t("servicos.admin.desc"),
         details: [
-          { title: "Parecer e Consultoria", desc: "Emissão de pareceres e orientação jurídica para decisões administrativas. Apoio jurídico no processo de concurso público e elaboração de Debriefing e reclamações após resultados do concurso" },
-          { title: "Contratação Pública", desc: "Apoio em procedimentos, impugnações e conformidade em processos de procurement" },
-          { title: "Contencioso Administrativo", desc: "Defesa em litígios com autoridades e entidades públicas" },
-          { title: "Pareceres e Consultoria", desc: "Emissão de pareceres e orientação jurídica para decisões administrativas" },
+          { title: t("servicos.admin.d1.title"), desc: t("servicos.admin.d1.desc") },
+          { title: t("servicos.admin.d2.title"), desc: t("servicos.admin.d2.desc") },
+          { title: t("servicos.admin.d3.title"), desc: t("servicos.admin.d3.desc") },
+          { title: t("servicos.admin.d4.title"), desc: t("servicos.admin.d4.desc") },
         ],
-        benefits: ["Conformidade administrativa", "Redução de riscos regulatórios", "Maior segurança nas decisões"],
+        benefits: [t("servicos.admin.b1"), t("servicos.admin.b2"), t("servicos.admin.b3")],
       },
       {
         icon: Home,
-        title: "Imobiliária e Terras",
-        subtitle: "Proteja o seu património com segurança jurídica",
-        description:
-          "Prestamos apoio à pessoas singulares e colectivas na regularização de propriedades(obtenção da Certidão Predial) e no processo de transacção imobiliária,  assim como na regularização de terra (DUAT).",
+        title: t("servicos.realestate.title"),
+        subtitle: t("servicos.realestate.subtitle"),
+        description: t("servicos.realestate.desc"),
         details: [
-          { title: "Obtenção e Regularização de DUAT", desc: "Acompanhamento completo para garantir o direito legal sobre terra" },
-          { title: "Registos Prediais e Cartorários", desc: "Registo e actualização de propriedades nas conservatórias competentes" },
-          { title: "Escritura pública de compra e venda", desc: "Elaboração  e revisão e contrato promessa de compra e venda, apoio e acompanhamento na realização da escritura de compra e venda de imóveis" },
-          { title: "Arrendamento", desc: "Gestão jurídica de contrato de arrendamento comercial e residencial" },
+          { title: t("servicos.realestate.d1.title"), desc: t("servicos.realestate.d1.desc") },
+          { title: t("servicos.realestate.d2.title"), desc: t("servicos.realestate.d2.desc") },
+          { title: t("servicos.realestate.d3.title"), desc: t("servicos.realestate.d3.desc") },
+          { title: t("servicos.realestate.d4.title"), desc: t("servicos.realestate.d4.desc") },
         ],
-        benefits: ["Segurança jurídica", "Processos mais claros", "Protecção patrimonial"],
+        benefits: [t("servicos.realestate.b1"), t("servicos.realestate.b2"), t("servicos.realestate.b3")],
       },
       {
         icon: Users,
-        title: "Laboral e Migração",
-        subtitle: "Gerir pessoas com conformidade e eficiência",
-        description:
-          "As relações laborais exigem equilíbrio entre direitos e deveres. Prestamos assessoria em direito laboral e apoio em processos migratórios, com enfoque na conformidade e prevenção de litígios.",
+        title: t("servicos.labor.title"),
+        subtitle: t("servicos.labor.subtitle"),
+        description: t("servicos.labor.desc"),
         details: [
-          { title: "Contratos de Trabalho", desc: "Elaboração de contratos adequados à legislação laboral moçambicana" },
-          { title: " Vistos de Trabalho, Turismo, Residência, Negócio, Autorização de Trabalho, DIRE'S", desc: "Acompanhamento em processos de contratação de trabalhador estrangeiro" },
-          { title: "Compliance Laboral", desc: "Auditoria e adequação de práticas laborais às exigências legais" },
-          { title: "Contencioso Laboral", desc: "Representação em litígios e negociação de acordos" },
+          { title: t("servicos.labor.d1.title"), desc: t("servicos.labor.d1.desc") },
+          { title: t("servicos.labor.d2.title"), desc: t("servicos.labor.d2.desc") },
+          { title: t("servicos.labor.d3.title"), desc: t("servicos.labor.d3.desc") },
+          { title: t("servicos.labor.d4.title"), desc: t("servicos.labor.d4.desc") },
         ],
-        benefits: ["Conformidade legal", "Redução de litígios", "Processos simplificados"],
+        benefits: [t("servicos.labor.b1"), t("servicos.labor.b2"), t("servicos.labor.b3")],
       },
-      
     ],
-    []
+    [t]
   );
 
   const avencaService = detailedServices.find((s) => s.slug === AVENCA_SLUG);
@@ -375,7 +256,7 @@ Muito obrigado(a).`
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6">
-              <span className="text-primary">Áreas de Atuação</span>
+              <span className="text-primary">{t("nav.services")}</span>
             </h1>
           </div>
         </div>
@@ -516,26 +397,24 @@ Muito obrigado(a).`
           <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-primary/10 border border-primary/15 shadow-sm mb-6">
             <Sparkles className="w-4 h-4 text-primary" />
             <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] text-primary">
-              Serviço Especial
+              {t("servicos.special.badge")}
             </span>
           </div>
 
           <h2 className="text-4xl md:text-5xl xl:text-6xl font-serif font-bold tracking-tight text-primary leading-[1.05] mb-5">
-            Regime de Avença
+            {t("servicos.special.title")}
           </h2>
 
           <p className="text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed mb-8">
-            Uma solução jurídica contínua para empresas que procuram previsibilidade,
-            proximidade estratégica e acompanhamento consistente, sem a rigidez de uma
-            estrutura interna.
+            {t("servicos.special.desc")}
           </p>
 
           <div className="grid sm:grid-cols-2 gap-4 mb-8">
             {[
-              "Mais controlo sobre custos jurídicos",
-              "Maior proximidade com a realidade da empresa",
-              "Actuação preventiva em vez de apenas reactiva",
-              "Uma estrutura pensada para apoiar decisões com segurança",
+              t("servicos.special.f1"),
+              t("servicos.special.f2"),
+              t("servicos.special.f3"),
+              t("servicos.special.f4"),
             ].map((item, idx) => (
               <div
                 key={idx}
@@ -556,9 +435,7 @@ Muito obrigado(a).`
           {/* linha de curiosidade */}
           <div className="mb-8 rounded-2xl border border-primary/10 bg-primary/[0.04] px-5 py-4">
             <p className="text-sm md:text-base text-foreground/85 leading-relaxed">
-              Descubra como este modelo pode melhorar a previsibilidade financeira,
-              reforçar a conformidade legal e dar à sua empresa um apoio jurídico
-              mais próximo, estratégico e contínuo.
+              {t("servicos.special.curiosity")}
             </p>
           </div>
 
@@ -568,7 +445,7 @@ Muito obrigado(a).`
               aria-label="Conhecer detalhes do Regime de Avença"
               className="group inline-flex items-center justify-center px-7 py-4 rounded-2xl bg-[rgb(81,21,38)] text-white font-semibold shadow-xl shadow-[rgba(81,21,38,0.22)] hover:bg-[rgb(81,21,38)]/92 hover:-translate-y-0.5 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              Conhecer Regime de Avença
+              {t("servicos.special.btn")}
               <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
             </Link>
           </div>

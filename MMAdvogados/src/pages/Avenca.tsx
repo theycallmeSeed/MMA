@@ -15,8 +15,10 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import SEO from "@/components/SEO";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Avenca = () => {
+  const { t } = useLanguage();
   const whatsappMessage = encodeURIComponent(
     `Olá, gostaria de saber mais sobre o Regime de Avença para a minha empresa.\n\nNome da Empresa: [nome]\nSector: [sector]`
   );
@@ -26,33 +28,33 @@ const Avenca = () => {
   const benefits = [
     {
       icon: TrendingUp,
-      title: "Previsibilidade Financeira",
-      description: "Custo fixo mensal que elimina surpresas orçamentais com honorários advocatícios."
+      title: t("page.avenca.benefits.1.title"),
+      description: t("page.avenca.benefits.1.desc")
     },
     {
       icon: Clock,
-      title: "Resposta Prioritária",
-      description: "SLA (Acordo de Nível de Serviço) garantido para consultas urgentes e análise contratual."
+      title: t("page.avenca.benefits.2.title"),
+      description: t("page.avenca.benefits.2.desc")
     },
     {
       icon: Shield,
-      title: "Prevenção de Riscos",
-      description: "Actuação proactiva para identificar e mitigar riscos legais antes que se tornem problemas."
+      title: t("page.avenca.benefits.3.title"),
+      description: t("page.avenca.benefits.3.desc")
     },
     {
       icon: Scale,
-      title: "Conformidade Legal",
-      description: "Garantia de que a sua empresa opera sempre dentro dos marcos regulatórios actuais."
+      title: t("page.avenca.benefits.4.title"),
+      description: t("page.avenca.benefits.4.desc")
     },
     {
       icon: Handshake,
-      title: "Parceria Estratégica",
-      description: "Advogados que conhecem o seu negócio a fundo e participam na tomada de decisões."
+      title: t("page.avenca.benefits.5.title"),
+      description: t("page.avenca.benefits.5.desc")
     },
     {
       icon: Users,
-      title: "Gestão de RH",
-      description: "Apoio contínuo em questões laborais, contratações e processos disciplinares."
+      title: t("page.avenca.benefits.6.title"),
+      description: t("page.avenca.benefits.6.desc")
     }
   ];
 
@@ -97,8 +99,8 @@ const Avenca = () => {
   return (
     <div className="min-h-screen bg-background font-sans">
       <SEO
-        title="Regime de Avença | Milagrosa Macuácua Advogados"
-        description="Regime de avença empresarial com excelência: apoio jurídico contínuo, previsível e estratégico para o seu negócio em Moçambique."
+        title={t("page.avenca.seo.title")}
+        description={t("page.avenca.seo.desc")}
         canonicalPath="/avenca"
       />
       <Navigation />
@@ -127,26 +129,24 @@ const Avenca = () => {
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
                 <Briefcase className="w-4 h-4 text-primary" />
                 <span className="text-sm font-semibold text-primary uppercase tracking-wide">
-                  Regime de Avença
+                  {t("page.avenca.hero.badge")}
                 </span>
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground mb-6 leading-tight">
-                Acompanhamento Jurídico <span className="text-primary">Contínuo</span> para Empresas
+                {t("page.avenca.hero.title.1")}<span className="text-primary">{t("page.avenca.hero.title.2")}</span>{t("page.avenca.hero.title.3")}
               </h1>
 
               <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl">
-                Um modelo de assistência jurídica pensado para empresas que valorizam
-                previsibilidade, organização e apoio técnico regular na gestão das suas
-                decisões e operações.
+                {t("page.avenca.hero.desc")}
               </p>
 
               <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mb-10">
                 {[
-                  "Maior previsibilidade na gestão jurídica",
-                  "Acompanhamento regular e estruturado",
-                  "Apoio técnico ajustado à realidade da empresa",
-                  "Uma relação jurídica contínua e próxima",
+                  t("page.avenca.hero.f1"),
+                  t("page.avenca.hero.f2"),
+                  t("page.avenca.hero.f3"),
+                  t("page.avenca.hero.f4"),
                 ].map((item, idx) => (
                   <div
                     key={idx}
@@ -193,20 +193,20 @@ const Avenca = () => {
                   </div>
                   <div>
                     <h3 className="font-bold text-lg text-foreground">
-                      Estrutura Jurídica Regular
+                      {t("page.avenca.structure.title")}
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Apoio contínuo, organizado e alinhado com a actividade da empresa
+                      {t("page.avenca.structure.desc")}
                     </p>
                   </div>
                 </div>
 
                 <div className="space-y-4">
                   {[
-                    "Análise e revisão de instrumentos contratuais",
-                    "Apoio em matérias laborais e societárias",
-                    "Orientação jurídica recorrente para decisões empresariais",
-                    "Acompanhamento preventivo de situações sensíveis",
+                    t("page.avenca.structure.f1"),
+                    t("page.avenca.structure.f2"),
+                    t("page.avenca.structure.f3"),
+                    t("page.avenca.structure.f4"),
                   ].map((item, i) => (
                     <div
                       key={i}
@@ -222,8 +222,7 @@ const Avenca = () => {
 
                 <div className="mt-6 pt-6 border-t border-border">
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Conheça em detalhe como o Regime de Avença pode ser estruturado de
-                    acordo com a dimensão, organização e necessidades da sua empresa.
+                    {t("page.avenca.structure.footer")}
                   </p>
                 </div>
               </div>
@@ -239,12 +238,10 @@ const Avenca = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
-              Vantagens de uma assistência jurídica em regime de avença
+              {t("page.avenca.benefits.title")}
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Uma solução pensada para empresas que pretendem maior continuidade no
-              acompanhamento jurídico, melhor organização interna e apoio técnico mais
-              próximo no dia-a-dia empresarial.
+              {t("page.avenca.benefits.desc")}
             </p>
           </div>
 
@@ -363,13 +360,11 @@ const Avenca = () => {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="rounded-[28px] border border-border bg-card px-6 py-12 md:px-10 md:py-14 shadow-lg">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6">
-              Fale connosco sobre o enquadramento mais adequado para a sua empresa
+              {t("page.avenca.cta.title")}
             </h2>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
-              Agende um primeiro contacto para compreender de que forma o Regime de
-              Avença pode ser estruturado em função da actividade, dimensão e
-              necessidades jurídicas do seu negócio.
+              {t("page.avenca.cta.desc")}
             </p>
 
             <Button
@@ -378,7 +373,7 @@ const Avenca = () => {
               className="text-lg h-14 px-8 rounded-xl gap-2 shadow-lg shadow-primary/20 bg-[rgb(81,21,38)] text-white hover:bg-[rgb(81,21,38)]/90"
               onClick={() => window.open(whatsappLink, "_blank", "noopener,noreferrer")}
             >
-              Agendar Reunião Inicial
+              {t("page.avenca.cta.btn")}
               <ArrowRight className="w-5 h-5" />
             </Button>
           </div>
