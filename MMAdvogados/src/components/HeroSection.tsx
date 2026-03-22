@@ -37,20 +37,7 @@ const HeroSection = () => {
         className="absolute inset-0 h-full w-full hero-parallax"
         style={{ }}
       >
-        <picture>
-          <source
-            media="(max-width: 768px)"
-            srcSet="/images/hero-banner-mob.webp"
-          />
-          <img
-            src="/images/hero-banner.webp"
-            alt="Escritório de advocacia profissional"
-            fetchPriority="high"
-            loading="eager"
-            decoding="async"
-            className="w-full h-full object-cover"
-          />
-        </picture>
+       <div className="hero-bg absolute inset-0" role="img" aria-label="Escritório de advocacia profissional" />
         <div className="absolute inset-0 bg-black/50 sm:bg-black/45 md:bg-black/40"></div>
         <div className="absolute inset-0 bg-radial-gradient opacity-8"></div>
         <div
@@ -125,26 +112,34 @@ const HeroSection = () => {
       </div>
 
       {/* Custom Styles (mantive os teus) */}
-      <style>{`
+  <style>{`
   @media (prefers-reduced-motion: no-preference) {
     .hero-parallax { animation: subtleParallax 8s ease-in-out infinite alternate; }
     @keyframes subtleParallax { 0% { transform: scale(1.05) translateY(0); } 100% { transform: scale(1.1) translateY(-20px); } }
   }
+
   .bg-radial-gradient { background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.18) 100%); }
+
   .hero-gradient-animation {
     background: linear-gradient(120deg, hsl(343 59% 25% / 0.85), hsl(343 45% 35% / 0.65), hsl(45 93% 70% / 0.65), hsl(343 59% 25% / 0.85));
-    background-size: 300% 300%; animation: gradientShift 10s ease infinite;
+    background-size: 300% 300%;
+    animation: gradientShift 10s ease infinite;
   }
   @keyframes gradientShift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-  .bg-radial-gradient { /* kept */ }
- @media (max-width: 768px) {
-  .hero-parallax {
-    animation: none !important;
-    transform: none !important;
-    .hero-gradient-animation {
-    animation: none;
+
+  .hero-bg {
+    background-image: url('/images/hero-banner.webp');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
   }
-}
+
+  @media (max-width: 768px) {
+    .hero-bg { background-image: url('/images/hero-banner-mob.webp'); }
+    .hero-parallax { animation: none !important; transform: none !important; }
+    .hero-gradient-animation { animation: none !important; }
+  }
 `}</style>
     </motion.section>
   );
