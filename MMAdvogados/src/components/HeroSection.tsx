@@ -14,7 +14,7 @@ const HeroSection = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="relative h-[100dvh] md:min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-[100vh] flex items-center justify-center overflow-hidden"
       aria-label={t("hero.aria.label")}
     >
       {/* Background */}
