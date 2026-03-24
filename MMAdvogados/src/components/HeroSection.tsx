@@ -18,7 +18,7 @@ const HeroSection = () => {
       aria-label={t("hero.aria.label")}
     >
       {/* Background */}
-      <div className="absolute inset-0">
+      <div className="fixed inset-0 -z-10">
         <div
           className="hero-bg absolute inset-0"
           role="img"
@@ -106,6 +106,7 @@ const HeroSection = () => {
   background-repeat: no-repeat;
     /* mobile mais escuro para legibilidade */
     filter: brightness(0.5) contrast(1.1) saturate(0.);
+      will-change: auto;
   }
 }
   .hero-bg,
@@ -113,6 +114,14 @@ const HeroSection = () => {
 #hero * {
   transform: none !important;
   animation: none !important;
+}
+  @media (max-width: 768px) {
+  .hero-bg {
+    background-image: url('/images/hero-banner-mob.webp');
+
+    /* 🔥 evita recalculo agressivo */
+    background-attachment: scroll;
+  }
 }
       `}</style>
     </motion.section>
