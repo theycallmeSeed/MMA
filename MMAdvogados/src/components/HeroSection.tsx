@@ -67,7 +67,7 @@ const HeroSection = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="relative min-h-[100dvh] md:min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative h-[100dvh] md:min-h-screen flex items-center justify-center overflow-hidden"
       aria-label={t("hero.aria.label")}
     >
       <div className="absolute inset-0 overflow-hidden">
@@ -150,9 +150,9 @@ const HeroSection = () => {
       {/* Custom Styles (mantive os teus) */}
   <style>{`
   @media (prefers-reduced-motion: no-preference) {
-    .hero-parallax { animation: subtleParallax 8s ease-in-out infinite alternate; }
-    // @keyframes subtleParallax { 0% { transform: scale(1.05) translateY(0); } 100% { transform: scale(1.1) translateY(-20px); } }
-  }
+  //   .hero-parallax { animation: subtleParallax 8s ease-in-out infinite alternate; }
+  //   // @keyframes subtleParallax { 0% { transform: scale(1.05) translateY(0); } 100% { transform: scale(1.1) translateY(-20px); } }
+  // }
 
   .bg-radial-gradient { background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.18) 100%); }
 

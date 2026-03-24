@@ -23,7 +23,13 @@ const AppRoutes = () => {
   useEffect(() => {
     initLazyBackgrounds(document);
   }, [location.pathname]);
+useEffect(() => {
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
 
+  window.scrollTo(0, 0);
+}, []);
   return (
     <PageTransition key={location.pathname}>
       <Routes location={location}>
