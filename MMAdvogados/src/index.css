@@ -378,3 +378,12 @@ button {
 .no-transition * {
   transition: none !important;
 }
+html, body {
+  overscroll-behavior: none;
+  margin: 0;
+  padding: 0;
+}
+body {
+  position: relative;
+  overflow-x: hidden;
+}

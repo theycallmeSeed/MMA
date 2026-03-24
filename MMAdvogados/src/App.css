@@ -40,6 +40,13 @@
 .read-the-docs {
   color: #888;
 }
+@media (max-width: 768px) {
+  .hero-layer {
+    transform: none !important;
+    will-change: auto !important;
+    backface-visibility: visible !important;
+  }
+}
 
 /* @media (max-width: 640px) {
   .hero-bg {
