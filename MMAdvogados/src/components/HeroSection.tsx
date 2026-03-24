@@ -29,7 +29,12 @@ const HeroSection = () => {
   //     document.head.removeChild(linkM);
   //   };
   // }, []);
-  useEffect(() => {
+useEffect(() => {
+  const isMobile = window.innerWidth <= 768;
+
+  // 🔥 MOBILE: NÃO FAZ NADA (hero fica estática)
+  if (isMobile) return;
+
   let ticking = false;
 
   const handleScroll = () => {
@@ -40,14 +45,8 @@ const HeroSection = () => {
 
         const scrollY = window.scrollY;
 
-        // 🔥 MOBILE FIRST (menos agressivo)
-        const isMobile = window.innerWidth <= 768;
-
-        const maxScale = isMobile ? 1.015 : 1.03;
-        const maxTranslate = isMobile ? 8 : 18;
-
-        const scale = Math.min(maxScale, 1 + scrollY * 0.00015);
-        const translateY = Math.min(maxTranslate, scrollY * 0.035);
+        const scale = Math.min(1.03, 1 + scrollY * 0.00015);
+        const translateY = Math.min(18, scrollY * 0.035);
 
         el.style.transform = `translate3d(0, -${translateY}px, 0) scale(${scale})`;
 
