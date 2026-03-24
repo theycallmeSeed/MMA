@@ -32,11 +32,24 @@ style={{ height: "var(--real-vh)" }}
     >
       {/* Background */}
       <div className="absolute inset-0">
-        <div
+        {/* <div
           className="hero-bg absolute inset-0"
           role="img"
           aria-label={t("hero.img.alt")}
-        />
+        /> */}
+        {/* Desktop */}
+<img
+  src="/images/hero-banner.webp"
+  alt={t("hero.img.alt")}
+  className="absolute inset-0 w-full h-full object-cover hidden md:block"
+/>
+
+{/* Mobile */}
+<img
+  src="/images/hero-banner-mob.webp"
+  alt={t("hero.img.alt")}
+  className="absolute inset-0 w-full h-full object-cover md:hidden"
+/>
 
         {/* Overlay (melhor contraste e profundidade) */}
         <div className="absolute inset-0 bg-black/55 md:bg-black/50" />
@@ -101,23 +114,23 @@ style={{ height: "var(--real-vh)" }}
       {/* Styles */}
       <style>{`
         .hero-bg {
-        position: absolute;
-  inset: 0;
-  background-image: url('/images/hero-banner.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  //       position: absolute;
+  // inset: 0;
+  // background-image: url('/images/hero-banner.webp');
+  // background-size: cover;
+  // background-position: center;
+  // background-repeat: no-repeat;
 
   /* 🔥 MAGIA AQUI */
   filter: brightness(0.40) contrast(1.0) saturate(0.);
   // transform: scale(1.02); /* evita bordas */
 }
 
-@media (max-width: 768px) {
-  .hero-bg {
-    background-image: url('/images/hero-banner-mob.webp');
-  }
-}
+// @media (max-width: 768px) {
+//   .hero-bg {
+//     background-image: url('/images/hero-banner-mob.webp');
+//   }
+// }
   .hero-bg,
 .hero-layer,
 #hero * {
