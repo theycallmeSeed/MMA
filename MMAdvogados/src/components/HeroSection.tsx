@@ -95,16 +95,24 @@ const HeroSection = () => {
 
   /* 🔥 MAGIA AQUI */
   filter: brightness(0.40) contrast(1.0) saturate(0.);
-  transform: scale(1.02); /* evita bordas */
+  // transform: scale(1.02); /* evita bordas */
 }
 
 @media (max-width: 768px) {
   .hero-bg {
     background-image: url('/images/hero-banner-mob.webp');
-
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
     /* mobile mais escuro para legibilidade */
     filter: brightness(0.5) contrast(1.1) saturate(0.);
   }
+}
+  .hero-bg,
+.hero-layer,
+#hero * {
+  transform: none !important;
+  animation: none !important;
 }
       `}</style>
     </motion.section>
