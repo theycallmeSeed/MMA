@@ -18,7 +18,7 @@ const HeroSection = () => {
       aria-label={t("hero.aria.label")}
     >
       {/* Background */}
-      <div className="absolute inset-0">
+    <div className="fixed inset-0 -z-10">
         <div
           className="hero-bg absolute inset-0"
           role="img"
