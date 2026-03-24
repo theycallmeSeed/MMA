@@ -10,16 +10,8 @@ import { useEffect } from "react";
 const HeroSection = () => {
   const { t } = useLanguage();
 useEffect(() => {
-  const setRealHeight = () => {
-    const vh = window.innerHeight;
-    document.documentElement.style.setProperty('--real-vh', `${vh}px`);
-  };
-
-  setRealHeight();
-
-  window.addEventListener('resize', setRealHeight);
-
-  return () => window.removeEventListener('resize', setRealHeight);
+  const vh = window.innerHeight;
+  document.documentElement.style.setProperty('--real-vh', `${vh}px`);
 }, []);
   return (
     <motion.section
