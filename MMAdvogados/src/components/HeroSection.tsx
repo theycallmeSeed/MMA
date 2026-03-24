@@ -1,121 +1,59 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
 import { getWhatsAppConsultoriaLinkExact } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 <section id="hero"></section>
+
 const HeroSection = () => {
   const { t } = useLanguage();
-  const layerRef = useRef<HTMLDivElement | null>(null);
-  // useEffect(() => {
-  //   const linkD = document.createElement("link");
-  //   linkD.rel = "preload";
-  //   linkD.as = "image";
-  //   linkD.href = "/images/hero-banner.webp";
-  //   linkD.fetchPriority = "high";
-  //   const linkM = document.createElement("link");
-  //   linkM.rel = "preload";
-  //   linkM.as = "image";
-  //   linkM.href = "/images/hero-banner-mob.webp";
-  //   linkM.media = "(max-width: 768px)";
-  //   linkM.fetchPriority = "high";
-  //   document.head.appendChild(linkD);
-  //   document.head.appendChild(linkM);
-  //   return () => {
-  //     document.head.removeChild(linkD);
-  //     document.head.removeChild(linkM);
-  //   };
-  // }, []);
-useEffect(() => {
-  const isMobile = window.innerWidth <= 768;
 
-  // 🔥 MOBILE: NÃO FAZ NADA (hero fica estática)
-  if (isMobile) return;
-
-  let ticking = false;
-
-  const handleScroll = () => {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        const el = layerRef.current;
-        if (!el) return;
-
-        const scrollY = window.scrollY;
-
-        const scale = Math.min(1.03, 1 + scrollY * 0.00015);
-        const translateY = Math.min(18, scrollY * 0.035);
-
-        el.style.transform = `translate3d(0, -${translateY}px, 0) scale(${scale})`;
-
-        ticking = false;
-      });
-
-      ticking = true;
-    }
-  };
-
-  window.addEventListener("scroll", handleScroll, { passive: true });
-
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
   return (
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.6 }}
       className="relative h-[100dvh] md:min-h-screen flex items-center justify-center overflow-hidden"
       aria-label={t("hero.aria.label")}
     >
-      <div className="absolute inset-0 overflow-hidden">
-       <div ref={layerRef} className="hero-layer absolute inset-0">
-       <div className="hero-bg absolute inset-0" role="img" aria-label={t("hero.img.alt")} />
-        <div className="absolute inset-0 bg-black/50 sm:bg-black/45 md:bg-black/40"></div>
-        <div className="absolute inset-0 bg-radial-gradient opacity-8"></div>
+      {/* Background */}
+      <div className="absolute inset-0">
         <div
-          className="absolute inset-0 hero-gradient-animation"
-          style={{ opacity: 0.18, mixBlendMode: "screen" }}
-        ></div>
-        </div>
+          className="hero-bg absolute inset-0"
+          role="img"
+          aria-label={t("hero.img.alt")}
+        />
+
+        {/* Overlay (melhor contraste e profundidade) */}
+        <div className="absolute inset-0 bg-black/55 md:bg-black/50" />
+
+        {/* Gradiente suave premium */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.25)_100%)]" />
       </div>
 
+      {/* Conteúdo */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 pb-16">
         <div className="max-w-5xl mx-auto flex flex-col items-center gap-6 sm:gap-8">
-          <div className="relative mb-6">
-            <h1
-              className="text-[clamp(2.25rem,6vw,4.25rem)] md:text-[clamp(2.5rem,5.5vw,4rem)] lg:text-[clamp(3rem,5vw,4.5rem)] font-serif font-bold text-primary-foreground leading-[1.1] hero-title-reveal"
-              data-seo-importance="primary"
-              style={{ animationDelay: "0.4s" }}
-            >
-              {t("hero.title.p1")}{" "}
-              <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-accent via-accent/90 to-accent/80 bg-clip-text text-transparent font-extrabold">
-                  {t("hero.title.p2")}
-                </span>
-                <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-accent via-accent/80 to-transparent rounded-full"></span>
-              </span>{" "}
-              {t("hero.title.p3")}{" "}
-              <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-accent via-accent/90 to-accent/80 bg-clip-text text-transparent font-extrabold">
-                  {t("hero.title.p4")}
-                </span>
-                <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-accent via-accent/80 to-transparent rounded-full"></span>
-              </span>
-            </h1>
-          </div>
+          
+          {/* Título */}
+          <h1 className="text-[clamp(2.25rem,6vw,4.25rem)] md:text-[clamp(2.5rem,5.5vw,4rem)] lg:text-[clamp(3rem,5vw,4.5rem)] font-serif font-bold text-white leading-[1.1]">
+            {t("hero.title.p1")}{" "}
+            <span className="bg-gradient-to-r from-accent via-accent/90 to-accent/80 bg-clip-text text-transparent font-extrabold">
+              {t("hero.title.p2")}
+            </span>{" "}
+            {t("hero.title.p3")}{" "}
+            <span className="bg-gradient-to-r from-accent via-accent/90 to-accent/80 bg-clip-text text-transparent font-extrabold">
+              {t("hero.title.p4")}
+            </span>
+          </h1>
 
-          <div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14 px-4 sm:px-0 hero-fade-in"
-            style={{ animationDelay: "0.9s" }}
-          >
+          {/* Botões */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10 w-full">
             <Button
               asChild
               size="lg"
-              className="bg-[rgb(81,21,38)] text-white hover:bg-[rgb(81,21,38)]/90 px-8 py-6 w-full sm:w-auto text-base transition-all duration-300 shadow-lg hover:shadow-2xl focus-visible:ring-4 focus-visible:ring-white/50 focus-visible:ring-offset-2"
-              aria-label={t("hero.btn.consult")}
-              title={t("hero.btn.consult")}
+              className="bg-[rgb(81,21,38)] text-white hover:bg-[rgb(81,21,38)]/90 px-8 py-6 w-full sm:w-auto text-base shadow-lg hover:shadow-xl transition-all"
             >
               <a
                 href={getWhatsAppConsultoriaLinkExact()}
@@ -123,21 +61,22 @@ useEffect(() => {
                 rel="noopener noreferrer"
               >
                 <span className="flex items-center gap-3">
-                  {t("hero.btn.consult")}
+                  <span className="drop-shadow-[0_1px_1px_rgba(0,0,0,0.75)]">
+                    {t("hero.btn.consult")}
+                  </span>
                   <ArrowRight className="h-5 w-5" />
                 </span>
               </a>
             </Button>
+
             <Button
               asChild
               variant="outline"
               size="lg"
-              className="border-2 border-white/70 bg-transparent text-white hover:bg-white/20 hover:text-white px-8 py-6 w-full sm:w-auto text-base transition-all duration-300 backdrop-blur-sm"
-              aria-label={t("hero.btn.services")}
-              title={t("hero.btn.services")}
+              className="bg-transparent border-2 border-white/70 text-white hover:bg-white/20 hover:text-white px-8 py-6 w-full sm:w-auto text-base backdrop-blur-sm"
             >
               <a href="/servicos">
-                <span className="flex items-center gap-3">
+                <span className="drop-shadow-[0_1px_1px_rgba(0,0,0,0.75)]">
                   {t("hero.btn.services")}
                 </span>
               </a>
@@ -146,43 +85,28 @@ useEffect(() => {
         </div>
       </div>
 
-      {/* Custom Styles (mantive os teus) */}
-  <style>{`
-  @media (prefers-reduced-motion: no-preference) {
-  //   .hero-parallax { animation: subtleParallax 8s ease-in-out infinite alternate; }
-  //   // @keyframes subtleParallax { 0% { transform: scale(1.05) translateY(0); } 100% { transform: scale(1.1) translateY(-20px); } }
-  // }
+      {/* Styles */}
+      <style>{`
+        .hero-bg {
+  background-image: url('/images/hero-banner.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
-  .bg-radial-gradient { background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.18) 100%); }
-
-  .hero-gradient-animation {
-    background: linear-gradient(120deg, hsl(343 59% 25% / 0.85), hsl(343 45% 35% / 0.65), hsl(45 93% 70% / 0.65), hsl(343 59% 25% / 0.85));
-    background-size: 300% 300%;
-    animation: gradientShift 10s ease infinite;
-  }
-  @keyframes gradientShift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-
-  .hero-bg {
-    background-image: url('/images/hero-banner.webp');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-      contain: layout paint size;
-
-  }
-    .hero-layer {
-  will-change: transform;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
+  /* 🔥 MAGIA AQUI */
+  filter: brightness(0.40) contrast(1.0) saturate(0.);
+  transform: scale(1.02); /* evita bordas */
 }
 
-  @media (max-width: 768px) {
-    .hero-bg { background-image: url('/images/hero-banner-mob.webp'); }
-    .hero-parallax { animation: none !important; transform: none !important; }
-    .hero-gradient-animation { animation: none !important; }
+@media (max-width: 768px) {
+  .hero-bg {
+    background-image: url('/images/hero-banner-mob.webp');
+
+    /* mobile mais escuro para legibilidade */
+    filter: brightness(0.5) contrast(1.1) saturate(0.);
   }
-`}</style>
+}
+      `}</style>
     </motion.section>
   );
 };
