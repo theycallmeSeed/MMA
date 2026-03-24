@@ -20,7 +20,7 @@ const HeroSection = () => {
       {/* Background */}
     <div className="fixed inset-0 -z-10">
         <div
-          className="hero-bg absolute inset-0"
+          className="hero-bg fixed inset-0 -z-10"
           role="img"
           aria-label={t("hero.img.alt")}
         />
