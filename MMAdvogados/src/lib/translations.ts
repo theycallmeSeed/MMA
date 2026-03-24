@@ -61,7 +61,7 @@ export const translations: Record<Language, Record<string, string>> = {
     // Team Section
     "team.badge": "A Nossa Equipa",
     "team.title": "Jovem, Técnica e Dinâmica",
-    "team.desc": "A MM Advogados é composta exclusivamente por mulheres, integrando advogadas, advogadas estagiárias e pessoal administrativo, todas com formação adequada às respetivas áreas de atuação do escritório. A atividade desenvolvida assenta numa abordagem técnica, colaborativa e organizada, suportada por meios tecnológicos que permitem uma gestão interna eficiente e um acompanhamento processual rigoroso, assegurando, em permanência, o cumprimento dos deveres legais e deontológicos inerentes ao exercício da advocacia.",
+    "team.desc": "A MMAdvogados é composta exclusivamente por mulheres, integrando advogadas, advogadas estagiárias e pessoal administrativo, todas com formação adequada às respetivas áreas de atuação do escritório. A atividade desenvolvida assenta numa abordagem técnica, colaborativa e organizada, suportada por meios tecnológicos que permitem uma gestão interna eficiente e um acompanhamento processual rigoroso, assegurando, em permanência, o cumprimento dos deveres legais e deontológicos inerentes ao exercício da advocacia.",
     "team.stats.lawyers": "Advogados Especializados",
     "team.stats.areas": "Áreas de Especialização",
     "team.btn.full": "Ver Equipa Completa",

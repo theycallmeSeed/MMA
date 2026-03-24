@@ -3,12 +3,13 @@ import { Button } from "@/components/ui/button";
 
 import { getWhatsAppConsultoriaLinkExact } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 <section id="hero"></section>
 const HeroSection = () => {
   const { t } = useLanguage();
+  const layerRef = useRef<HTMLDivElement | null>(null);
   // useEffect(() => {
   //   const linkD = document.createElement("link");
   //   linkD.rel = "preload";
@@ -28,18 +29,49 @@ const HeroSection = () => {
   //     document.head.removeChild(linkM);
   //   };
   // }, []);
+  useEffect(() => {
+  let ticking = false;
+
+  const handleScroll = () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const el = layerRef.current;
+        if (!el) return;
+
+        const scrollY = window.scrollY;
+
+        // 🔥 MOBILE FIRST (menos agressivo)
+        const isMobile = window.innerWidth <= 768;
+
+        const maxScale = isMobile ? 1.015 : 1.03;
+        const maxTranslate = isMobile ? 8 : 18;
+
+        const scale = Math.min(maxScale, 1 + scrollY * 0.00015);
+        const translateY = Math.min(maxTranslate, scrollY * 0.035);
+
+        el.style.transform = `translate3d(0, -${translateY}px, 0) scale(${scale})`;
+
+        ticking = false;
+      });
+
+      ticking = true;
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll, { passive: true });
+
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
   return (
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="relative min-h-[100svh] md:min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-[100dvh] md:min-h-screen flex items-center justify-center overflow-hidden"
       aria-label={t("hero.aria.label")}
     >
-      <div
-        className="absolute inset-0 h-full w-full hero-parallax"
-        style={{ }}
-      >
+      <div className="absolute inset-0 overflow-hidden">
+       <div ref={layerRef} className="hero-layer absolute inset-0">
        <div className="hero-bg absolute inset-0" role="img" aria-label={t("hero.img.alt")} />
         <div className="absolute inset-0 bg-black/50 sm:bg-black/45 md:bg-black/40"></div>
         <div className="absolute inset-0 bg-radial-gradient opacity-8"></div>
@@ -47,6 +79,7 @@ const HeroSection = () => {
           className="absolute inset-0 hero-gradient-animation"
           style={{ opacity: 0.18, mixBlendMode: "screen" }}
         ></div>
+        </div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 pb-16">
@@ -118,7 +151,7 @@ const HeroSection = () => {
   <style>{`
   @media (prefers-reduced-motion: no-preference) {
     .hero-parallax { animation: subtleParallax 8s ease-in-out infinite alternate; }
-    @keyframes subtleParallax { 0% { transform: scale(1.05) translateY(0); } 100% { transform: scale(1.1) translateY(-20px); } }
+    // @keyframes subtleParallax { 0% { transform: scale(1.05) translateY(0); } 100% { transform: scale(1.1) translateY(-20px); } }
   }
 
   .bg-radial-gradient { background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.18) 100%); }
@@ -136,7 +169,14 @@ const HeroSection = () => {
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: scroll;
+      contain: layout paint size;
+
   }
+    .hero-layer {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
 
   @media (max-width: 768px) {
     .hero-bg { background-image: url('/images/hero-banner-mob.webp'); }
