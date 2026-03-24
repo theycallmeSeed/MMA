@@ -3,18 +3,31 @@ import { Button } from "@/components/ui/button";
 import { getWhatsAppConsultoriaLinkExact } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useEffect } from "react";
 
 <section id="hero"></section>
 
 const HeroSection = () => {
   const { t } = useLanguage();
+useEffect(() => {
+  const setRealHeight = () => {
+    const vh = window.innerHeight;
+    document.documentElement.style.setProperty('--real-vh', `${vh}px`);
+  };
 
+  setRealHeight();
+
+  window.addEventListener('resize', setRealHeight);
+
+  return () => window.removeEventListener('resize', setRealHeight);
+}, []);
   return (
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="relative h-[100vh] md:min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative flex items-center justify-center"
+style={{ height: "var(--real-vh)" }}
       aria-label={t("hero.aria.label")}
     >
       {/* Background */}
@@ -88,6 +101,8 @@ const HeroSection = () => {
       {/* Styles */}
       <style>{`
         .hero-bg {
+        position: absolute;
+  inset: 0;
   background-image: url('/images/hero-banner.webp');
   background-size: cover;
   background-position: center;
@@ -101,11 +116,6 @@ const HeroSection = () => {
 @media (max-width: 768px) {
   .hero-bg {
     background-image: url('/images/hero-banner-mob.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-    /* mobile mais escuro para legibilidade */
-    filter: brightness(0.5) contrast(1.1) saturate(0.);
   }
 }
   .hero-bg,
