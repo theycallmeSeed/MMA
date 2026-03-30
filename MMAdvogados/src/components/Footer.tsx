@@ -82,16 +82,16 @@ const Footer = () => {
                         +258 84 54 69 097
                       </a>
                       <a
-                        href="tel:+258823860701"
+                        href="tel:+258868603610"
                         className="block text-white/80 transition-colors hover:text-[#f3d08b]"
                       >
-                        +258 82 38 60 701
+                        +258 868 60 3610
                       </a>
                        <a
-                        href="tel:+258873860701"
+                        href="tel:+258821549533"
                         className="block text-white/80 transition-colors hover:text-[#f3d08b]"
                       >
-                        +258 87 38 60 701
+                        +258 821 54 95 33
                       </a>
                     </div>
                   </div>
