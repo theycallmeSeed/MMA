@@ -14,6 +14,8 @@ import {
   Target,
   ChevronDown,
   Pickaxe,
+  ShieldCheck,
+  Gavel
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -33,6 +35,7 @@ const Servicos = () => {
   const detailedServices = [
     {
       icon: Scale,
+      slug: t("services.slug.litigation"),
       title: t("servicos.litigation.title"),
       subtitle: t("servicos.litigation.subtitle"),
       description: t("servicos.litigation.desc"),
@@ -49,6 +52,7 @@ const Servicos = () => {
     },
     {
       icon: CreditCard,
+      slug: t("services.slug.credit"),
       title: t("servicos.credit.title"),
       subtitle: t("servicos.credit.subtitle"),
       description: t("servicos.credit.desc"),
@@ -61,7 +65,8 @@ const Servicos = () => {
       benefits: [t("servicos.credit.b1"), t("servicos.credit.b2"), t("servicos.credit.b3")],
     },
     {
-      icon: Home,
+      icon: Users,
+      slug: t("services.slug.family"),
       title: t("servicos.family.title"),
       subtitle: t("servicos.family.subtitle"),
       description: t("servicos.family.desc"),
@@ -74,7 +79,8 @@ const Servicos = () => {
       benefits: [t("servicos.family.b1"), t("servicos.family.b2"), t("servicos.family.b3")],
     },
     {
-      icon: Scale,
+      icon: FileText,
+      slug: t("services.slug.tax"),
       title: t("servicos.tax.title"),
       subtitle: t("servicos.tax.subtitle"),
       description: t("servicos.tax.desc"),
@@ -88,6 +94,7 @@ const Servicos = () => {
     },
     {
       icon: Handshake,
+      slug: t("services.slug.corporate"),
       title: t("servicos.corporate.title"),
       subtitle: t("servicos.corporate.subtitle"),
       description: t("servicos.corporate.desc"),
@@ -100,21 +107,8 @@ const Servicos = () => {
       benefits: [t("servicos.corporate.b1"), t("servicos.corporate.b2"), t("servicos.corporate.b3")],
     },
     {
-      icon: FileText,
-      slug: AVENCA_SLUG,
-      title: t("servicos.retainer.title"),
-      subtitle: t("servicos.retainer.subtitle"),
-      description: t("servicos.retainer.desc"),
-      details: [
-        { title: t("servicos.retainer.d1.title"), desc: t("servicos.retainer.d1.desc") },
-        { title: t("servicos.retainer.d2.title"), desc: t("servicos.retainer.d2.desc") },
-        { title: t("servicos.retainer.d3.title"), desc: t("servicos.retainer.d3.desc") },
-        { title: t("servicos.retainer.d4.title"), desc: t("servicos.retainer.d4.desc") },
-      ],
-      benefits: [t("servicos.retainer.b1"), t("servicos.retainer.b2"), t("servicos.retainer.b3")],
-    },
-    {
       icon: Building2,
+      slug: t("services.slug.corporate"),
       title: t("servicos.corporate2.title"),
       subtitle: t("servicos.corporate2.subtitle"),
       description: t("servicos.corporate2.desc"),
@@ -139,6 +133,7 @@ const Servicos = () => {
     () => [
       {
         icon: Pickaxe,
+        slug: t("services.slug.mining"),
         title: t("servicos.mining.title"),
         subtitle: t("servicos.mining.subtitle"),
         description: t("servicos.mining.desc"),
@@ -151,7 +146,8 @@ const Servicos = () => {
         benefits: [t("servicos.mining.b1"), t("servicos.mining.b2"), t("servicos.mining.b3")],
       },
       {
-        icon: FileText,
+        icon: Gavel,
+        slug: t("services.slug.admin"),
         title: t("servicos.admin.title"),
         subtitle: t("servicos.admin.subtitle"),
         description: t("servicos.admin.desc"),
@@ -165,6 +161,7 @@ const Servicos = () => {
       },
       {
         icon: Home,
+        slug: t("services.slug.realestate"),
         title: t("servicos.realestate.title"),
         subtitle: t("servicos.realestate.subtitle"),
         description: t("servicos.realestate.desc"),
@@ -177,7 +174,8 @@ const Servicos = () => {
         benefits: [t("servicos.realestate.b1"), t("servicos.realestate.b2"), t("servicos.realestate.b3")],
       },
       {
-        icon: Users,
+        icon: ShieldCheck,
+        slug: t("services.slug.labor"),
         title: t("servicos.labor.title"),
         subtitle: t("servicos.labor.subtitle"),
         description: t("servicos.labor.desc"),
@@ -368,6 +366,17 @@ Muito obrigado(a).`
                             </span>
                           ))}
                         </div>
+                      </div>
+
+                      {/* View Details Link */}
+                      <div className="mt-8 flex justify-end">
+                        <Link
+                          to={`/servicos/${service.slug}`}
+                          className="inline-flex items-center gap-2 text-primary font-bold hover:underline group/link"
+                        >
+                          {t("services.detail.btn.learn_more")}
+                          <ArrowRight className="h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
+                        </Link>
                       </div>
                     </div>
                   </motion.div>

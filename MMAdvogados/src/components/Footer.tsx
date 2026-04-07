@@ -24,9 +24,11 @@ const Footer = () => {
   ];
 
   const services = [
-    t("services.litigation.title"),
-    t("services.corporate.title"),
-    t("services.credit.title"),
+    { name: t("servicos.litigation.title"), slug: t("services.slug.litigation") },
+    { name: t("servicos.corporate.title"), slug: t("services.slug.corporate") },
+    { name: t("servicos.credit.title"), slug: t("services.slug.credit") },
+    { name: t("servicos.family.title"), slug: t("services.slug.family") },
+    { name: t("servicos.labor.title"), slug: t("services.slug.labor") },
   ];
 
   const mapUrl =
@@ -181,11 +183,13 @@ const Footer = () => {
 
                 <ul className="space-y-3">
                   {services.map((service) => (
-                    <li
-                      key={service}
-                      className="text-sm leading-6 text-white/72 md:text-[15px]"
-                    >
-                      {service}
+                    <li key={service.name}>
+                      <Link
+                        to={`/servicos/${service.slug}`}
+                        className="text-sm text-white/72 transition-colors duration-200 hover:text-[#f3d08b] md:text-[15px]"
+                      >
+                        {service.name}
+                      </Link>
                     </li>
                   ))}
                 </ul>

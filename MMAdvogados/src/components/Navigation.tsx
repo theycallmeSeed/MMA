@@ -1,22 +1,37 @@
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Instagram, Facebook, Globe } from "lucide-react";
+import { Menu, X, Instagram, Facebook, Globe, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import LazyImage from "@/components/LazyImage";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { TranslationKey } from "@/lib/translations";
 
-const navItems: { translationKey: TranslationKey; href: string }[] = [
+const navItems: { translationKey: TranslationKey; href: string; hasDropdown?: boolean }[] = [
   { translationKey: "nav.home", href: "/" },
   { translationKey: "nav.about", href: "/sobre" },
-  { translationKey: "nav.services", href: "/servicos" },
+  { translationKey: "nav.services", href: "/servicos", hasDropdown: true },
   { translationKey: "nav.retainer", href: "/avenca" },
   { translationKey: "nav.team", href: "/equipe" },
 ];
 
 const Navigation = () => {
   const { t, language, setLanguage } = useLanguage();
+  
+  const serviceLinks = [
+    { id: "litigation", slug: t("services.slug.litigation") },
+    { id: "corporate", slug: t("services.slug.corporate") },
+    { id: "credit", slug: t("services.slug.credit") },
+    { id: "family", slug: t("services.slug.family") },
+    { id: "tax", slug: t("services.slug.tax") },
+    { id: "labor", slug: t("services.slug.labor") },
+  ];
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(() => window.scrollY > 4);
   const location = useLocation();
@@ -103,6 +118,48 @@ const Navigation = () => {
             <div className="hidden lg:flex items-center gap-8">
               {navItems.map((item) => {
                 const active = isActive(item.href);
+                
+                if (item.hasDropdown) {
+                  return (
+                    <DropdownMenu key={item.translationKey}>
+                      <DropdownMenuTrigger asChild>
+                        <button
+                          className={`relative text-sm font-medium transition flex items-center gap-1
+                            ${
+                              active
+                                ? "text-[rgb(81,21,38)]"
+                                : textColor + " hover:opacity-80"
+                            }`}
+                        >
+                          {t(item.translationKey)}
+                          <ChevronDown size={14} className="opacity-50" />
+                          {active && (
+                            <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-[rgb(81,21,38)]" />
+                          )}
+                        </button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="start" className="w-64 p-2 rounded-xl border-border/50 shadow-xl backdrop-blur-md bg-white/95">
+                        <DropdownMenuItem asChild>
+                          <Link to="/servicos" className="w-full cursor-pointer font-bold text-primary">
+                            {t("services.btn.all")}
+                          </Link>
+                        </DropdownMenuItem>
+                        <div className="h-px bg-border/50 my-1" />
+                        {serviceLinks.map((service) => (
+                          <DropdownMenuItem key={service.id} asChild>
+                            <Link 
+                              to={`/servicos/${service.slug}`}
+                              className="w-full cursor-pointer py-2 px-3 rounded-lg hover:bg-primary/5 transition-colors"
+                            >
+                              {t(`servicos.${service.id}.title`)}
+                            </Link>
+                          </DropdownMenuItem>
+                        ))}
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  );
+                }
+
                 return (
                   <Link
                     key={item.translationKey}
@@ -199,14 +256,30 @@ const Navigation = () => {
             >
               <div className="flex flex-col gap-4">
                 {navItems.map((item) => (
-                  <Link
-                    key={item.translationKey}
-                    to={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className="text-base font-medium text-[rgb(81,21,38)]"
-                  >
-                    {t(item.translationKey)}
-                  </Link>
+                  <div key={item.translationKey} className="flex flex-col gap-2">
+                    <Link
+                      to={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className="text-base font-bold text-[rgb(81,21,38)]"
+                    >
+                      {t(item.translationKey)}
+                    </Link>
+                    
+                    {item.hasDropdown && (
+                      <div className="flex flex-col gap-3 pl-4 border-l-2 border-primary/10 mt-1">
+                        {serviceLinks.map((service) => (
+                          <Link
+                            key={service.id}
+                            to={`/servicos/${service.slug}`}
+                            onClick={() => setIsOpen(false)}
+                            className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                          >
+                            {t(`servicos.${service.id}.title`)}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 ))}
                 
                 {/* Language Switcher Mobile */}

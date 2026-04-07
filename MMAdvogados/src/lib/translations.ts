@@ -32,27 +32,6 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.subtitle": "A sociedade desenvolve a sua actividade em diversas áreas do Direito, prestando assessoria jurídica e acompanhamento processual de acordo com a legislação aplicável e as necessidades concretas de cada caso.",
     "services.btn.all": "Ver Todos os Serviços",
     
-    // Services items
-    "services.litigation.title": "Contencioso e Arbitragem",
-    "services.litigation.desc": "Actuação em processos judiciais e arbitrais, nos termos da lei, designadamente:",
-    "services.litigation.f1": "Natureza criminal, laboral civil, societário e contencioso administrativo",
-    "services.litigation.f2": "Arbitragem",
-    "services.litigation.f3": "Mediação",
-    
-    "services.corporate.title": "Direito Societário e Empresarial",
-    "services.corporate.desc": "Assessoria jurídica a sociedades comerciais, incluindo",
-    "services.corporate.f1": "Constituição, reorganização e acompanhamento societário",
-    "services.corporate.f2": "Fusões e aquisições",
-    "services.corporate.f3": "Due diligence",
-    "services.corporate.f4": "Compliance",
-    "services.corporate.f5": "Insolvência ou Recuperação de Empresários Comercias",
-    
-    "services.credit.title": "Recuperação de Crédito e Execução",
-    "services.credit.desc": "Estratégias eficazes para recuperação de dívidas e gestão de carteiras de crédito em mora.",
-    "services.credit.f1": "Cobrança judicial",
-    "services.credit.f2": "Negociação de créditos",
-    "services.credit.f3": "Processos executivos",
-
     // Retainer (Avença) Section
     "retainer.title": "Regime de Avença",
     "retainer.subtitle": "Personalizado",
@@ -189,7 +168,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "servicos.tax.b2": "Redução de riscos fiscais",
     "servicos.tax.b3": "Segurança jurídica nas operações comerciais",
 
-    "servicos.corporate.title": "Societário",
+    "servicos.corporate.title": "Direito Societário e Empresarial",
     "servicos.corporate.subtitle": "Estruture a sua empresa com segurança",
     "servicos.corporate.desc": "Desde a constituição até à eventual dissolução, acompanhamos o ciclo de vida da sua empresa. Auxiliamos na escolha da estrutura societária, organização de assembleias e reestruturações.",
     "servicos.corporate.d1.title": "Constituição de Sociedades",
@@ -556,7 +535,41 @@ export const translations: Record<Language, Record<string, string>> = {
     // Contactos Page
     "page.contactos.seo.title": "Contactos | Milagrosa Macuácua Advogados",
     "page.contactos.seo.desc": "Fale connosco. Escritório de advogados em Maputo, Moçambique.",
-    "page.contactos.hero.title": "Contactos"
+    "page.contactos.hero.title": "Contactos",
+
+    // Services Detail Pages (SEO & Content)
+    "services.slug.litigation": "contencioso-e-arbitragem",
+    "services.slug.corporate": "direito-societario-e-empresarial",
+    "services.slug.credit": "recuperacao-de-credito",
+    "services.slug.family": "direito-da-familia-e-sucessoes",
+    "services.slug.tax": "direito-fiscal-e-aduaneiro",
+    "services.slug.mining": "direito-mineiro",
+    "services.slug.admin": "direito-administrativo",
+    "services.slug.realestate": "imobiliaria-e-terras",
+    "services.slug.labor": "laboral-e-migracao",
+
+    "services.detail.seo.title": "{service} | Milagrosa Macuácua Advogados",
+    "services.detail.seo.desc": "Assessoria jurídica especializada em {service} em Moçambique. Conheça a nossa abordagem técnica e resultados.",
+    
+    "services.detail.cta.title": "Precisa de assessoria em {service}?",
+    "services.detail.cta.desc": "A nossa equipa está pronta para analisar o seu caso e oferecer a melhor estratégia jurídica.",
+    "services.detail.cta.btn": "Agendar Consultoria Especializada",
+    "services.detail.btn.back": "Voltar aos Serviços",
+    "services.detail.btn.learn_more": "Saiba mais",
+    "services.detail.advantages.title": "Vantagens MMA",
+    "services.detail.advantages.s1": "Resposta em 24h",
+    "services.detail.advantages.s2": "Rigor Técnico",
+
+    // Detalhes Longos por Serviço (SEO)
+    "servicos.litigation.long": "A MMAdvogados presta assessoria jurídica especializada em contencioso e arbitragem em Moçambique, representando clientes em processos judiciais e arbitrais de elevada complexidade. A nossa equipa actua em todas as fases do litígio, desde a fase pré-contenciosa, com foco na prevenção e resolução extrajudicial de conflitos, até à representação em tribunais de todas as instâncias e centros de arbitragem reconhecidos (como o CACM). Especializamo-nos em litígios comerciais, laborais, cíveis e administrativos, garantindo uma defesa técnica rigorosa e estratégica.",
+    "servicos.corporate.long": "A nossa prática de Direito Societário e Empresarial em Moçambique oferece suporte jurídico completo para empresas nacionais e internacionais. Desde a constituição de sociedades e estruturação de veículos de investimento até operações complexas de fusões e aquisições (M&A) e due diligence. A MMAdvogados auxilia na governança corporativa, compliance regulatório e reorganizações societárias, assegurando que o seu negócio opere com total segurança jurídica e em conformidade com o Código Comercial e demais legislação aplicável.",
+    "servicos.credit.long": "Especialistas em recuperação de crédito e processos executivos, a MMAdvogados desenvolve estratégias personalizadas para a maximização da recuperação de activos em Moçambique. Actuamos tanto na esfera extrajudicial, através de negociações directas e reestruturação de dívidas, quanto na esfera judicial, com o accionamento de garantias, penhoras e acções executivas céleres. O nosso foco é reduzir o impacto do incumprimento no fluxo de caixa dos nossos clientes corporativos e singulares.",
+    "servicos.family.long": "No Direito da Família e Sucessões, a nossa actuação é pautada pela sensibilidade e pelo rigor técnico necessários para lidar com questões de divórcio, regulação de responsabilidades parentais, alimentos e partilha de bens. Oferecemos também assessoria especializada em planeamento sucessório e inventários em Moçambique, garantindo que a transmissão de património ocorra de forma equilibrada e legalmente segura, prevenindo conflitos futuros entre herdeiros.",
+    "servicos.tax.long": "A MMAdvogados fornece consultoria e contencioso em Direito Fiscal e Aduaneiro, auxiliando empresas na conformidade tributária e na gestão estratégica de riscos fiscais em Moçambique. A nossa assessoria abrange impostos internos (IRPC, IRPS, IVA), direitos aduaneiros, benefícios fiscais ao investimento e regimes especiais. Representamos clientes em auditorias fiscais, reclamações administrativas e impugnações judiciais contra liquidações da Autoridade Tributária.",
+    "servicos.mining.long": "Com vasta experiência no sector extractivo moçambicano, prestamos assessoria jurídica em Direito Mineiro, abrangendo o licenciamento, conformidade ambiental e negociação de contratos de exploração. A MMAdvogados apoia empresas mineiras em questões laborais específicas do sector, gestão de terras (DUAT) e relacionamento com comunidades locais. Garantimos que as operações mineiras estejam em plena conformidade com a Lei de Minas e demais regulamentações vigentes.",
+    "servicos.admin.long": "No Direito Administrativo, actuamos na regulação da relação entre os particulares e o Estado moçambicano. A nossa equipa presta assessoria em procedimentos de contratação pública, licenciamento administrativo e defesa em processos disciplinares ou contra-ordenacionais. Representamos clientes no Tribunal Administrativo para a impugnação de actos administrativos ilegais, garantindo a protecção dos direitos e interesses legítimos perante as entidades públicas.",
+    "servicos.realestate.long": "A nossa equipa de Imobiliária e Terras auxilia na regularização de propriedades e na obtenção de DUAT (Direito de Uso e Aproveitamento de Terra) em Moçambique. Prestamos assessoria completa em transacções imobiliárias, desde o contrato-promessa até à escritura pública e registo predial. Actuamos também na gestão jurídica de arrendamentos comerciais e residenciais, garantindo segurança jurídica no investimento e na posse de bens imóveis.",
+    "servicos.labor.long": "Especialistas em Direito do Trabalho e Migração, a MMAdvogados assessora empresas na gestão de recursos humanos em conformidade com a Lei do Trabalho de Moçambique. Elaboramos contratos de trabalho, regulamentos internos e conduzimos processos disciplinares com rigor. No âmbito migratório, apoiamos na obtenção de vistos de trabalho e autorizações de residência (DIRE) para trabalhadores estrangeiros, garantindo a legalidade total das operações de mobilidade internacional.",
   },
   en: {
     // Navbar
@@ -589,27 +602,6 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.subtitle": "The firm develops its activity in various areas of Law, providing legal advice and procedural monitoring in accordance with the applicable legislation and the specific needs of each case.",
     "services.btn.all": "View All Services",
     
-    // Services items
-    "services.litigation.title": "Litigation and Arbitration",
-    "services.litigation.desc": "Representation in judicial and arbitral proceedings, under the law, namely:",
-    "services.litigation.f1": "Criminal, labor, civil, corporate and administrative litigation",
-    "services.litigation.f2": "Arbitration",
-    "services.litigation.f3": "Mediation",
-    
-    "services.corporate.title": "Corporate and Business Law",
-    "services.corporate.desc": "Legal advice to commercial companies, including",
-    "services.corporate.f1": "Incorporation, reorganization and corporate monitoring",
-    "services.corporate.f2": "Mergers and acquisitions",
-    "services.corporate.f3": "Due diligence",
-    "services.corporate.f4": "Compliance",
-    "services.corporate.f5": "Insolvency or Recovery of Commercial Entrepreneurs",
-    
-    "services.credit.title": "Credit Recovery and Execution",
-    "services.credit.desc": "Effective strategies for debt recovery and management of overdue credit portfolios.",
-    "services.credit.f1": "Judicial collection",
-    "services.credit.f2": "Credit negotiation",
-    "services.credit.f3": "Executive processes",
-
     // Retainer (Avença) Section
     "retainer.title": "Retainer Agreement",
     "retainer.subtitle": "Personalized",
@@ -746,7 +738,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "servicos.tax.b2": "Reduction of tax risks",
     "servicos.tax.b3": "Legal certainty in commercial operations",
 
-    "servicos.corporate.title": "Corporate",
+    "servicos.corporate.title": "Corporate and Business Law",
     "servicos.corporate.subtitle": "Structure your company securely",
     "servicos.corporate.desc": "From incorporation to eventual dissolution, we monitor your company's life cycle. We assist in choosing the corporate structure, organizing meetings, and restructuring.",
     "servicos.corporate.d1.title": "Incorporation of Companies",
@@ -1113,7 +1105,41 @@ export const translations: Record<Language, Record<string, string>> = {
     // Contactos Page
     "page.contactos.seo.title": "Contacts | Milagrosa Macuácua Lawyers",
     "page.contactos.seo.desc": "Talk to us. Law firm in Maputo, Mozambique.",
-    "page.contactos.hero.title": "Contacts"
+    "page.contactos.hero.title": "Contacts",
+
+    // Services Detail Pages (SEO & Content)
+    "services.slug.litigation": "litigation-and-arbitration",
+    "services.slug.corporate": "corporate-and-business-law",
+    "services.slug.credit": "credit-recovery",
+    "services.slug.family": "family-and-succession-law",
+    "services.slug.tax": "tax-and-customs-law",
+    "services.slug.mining": "mining-law",
+    "services.slug.admin": "administrative-law",
+    "services.slug.realestate": "real-estate-and-land",
+    "services.slug.labor": "labor-and-migration",
+
+    "services.detail.seo.title": "{service} | Milagrosa Macuácua Lawyers",
+    "services.detail.seo.desc": "Specialized legal advice on {service} in Mozambique. Discover our technical approach and results.",
+    
+    "services.detail.cta.title": "Need legal advice on {service}?",
+    "services.detail.cta.desc": "Our team is ready to analyze your case and offer the best legal strategy.",
+    "services.detail.cta.btn": "Schedule Specialized Consultation",
+    "services.detail.btn.back": "Back to Services",
+    "services.detail.btn.learn_more": "Learn more",
+    "services.detail.advantages.title": "MMA Advantages",
+    "services.detail.advantages.s1": "24h Response",
+    "services.detail.advantages.s2": "Technical Rigor",
+
+    // Long Details by Service (SEO)
+    "servicos.litigation.long": "MMAdvogados provides specialized legal advice on litigation and arbitration in Mozambique, representing clients in highly complex judicial and arbitral proceedings. Our team acts in all phases of the dispute, from the pre-litigation stage, focusing on the prevention and extrajudicial resolution of conflicts, to representation in courts of all instances and recognized arbitration centers (such as CACM). We specialize in commercial, labor, civil, and administrative litigation, ensuring a rigorous and strategic technical defense.",
+    "servicos.corporate.long": "Our Corporate and Business Law practice in Mozambique offers comprehensive legal support for national and international companies. From the incorporation of companies and structuring of investment vehicles to complex merger and acquisition (M&A) operations and due diligence. MMAdvogados assists in corporate governance, regulatory compliance, and corporate reorganizations, ensuring that your business operates with full legal certainty and in compliance with the Commercial Code and other applicable legislation.",
+    "servicos.credit.long": "Specialists in credit recovery and executive processes, MMAdvogados develops personalized strategies for maximizing asset recovery in Mozambique. We act both in the extrajudicial sphere, through direct negotiations and debt restructuring, and in the judicial sphere, with the triggering of guarantees, attachments, and swift executive actions. Our focus is to reduce the impact of default on the cash flow of our corporate and individual clients.",
+    "servicos.family.long": "In Family and Succession Law, our practice is guided by the sensitivity and technical rigor necessary to handle issues of divorce, regulation of parental responsibilities, alimony, and sharing of assets. We also offer specialized advice on succession planning and inventories in Mozambique, ensuring that the transmission of wealth occurs in a balanced and legally secure manner, preventing future conflicts among heirs.",
+    "servicos.tax.long": "MMAdvogados provides consulting and litigation in Tax and Customs Law, assisting companies in tax compliance and strategic tax risk management in Mozambique. Our advice covers domestic taxes (IRPC, IRPS, VAT), customs duties, investment tax benefits, and special regimes. We represent clients in tax audits, administrative complaints, and judicial challenges against Tax Authority assessments.",
+    "servicos.mining.long": "With extensive experience in the Mozambican extractive sector, we provide legal advice on Mining Law, covering licensing, environmental compliance, and negotiation of exploration contracts. MMAdvogados supports mining companies in specific labor issues in the sector, land management (DUAT), and relationships with local communities. We ensure that mining operations are in full compliance with the Mining Law and other current regulations.",
+    "servicos.admin.long": "In Administrative Law, we regulate the relationship between individuals and the Mozambican State. Our team provides advice on public procurement procedures, administrative licensing, and defense in disciplinary or administrative offense proceedings. We represent clients in the Administrative Court to challenge illegal administrative acts, ensuring the protection of rights and legitimate interests before public entities.",
+    "servicos.realestate.long": "Our Real Estate and Land team assists in the regularization of properties and obtaining DUAT (Right of Use and Benefit of Land) in Mozambique. We provide complete advice on real estate transactions, from the promissory contract to the public deed and land registration. We also act in the legal management of commercial and residential leases, ensuring legal security in the investment and possession of real estate.",
+    "servicos.labor.long": "Specialists in Labor and Migration Law, MMAdvogados advises companies on human resource management in compliance with the Mozambique Labor Law. We draft employment contracts, internal regulations, and conduct disciplinary processes with rigor. In the migratory context, we support in obtaining work visas and residence permits (DIRE) for foreign workers, ensuring total legality of international mobility operations.",
   }
 };
 

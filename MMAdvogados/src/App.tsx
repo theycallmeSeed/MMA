@@ -11,6 +11,7 @@ import Servicos from "./pages/Servicos";
 import Equipe from "./pages/equipe";
 import Avenca from "./pages/Avenca";
 import Contactos from "./pages/Contactos";
+import ServiceDetail from "./pages/ServiceDetail";
 import Privacidade from "./pages/Privacidade";
 import Termos from "./pages/Termos";
 import PageTransition from "./components/PageTransition";
@@ -36,6 +37,7 @@ useEffect(() => {
         <Route path="/" element={<Index />} />
         <Route path="/sobre" element={<Sobre />} />
         <Route path="/servicos" element={<Servicos />} />
+        <Route path="/servicos/:slug" element={<ServiceDetail />} />
         <Route path="/avenca" element={<Avenca />} />
         <Route path="/equipe" element={<Equipe />} />
         <Route path="/contactos" element={<Contactos />} />
