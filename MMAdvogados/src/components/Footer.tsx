@@ -80,18 +80,21 @@ const Footer = () => {
                       <a
                         href="tel:+258845469097"
                         className="block text-white/80 transition-colors hover:text-[#f3d08b]"
+                        aria-label="Ligar para o número +258 84 54 69 097"
                       >
                         +258 84 54 69 097
                       </a>
                       <a
                         href="tel:+258868603610"
                         className="block text-white/80 transition-colors hover:text-[#f3d08b]"
+                        aria-label="Ligar para o número +258 868 60 3610"
                       >
                         +258 868 60 3610
                       </a>
                        <a
                         href="tel:+258821549533"
                         className="block text-white/80 transition-colors hover:text-[#f3d08b]"
+                        aria-label="Ligar para o número +258 821 54 95 33"
                       >
                         +258 821 54 95 33
                       </a>
@@ -103,6 +106,7 @@ const Footer = () => {
                     <a
                       href="mailto:geral@milagrosama.co.mz"
                       className="text-sm text-white/80 transition-colors hover:text-[#f3d08b] md:text-[15px]"
+                      aria-label="Enviar email para geral@milagrosama.co.mz"
                     >
                       geral@milagrosama.co.mz
                     </a>
@@ -123,6 +127,7 @@ const Footer = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm leading-6 text-white/80 transition-colors hover:text-[#f3d08b] md:text-[15px]"
+                      aria-label="Ver morada da Milagrosa Macuácua Advogados no Google Maps"
                     >
                       <div>{t("footer.address.l1")}</div>
                       <div>{t("footer.address.l2")}</div>

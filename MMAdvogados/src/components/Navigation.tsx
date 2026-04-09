@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import LazyImage from "@/components/LazyImage";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { TranslationKey } from "@/lib/translations";
+import { prefetchRoute } from "@/utils/routePrefetch";
 
 const navItems: { translationKey: TranslationKey; href: string; hasDropdown?: boolean }[] = [
   { translationKey: "nav.home", href: "/" },
@@ -101,10 +102,10 @@ const Navigation = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3">
+            <Link to="/" className="flex items-center gap-3" aria-label="Milagrosa Macuácua Advogados - Voltar à página inicial">
               <LazyImage
                 src="/logotipo 4-1.png"
-                alt="Logótipo"
+                alt="Logótipo Milagrosa Macuácua Advogados"
                 width={40}
                 height={40}
                 className="object-contain"
@@ -125,6 +126,7 @@ const Navigation = () => {
                   <div key={item.translationKey} className="relative group">
                     <Link
                       to={item.href}
+                      onMouseEnter={() => prefetchRoute(item.href)}
                       className={`relative text-sm font-medium transition flex items-center gap-1
                         ${
                           active
@@ -149,6 +151,7 @@ const Navigation = () => {
                             <Link
                               key={service.titleKey}
                               to={`/servicos/${t(service.slugKey)}`}
+                              onMouseEnter={() => prefetchRoute(`/servicos/${t(service.slugKey)}`)}
                               className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${dropdownTextColor}`}
                             >
                               {t(service.titleKey)}
@@ -184,8 +187,8 @@ const Navigation = () => {
                   target="_blank"
                   rel="noreferrer"
                   className={`${textColor} hover:opacity-80 flex items-center justify-center w-11 h-11 rounded-full`}
-                  aria-label="Abrir Instagram da MMA Advogados em nova aba"
-                  title="Instagram da MMA Advogados"
+                  aria-label="Abrir Instagram da MMAdvogados em nova aba"
+                  title="Instagram da MMAdvogados"
                 >
                   <Instagram size={18} />
                 </a>
@@ -194,8 +197,8 @@ const Navigation = () => {
                   target="_blank"
                   rel="noreferrer"
                   className={`${textColor} hover:opacity-80 flex items-center justify-center w-11 h-11 rounded-full`}
-                  aria-label="Abrir página do Facebook da MMA Advogados em nova aba"
-                  title="Facebook da MMA Advogados"
+                  aria-label="Abrir página do Facebook da MMAdvogados em nova aba"
+                  title="Facebook da MMAdvogados"
                 >
                   <Facebook size={18} />
                 </a>
@@ -282,6 +285,7 @@ const Navigation = () => {
                       setIsOpen(false);
                     }}
                     className="flex items-center gap-2 text-base font-medium text-[rgb(81,21,38)]"
+                    aria-label="Alternar idioma"
                   >
                     <Globe size={18} />
                     {language === "pt" ? "English" : "Português"}
