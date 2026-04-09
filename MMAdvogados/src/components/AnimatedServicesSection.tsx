@@ -13,9 +13,6 @@ import {
   Shield,
   Clock,
   Award,
-  ShieldCheck,
-  HardHat,
-  Gavel
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import LazyImage from "@/components/LazyImage";
@@ -23,7 +20,6 @@ import { useState } from "react";
 import { motion, useReducedMotion, Variants } from "framer-motion";
 import { fadeIn, slideUp, staggerContainer } from "@/lib/animation-variants";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Link } from "react-router-dom";
 import {
   generateWhatsAppLink,
   getWhatsAppConsultoriaLinkExact,
@@ -75,90 +71,48 @@ const AnimatedServicesSection = () => {
 
   const services = [
     {
-      id: "litigation",
-      slug: t("services.slug.litigation"),
       icon: Scale,
-      title: t("servicos.litigation.title"),
+      title: t("services.litigation.title"),
       image: "/images/office-interior.webp",
-      description: t("servicos.litigation.desc"),
+      description: t("services.litigation.desc"),
       features: [
-        t("servicos.litigation.f1"),
-        t("servicos.litigation.f2"),
-        t("servicos.litigation.f3"),
+        t("services.litigation.f1"),
+        t("services.litigation.f2"),
+        t("services.litigation.f3"),
       ],
+      detailedDescription:
+        "A nossa equipa atua na representação de clientes em tribunais judiciais e em processos arbitrais, nacionais e internacionais. Procuramos sempre soluções eficazes para a resolução de litígios comerciais, conjugando estratégia jurídica sólida com mecanismos alternativos, como a mediação e a arbitragem. A prioridade é assegurar a defesa dos interesses dos nossos clientes, reduzindo riscos e garantindo maior previsibilidade nos processos de resolução de conflitos empresariais.",
       color: "from-blue-500/20 to-cyan-500/20",
     },
     {
-      id: "corporate",
-      slug: t("services.slug.corporate"),
       icon: Building2,
-      title: t("servicos.corporate.title"),
+      title: t("services.corporate.title"),
       image: "/images/corporate.webp",
-      description: t("servicos.corporate.desc"),
+      description: t("services.corporate.desc"),
       features: [
-        t("servicos.corporate.f1"),
-        t("servicos.corporate.f2"),
-        t("servicos.corporate.f3"),
-        t("servicos.corporate.f4"),
-        t("servicos.corporate.f5"),
+        t("services.corporate.f1"),
+        t("services.corporate.f2"),
+        t("services.corporate.f3"),
+        t("services.corporate.f4"),
+        t("services.corporate.f5"),
       ],
+      detailedDescription:
+        "Prestamos assessoria jurídica completa em matérias de direito societário e operações empresariais. Acompanhamos processos de fusões e aquisições (M&A), realizamos auditorias legais (due diligence) e implementamos programas de compliance adequados ao enquadramento legal moçambicano e internacional. O nosso apoio permite às empresas estruturar operações de forma segura, transparente e alinhada com as melhores práticas de governança corporativa.",
       color: "from-purple-500/20 to-violet-500/20",
     },
     {
-      id: "credit",
-      slug: t("services.slug.credit"),
       icon: CreditCard,
-      title: t("servicos.credit.title"),
+      title: t("services.credit.title"),
       image: "/images/investimento.webp",
-      description: t("servicos.credit.desc"),
+      description: t("services.credit.desc"),
       features: [
-        t("servicos.credit.f1"),
-        t("servicos.credit.f2"),
-        t("servicos.credit.f3"),
+        t("services.credit.f1"),
+        t("services.credit.f2"),
+        t("services.credit.f3"),
       ],
+      detailedDescription:
+        "Desenvolvemos estratégias jurídicas e extrajudiciais para a recuperação de créditos em mora. Atuamos em cobranças judiciais, execuções e negociações com devedores, procurando soluções céleres que preservem os interesses dos nossos clientes. A nossa abordagem inclui também a gestão de carteiras de crédito, com medidas preventivas para reduzir a exposição a incumprimentos futuros.",
       color: "from-teal-500/20 to-cyan-500/20",
-    },
-    {
-      id: "family",
-      slug: t("services.slug.family"),
-      icon: Users,
-      title: t("servicos.family.title"),
-      image: "/images/familia.webp",
-      description: t("servicos.family.desc"),
-      features: [
-        t("servicos.family.d1.title"),
-        t("servicos.family.d2.title"),
-        t("servicos.family.d3.title"),
-      ],
-      color: "from-pink-500/20 to-rose-500/20",
-    },
-    {
-      id: "tax",
-      slug: t("services.slug.tax"),
-      icon: FileText,
-      title: t("servicos.tax.title"),
-      image: "/images/fiscal.webp",
-      description: t("servicos.tax.desc"),
-      features: [
-        t("servicos.tax.d1.title"),
-        t("servicos.tax.d2.title"),
-        t("servicos.tax.d3.title"),
-      ],
-      color: "from-orange-500/20 to-amber-500/20",
-    },
-    {
-      id: "labor",
-      slug: t("services.slug.labor"),
-      icon: ShieldCheck,
-      title: t("servicos.labor.title"),
-      image: "/images/laboral.webp",
-      description: t("servicos.labor.desc"),
-      features: [
-        t("servicos.labor.d1.title"),
-        t("servicos.labor.d2.title"),
-        t("servicos.labor.d3.title"),
-      ],
-      color: "from-green-500/20 to-emerald-500/20",
     },
   ];
 
@@ -291,27 +245,21 @@ const AnimatedServicesSection = () => {
                   </div>
 
                   {/* CTA Button */}
-                  <div className="flex flex-col gap-3">
-                    <Link
-                      to={`/servicos/${service.slug}`}
-                      className="block w-full"
-                    >
-                      <Button className="w-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground border border-primary/20 transition-all duration-300 group/btn">
-                        <span className="flex items-center justify-center gap-2">
-                          {t("services.detail.btn.learn_more")}
-                          <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                        </span>
-                      </Button>
-                    </Link>
-                    
-                    <Button 
-                      variant="ghost" 
-                      className="w-full text-muted-foreground hover:text-primary"
-                      onClick={() => setSelectedService(index)}
-                    >
-                      Resumo rápido
-                    </Button>
-                  </div>
+                  <motion.a
+                    href="/servicos"
+                    className="block"
+                    variants={headerVariants}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    style={{ willChange: "transform, opacity" }}
+                  >
+                    {/* <Button className="w-full bg-gradient-to-r from-primary/10 to-accent/10 text-primary hover:from-primary hover:to-primary/90 hover:text-primary-foreground border border-primary/20 transition-all duration-300 group/btn">
+                      <span className="flex items-center justify-center gap-2">
+                        Saiba Mais
+                        <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                      </span>
+                    </Button> */}
+                  </motion.a>
                 </div>
 
                 {/* Decorative Elements */}

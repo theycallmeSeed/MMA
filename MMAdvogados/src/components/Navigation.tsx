@@ -3,12 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Instagram, Facebook, Globe, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import LazyImage from "@/components/LazyImage";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { TranslationKey } from "@/lib/translations";
@@ -21,17 +15,24 @@ const navItems: { translationKey: TranslationKey; href: string; hasDropdown?: bo
   { translationKey: "nav.team", href: "/equipe" },
 ];
 
+const serviceLinks = [
+  // Principais (presentes na página Servicos.tsx)
+  { titleKey: "servicos.litigation.title", slugKey: "services.slug.litigation" },
+  { titleKey: "servicos.credit.title", slugKey: "services.slug.credit" },
+  { titleKey: "servicos.family.title", slugKey: "services.slug.family" },
+  { titleKey: "servicos.tax.title", slugKey: "services.slug.tax" },
+  { titleKey: "servicos.corporate.title", slugKey: "services.slug.corporate" },
+  // Corporate M&A (página de serviços também lista esta variação)
+  { titleKey: "servicos.corporate2.title", slugKey: "services.slug.corporate" },
+  // Áreas adicionais
+  { titleKey: "servicos.mining.title", slugKey: "services.slug.mining" },
+  { titleKey: "servicos.admin.title", slugKey: "services.slug.admin" },
+  { titleKey: "servicos.realestate.title", slugKey: "services.slug.realestate" },
+  { titleKey: "servicos.labor.title", slugKey: "services.slug.labor" },
+];
+
 const Navigation = () => {
   const { t, language, setLanguage } = useLanguage();
-  
-  const serviceLinks = [
-    { id: "litigation", slug: t("services.slug.litigation") },
-    { id: "corporate", slug: t("services.slug.corporate") },
-    { id: "credit", slug: t("services.slug.credit") },
-    { id: "family", slug: t("services.slug.family") },
-    { id: "tax", slug: t("services.slug.tax") },
-    { id: "labor", slug: t("services.slug.labor") },
-  ];
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(() => window.scrollY > 4);
   const location = useLocation();
@@ -86,6 +87,8 @@ const Navigation = () => {
 
   const textColor =
     isHome && isOverHero ? "text-white" : "text-[rgb(81,21,38)]";
+  const dropdownBg = isHome && isOverHero ? "bg-white/10 backdrop-blur-md border border-white/20" : "bg-white border border-gray-100 shadow-xl";
+  const dropdownTextColor = isHome && isOverHero ? "text-white hover:bg-white/20" : "text-gray-700 hover:text-[rgb(81,21,38)] hover:bg-gray-50";
 
   return (
     <>
@@ -118,64 +121,51 @@ const Navigation = () => {
             <div className="hidden lg:flex items-center gap-8">
               {navItems.map((item) => {
                 const active = isActive(item.href);
-                
-                if (item.hasDropdown) {
-                  return (
-                    <DropdownMenu key={item.translationKey}>
-                      <DropdownMenuTrigger asChild>
-                        <button
-                          className={`relative text-sm font-medium transition flex items-center gap-1
-                            ${
-                              active
-                                ? "text-[rgb(81,21,38)]"
-                                : textColor + " hover:opacity-80"
-                            }`}
-                        >
-                          {t(item.translationKey)}
-                          <ChevronDown size={14} className="opacity-50" />
-                          {active && (
-                            <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-[rgb(81,21,38)]" />
-                          )}
-                        </button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent align="start" className="w-64 p-2 rounded-xl border-border/50 shadow-xl backdrop-blur-md bg-white/95">
-                        <DropdownMenuItem asChild>
-                          <Link to="/servicos" className="w-full cursor-pointer font-bold text-primary">
-                            {t("services.btn.all")}
-                          </Link>
-                        </DropdownMenuItem>
-                        <div className="h-px bg-border/50 my-1" />
-                        {serviceLinks.map((service) => (
-                          <DropdownMenuItem key={service.id} asChild>
-                            <Link 
-                              to={`/servicos/${service.slug}`}
-                              className="w-full cursor-pointer py-2 px-3 rounded-lg hover:bg-primary/5 transition-colors"
-                            >
-                              {t(`servicos.${service.id}.title`)}
-                            </Link>
-                          </DropdownMenuItem>
-                        ))}
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                  );
-                }
-
                 return (
-                  <Link
-                    key={item.translationKey}
-                    to={item.href}
-                    className={`relative text-sm font-medium transition 
-                      ${
-                        active
-                          ? "text-[rgb(81,21,38)]"
-                          : textColor + " hover:opacity-80"
-                      }`}
-                  >
-                    {t(item.translationKey)}
-                    {active && (
-                      <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-[rgb(81,21,38)]" />
+                  <div key={item.translationKey} className="relative group">
+                    <Link
+                      to={item.href}
+                      className={`relative text-sm font-medium transition flex items-center gap-1
+                        ${
+                          active
+                            ? "text-[rgb(81,21,38)]"
+                            : textColor + " hover:opacity-80"
+                        }`}
+                    >
+                      {t(item.translationKey)}
+                      {item.hasDropdown && (
+                        <ChevronDown className="w-3 h-3 opacity-70 group-hover:rotate-180 transition-transform duration-200" />
+                      )}
+                      {active && (
+                        <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-[rgb(81,21,38)]" />
+                      )}
+                    </Link>
+
+                    {/* Dropdown Menu for Services */}
+                    {item.hasDropdown && (
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 z-50">
+                        <div className={`w-64 rounded-2xl overflow-hidden p-2 flex flex-col gap-1 ${dropdownBg}`}>
+                          {serviceLinks.map((service) => (
+                            <Link
+                              key={service.titleKey}
+                              to={`/servicos/${t(service.slugKey)}`}
+                              className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${dropdownTextColor}`}
+                            >
+                              {t(service.titleKey)}
+                            </Link>
+                          ))}
+                          <div className="w-full h-[1px] bg-border my-1" />
+                          <Link
+                            to="/servicos"
+                            className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors text-primary flex justify-between items-center ${isHome && isOverHero ? 'hover:bg-white/20' : 'hover:bg-primary/5'}`}
+                          >
+                            {t("services.btn.all")}
+                            <span className="opacity-70 text-xs">→</span>
+                          </Link>
+                        </div>
+                      </div>
                     )}
-                  </Link>
+                  </div>
                 );
               })}
 
@@ -259,22 +249,24 @@ const Navigation = () => {
                   <div key={item.translationKey} className="flex flex-col gap-2">
                     <Link
                       to={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className="text-base font-bold text-[rgb(81,21,38)]"
+                      onClick={() => !item.hasDropdown && setIsOpen(false)}
+                      className="text-base font-medium text-[rgb(81,21,38)] flex items-center justify-between w-full"
                     >
                       {t(item.translationKey)}
+                      {item.hasDropdown && <ChevronDown className="w-4 h-4 opacity-70" />}
                     </Link>
                     
+                    {/* Mobile Dropdown Submenu */}
                     {item.hasDropdown && (
-                      <div className="flex flex-col gap-3 pl-4 border-l-2 border-primary/10 mt-1">
+                      <div className="pl-4 flex flex-col gap-4 mt-2 mb-2 border-l-2 border-primary/20">
                         {serviceLinks.map((service) => (
                           <Link
-                            key={service.id}
-                            to={`/servicos/${service.slug}`}
+                            key={service.titleKey}
+                            to={`/servicos/${t(service.slugKey)}`}
                             onClick={() => setIsOpen(false)}
-                            className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                            className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
                           >
-                            {t(`servicos.${service.id}.title`)}
+                            {t(service.titleKey)}
                           </Link>
                         ))}
                       </div>

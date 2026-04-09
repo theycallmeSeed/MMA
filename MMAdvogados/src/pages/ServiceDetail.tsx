@@ -1,6 +1,5 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { translations } from "@/lib/translations";
 import SEO from "@/components/SEO";
 import { motion } from "framer-motion";
 import { 
@@ -39,39 +38,24 @@ const serviceIcons: Record<string, any> = {
 
 const ServiceDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-  const { t, language, setLanguage } = useLanguage();
+  const { t, language } = useLanguage();
   const navigate = useNavigate();
 
-  // IDs de serviço suportados
+  // Encontrar o ID do serviço pelo slug
   const serviceIds = [
     "litigation", "corporate", "credit", "family", 
     "tax", "mining", "admin", "realestate", "labor"
   ];
 
-  // Encontrar o ID do serviço verificando o slug em AMBOS os idiomas
-  // Isso evita que a página quebre ao trocar de idioma
-  const findServiceIdBySlug = (currentSlug: string) => {
-    return serviceIds.find(id => {
-      const slugPT = translations.pt[`services.slug.${id}`];
-      const slugEN = translations.en[`services.slug.${id}`];
-      return currentSlug === slugPT || currentSlug === slugEN;
-    });
-  };
-
-  const serviceId = findServiceIdBySlug(slug || "");
+  const serviceId = serviceIds.find(id => t(`services.slug.${id}`) === slug);
   const Icon = serviceId ? serviceIcons[serviceId] : Scale;
 
-  // Sincronizar o slug da URL com o idioma selecionado
   useEffect(() => {
-    if (serviceId) {
-      const correctSlug = t(`services.slug.${serviceId}`);
-      if (slug !== correctSlug) {
-        navigate(`/servicos/${correctSlug}`, { replace: true });
-      }
-    } else if (slug) {
+    if (!serviceId && slug) {
+      // Se o slug não for encontrado, redirecionar para a página de serviços
       navigate("/servicos");
     }
-  }, [language, serviceId, slug, navigate, t]);
+  }, [serviceId, slug, navigate]);
 
   if (!serviceId) return null;
 
@@ -84,30 +68,6 @@ const ServiceDetail = () => {
   const seoTitle = t("services.detail.seo.title").replace("{service}", title);
   const seoDesc = t("services.detail.seo.desc").replace("{service}", title);
   const canonicalPath = `/servicos/${slug}`;
-
-  // Structured Data (JSON-LD) for SEO
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "LegalService",
-    "name": title,
-    "description": seoDesc,
-    "url": `https://madvogados.co.mz/servicos/${slug}`,
-    "provider": {
-      "@type": "Organization",
-      "name": "Milagrosa Macuácua Advogados, LDA",
-      "url": "https://madvogados.co.mz/"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Av. Joaquim Chissano, 1919",
-      "addressLocality": "Matola",
-      "addressRegion": "Maputo",
-      "addressCountry": "MZ"
-    },
-    "telephone": "+258 84 54 69 097",
-    "areaServed": "Mozambique",
-    "serviceType": title
-  };
 
   const features = [
     { title: t(`servicos.${serviceId}.d1.title`), desc: t(`servicos.${serviceId}.d1.desc`) },
@@ -128,7 +88,6 @@ const ServiceDetail = () => {
         title={seoTitle}
         description={seoDesc}
         canonicalPath={canonicalPath}
-        jsonLd={jsonLd}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -216,7 +175,7 @@ const ServiceDetail = () => {
                 
                 <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
                   <Shield className="h-5 w-5 text-primary" />
-                  {t("services.detail.advantages.title")}
+                  {language === 'pt' ? 'Vantagens MMA' : 'MMA Advantages'}
                 </h3>
                 
                 <ul className="space-y-4">
@@ -228,11 +187,11 @@ const ServiceDetail = () => {
                   ))}
                   <li className="flex items-start gap-3">
                     <Clock className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                    <span className="font-medium">{t("services.detail.advantages.s1")}</span>
+                    <span className="font-medium">{language === 'pt' ? 'Resposta em 24h' : '24h Response'}</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Award className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                    <span className="font-medium">{t("services.detail.advantages.s2")}</span>
+                    <span className="font-medium">{language === 'pt' ? 'Rigor Técnico' : 'Technical Rigor'}</span>
                   </li>
                 </ul>
               </div>

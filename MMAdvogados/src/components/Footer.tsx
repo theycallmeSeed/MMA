@@ -24,11 +24,11 @@ const Footer = () => {
   ];
 
   const services = [
-    { name: t("servicos.litigation.title"), slug: t("services.slug.litigation") },
-    { name: t("servicos.corporate.title"), slug: t("services.slug.corporate") },
-    { name: t("servicos.credit.title"), slug: t("services.slug.credit") },
-    { name: t("servicos.family.title"), slug: t("services.slug.family") },
-    { name: t("servicos.labor.title"), slug: t("services.slug.labor") },
+    { name: t("services.litigation.title"), slug: t("services.slug.litigation") },
+    { name: t("services.corporate.title"), slug: t("services.slug.corporate") },
+    { name: t("services.credit.title"), slug: t("services.slug.credit") },
+    { name: t("services.family.title"), slug: t("services.slug.family") },
+    { name: t("services.labor.title"), slug: t("services.slug.labor") },
   ];
 
   const mapUrl =
