@@ -13,18 +13,15 @@ import {
   HardHat, 
   Gavel,
   ArrowLeft,
-  CheckCircle2,
-  Sparkles,
   ArrowRight,
-  Shield,
-  Clock,
-  Award
+  
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { generateWhatsAppLink } from "@/lib/utils";
 import { useEffect } from "react";
 
-const serviceIcons: Record<string, any> = {
+const serviceIcons: Record<string, LucideIcon> = {
   litigation: Scale,
   corporate: Building2,
   credit: CreditCard,
@@ -75,12 +72,6 @@ const ServiceDetail = () => {
     { title: t(`servicos.${serviceId}.d3.title`), desc: t(`servicos.${serviceId}.d3.desc`) },
     { title: t(`servicos.${serviceId}.d4.title`), desc: t(`servicos.${serviceId}.d4.desc`) },
   ].filter(f => f.title && f.title !== `servicos.${serviceId}.d4.title`); // Filtro básico para chaves inexistentes
-
-  const benefits = [
-    t(`servicos.${serviceId}.b1`),
-    t(`servicos.${serviceId}.b2`),
-    t(`servicos.${serviceId}.b3`),
-  ].filter(b => b && !b.startsWith("servicos."));
 
   return (
     <div className="min-h-screen pt-28 pb-20">
@@ -167,34 +158,6 @@ const ServiceDetail = () => {
               transition={{ delay: 0.3 }}
               className="sticky top-32 space-y-8"
             >
-              {/* Benefits Card */}
-              <div className="p-8 rounded-3xl bg-muted/30 border border-border relative overflow-hidden">
-                <div className="absolute top-0 right-0 p-4 opacity-10">
-                  <Sparkles className="h-24 w-24 text-primary" />
-                </div>
-                
-                <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
-                  <Shield className="h-5 w-5 text-primary" />
-                  {language === 'pt' ? 'Vantagens MMA' : 'MMA Advantages'}
-                </h3>
-                
-                <ul className="space-y-4">
-                  {benefits.map((benefit, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                      <span className="font-medium">{benefit}</span>
-                    </li>
-                  ))}
-                  <li className="flex items-start gap-3">
-                    <Clock className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                    <span className="font-medium">{language === 'pt' ? 'Resposta em 24h' : '24h Response'}</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Award className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                    <span className="font-medium">{language === 'pt' ? 'Rigor Técnico' : 'Technical Rigor'}</span>
-                  </li>
-                </ul>
-              </div>
 
               {/* WhatsApp CTA */}
               <div className="p-8 rounded-3xl bg-primary text-primary-foreground shadow-xl shadow-primary/20">

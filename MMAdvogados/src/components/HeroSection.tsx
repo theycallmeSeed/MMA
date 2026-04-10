@@ -34,7 +34,7 @@ style={{ height: "var(--real-vh)" }}
   src="/images/hero-banner.webp"
   alt={t("hero.img.alt")}
   className="absolute inset-0 w-full h-full object-cover hidden md:block"
-  fetchpriority="high"
+  fetchPriority="high"
 />
 
 {/* Mobile */}
@@ -42,7 +42,7 @@ style={{ height: "var(--real-vh)" }}
   src="/images/hero-banner-mob.webp"
   alt={t("hero.img.alt")}
   className="absolute inset-0 w-full h-full object-cover md:hidden"
-  fetchpriority="high"
+  fetchPriority="high"
 />
 
         {/* Overlay (melhor contraste e profundidade) */}

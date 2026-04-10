@@ -88,8 +88,12 @@ const Navigation = () => {
 
   const textColor =
     isHome && isOverHero ? "text-white" : "text-[rgb(81,21,38)]";
-  const dropdownBg = isHome && isOverHero ? "bg-white/10 backdrop-blur-md border border-white/20" : "bg-white border border-gray-100 shadow-xl";
-  const dropdownTextColor = isHome && isOverHero ? "text-white hover:bg-white/20" : "text-gray-700 hover:text-[rgb(81,21,38)] hover:bg-gray-50";
+const dropdownBg = isHome && isOverHero 
+  ? "bg-gradient-to-b from-white/60 to-white/30 backdrop-blur-sm border border-white/40 shadow-lg will-change-transform transform-gpu"
+  : "bg-white border border-gray-100 shadow-xl";
+ const dropdownTextColor = isHome && isOverHero 
+  ? "text-white [text-shadow:0_1px_2px_rgba(81,21,38)] hover:bg-white/20"
+  : "text-gray-700 hover:text-[rgb(81,21,38)] hover:bg-gray-50";
 
   return (
     <>
@@ -187,8 +191,8 @@ const Navigation = () => {
                   target="_blank"
                   rel="noreferrer"
                   className={`${textColor} hover:opacity-80 flex items-center justify-center w-11 h-11 rounded-full`}
-                  aria-label="Abrir Instagram da MMAdvogados em nova aba"
-                  title="Instagram da MMAdvogados"
+                  aria-label="Abrir Instagram da Milagrosa Macuácua Advogados em nova aba"
+                  title="Instagram da Milagrosa Macuácua Advogados"
                 >
                   <Instagram size={18} />
                 </a>
@@ -197,8 +201,8 @@ const Navigation = () => {
                   target="_blank"
                   rel="noreferrer"
                   className={`${textColor} hover:opacity-80 flex items-center justify-center w-11 h-11 rounded-full`}
-                  aria-label="Abrir página do Facebook da MMAdvogados em nova aba"
-                  title="Facebook da MMAdvogados"
+                  aria-label="Abrir página do Facebook da Milagrosa Macuácua Advogados em nova aba"
+                  title="Facebook da Milagrosa Macuácua Advogados"
                 >
                   <Facebook size={18} />
                 </a>
