@@ -20,73 +20,23 @@ const ServiceDetail = React.lazy(() => import("./pages/ServiceDetail"));
 const Privacidade = React.lazy(() => import("./pages/Privacidade"));
 const Termos = React.lazy(() => import("./pages/Termos"));
 
+import { GlobalStateLoader } from "./components/GlobalStateLoader";
+
 // Loader personalizado otimizado (sem framer-motion para evitar bloqueios de render)
 const CustomLoader = () => (
-  <div
-    className="fixed inset-0 z-[9999] flex items-center justify-center"
-    style={{
-      backgroundColor: "rgba(255,255,255,0.2)",
-      backdropFilter: "blur(6px)",
-    }}
-    role="status"
-    aria-label="A carregar a página..."
-  >
-    <div className="flex flex-col items-center gap-5">
-      
-      {/* LOGO ANIMADO */}
-      <motion.img
-        src="/logotipo 4-1.png"
+  <div className="min-h-screen flex flex-col items-center justify-center bg-background" role="status" aria-label="A carregar a página...">
+    <div className="flex flex-col items-center gap-4 animate-pulse">
+      <img
+        src="/logo-120.webp"
         alt="Milagrosa Macuácua Advogados Logótipo"
-        width={70}
-        height={70}
-        className="object-contain rounded-xl"
+        width={60}
+        height={60}
+        className="object-contain"
         fetchPriority="high"
-        animate={{
-          scale: [1, 1.1, 1],
-          rotate: [0, 6, -6, 0],
-          opacity: [0.8, 1, 0.8],
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        style={{
-          boxShadow: "0 0 25px rgba(81,21,38,0.5)",
-        }}
       />
-
-      {/* TEXTO */}
-      <div className="text-center">
-        <div className="font-serif font-bold text-xl text-[rgb(81,21,38)]">
-          Milagrosa Macuácua
-        </div>
-        <div className="text-sm opacity-70 tracking-widest">
-          ADVOGADOS
-        </div>
-      </div>
-
-      {/* TEXTO ANIMADO */}
-      <motion.p
-        className="text-sm font-medium text-gray-700"
-        animate={{ opacity: [0.3, 1, 0.3] }}
-        transition={{ duration: 1.5, repeat: Infinity }}
-      >
-        A carregar...
-      </motion.p>
-
-      {/* SPINNER PREMIUM */}
-      <div className="relative w-10 h-10">
-        <div className="absolute inset-0 rounded-full border-4 border-[rgb(81,21,38)]/20" />
-        <motion.div
-          className="absolute inset-0 rounded-full border-4 border-transparent border-t-[rgb(81,21,38)]"
-          animate={{ rotate: 360 }}
-          transition={{
-            duration: 1,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        />
+      <div className="text-[rgb(81,21,38)] text-center">
+        <div className="font-serif font-bold text-xl">Milagrosa Macuácua</div>
+        <div className="text-sm opacity-70 tracking-widest mt-1">ADVOGADOS</div>
       </div>
     </div>
   </div>
@@ -129,6 +79,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <GlobalStateLoader />
       <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <ScrollToTop />
         <AppRoutes />
