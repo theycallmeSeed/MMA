@@ -14,10 +14,12 @@ import {
   Target,
   ChevronDown,
   Pickaxe,
+  ShieldCheck,
+  Gavel
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -28,166 +30,71 @@ const AVENCA_SLUG = "avenca";
 
 const Servicos = () => {
   const { t } = useLanguage();
-  const [expandedCard, setExpandedCard] = useState<number | null>(null);
 
   const detailedServices = [
     {
       icon: Scale,
+      slug: t("services.slug.litigation"),
       title: t("servicos.litigation.title"),
-      subtitle: t("servicos.litigation.subtitle"),
-      description: t("servicos.litigation.desc"),
-      details: [
-        { title: t("servicos.litigation.d1.title"), desc: t("servicos.litigation.d1.desc") },
-        { title: t("servicos.litigation.d2.title"), desc: t("servicos.litigation.d2.desc") },
-        { title: t("servicos.litigation.d3.title"), desc: t("servicos.litigation.d3.desc") },
-      ],
-      benefits: [
-        t("servicos.litigation.b1"),
-        t("servicos.litigation.b2"),
-        t("servicos.litigation.b3"),
-      ],
+      description: t("servicos.litigation.shortDesc"),
     },
     {
       icon: CreditCard,
+      slug: t("services.slug.credit"),
       title: t("servicos.credit.title"),
-      subtitle: t("servicos.credit.subtitle"),
-      description: t("servicos.credit.desc"),
-      details: [
-        { title: t("servicos.credit.d1.title"), desc: t("servicos.credit.d1.desc") },
-        { title: t("servicos.credit.d2.title"), desc: t("servicos.credit.d2.desc") },
-        { title: t("servicos.credit.d3.title"), desc: t("servicos.credit.d3.desc") },
-        { title: t("servicos.credit.d4.title"), desc: t("servicos.credit.d4.desc") },
-      ],
-      benefits: [t("servicos.credit.b1"), t("servicos.credit.b2"), t("servicos.credit.b3")],
+      description: t("servicos.credit.shortDesc"),
     },
     {
-      icon: Home,
+      icon: Users,
+      slug: t("services.slug.family"),
       title: t("servicos.family.title"),
-      subtitle: t("servicos.family.subtitle"),
-      description: t("servicos.family.desc"),
-      details: [
-        { title: t("servicos.family.d1.title"), desc: t("servicos.family.d1.desc") },
-        { title: t("servicos.family.d2.title"), desc: t("servicos.family.d2.desc") },
-        { title: t("servicos.family.d3.title"), desc: t("servicos.family.d3.desc") },
-        { title: t("servicos.family.d4.title"), desc: t("servicos.family.d4.desc") },
-      ],
-      benefits: [t("servicos.family.b1"), t("servicos.family.b2"), t("servicos.family.b3")],
-    },
-    {
-      icon: Scale,
-      title: t("servicos.tax.title"),
-      subtitle: t("servicos.tax.subtitle"),
-      description: t("servicos.tax.desc"),
-      details: [
-        { title: t("servicos.tax.d1.title"), desc: t("servicos.tax.d1.desc") },
-        { title: t("servicos.tax.d2.title"), desc: t("servicos.tax.d2.desc") },
-        { title: t("servicos.tax.d3.title"), desc: t("servicos.tax.d3.desc") },
-        { title: t("servicos.tax.d4.title"), desc: t("servicos.tax.d4.desc") },
-      ],
-      benefits: [t("servicos.tax.b1"), t("servicos.tax.b2"), t("servicos.tax.b3")],
-    },
-    {
-      icon: Handshake,
-      title: t("servicos.corporate.title"),
-      subtitle: t("servicos.corporate.subtitle"),
-      description: t("servicos.corporate.desc"),
-      details: [
-        { title: t("servicos.corporate.d1.title"), desc: t("servicos.corporate.d1.desc") },
-        { title: t("servicos.corporate.d2.title"), desc: t("servicos.corporate.d2.desc") },
-        { title: t("servicos.corporate.d3.title"), desc: t("servicos.corporate.d3.desc") },
-        { title: t("servicos.corporate.d4.title"), desc: t("servicos.corporate.d4.desc") },
-      ],
-      benefits: [t("servicos.corporate.b1"), t("servicos.corporate.b2"), t("servicos.corporate.b3")],
+      description: t("servicos.family.shortDesc"),
     },
     {
       icon: FileText,
-      slug: AVENCA_SLUG,
-      title: t("servicos.retainer.title"),
-      subtitle: t("servicos.retainer.subtitle"),
-      description: t("servicos.retainer.desc"),
-      details: [
-        { title: t("servicos.retainer.d1.title"), desc: t("servicos.retainer.d1.desc") },
-        { title: t("servicos.retainer.d2.title"), desc: t("servicos.retainer.d2.desc") },
-        { title: t("servicos.retainer.d3.title"), desc: t("servicos.retainer.d3.desc") },
-        { title: t("servicos.retainer.d4.title"), desc: t("servicos.retainer.d4.desc") },
-      ],
-      benefits: [t("servicos.retainer.b1"), t("servicos.retainer.b2"), t("servicos.retainer.b3")],
+      slug: t("services.slug.tax"),
+      title: t("servicos.tax.title"),
+      description: t("servicos.tax.shortDesc"),
+    },
+    {
+      icon: Handshake,
+      slug: t("services.slug.corporate"),
+      title: t("servicos.corporate.title"),
+      description: t("servicos.corporate.shortDesc"),
     },
     {
       icon: Building2,
+      slug: t("services.slug.corporate"),
       title: t("servicos.corporate2.title"),
-      subtitle: t("servicos.corporate2.subtitle"),
-      description: t("servicos.corporate2.desc"),
-      details: [
-        { title: t("servicos.corporate2.d1.title"), desc: t("servicos.corporate2.d1.desc") },
-        { title: t("servicos.corporate2.d2.title"), desc: t("servicos.corporate2.d2.desc") },
-        { title: t("servicos.corporate2.d3.title"), desc: t("servicos.corporate2.d3.desc") },
-        { title: t("servicos.corporate2.d4.title"), desc: t("servicos.corporate2.d4.desc") },
-      ],
-      benefits: [t("servicos.corporate2.b1"), t("servicos.corporate2.b2"), t("servicos.corporate2.b3")],
+      description: t("servicos.corporate2.shortDesc"),
     },
-  ];
-
-  const processSteps = [
-    { icon: Target, title: t("process.s1.title"), desc: t("process.s1.desc") },
-    { icon: Shield, title: t("process.s2.title"), desc: t("process.s2.desc") },
-    { icon: Clock, title: t("process.s3.title"), desc: t("process.s3.desc") },
-    { icon: CheckCircle2, title: t("process.s4.title"), desc: t("process.s4.desc") },
   ];
 
   const extraServiceAreas = useMemo(
     () => [
       {
         icon: Pickaxe,
+        slug: t("services.slug.mining"),
         title: t("servicos.mining.title"),
-        subtitle: t("servicos.mining.subtitle"),
-        description: t("servicos.mining.desc"),
-        details: [
-          { title: t("servicos.mining.d1.title"), desc: t("servicos.mining.d1.desc") },
-          { title: t("servicos.mining.d2.title"), desc: t("servicos.mining.d2.desc") },
-          { title: t("servicos.mining.d3.title"), desc: t("servicos.mining.d3.desc") },
-          { title: t("servicos.mining.d4.title"), desc: t("servicos.mining.d4.desc") },
-        ],
-        benefits: [t("servicos.mining.b1"), t("servicos.mining.b2"), t("servicos.mining.b3")],
+        description: t("servicos.mining.shortDesc"),
       },
       {
-        icon: FileText,
+        icon: Gavel,
+        slug: t("services.slug.admin"),
         title: t("servicos.admin.title"),
-        subtitle: t("servicos.admin.subtitle"),
-        description: t("servicos.admin.desc"),
-        details: [
-          { title: t("servicos.admin.d1.title"), desc: t("servicos.admin.d1.desc") },
-          { title: t("servicos.admin.d2.title"), desc: t("servicos.admin.d2.desc") },
-          { title: t("servicos.admin.d3.title"), desc: t("servicos.admin.d3.desc") },
-          { title: t("servicos.admin.d4.title"), desc: t("servicos.admin.d4.desc") },
-        ],
-        benefits: [t("servicos.admin.b1"), t("servicos.admin.b2"), t("servicos.admin.b3")],
+        description: t("servicos.admin.shortDesc"),
       },
       {
         icon: Home,
+        slug: t("services.slug.realestate"),
         title: t("servicos.realestate.title"),
-        subtitle: t("servicos.realestate.subtitle"),
-        description: t("servicos.realestate.desc"),
-        details: [
-          { title: t("servicos.realestate.d1.title"), desc: t("servicos.realestate.d1.desc") },
-          { title: t("servicos.realestate.d2.title"), desc: t("servicos.realestate.d2.desc") },
-          { title: t("servicos.realestate.d3.title"), desc: t("servicos.realestate.d3.desc") },
-          { title: t("servicos.realestate.d4.title"), desc: t("servicos.realestate.d4.desc") },
-        ],
-        benefits: [t("servicos.realestate.b1"), t("servicos.realestate.b2"), t("servicos.realestate.b3")],
+        description: t("servicos.realestate.shortDesc"),
       },
       {
-        icon: Users,
+        icon: ShieldCheck,
+        slug: t("services.slug.labor"),
         title: t("servicos.labor.title"),
-        subtitle: t("servicos.labor.subtitle"),
-        description: t("servicos.labor.desc"),
-        details: [
-          { title: t("servicos.labor.d1.title"), desc: t("servicos.labor.d1.desc") },
-          { title: t("servicos.labor.d2.title"), desc: t("servicos.labor.d2.desc") },
-          { title: t("servicos.labor.d3.title"), desc: t("servicos.labor.d3.desc") },
-          { title: t("servicos.labor.d4.title"), desc: t("servicos.labor.d4.desc") },
-        ],
-        benefits: [t("servicos.labor.b1"), t("servicos.labor.b2"), t("servicos.labor.b3")],
+        description: t("servicos.labor.shortDesc"),
       },
     ],
     [t]
@@ -201,10 +108,6 @@ const Servicos = () => {
     () => [...regularServices, ...extraServiceAreas],
     [regularServices, extraServiceAreas]
   );
-
-  const toggleCard = (index: number) => {
-    setExpandedCard(expandedCard === index ? null : index);
-  };
 
   const whatsappMessage = encodeURIComponent(
     `Bom dia, gostaria de agendar uma consultoria jurídica com a vossa sociedade de advogados.
@@ -235,11 +138,11 @@ Muito obrigado(a).`
           "@context": "https://schema.org",
           "@type": "LegalService",
           "name": "Áreas de Atuação",
-          "url": "https://madvogados.co.mz/servicos",
+          "url": "https://www.madvogados.co.mz/servicos",
           "provider": {
             "@type": "Organization",
             "name": "Milagrosa Macuácua Advogados, LDA",
-            "url": "https://madvogados.co.mz/"
+            "url": "https://www.madvogados.co.mz/"
           },
           "areaServed": "Mozambique",
           "description": "Atuação com excelência nas principais áreas do direito, com foco em empresas e particulares."
@@ -280,97 +183,38 @@ Muito obrigado(a).`
               >
                 <div className="bg-card border-2 border-border rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-300 shadow-lg hover:shadow-xl">
                   {/* Card Header - Always Visible */}
-                  <button
-                    onClick={() => toggleCard(index)}
-                    className="w-full p-6 lg:p-8 flex items-start gap-6 text-left hover:bg-muted/30 transition-colors duration-300"
+                  <div
+                    className="w-full p-6 lg:p-8 flex flex-col h-full gap-6 text-left"
                   >
                     {/* Icon */}
                     <div className="flex-shrink-0">
-                      <div className="p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                      <div className="p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl group-hover:scale-110 transition-transform duration-300 inline-block">
                         <service.icon className="h-8 w-8 text-primary" />
                       </div>
                     </div>
 
                     {/* Title and Description */}
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-start justify-between gap-4 mb-3">
-                        <div>
-                          <h3 className="text-2xl lg:text-3xl font-serif font-bold text-primary mb-1">
-                            {service.title}
-                          </h3>
-                          <p className="text-base text-primary/70 font-medium">
-                            {service.subtitle}
-                          </p>
-                        </div>
+                    <div className="flex-1 flex flex-col">
+                      <h3 className="text-2xl lg:text-3xl font-serif font-bold text-primary mb-4">
+                        {service.title}
+                      </h3>
 
-                        {/* Expand Icon */}
-                        <ChevronDown
-                          className={`h-6 w-6 text-primary flex-shrink-0 transition-transform duration-300 ${
-                            expandedCard === index ? "rotate-180" : ""
-                          }`}
-                        />
-                      </div>
-
-                      <p className="text-muted-foreground leading-relaxed">
+                      <p className="text-muted-foreground leading-relaxed flex-1">
                         {service.description}
                       </p>
-                    </div>
-                  </button>
 
-                  {/* Expandable Content */}
-                  <motion.div
-                    initial={false}
-                    animate={{
-                      height: expandedCard === index ? "auto" : 0,
-                      opacity: expandedCard === index ? 1 : 0,
-                    }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="overflow-hidden"
-                  >
-                    <div className="px-6 lg:px-8 pb-8 pt-4 border-t border-border/50">
-                      {/* Details Grid */}
-                      <div className="grid md:grid-cols-2 gap-4 mb-6">
-                        {service.details.map((detail: { title: string; desc: string }, detailIndex: number) => (
-                          <div
-                            key={`${detail.title}-${detailIndex}`}
-                            className="p-4 rounded-xl bg-gradient-to-br from-muted/50 to-muted/20 border border-border/50 hover:border-primary/20 transition-colors duration-300"
-                          >
-                            <div className="flex items-start gap-3">
-                              <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                              <div>
-                                <h4 className="font-semibold text-foreground mb-1 text-sm">
-                                  {detail.title}
-                                </h4>
-                                <p className="text-xs text-muted-foreground leading-relaxed">
-                                  {detail.desc}
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Benefits */}
-                      <div className="p-5 rounded-xl bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/10">
-                        <div className="flex items-center gap-2 mb-3">
-                          <Sparkles className="h-5 w-5 text-primary" />
-                          <h4 className="font-semibold text-primary">
-                            Benefícios Principais
-                          </h4>
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                          {service.benefits.map((benefit: string, idx: number) => (
-                            <span
-                              key={`${benefit}-${idx}`}
-                              className="px-3 py-1.5 bg-background rounded-full text-xs font-medium text-foreground border border-border"
-                            >
-                              {benefit}
-                            </span>
-                          ))}
-                        </div>
+                      {/* View Details Link */}
+                      <div className="mt-8">
+                        <Link
+                          to={`/servicos/${service.slug}`}
+                          className="inline-flex items-center justify-center w-full px-6 py-3 rounded-xl bg-muted/20 text-primary font-bold hover:bg-muted transition-all duration-300 group/link border border-border hover:shadow-lg"
+                        >
+                          {t("services.detail.btn.learn_more")}
+                          <ArrowRight className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
+                        </Link>
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
               </motion.div>
             ))}

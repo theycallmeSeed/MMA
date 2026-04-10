@@ -238,7 +238,7 @@ const Sobre = () => {
                 >
                   <LazyImage
                     src={officeImages[officeIndex]}
-                    alt="Escritório MM Advogados"
+                    alt="Escritório Milagrosa Macuácua Advogados"
                     width={1200}
                     height={900}
                     decoding="async"
