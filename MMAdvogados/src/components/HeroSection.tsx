@@ -14,36 +14,28 @@ useEffect(() => {
   document.documentElement.style.setProperty('--real-vh', `${vh}px`);
 }, []);
   return (
-    <motion.section
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      className="relative flex items-center justify-center"
-style={{ height: "var(--real-vh)" }}
+    <section
+      className="relative flex items-center justify-center animate-in fade-in duration-700"
+      style={{ height: "var(--real-vh)" }}
       aria-label={t("hero.aria.label")}
     >
       {/* Background */}
       <div className="absolute inset-0">
-        {/* <div
-          className="hero-bg absolute inset-0"
-          role="img"
-          aria-label={t("hero.img.alt")}
-        /> */}
         {/* Desktop */}
-<img
-  src="/images/hero-banner.webp"
-  alt={t("hero.img.alt")}
-  className="absolute inset-0 w-full h-full object-cover hidden md:block"
-  fetchPriority="high"
-/>
+        <img
+          src="/images/hero-banner.webp"
+          alt={t("hero.img.alt")}
+          className="absolute inset-0 w-full h-full object-cover hidden md:block"
+          fetchPriority="high"
+        />
 
-{/* Mobile */}
-<img
-  src="/images/hero-banner-mob.webp"
-  alt={t("hero.img.alt")}
-  className="absolute inset-0 w-full h-full object-cover md:hidden"
-  fetchPriority="high"
-/>
+        {/* Mobile */}
+        <img
+          src="/images/hero-banner-mob.webp"
+          alt={t("hero.img.alt")}
+          className="absolute inset-0 w-full h-full object-cover md:hidden"
+          fetchPriority="high"
+        />
 
         {/* Overlay (melhor contraste e profundidade) */}
         <div className="absolute inset-0 bg-black/55 md:bg-black/50" />
@@ -133,7 +125,7 @@ style={{ height: "var(--real-vh)" }}
   animation: none !important;
 }
       `}</style>
-    </motion.section>
+    </section>
   );
 };
 

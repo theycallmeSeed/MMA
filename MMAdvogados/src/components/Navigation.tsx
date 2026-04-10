@@ -107,12 +107,14 @@ const dropdownBg = isHome && isOverHero
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3" aria-label="Milagrosa Macuácua Advogados - Voltar à página inicial">
-              <LazyImage
-                src="/logotipo 4-1.png"
+              <img
+                src="/logo-120.webp"
+                srcSet="/logo-120.webp 1x, /logo-400.webp 2x"
                 alt="Logótipo Milagrosa Macuácua Advogados"
                 width={40}
                 height={40}
                 className="object-contain"
+                fetchpriority="high"
               />
               <div className={`${textColor}`}>
                 <div className="font-serif font-bold text-lg">
