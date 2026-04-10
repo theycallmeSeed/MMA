@@ -34,6 +34,7 @@ style={{ height: "var(--real-vh)" }}
   src="/images/hero-banner.webp"
   alt={t("hero.img.alt")}
   className="absolute inset-0 w-full h-full object-cover hidden md:block"
+  fetchPriority="high"
 />
 
 {/* Mobile */}
@@ -41,6 +42,7 @@ style={{ height: "var(--real-vh)" }}
   src="/images/hero-banner-mob.webp"
   alt={t("hero.img.alt")}
   className="absolute inset-0 w-full h-full object-cover md:hidden"
+  fetchPriority="high"
 />
 
         {/* Overlay (melhor contraste e profundidade) */}
@@ -77,6 +79,7 @@ style={{ height: "var(--real-vh)" }}
                 href={getWhatsAppConsultoriaLinkExact()}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Agendar Consultoria (Abre uma conversa no WhatsApp numa nova aba)"
               >
                 <span className="flex items-center gap-3">
                   <span className="drop-shadow-[0_1px_1px_rgba(0,0,0,0.75)]">
@@ -93,7 +96,7 @@ style={{ height: "var(--real-vh)" }}
               size="lg"
               className="bg-transparent border-2 border-white/70 text-white hover:bg-white/20 hover:text-white px-8 py-6 w-full sm:w-auto text-base backdrop-blur-sm"
             >
-              <a href="/servicos">
+              <a href="/servicos" aria-label="Ver todas as áreas de actuação e serviços">
                 <span className="drop-shadow-[0_1px_1px_rgba(0,0,0,0.75)]">
                   {t("hero.btn.services")}
                 </span>
