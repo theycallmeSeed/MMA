@@ -24,9 +24,17 @@ const Footer = () => {
   ];
 
   const services = [
+<<<<<<< Updated upstream
     t("services.litigation.title"),
     t("services.corporate.title"),
     t("services.credit.title"),
+=======
+    { name: t("services.litigation.title"), slug: t("services.slug.litigation") },
+    { name: t("services.corporate.title"), slug: t("services.slug.corporate") },
+    { name: t("services.credit.title"), slug: t("services.slug.credit") },
+    // { name: t("services.family.title"), slug: t("services.slug.family") },
+    // { name: t("services.labor.title"), slug: t("services.slug.labor") },
+>>>>>>> Stashed changes
   ];
 
   const mapUrl =
