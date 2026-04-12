@@ -76,26 +76,18 @@ const TeamSection = () => {
               <div className="relative">
                 <div className="flex justify-center mt-6">
                   <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden relative shadow-lg">
-                    {member.photo
-                      ? (() => {
-                          const base = member.photo.replace(/\.webp$/i, "");
-                          const src = member.photo;
-                          const srcSet = `${base}-400.webp 400w, ${base}-800.webp 800w`;
-                          const sizes = "160px";
-                          return (
-                            <LazyImage
-                              src={src}
-                              srcSet={srcSet}
-                              sizes={sizes}
-                              alt={member.name}
-                              width={160}
-                              height={160}
-                              className="w-full h-full object-cover object-top transition-transform duration-300 hover:scale-105"
-                              fallbackSrc={member.photo}
-                            />
-                          );
-                        })()
-                      : null}
+                    {member.photo ? (
+                      <img
+                        src={member.photo}
+                        alt={member.name}
+                        width={160}
+                        height={160}
+                        loading="lazy"
+                        decoding="async"
+                        style={{ aspectRatio: "1/1" }}
+                        className="w-full h-full object-cover object-top transition-transform duration-300 hover:scale-105"
+                      />
+                    ) : null}
 
                     {/* Fallback com iniciais */}
                     <div

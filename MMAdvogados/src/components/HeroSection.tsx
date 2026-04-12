@@ -21,21 +21,18 @@ useEffect(() => {
     >
       {/* Background */}
       <div className="absolute inset-0">
-        {/* Desktop */}
-        <img
-          src="/images/hero-banner.webp"
-          alt={t("hero.img.alt")}
-          className="absolute inset-0 w-full h-full object-cover hidden md:block"
-          fetchPriority="high"
-        />
-
-        {/* Mobile */}
-        <img
-          src="/images/hero-banner-mob.webp"
-          alt={t("hero.img.alt")}
-          className="absolute inset-0 w-full h-full object-cover md:hidden"
-          fetchPriority="high"
-        />
+        <picture>
+          <source srcSet="/images/hero-banner-mob.webp" media="(max-width: 768px)" />
+          <source srcSet="/images/hero-banner.webp" media="(min-width: 769px)" />
+          <img
+            src="/images/hero-banner.webp"
+            alt={t("hero.img.alt")}
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+          />
+        </picture>
 
         {/* Overlay (melhor contraste e profundidade) */}
         <div className="absolute inset-0 bg-black/55 md:bg-black/50" />

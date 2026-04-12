@@ -70,15 +70,15 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({
             <div className="relative">
               <div className="w-32 h-32 rounded-full overflow-hidden relative ring-4 ring-primary/10 group-hover:ring-primary/30 transition-all duration-300">
                 {member.photo ? (
-                  <LazyImage
+                  <img
                     src={member.photo}
-                    srcSet={member.photoSrcSet}
-                    sizes="(max-width: 768px) 96px, 128px"
                     alt={member.name}
                     width={128}
                     height={128}
+                    loading="lazy"
+                    decoding="async"
+                    style={{ aspectRatio: "1/1" }}
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
-                    fallbackSrc={member.photo}
                   />
                 ) : null}
 
