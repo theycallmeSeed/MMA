@@ -105,30 +105,17 @@ const AboutSection: React.FC = () => {
                           : { opacity: 0, scale: 1.02 }
                       }
                       transition={{ duration: 0.7 }}
-                      style={{ willChange: "opacity, transform" }}
+                      style={{ willChange: "opacity, transform", pointerEvents: isActive ? "auto" : "none" }}
                     >
-                      {(() => {
-                        const base = src.replace(/\.webp$/i, "");
-                        const srcMain = src; // usar arquivo original como principal
-                        const srcSet = `${base}-800.webp 800w, ${base}-1200.webp 1200w`;
-                        const sizes = "(max-width:768px) 800px, 100vw";
-                        return (
-                          <LazyImage
-                            src={srcMain}
-                            srcSet={srcSet}
-                            sizes={sizes}
-                            alt={`Galeria ${i + 1}`}
-                            priority={false}
-                            width={1600}
-                            height={900}
-                            className="w-full h-full object-cover"
-                            onLoad={
-                              i === 0 ? () => setFirstLoaded(true) : undefined
-                            }
-                            fallbackSrc={src}
-                          />
-                        );
-                      })()}
+                      <img
+                        src={src}
+                        alt={`Interior do escritório ${i + 1}`}
+                        className="w-full h-full object-cover"
+                        loading={i === 0 ? "eager" : "lazy"}
+                        decoding="async"
+                        onLoad={() => i === 0 && setFirstLoaded(true)}
+                        style={{ aspectRatio: "16/9" }}
+                      />
                     </motion.div>
                   );
                 })}

@@ -191,25 +191,14 @@ const AnimatedServicesSection = () => {
 
                 {/* Image Section */}
                 <div className="relative h-56 overflow-hidden">
-                  {(() => {
-                    const base = service.image.replace(/\.webp$/i, "");
-                    const src = service.image;
-                    const srcSet = `${base}-400.webp 400w, ${base}-800.webp 800w`;
-                    const sizes =
-                      "(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw";
-                    return (
-                      <LazyImage
-                        src={src}
-                        srcSet={srcSet}
-                        sizes={sizes}
-                        alt={service.title}
-                        width={800}
-                        height={450}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        fallbackSrc={service.image}
-                      />
-                    );
-                  })()}
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                    style={{ aspectRatio: "16/9" }}
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
 
                   {/* Icon Badge on Image */}

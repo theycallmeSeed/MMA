@@ -87,6 +87,7 @@ export default function LazyImage({
       height={height}
       className={className}
       onError={handleError}
+      style={{ ...rest.style, aspectRatio: width && height ? `${width}/${height}` : undefined }}
       {...rest}
     />
   );
