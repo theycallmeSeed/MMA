@@ -114,7 +114,7 @@ const dropdownBg = isHome && isOverHero
                 width={40}
                 height={40}
                 className="object-contain"
-                fetchpriority="high"
+                fetchPriority="high"
               />
               <div className={`${textColor}`}>
                 <div className="font-serif font-bold text-lg">
