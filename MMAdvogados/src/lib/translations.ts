@@ -60,7 +60,7 @@ export const translations: Record<Language, Record<string, string>> = {
     
     // Team Section
     "team.badge": "A Nossa Equipa",
-    "team.title": "Jovem, Técnica e Dinâmica",
+    "team.title": "Conheça a Nossa Equipe",
     "team.desc": "A Milagrosa Macuácua Advogados é composta exclusivamente por mulheres, integrando advogadas, advogadas estagiárias e pessoal administrativo, todas com formação adequada às respetivas áreas de atuação do escritório. A atividade desenvolvida assenta numa abordagem técnica, colaborativa e organizada, suportada por meios tecnológicos que permitem uma gestão interna eficiente e um acompanhamento processual rigoroso, assegurando, em permanência, o cumprimento dos deveres legais e deontológicos inerentes ao exercício da advocacia.",
     "team.stats.lawyers": "Advogados Especializados",
     "team.stats.areas": "Áreas de Especialização",
@@ -658,7 +658,7 @@ export const translations: Record<Language, Record<string, string>> = {
     
     // Team Section
     "team.badge": "Our Team",
-    "team.title": "Young, Technical and Dynamic",
+    "team.title": "Meet Our Team",
     "team.desc": "Milagrosa Macuácua Lawyers is composed exclusively of women, including lawyers, trainee lawyers, and administrative staff, all with appropriate training for the firm's respective practice areas. The activity developed is based on a technical, collaborative, and organized approach, supported by technological means that allow efficient internal management and rigorous procedural monitoring, ensuring, at all times, compliance with the legal and ethical duties inherent to the practice of law.",
     "team.stats.lawyers": "Specialized Lawyers",
     "team.stats.areas": "Areas of Expertise",

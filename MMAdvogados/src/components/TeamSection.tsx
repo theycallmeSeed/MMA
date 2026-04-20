@@ -49,9 +49,6 @@ const TeamSection = () => {
           <h2 className="text-4xl font-bold text-gradient-primary mb-4">
             {t("team.title")}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            {t("team.desc")}
-          </p>
         </div>
 
         {/* Team Grid */}
