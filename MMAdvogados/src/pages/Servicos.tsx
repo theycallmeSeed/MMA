@@ -23,10 +23,9 @@ import { useMemo } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import { getServiceSlug } from "@/lib/services";
 
 import { useLanguage } from "@/contexts/LanguageContext";
-
-const AVENCA_SLUG = "avenca";
 
 const Servicos = () => {
   const { t } = useLanguage();
@@ -34,37 +33,37 @@ const Servicos = () => {
   const detailedServices = [
     {
       icon: Scale,
-      slug: t("services.slug.litigation"),
+      slug: getServiceSlug("litigation"),
       title: t("servicos.litigation.title"),
       description: t("servicos.litigation.shortDesc"),
     },
     {
       icon: CreditCard,
-      slug: t("services.slug.credit"),
+      slug: getServiceSlug("credit"),
       title: t("servicos.credit.title"),
       description: t("servicos.credit.shortDesc"),
     },
     {
       icon: Users,
-      slug: t("services.slug.family"),
+      slug: getServiceSlug("family"),
       title: t("servicos.family.title"),
       description: t("servicos.family.shortDesc"),
     },
     {
       icon: FileText,
-      slug: t("services.slug.tax"),
+      slug: getServiceSlug("tax"),
       title: t("servicos.tax.title"),
       description: t("servicos.tax.shortDesc"),
     },
     {
       icon: Handshake,
-      slug: t("services.slug.corporate"),
+      slug: getServiceSlug("corporate"),
       title: t("servicos.corporate.title"),
       description: t("servicos.corporate.shortDesc"),
     },
     {
       icon: Building2,
-      slug: t("services.slug.corporate"),
+      slug: getServiceSlug("corporate2"),
       title: t("servicos.corporate2.title"),
       description: t("servicos.corporate2.shortDesc"),
     },
@@ -74,25 +73,25 @@ const Servicos = () => {
     () => [
       {
         icon: Pickaxe,
-        slug: t("services.slug.mining"),
+        slug: getServiceSlug("mining"),
         title: t("servicos.mining.title"),
         description: t("servicos.mining.shortDesc"),
       },
       {
         icon: Gavel,
-        slug: t("services.slug.admin"),
+        slug: getServiceSlug("admin"),
         title: t("servicos.admin.title"),
         description: t("servicos.admin.shortDesc"),
       },
       {
         icon: Home,
-        slug: t("services.slug.realestate"),
+        slug: getServiceSlug("realestate"),
         title: t("servicos.realestate.title"),
         description: t("servicos.realestate.shortDesc"),
       },
       {
         icon: ShieldCheck,
-        slug: t("services.slug.labor"),
+        slug: getServiceSlug("labor"),
         title: t("servicos.labor.title"),
         description: t("servicos.labor.shortDesc"),
       },
@@ -100,13 +99,10 @@ const Servicos = () => {
     [t]
   );
 
-  const avencaService = detailedServices.find((s) => s.slug === AVENCA_SLUG);
-  const regularServices = detailedServices.filter((s) => s.slug !== AVENCA_SLUG);
-
   // Junta todas as áreas num único array para renderizar tudo na mesma grelha.
   const allServices = useMemo(
-    () => [...regularServices, ...extraServiceAreas],
-    [regularServices, extraServiceAreas]
+    () => [...detailedServices, ...extraServiceAreas],
+    [detailedServices, extraServiceAreas]
   );
 
   const whatsappMessage = encodeURIComponent(

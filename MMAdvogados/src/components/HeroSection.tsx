@@ -14,25 +14,34 @@ useEffect(() => {
   document.documentElement.style.setProperty('--real-vh', `${vh}px`);
 }, []);
   return (
-    <section
-      className="relative flex items-center justify-center animate-in fade-in duration-700"
-      style={{ height: "var(--real-vh)" }}
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      className="relative flex items-center justify-center"
+style={{ height: "var(--real-vh)" }}
       aria-label={t("hero.aria.label")}
     >
       {/* Background */}
       <div className="absolute inset-0">
-        <picture>
-          <source srcSet="/images/hero-banner-mob.webp" media="(max-width: 768px)" />
-          <source srcSet="/images/hero-banner.webp" media="(min-width: 769px)" />
-          <img
-            src="/images/hero-banner.webp"
-            alt={t("hero.img.alt")}
-            className="absolute inset-0 w-full h-full object-cover"
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-          />
-        </picture>
+        {/* <div
+          className="hero-bg absolute inset-0"
+          role="img"
+          aria-label={t("hero.img.alt")}
+        /> */}
+        {/* Desktop */}
+<img
+  src="/images/hero-banner.webp"
+  alt={t("hero.img.alt")}
+  className="absolute inset-0 w-full h-full object-cover hidden md:block"
+/>
+
+{/* Mobile */}
+<img
+  src="/images/hero-banner-mob.webp"
+  alt={t("hero.img.alt")}
+  className="absolute inset-0 w-full h-full object-cover md:hidden"
+/>
 
         {/* Overlay (melhor contraste e profundidade) */}
         <div className="absolute inset-0 bg-black/55 md:bg-black/50" />
@@ -68,7 +77,6 @@ useEffect(() => {
                 href={getWhatsAppConsultoriaLinkExact()}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Agendar Consultoria (Abre uma conversa no WhatsApp numa nova aba)"
               >
                 <span className="flex items-center gap-3">
                   <span className="drop-shadow-[0_1px_1px_rgba(0,0,0,0.75)]">
@@ -85,7 +93,7 @@ useEffect(() => {
               size="lg"
               className="bg-transparent border-2 border-white/70 text-white hover:bg-white/20 hover:text-white px-8 py-6 w-full sm:w-auto text-base backdrop-blur-sm"
             >
-              <a href="/servicos" aria-label="Ver todas as áreas de actuação e serviços">
+              <a href="/servicos">
                 <span className="drop-shadow-[0_1px_1px_rgba(0,0,0,0.75)]">
                   {t("hero.btn.services")}
                 </span>
@@ -122,7 +130,7 @@ useEffect(() => {
   animation: none !important;
 }
       `}</style>
-    </section>
+    </motion.section>
   );
 };
 

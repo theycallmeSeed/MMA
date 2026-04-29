@@ -7,6 +7,7 @@ import LazyImage from "@/components/LazyImage";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { TranslationKey } from "@/lib/translations";
 import { prefetchRoute } from "@/utils/routePrefetch";
+import { ServiceId, getServicePath } from "@/lib/services";
 
 const navItems: { translationKey: TranslationKey; href: string; hasDropdown?: boolean }[] = [
   { translationKey: "nav.home", href: "/" },
@@ -18,18 +19,18 @@ const navItems: { translationKey: TranslationKey; href: string; hasDropdown?: bo
 
 const serviceLinks = [
   // Principais (presentes na página Servicos.tsx)
-  { titleKey: "servicos.litigation.title", slugKey: "services.slug.litigation" },
-  { titleKey: "servicos.credit.title", slugKey: "services.slug.credit" },
-  { titleKey: "servicos.family.title", slugKey: "services.slug.family" },
-  { titleKey: "servicos.tax.title", slugKey: "services.slug.tax" },
-  { titleKey: "servicos.corporate.title", slugKey: "services.slug.corporate" },
+  { titleKey: "servicos.litigation.title", serviceId: "litigation" as ServiceId },
+  { titleKey: "servicos.credit.title", serviceId: "credit" as ServiceId },
+  { titleKey: "servicos.family.title", serviceId: "family" as ServiceId },
+  { titleKey: "servicos.tax.title", serviceId: "tax" as ServiceId },
+  { titleKey: "servicos.corporate.title", serviceId: "corporate" as ServiceId },
   // Corporate M&A (página de serviços também lista esta variação)
-  { titleKey: "servicos.corporate2.title", slugKey: "services.slug.corporate" },
+  { titleKey: "servicos.corporate2.title", serviceId: "corporate2" as ServiceId },
   // Áreas adicionais
-  { titleKey: "servicos.mining.title", slugKey: "services.slug.mining" },
-  { titleKey: "servicos.admin.title", slugKey: "services.slug.admin" },
-  { titleKey: "servicos.realestate.title", slugKey: "services.slug.realestate" },
-  { titleKey: "servicos.labor.title", slugKey: "services.slug.labor" },
+  { titleKey: "servicos.mining.title", serviceId: "mining" as ServiceId },
+  { titleKey: "servicos.admin.title", serviceId: "admin" as ServiceId },
+  { titleKey: "servicos.realestate.title", serviceId: "realestate" as ServiceId },
+  { titleKey: "servicos.labor.title", serviceId: "labor" as ServiceId },
 ];
 
 const Navigation = () => {
@@ -156,8 +157,8 @@ const dropdownBg = isHome && isOverHero
                           {serviceLinks.map((service) => (
                             <Link
                               key={service.titleKey}
-                              to={`/servicos/${t(service.slugKey)}`}
-                              onMouseEnter={() => prefetchRoute(`/servicos/${t(service.slugKey)}`)}
+                              to={getServicePath(service.serviceId)}
+                              onMouseEnter={() => prefetchRoute(getServicePath(service.serviceId))}
                               className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${dropdownTextColor}`}
                             >
                               {t(service.titleKey)}
@@ -271,7 +272,7 @@ const dropdownBg = isHome && isOverHero
                         {serviceLinks.map((service) => (
                           <Link
                             key={service.titleKey}
-                            to={`/servicos/${t(service.slugKey)}`}
+                            to={getServicePath(service.serviceId)}
                             onClick={() => setIsOpen(false)}
                             className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
                           >
