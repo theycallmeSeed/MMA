@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { generateWhatsAppLink } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
+import SEO from "@/components/SEO";
 
 const Contactos = () => {
   const { t } = useLanguage();
@@ -49,6 +50,11 @@ Muito obrigado(a).`;
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Contactos | Milagrosa Macuácua Advogados"
+        description="Contacte a Milagrosa Macuácua Advogados em Matola para assessoria jurídica especializada em Moçambique."
+        canonicalPath="/contactos"
+      />
       <Navigation />
 
       {/* Hero Section */}
