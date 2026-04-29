@@ -181,12 +181,12 @@ const AnimatedServicesSection = () => {
             >
               {/* Card Container */}
               <div
-                className="relative h-full rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-2"
+                className="relative h-full rounded-2xl overflow-hidden bg-card border border-border hover:border-[hsl(var(--foreground)/0.9)] transition-all duration-300 hover:-translate-y-2"
                 style={{ boxShadow: "var(--shadow-card)" }}
               >
                 {/* Gradient Overlay on Hover */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}
+                  className="absolute inset-0 bg-[hsl(var(--foreground)/0.9)] opacity-0 group-hover:opacity-[0.08] transition-opacity duration-500 pointer-events-none"
                 ></div>
 
                 {/* Image Section */}
@@ -322,7 +322,7 @@ const AnimatedServicesSection = () => {
                           (feature, featureIndex) => (
                             <div
                               key={featureIndex}
-                              className="flex items-center gap-3 p-4 bg-background/80 backdrop-blur-sm rounded-xl border border-border hover:border-primary/30 transition-all duration-300 group"
+                              className="flex items-center gap-3 p-4 bg-background/80 backdrop-blur-sm rounded-xl border border-border hover:border-[hsl(var(--foreground)/0.9)] transition-all duration-300 group"
                             >
                               <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 group-hover:scale-110 transition-transform" />
                               <span className="text-foreground font-medium">
