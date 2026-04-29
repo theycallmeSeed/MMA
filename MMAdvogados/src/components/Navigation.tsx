@@ -17,7 +17,7 @@ const navItems: { translationKey: TranslationKey; href: string; hasDropdown?: bo
 ];
 
 const serviceLinks = [
-  // Principais (presentes na página Servicos.tsx)
+  // Ordem alinhada com a página Servicos.tsx (pilha vertical)
   { titleKey: "servicos.litigation.title", slugKey: "services.slug.litigation" },
   { titleKey: "servicos.credit.title", slugKey: "services.slug.credit" },
   { titleKey: "servicos.family.title", slugKey: "services.slug.family" },
@@ -88,12 +88,13 @@ const Navigation = () => {
 
   const textColor =
     isHome && isOverHero ? "text-white" : "text-[rgb(81,21,38)]";
-const dropdownBg = isHome && isOverHero 
-  ? "bg-gradient-to-b from-white/60 to-white/30 backdrop-blur-sm border border-white/40 shadow-lg will-change-transform transform-gpu"
-  : "bg-white border border-gray-100 shadow-xl";
- const dropdownTextColor = isHome && isOverHero 
-  ? "text-white [text-shadow:0_1px_2px_rgba(81,21,38)] hover:bg-white/20"
-  : "text-gray-700 hover:text-[rgb(81,21,38)] hover:bg-gray-50";
+  // Dropdown com base sólida para evitar lag visual causado por backdrop-filter sobre hero.
+  const dropdownPanelClass =
+    "isolate w-72 rounded-2xl border border-[rgb(81,21,38)]/10 bg-white shadow-[0_20px_55px_rgba(0,0,0,0.18)] ring-1 ring-black/5 overflow-hidden p-2 flex flex-col gap-1";
+  const dropdownItemClass =
+    "px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:text-[rgb(81,21,38)] hover:bg-[rgb(81,21,38)]/6 transition-colors";
+  const dropdownAllServicesClass =
+    "px-4 py-2.5 rounded-xl text-sm font-bold text-[rgb(81,21,38)] hover:bg-[rgb(81,21,38)]/8 transition-colors flex justify-between items-center";
 
   return (
     <>
@@ -151,14 +152,14 @@ const dropdownBg = isHome && isOverHero
 
                     {/* Dropdown Menu for Services */}
                     {item.hasDropdown && (
-                      <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 z-50">
-                        <div className={`w-64 rounded-2xl overflow-hidden p-2 flex flex-col gap-1 ${dropdownBg}`}>
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 translate-y-1 invisible pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible group-hover:pointer-events-auto transition-[opacity,transform,visibility] duration-150 ease-out z-[70] will-change-transform transform-gpu">
+                        <div className={dropdownPanelClass}>
                           {serviceLinks.map((service) => (
                             <Link
                               key={service.titleKey}
                               to={`/servicos/${t(service.slugKey)}`}
                               onMouseEnter={() => prefetchRoute(`/servicos/${t(service.slugKey)}`)}
-                              className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${dropdownTextColor}`}
+                              className={dropdownItemClass}
                             >
                               {t(service.titleKey)}
                             </Link>
@@ -166,7 +167,7 @@ const dropdownBg = isHome && isOverHero
                           <div className="w-full h-[1px] bg-border my-1" />
                           <Link
                             to="/servicos"
-                            className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors text-primary flex justify-between items-center ${isHome && isOverHero ? 'hover:bg-white/20' : 'hover:bg-primary/5'}`}
+                            className={dropdownAllServicesClass}
                           >
                             {t("services.btn.all")}
                             <span className="opacity-70 text-xs">→</span>
