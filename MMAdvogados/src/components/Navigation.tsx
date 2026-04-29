@@ -7,6 +7,7 @@ import LazyImage from "@/components/LazyImage";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { TranslationKey } from "@/lib/translations";
 import { prefetchRoute } from "@/utils/routePrefetch";
+import { ServiceId, getServicePath } from "@/lib/services";
 
 const navItems: { translationKey: TranslationKey; href: string; hasDropdown?: boolean }[] = [
   { translationKey: "nav.home", href: "/" },
@@ -17,19 +18,19 @@ const navItems: { translationKey: TranslationKey; href: string; hasDropdown?: bo
 ];
 
 const serviceLinks = [
-  // Ordem alinhada com a página Servicos.tsx (pilha vertical)
-  { titleKey: "servicos.litigation.title", slugKey: "services.slug.litigation" },
-  { titleKey: "servicos.credit.title", slugKey: "services.slug.credit" },
-  { titleKey: "servicos.family.title", slugKey: "services.slug.family" },
-  { titleKey: "servicos.tax.title", slugKey: "services.slug.tax" },
-  { titleKey: "servicos.corporate.title", slugKey: "services.slug.corporate" },
+  // Principais (presentes na página Servicos.tsx)
+  { titleKey: "servicos.litigation.title", serviceId: "litigation" as ServiceId },
+  { titleKey: "servicos.credit.title", serviceId: "credit" as ServiceId },
+  { titleKey: "servicos.family.title", serviceId: "family" as ServiceId },
+  { titleKey: "servicos.tax.title", serviceId: "tax" as ServiceId },
+  { titleKey: "servicos.corporate.title", serviceId: "corporate" as ServiceId },
   // Corporate M&A (página de serviços também lista esta variação)
-  { titleKey: "servicos.corporate2.title", slugKey: "services.slug.corporate" },
+  { titleKey: "servicos.corporate2.title", serviceId: "corporate2" as ServiceId },
   // Áreas adicionais
-  { titleKey: "servicos.mining.title", slugKey: "services.slug.mining" },
-  { titleKey: "servicos.admin.title", slugKey: "services.slug.admin" },
-  { titleKey: "servicos.realestate.title", slugKey: "services.slug.realestate" },
-  { titleKey: "servicos.labor.title", slugKey: "services.slug.labor" },
+  { titleKey: "servicos.mining.title", serviceId: "mining" as ServiceId },
+  { titleKey: "servicos.admin.title", serviceId: "admin" as ServiceId },
+  { titleKey: "servicos.realestate.title", serviceId: "realestate" as ServiceId },
+  { titleKey: "servicos.labor.title", serviceId: "labor" as ServiceId },
 ];
 
 const Navigation = () => {
@@ -89,13 +90,13 @@ const Navigation = () => {
   const textColor =
     isHome && isOverHero ? "text-white" : "text-[rgb(81,21,38)]";
   // Dropdown com base sólida para evitar lag visual causado por backdrop-filter sobre hero.
+   // Dropdown com base sólida para evitar lag visual causado por backdrop-filter sobre hero.
   const dropdownPanelClass =
     "isolate w-72 rounded-2xl border border-[rgb(81,21,38)]/10 bg-white shadow-[0_20px_55px_rgba(0,0,0,0.18)] ring-1 ring-black/5 overflow-hidden p-2 flex flex-col gap-1";
   const dropdownItemClass =
     "px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:text-[rgb(81,21,38)] hover:bg-[rgb(81,21,38)]/6 transition-colors";
   const dropdownAllServicesClass =
     "px-4 py-2.5 rounded-xl text-sm font-bold text-[rgb(81,21,38)] hover:bg-[rgb(81,21,38)]/8 transition-colors flex justify-between items-center";
-
   return (
     <>
       <motion.nav
@@ -157,9 +158,9 @@ const Navigation = () => {
                           {serviceLinks.map((service) => (
                             <Link
                               key={service.titleKey}
-                              to={`/servicos/${t(service.slugKey)}`}
-                              onMouseEnter={() => prefetchRoute(`/servicos/${t(service.slugKey)}`)}
-                              className={dropdownItemClass}
+                              to={getServicePath(service.serviceId)}
+                              onMouseEnter={() => prefetchRoute(getServicePath(service.serviceId))}
+                              className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${dropdownItemClass}`}
                             >
                               {t(service.titleKey)}
                             </Link>
@@ -272,7 +273,7 @@ const Navigation = () => {
                         {serviceLinks.map((service) => (
                           <Link
                             key={service.titleKey}
-                            to={`/servicos/${t(service.slugKey)}`}
+                            to={getServicePath(service.serviceId)}
                             onClick={() => setIsOpen(false)}
                             className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
                           >

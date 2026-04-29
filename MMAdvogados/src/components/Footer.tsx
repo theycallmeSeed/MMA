@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { getServicePath } from "@/lib/services";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -24,11 +25,11 @@ const Footer = () => {
   ];
 
   const services = [
-    { name: t("services.litigation.title"), slug: t("services.slug.litigation") },
-    { name: t("services.corporate.title"), slug: t("services.slug.corporate") },
-    { name: t("services.credit.title"), slug: t("services.slug.credit") },
-    // { name: t("services.family.title"), slug: t("services.slug.family") },
-    // { name: t("services.labor.title"), slug: t("services.slug.labor") },
+    { name: t("services.litigation.title"), href: getServicePath("litigation") },
+    { name: t("services.corporate.title"), href: getServicePath("corporate") },
+    { name: t("services.credit.title"), href: getServicePath("credit") },
+    // { name: t("services.family.title"), slug: getServiceSlug("family") },
+    // { name: t("services.labor.title"), slug: getServiceSlug("labor") },
   ];
 
   const mapUrl =
@@ -184,10 +185,15 @@ const Footer = () => {
                 <ul className="space-y-3">
                   {services.map((service) => (
                     <li
-                      key={service.slug}
+                      key={service.href}
                       className="text-sm leading-6 text-white/72 md:text-[15px]"
                     >
-                      {service.name}
+                      <Link
+                        to={service.href}
+                        className="transition-colors duration-200 hover:text-[#f3d08b]"
+                      >
+                        {service.name}
+                      </Link>
                     </li>
                   ))}
                 </ul>

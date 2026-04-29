@@ -8,12 +8,18 @@ import {
   Info,
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import SEO from "@/components/SEO";
 
 const Termos = () => {
   const currentYear = new Date().getFullYear();
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Termos de Uso | Milagrosa Macuácua Advogados"
+        description="Leia os termos de uso aplicáveis ao website e aos serviços da Milagrosa Macuácua Advogados."
+        canonicalPath="/termos"
+      />
       <Navigation />
 
       {/* Hero Section */}

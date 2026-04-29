@@ -20,10 +20,12 @@ import type { LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { generateWhatsAppLink } from "@/lib/utils";
 import { useEffect } from "react";
+import { findServiceIdBySlug, getServiceSlug } from "@/lib/services";
 
 const serviceIcons: Record<string, LucideIcon> = {
   litigation: Scale,
   corporate: Building2,
+  corporate2: Building2,
   credit: CreditCard,
   family: Users,
   tax: FileText,
@@ -38,19 +40,21 @@ const ServiceDetail = () => {
   const { t, language } = useLanguage();
   const navigate = useNavigate();
 
-  // Encontrar o ID do serviço pelo slug
-  const serviceIds = [
-    "litigation", "corporate", "credit", "family", 
-    "tax", "mining", "admin", "realestate", "labor"
-  ];
-
-  const serviceId = serviceIds.find(id => t(`services.slug.${id}`) === slug);
+  const serviceId = slug ? findServiceIdBySlug(slug) : undefined;
   const Icon = serviceId ? serviceIcons[serviceId] : Scale;
 
   useEffect(() => {
     if (!serviceId && slug) {
       // Se o slug não for encontrado, redirecionar para a página de serviços
-      navigate("/servicos");
+      navigate("/servicos", { replace: true });
+      return;
+    }
+
+    if (serviceId && slug) {
+      const canonicalSlug = getServiceSlug(serviceId);
+      if (slug !== canonicalSlug) {
+        navigate(`/servicos/${canonicalSlug}`, { replace: true });
+      }
     }
   }, [serviceId, slug, navigate]);
 
@@ -64,7 +68,7 @@ const ServiceDetail = () => {
   // SEO Data
   const seoTitle = t("services.detail.seo.title").replace("{service}", title);
   const seoDesc = t("services.detail.seo.desc").replace("{service}", title);
-  const canonicalPath = `/servicos/${slug}`;
+  const canonicalPath = `/servicos/${getServiceSlug(serviceId)}`;
 
   const features = [
     { title: t(`servicos.${serviceId}.d1.title`), desc: t(`servicos.${serviceId}.d1.desc`) },

@@ -8,7 +8,7 @@ type SEOProps = {
   jsonLd?: JSONLD;
 };
 
-const BASE_URL = "https://madvogados.co.mz";
+const BASE_URL = "https://www.madvogados.co.mz";
 
 const ensureMeta = (name: string, content: string) => {
   let tag = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;

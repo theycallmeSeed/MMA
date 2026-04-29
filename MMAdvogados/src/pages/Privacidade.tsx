@@ -2,12 +2,18 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Shield, Eye, Lock, FileText } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import SEO from "@/components/SEO";
 
 const Privacidade = () => {
   const currentYear = new Date().getFullYear();
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Política de Privacidade | Milagrosa Macuácua Advogados"
+        description="Consulte a política de privacidade da Milagrosa Macuácua Advogados e saiba como protegemos os seus dados pessoais."
+        canonicalPath="/privacidade"
+      />
       <Navigation />
 
       {/* Hero Section */}
