@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 const WhatsAppButton = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -12,6 +13,11 @@ const WhatsAppButton = () => {
   }, []);
 
   const handleWhatsAppClick = () => {
+    trackEvent("whatsapp_click", {
+      event_category: "engagement",
+      event_label: "consultoria",
+    });
+
     // Informações de contacto do escritório MMA Advogados
     const phoneNumber = "258868603610"; // WhatsApp do escritório
     const message = `Bom dia, gostaria de obter mais informações sobre os vossos serviços jurídicos.

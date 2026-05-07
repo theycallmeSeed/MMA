@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
+import AnalyticsTracker from "@/components/AnalyticsTracker";
 import React, { useEffect, Suspense } from "react";
 import PageTransition from "./components/PageTransition";
 import { initLazyBackgrounds } from "@/utils/lazyBackgrounds";
@@ -19,6 +20,7 @@ const Contactos = React.lazy(() => import("./pages/Contactos"));
 const ServiceDetail = React.lazy(() => import("./pages/ServiceDetail"));
 const Privacidade = React.lazy(() => import("./pages/Privacidade"));
 const Termos = React.lazy(() => import("./pages/Termos"));
+const CookieConsent = React.lazy(() => import("./components/CookieConsent"));
 
 import { GlobalStateLoader } from "./components/GlobalStateLoader";
 
@@ -82,7 +84,11 @@ const App = () => (
       <GlobalStateLoader />
       <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <ScrollToTop />
+        <AnalyticsTracker />
         <AppRoutes />
+        <Suspense fallback={null}>
+          <CookieConsent />
+        </Suspense>
         <WhatsAppButton />
       </BrowserRouter>
     </TooltipProvider>
