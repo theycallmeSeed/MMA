@@ -21,6 +21,7 @@ import { Button } from "@/components/ui/button";
 import { generateWhatsAppLink } from "@/lib/utils";
 import { useEffect } from "react";
 import { findServiceIdBySlug, getServiceSlug } from "@/lib/services";
+import { trackEvent } from "@/lib/analytics";
 
 const serviceIcons: Record<string, LucideIcon> = {
   litigation: Scale,
@@ -64,6 +65,12 @@ const ServiceDetail = () => {
   const subtitle = t(`servicos.${serviceId}.subtitle`);
   const description = t(`servicos.${serviceId}.desc`);
   const longDescription = t(`servicos.${serviceId}.long`);
+  
+  useEffect(() => {
+    if (title) {
+      trackEvent("view_service", { service_name: title });
+    }
+  }, [title]);
   
   // SEO Data
   const seoTitle = t("services.detail.seo.title").replace("{service}", title);

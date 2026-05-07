@@ -24,6 +24,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { getServiceSlug } from "@/lib/services";
+import { trackEvent } from "@/lib/analytics";
 
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -203,6 +204,7 @@ Muito obrigado(a).`
                       <div className="mt-8">
                         <Link
                           to={`/servicos/${service.slug}`}
+                          onClick={() => trackEvent("click_service", { service_name: service.title })}
                           className="inline-flex items-center justify-center w-full px-6 py-3 rounded-xl bg-muted/20 text-primary font-bold hover:bg-muted transition-all duration-300 group/link border border-border hover:shadow-lg"
                         >
                           {t("services.detail.btn.learn_more")}

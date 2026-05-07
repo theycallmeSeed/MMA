@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
+import AnalyticsTracker from "@/components/AnalyticsTracker";
 import React, { useEffect, Suspense } from "react";
 import PageTransition from "./components/PageTransition";
 import { initLazyBackgrounds } from "@/utils/lazyBackgrounds";
@@ -83,6 +84,7 @@ const App = () => (
       <GlobalStateLoader />
       <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <ScrollToTop />
+        <AnalyticsTracker />
         <AppRoutes />
         <Suspense fallback={null}>
           <CookieConsent />
